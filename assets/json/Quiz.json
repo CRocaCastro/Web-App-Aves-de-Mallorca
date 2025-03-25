@@ -1,0 +1,91 @@
+{
+    "@context": "https://schema.org/",
+    "@type": "Quiz",
+    "name": "Quiz de Aves y Hábitats en Mallorca",
+    "description": "Pon a prueba tus conocimientos sobre las aves y sus hábitats en Mallorca con este cuestionario interactivo.",
+    "learningResourceType": "quiz",
+    "educationalUse": "self-assessment",
+    "competencyRequired": "Conocimiento básico sobre aves y hábitats naturales.",
+    "teaches": "Identificación de aves y su relación con los hábitats en Mallorca.",
+    "mainEntityOfPage": "https://example.com/quiz/aves-habitats-mallorca",
+    "sameAs": "https://es.wikipedia.org/wiki/Aves_de_Mallorca",
+    "about": [
+        {
+            "@type": "Taxon",
+            "name": "Aves de Mallorca"
+        },
+        {
+            "@type": "Landform",
+            "name": "Hábitats naturales de Mallorca"
+        }
+    ],
+    "hasPart": [
+        {
+            "@type": "Question",
+            "name": "¿Qué ave es esta?",
+            "identifier": 0,
+            "text": "Esta ave es conocida por su capacidad de caza en picada a alta velocidad. Se encuentra en acantilados y zonas montañosas.",
+            "image": "https://example.com/images/halcon_peregrino.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+                {
+                    "@type": "Answer",
+                    "text": "Halcón peregrino"
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Milano real"
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Chorlitejo patinegro"
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Martinete común"
+                }
+            ],
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Halcón peregrino"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué hábitat es este?",
+            "identifier": 1,
+            "text": "Este lugar es una pequeña zona húmeda en Port de Pollença, ideal para la observación de aves acuáticas.",
+            "image": "https://example.com/images/la_gola.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+                {
+                    "@type": "Answer",
+                    "text": "La Gola"
+                },
+                {
+                    "@type": "Answer",
+                    "text": "S'Albufera"
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Parque Natural de Mondragó"
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Serra de Tramuntana"
+                }
+            ],
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La Gola"
+            }
+        }
+    ],
+    "potentialAction": {
+        "@type": "PlayAction",
+        "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://example.com/quiz/aves-habitats-mallorca"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "@context": "https://schema.org/",
+    "@type": "Landform",
+    "name": "La Gola",
+    "alternateName": "Parc de la Gola",
+    "description": "La Gola de Mallorca es una pequeña pero valiosa reserva natural situada en el Port de Pollença, en la costa norte de la isla. Se trata de una zona húmeda formada por una laguna de agua dulce que se encuentra conectada con el mar a través de un canal, lo que da lugar a un ecosistema mixto donde conviven especies tanto de agua dulce como salada. Este enclave natural se ha convertido en un refugio para una gran diversidad de aves acuáticas y migratorias, convirtiéndose en un lugar privilegiado para la observación de fauna.",
+    "disambiguatingDescription": "Humedal costero en Mallorca, ideal para la observación de aves y la conservación de ecosistemas naturales.",
+    "identifier": "Z0",
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.8968,
+        "longitude": 3.0862
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pollença",
+        "addressRegion": "Mallorca",
+        "addressCountry": "España"
+    },
+    "image": [
+        "https://example.com/images/la_gola_1.jpg",
+        "https://example.com/images/la_gola_2.jpg"
+    ]
+}

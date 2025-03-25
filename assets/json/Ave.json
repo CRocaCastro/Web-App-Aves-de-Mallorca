@@ -1,0 +1,129 @@
+[
+    {
+        "@context": "https://schema.org/",
+        "@type": "Taxon",
+        "name": "Milano real",
+        "alternateName": "Milvus milvus",
+        "description": "Ave rapaz de tamaño mediano con una envergadura que puede superar los 150 cm. Se distingue por su cola ahorquillada y su vuelo elegante.",
+        "disambiguatingDescription": "Especie de ave rapaz diurna de la familia Accipitridae.",
+        "taxonRank": {
+        "@type": "PropertyValue",
+        "name": "Especie",
+        "value": "species"
+        },
+        "parentTaxon": {
+        "@type": "Taxon",
+        "name": "Accipitridae"
+        },
+        "identifier": "A0",
+        "image": [
+            "https://example.com/images/milano_real.jpg"
+        ],
+        "hasDefinedTerm": [
+        {
+            "@type": "DefinedTerm",
+            "name": "Estaciones de presencia",
+            "termCode": "season",
+            "description": "El Milano real está presente todo el año.",
+            "alternateName": ["Invierno", "Primavera", "Verano", "Otoño"]
+        },
+        {
+            "@type": "DefinedTerm",
+            "name": "Habitat de presencia",
+            "termCode": "habitat",
+            "description": "El Milano real está presente en bosques abiertos, dehesas y praderas.",
+            "alternateName": ["Montaña", "Bosque"]
+        }
+        ],
+        "subjectOf": [
+            {
+                "@type": "MediaObject",
+                "name": "Canto del Milano Real",
+                "contentUrl": "https://example.com/audio/milano_real.mp3",
+                "encodingFormat": "audio/mpeg"
+            },
+            {
+                "@type": "MediaObject",
+                "name": "Vuelo del Milano Real",
+                "contentUrl": "https://example.com/video/milano_real.mp4",
+                "encodingFormat": "video/mp4"
+            }
+        ],
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": [
+                    "zone:la_gola",
+                    "zone:sierra_tramuntana",
+                    "zone:parque_natural_albufera"
+                ],
+                "description": "Identificadores de las zonas en las que se encuentra el Milano Real."
+            }
+        ]
+    },
+
+    {
+        "@context": "https://schema.org/",
+        "@type": "Taxon",
+        "name": "Probando otra ave",
+        "alternateName": "Probanditi ultra avitti",
+        "description": "Algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo.",
+        "disambiguatingDescription": "Hola hola hola hola hola hola hola hola hola.",
+        "taxonRank": {
+        "@type": "PropertyValue",
+        "name": "Especie",
+        "value": "species"
+        },
+        "parentTaxon": {
+        "@type": "Taxon",
+        "name": "Accipitridae"
+        },
+        "identifier": "A1",
+        "image": [
+            "https://example.com/images/milano_real.jpg"
+        ],
+        "hasDefinedTerm": [
+        {
+            "@type": "DefinedTerm",
+            "name": "Estaciones de presencia",
+            "termCode": "season",
+            "description": "El Milano real está presente todo el año.",
+            "alternateName": ["Invierno", "Primavera", "Verano", "Otoño"]
+        },
+        {
+            "@type": "DefinedTerm",
+            "name": "Habitat de presencia",
+            "termCode": "habitat",
+            "description": "El Milano real está presente en bosques abiertos, dehesas y praderas.",
+            "alternateName": ["Montaña", "Bosque"]
+        }
+        ],
+        "subjectOf": [
+            {
+                "@type": "MediaObject",
+                "name": "Canto del Milano Real",
+                "contentUrl": "https://example.com/audio/milano_real.mp3",
+                "encodingFormat": "audio/mpeg"
+            },
+            {
+                "@type": "MediaObject",
+                "name": "Vuelo del Milano Real",
+                "contentUrl": "https://example.com/video/milano_real.mp4",
+                "encodingFormat": "video/mp4"
+            }
+        ],
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": [
+                    "zone:la_gola",
+                    "zone:sierra_tramuntana",
+                    "zone:parque_natural_albufera"
+                ],
+                "description": "Identificadores de las zonas en las que se encuentra el Milano Real."
+            }
+        ]
+    }
+]

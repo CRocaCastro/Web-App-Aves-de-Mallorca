@@ -67,19 +67,6 @@
       preloader.remove();
     });
   }
-
-  /**
-   * Auto generate the carousel indicators
-   */
-  document.querySelectorAll('.carousel-indicators').forEach((carouselIndicator) => {
-    carouselIndicator.closest('.carousel').querySelectorAll('.carousel-item').forEach((carouselItem, index) => {
-      if (index === 0) {
-        carouselIndicator.innerHTML += `<li data-bs-target="#${carouselIndicator.closest('.carousel').id}" data-bs-slide-to="${index}" class="active"></li>`;
-      } else {
-        carouselIndicator.innerHTML += `<li data-bs-target="#${carouselIndicator.closest('.carousel').id}" data-bs-slide-to="${index}"></li>`;
-      }
-    });
-  });
   
   /**
    * Scroll top button
@@ -221,58 +208,58 @@
 
 })();
 
+// Función para el botón Ver más
+document.addEventListener("DOMContentLoaded", () => {
+  const portfolioItems = document.querySelectorAll("#aves .portfolio-item");
+  const loadMoreButton = document.getElementById("load-more");
+  const isotopeContainer = document.querySelector(".isotope-container"); // Contenedor principal
+
+  // Mostrar solo la primera fila (3 elementos)
+  const itemsPerRow = 3;
+  portfolioItems.forEach((item, index) => {
+    if (index >= itemsPerRow) {
+      item.style.display = "none";
+    }
+  });
+
+  // Mostrar más elementos al hacer clic en el botón
+  loadMoreButton.addEventListener("click", () => {
+    portfolioItems.forEach((item) => {
+      item.style.display = "block";
+    });
+
+    // Ajustar la altura del contenedor
+    if (isotopeContainer) {
+      isotopeContainer.style.height = `${isotopeContainer.scrollHeight}px`;
+    }
+
+    loadMoreButton.style.display = "none"; // Ocultar el botón después de cargar más
+  });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
-  var $grid = $('.isotope-container').isotope({
-    itemSelector: '.portfolio-item',
-    layoutMode: 'masonry',
-    filter: function () {
-      var searchResult = qsRegex ? $(this).text().match(qsRegex) : true;
-      var buttonResult = filterValue ? $(this).is(filterValue) : true;
-      return searchResult && buttonResult;
-    }
+  var portfolioModal = document.getElementById('portfolioModal');
+
+  portfolioModal.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget; // Botón que activó el modal
+    var id = button.getAttribute('data-id'); // Extraer el ID del atributo data-id
+
+    // Cargar el contenido del JSON
+    fetch('assets/json/Ave.json')
+      .then(response => response.json())
+      .then(data => {
+        // Encontrar el elemento con el ID correspondiente
+        var item = data.find(item => item.identifier === id);
+
+        // Actualizar el contenido del modal
+        var modalTitle = portfolioModal.querySelector('#modalTitle');
+        var modalDescription = portfolioModal.querySelector('#modalDescription');
+        var modalImage = portfolioModal.querySelector('#modalImage');
+
+        modalTitle.textContent = item.name;
+        modalDescription.textContent = item.description;
+        modalImage.src = item.image[0];
+      })
+      .catch(error => console.error('Error al cargar el JSON:', error));
   });
-
-  var filterFns = {};
-
-  var filterValue;
-  var qsRegex;
-  var nameFilter = 'common';
-
-  $('.filter-tope-group').on('click', 'a', function () {
-    var filterGroup = $(this).closest('li').hasClass('dropdown') ? $(this).closest('li').find('span').text().toLowerCase() : 'name';
-    if (filterGroup === 'nombre') {
-      nameFilter = $(this).data('name');
-    } else {
-      filterFns[filterGroup] = $(this).data('filter');
-    }
-    filterValue = concatValues(filterFns);
-    $grid.isotope();
-  });
-
-  var $quicksearch = $('.panel-search input').keyup(debounce(function () {
-    qsRegex = new RegExp($quicksearch.val(), 'gi');
-    $grid.isotope();
-  }));
-
-  function concatValues(obj) {
-    var value = '';
-    for (var prop in obj) {
-      value += obj[prop];
-    }
-    return value;
-  }
-
-  function debounce(fn, threshold) {
-    var timeout;
-    threshold = threshold || 100;
-    return function debounced() {
-      clearTimeout(timeout);
-      var args = arguments;
-      var _this = this;
-      function delayed() {
-        fn.apply(_this, args);
-      }
-      timeout = setTimeout(delayed, threshold);
-    };
-  }
 });
