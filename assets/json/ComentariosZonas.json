@@ -1,0 +1,82 @@
+{
+    "@context": "https://schema.org/",
+    "@type": "Comment",
+    "comment": [
+        {
+            "@type": "Comment",
+            "identifier": "CZ1",
+            "text": "Un lugar perfecto para la observación de aves. Muy tranquilo y bien cuidado.",
+            "datePublished": "2025-03-14T12:00:00Z",
+            "about": {
+                "@type": "Landform",
+                "identifier": "Z0"
+            },
+            "author": {
+                "@type": "Person",
+                "identifier": 101
+            },
+            "interactionStatistic": [
+                {
+                    "@type": "InteractionCounter",
+                    "interactionType": "https://schema.org/LikeAction",
+                    "userInteractionCount": 45
+                },
+                {
+                    "@type": "InteractionCounter",
+                    "interactionType": "https://schema.org/DislikeAction",
+                    "userInteractionCount": 3
+                }
+            ],
+            "comment": [
+                {
+                    "@type": "Comment",
+                    "identifier": "CZ1-R1",
+                    "text": "Totalmente de acuerdo, es un sitio espectacular.",
+                    "datePublished": "2025-03-14T12:30:00Z",
+                    "author": {
+                        "@type": "Person",
+                        "identifier": 102
+                    },
+                    "interactionStatistic": [
+                        {
+                            "@type": "InteractionCounter",
+                            "interactionType": "https://schema.org/LikeAction",
+                            "userInteractionCount": 20
+                        },
+                        {
+                            "@type": "InteractionCounter",
+                            "interactionType": "https://schema.org/DislikeAction",
+                            "userInteractionCount": 3
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "@type": "Comment",
+            "identifier": "CZ2",
+            "text": "Hermoso humedal en Mallorca. Ideal para amantes de la naturaleza y la fotografía.",
+            "datePublished": "2025-03-14T12:30:00Z",
+            "about": {
+                "@type": "Landform",
+                "identifier": "Z0"
+            },
+            "author": {
+                "@type": "Person",
+                "identifier": 102
+            },
+            "interactionStatistic": [
+                {
+                    "@type": "InteractionCounter",
+                    "interactionType": "https://schema.org/LikeAction",
+                    "userInteractionCount": 50
+                },
+                {
+                    "@type": "InteractionCounter",
+                    "interactionType": "https://schema.org/DislikeAction",
+                    "userInteractionCount": 1
+                }
+            ]
+        }
+    ]
+}
