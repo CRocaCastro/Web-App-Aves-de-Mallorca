@@ -1,24 +1,32 @@
-{
-    "@context": "https://schema.org/",
-    "@type": "Landform",
-    "name": "La Gola",
-    "alternateName": "Parc de la Gola",
-    "description": "La Gola de Mallorca es una pequeña pero valiosa reserva natural situada en el Port de Pollença, en la costa norte de la isla. Se trata de una zona húmeda formada por una laguna de agua dulce que se encuentra conectada con el mar a través de un canal, lo que da lugar a un ecosistema mixto donde conviven especies tanto de agua dulce como salada. Este enclave natural se ha convertido en un refugio para una gran diversidad de aves acuáticas y migratorias, convirtiéndose en un lugar privilegiado para la observación de fauna.",
-    "disambiguatingDescription": "Humedal costero en Mallorca, ideal para la observación de aves y la conservación de ecosistemas naturales.",
-    "identifier": "Z0",
-    "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 39.8968,
-        "longitude": 3.0862
-    },
-    "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Pollença",
-        "addressRegion": "Mallorca",
-        "addressCountry": "España"
-    },
-    "image": [
-        "https://example.com/images/la_gola_1.jpg",
-        "https://example.com/images/la_gola_2.jpg"
-    ]
-}
+[  
+    {
+        "@context": "https://schema.org/",
+        "@type": "Landform",
+        "name": "La Gola",
+        "alternateName": "Parc de la Gola",
+        "description": "La Gola de Mallorca es una pequeña pero valiosa reserva natural situada en el Port de Pollença, en la costa norte de la isla. Se trata de una zona húmeda formada por una laguna de agua dulce que se encuentra conectada con el mar a través de un canal, lo que da lugar a un ecosistema mixto donde conviven especies tanto de agua dulce como salada. Este enclave natural se ha convertido en un refugio para una gran diversidad de aves acuáticas y migratorias, convirtiéndose en un lugar privilegiado para la observación de fauna.",
+        "disambiguatingDescription": "Humedal costero en Mallorca, ideal para la observación de aves y la conservación de ecosistemas naturales.",
+        "identifier": "Z0",
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.8968,
+            "longitude": 3.0862
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pollença",
+            "addressRegion": "Mallorca",
+            "addressCountry": "España"
+        },
+        "image": [
+            "https://example.com/images/la_gola_1.jpg",
+            "https://example.com/images/la_gola_2.jpg",
+            "https://t3.ftcdn.net/jpg/10/49/85/08/360_F_1049850816_8Tv3kQdxKnzFFK9XxZF9wK0Fws6gaYgF.jpg",
+            "https://www.turismepetit.com/wp-content/uploads/2022/03/zona-humeda-la-gola.jpg",
+            "https://www.pollensa.com/templates/yootheme/cache/dd/MCR-20160914--8035web-dd16b3ef.jpeg",
+            "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/69/e9/af/camino.jpg?w=1100&h=600&s=1",
+            "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/be/4f/96/mvimg-20200722-151519.jpg?w=1000&h=-1&s=1",
+            "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/43/0b/1e/photo5jpg.jpg?w=1400&h=800&s=1"
+        ]
+    }
+]
