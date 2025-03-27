@@ -818,6 +818,37 @@ h6 {
 }
 
 
+/* Estilo para las imágenes de las tarjetas */
+.card-img-top {
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+  height: 200px; /* Altura fija para todas las imágenes */
+  object-fit: cover; /* Recorta la imagen para que encaje en el contenedor */
+  object-position: center; /* Centra la imagen dentro del recorte */
+}
+
+/* Estilo para las imágenes dentro del modal */
+.modal-image {
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+  height: 400px; /* Altura fija para las imágenes del modal */
+  object-fit: cover; /* Recorta la imagen para que encaje en el contenedor */
+  object-position: center; /* Centra la imagen dentro del recorte */
+}
+
+/* Estilo para las imágenes del carrusel dentro del modal de aves */
+#portfolioModal .carousel-item img {
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+  height: 400px; /* Altura fija para las imágenes del carrusel */
+  object-fit: cover; /* Recorta la imagen para que encaje en el contenedor */
+  object-position: center; /* Centra la imagen dentro del recorte */
+}
+
+/* Estilo para las imágenes del carrusel dentro del modal de zonas */
+#zonaModal .carousel-item img {
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+  height: 400px; /* Altura fija para las imágenes del carrusel */
+  object-fit: cover; /* Recorta la imagen para que encaje en el contenedor */
+  object-position: center; /* Centra la imagen dentro del recorte */
+}
 
 
 /*--------------------------------------------------------------

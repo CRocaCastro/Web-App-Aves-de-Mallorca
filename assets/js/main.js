@@ -439,6 +439,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const newZona = data.find(z => z.identifier === newId); // Buscar la nueva zona
         if (newZona) {
           updateZonaModalContent(newZona, data); // Actualizar el contenido del modal con la nueva zona
+          // Desplazar a la parte superior del modal
+          zonaModal.scrollTo({
+          top: 0,
+          behavior: 'smooth' // Animación suave
+          });
         }
       });
     });
