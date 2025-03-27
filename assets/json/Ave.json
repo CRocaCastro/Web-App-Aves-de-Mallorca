@@ -1,6 +1,7 @@
-[
+{
+    "@context": "https://schema.org/",
+    "species": [
     {
-        "@context": "https://schema.org/",
         "@type": "Taxon",
         "name": "Milano real",
         "alternateName": "Milvus milvus",
@@ -64,7 +65,6 @@
     },
 
     {
-        "@context": "https://schema.org/",
         "@type": "Taxon",
         "name": "Papamoscas gris",
         "alternateName": "Muscicapa striata",
@@ -81,11 +81,11 @@
         },
         "identifier": "A1",
         "image": [
-            "https://www.oscardiez.es/gallery/OscarDiez/16943392Gl.jpg",
-            "https://www.mnemolia.com/images/66/MAEJjKuHAwE.webp",
-            "https://www.naturephoto-cz.com/photos/birds/papamoscas-gris-265057.jpg",
-            "https://sierradebaza.org/images/noticias/imagenes_25-03/Imagen_2.jpg?1740673701922=",
-            "https://fotosdeaquiydealla.wordpress.com/wp-content/uploads/2018/09/papamoscas-gris-3.jpg"
+            "/assets/img/Aves/papamoscas/papamoscas1.webp",
+            "/assets/img/Aves/papamoscas/papamoscas2.webp",
+            "assets/img/Aves/papamoscas/papamoscas3.webp",
+            "assets/img/Aves/papamoscas/papamoscas4.webp",
+            "assets/img/Aves/papamoscas/papamoscas5.webp"
         ],
         "hasDefinedTerm": [
         {
@@ -130,7 +130,6 @@
     },
 
     {
-        "@context": "https://schema.org/",
         "@type": "Taxon",
         "name": "Ánade azulón",
         "alternateName": "Anas platyrhynchos",
@@ -195,7 +194,6 @@
         ]
     },
     {
-        "@context": "https://schema.org/",
         "@type": "Taxon",
         "name": "Andarríos chico",
         "alternateName": "Actitis hypoleucos.",
@@ -261,7 +259,6 @@
     },
 
     {
-        "@context": "https://schema.org/",
         "@type": "Taxon",
         "name": "Garza imperial",
         "alternateName": "Ardea purpurea",
@@ -328,7 +325,6 @@
     },
 
     {
-        "@context": "https://schema.org/",
         "@type": "Taxon",
         "name": "Cerceta común",
         "alternateName": "Anas crecca",
@@ -395,7 +391,6 @@
     },
 
     {
-        "@context": "https://schema.org/",
         "@type": "Taxon",
         "name": "Cigüeñuela común",
         "alternateName": "Himantopus himantopus",
@@ -462,7 +457,6 @@
     },
 
     {
-        "@context": "https://schema.org/",
         "@type": "Taxon",
         "name": "Garcilla bueyera",
         "alternateName": "Bubulcus ibis",
@@ -527,4 +521,6 @@
             }
         ]
     }
-]
+    ]
+}
+  

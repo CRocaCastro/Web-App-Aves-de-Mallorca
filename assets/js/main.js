@@ -248,13 +248,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const portfolioContainer = document.querySelector('#aves .row.gy-4'); // Contenedor de los items
   const portfolioModal = document.getElementById('portfolioModal'); // Modal del portafolio
 
-    function updateModalContent(item, data) {
+  function updateModalContent(item, data) {
     const modalTitle = portfolioModal.querySelector('#modalTitle');
     const modalDescription = portfolioModal.querySelector('#modalDescription');
     const modalCarouselInner = portfolioModal.querySelector('#modalCarouselInner');
     const modalAdditionalInfo = portfolioModal.querySelector('#modalAdditionalInfo');
     const modalUsersReviews = portfolioModal.querySelector('#modalUsersReviews');
-  
+
     // Actualizar el título
     modalTitle.innerHTML = `
       <div class="modal-title-container">
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <p><em>${item.alternateName}</em></p>
       </div>
     `;
-  
+
     // Actualizar la descripción
     modalDescription.innerHTML = `
       <div class="modal-description">
@@ -270,14 +270,14 @@ document.addEventListener('DOMContentLoaded', function () {
         <p><strong>Familia:</strong> ${item.parentTaxon.name}</p>
       </div>
     `;
-  
+
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = item.image.map((img, index) => `
       <div class="carousel-item ${index === 0 ? 'active' : ''}">
         <img src="${img}" class="d-block w-100" alt="${item.name}">
       </div>
     `).join('');
-  
+
     // Actualizar las reseñas
     modalUsersReviews.innerHTML = `
       <div class="modal-reviews">
@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>${item.review ? item.review : "Aún no hay reseñas, ¡añade una ahora!"}</p>
       </div>
     `;
-  
+
     // Generar tarjetas de otras aves
     const otherBirds = data.filter(bird => bird.identifier !== item.identifier); // Excluir el ave actual
     modalAdditionalInfo.innerHTML = `
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
         `).join('')}
       </div>
     `;
-  
+
     // Configurar eventos para las tarjetas de otras aves
     const otherBirdLinks = modalAdditionalInfo.querySelectorAll('.portfolio-link');
     otherBirdLinks.forEach(link => {
@@ -315,12 +315,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const newId = this.getAttribute('data-id'); // Obtener el ID de la nueva ave
         const newItem = data.find(bird => bird.identifier === newId); // Buscar la nueva ave
         if (newItem) {
-          updateModalContent(newItem, data); // Actualizar el contenido del modal con la nueva ave
-          // Desplazar a la parte superior del modal
-          portfolioModal.scrollTo({
-          top: 0,
-          behavior: 'smooth' // Animación suave
-          });
+          updateModalContent(newItem, data);
         }
       });
     });
@@ -330,11 +325,13 @@ document.addEventListener('DOMContentLoaded', function () {
   fetch(jsonUrl)
     .then(response => response.json())
     .then(data => {
+      const birds = data.species; // Acceder al array species
+
       // Limpiar el contenido existente
       portfolioContainer.innerHTML = '';
 
       // Generar un bloque por cada ave en el JSON
-      data.forEach(item => {
+      birds.forEach(item => {
         const card = document.createElement('div');
         card.className = 'col-lg-4 col-md-6 portfolio-item';
 
@@ -359,15 +356,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const id = button.getAttribute('data-id'); // Extraer el ID del atributo data-id
 
         // Encontrar el elemento con el ID correspondiente en el JSON
-        const item = data.find(item => item.identifier === id);
+        const item = birds.find(item => item.identifier === id);
 
         if (item) {
-          updateModalContent(item, data); // Llamar a la función para llenar el contenido del modal
+          updateModalContent(item, birds); // Llamar a la función para llenar el contenido del modal
           // Desplazar a la parte superior del modal
           portfolioModal.scrollTo({
             top: 0,
-            behavior: 'smooth' // Animación suave
-            });
+            behavior: 'smooth'
+          });
         }
       });
     })
@@ -385,22 +382,20 @@ document.addEventListener('DOMContentLoaded', function () {
   const zonaModal = document.getElementById('zonaModal'); // Modal para las zonas
 
   // Función para actualizar el contenido del modal de zonas
-  function updateZonaModalContent(zona, data) {
+    function updateZonaModalContent(zona, data) {
     const modalTitle = zonaModal.querySelector('#modalZonaTitle');
     const modalDescription = zonaModal.querySelector('#modalZonaDescription');
+    const modalCarouselInner = zonaModal.querySelector('#modalZonaCarouselInner');
     const modalAdditionalInfo = zonaModal.querySelector('#modalZonaAdditionalInfo');
-
+  
     // Actualizar el contenido dinámico del modal
     modalTitle.innerHTML = `
-      <div class="modal-image-container">
-        <img src="${zona.image[0]}" alt="${zona.name}" class="modal-image">
-        <div class="modal-overlay">
-          <h4>${zona.name}</h4>
-          <p><em>${zona.alternateName}</em></p>
-        </div>
+      <div class="modal-title-container">
+        <h4>${zona.name}</h4>
+        <p><em>${zona.alternateName}</em></p>
       </div>
     `;
-
+  
     modalDescription.innerHTML = `
       <div class="modal-description">
         <p><strong>Descripción:</strong> ${zona.description}</p>
@@ -408,7 +403,14 @@ document.addEventListener('DOMContentLoaded', function () {
         <p><strong>Coordenadas:</strong> Latitud: ${zona.geo.latitude}, Longitud: ${zona.geo.longitude}</p>
       </div>
     `;
-
+  
+    // Generar las imágenes del carrusel
+    modalCarouselInner.innerHTML = zona.image.map((img, index) => `
+      <div class="carousel-item ${index === 0 ? 'active' : ''}">
+        <img src="${img}" class="d-block w-100" alt="${zona.name}">
+      </div>
+    `).join('');
+  
     // Generar tarjetas de otras zonas
     const otherZonas = data.filter(z => z.identifier !== zona.identifier); // Excluir la zona actual
     modalAdditionalInfo.innerHTML = `
@@ -429,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function () {
         `).join('')}
       </div>
     `;
-
+  
     // Configurar eventos para las tarjetas de otras zonas
     const otherZonaLinks = modalAdditionalInfo.querySelectorAll('.zona-link');
     otherZonaLinks.forEach(link => {
@@ -439,11 +441,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const newZona = data.find(z => z.identifier === newId); // Buscar la nueva zona
         if (newZona) {
           updateZonaModalContent(newZona, data); // Actualizar el contenido del modal con la nueva zona
-          // Desplazar a la parte superior del modal
-          zonaModal.scrollTo({
-          top: 0,
-          behavior: 'smooth' // Animación suave
-          });
         }
       });
     });
@@ -453,11 +450,13 @@ document.addEventListener('DOMContentLoaded', function () {
   fetch(jsonZonaUrl)
     .then(response => response.json())
     .then(data => {
+      const zonas = data.landforms; // Acceder al array landforms
+
       // Limpiar el contenido existente
       zonaContainer.innerHTML = '';
 
       // Generar un bloque por cada zona en el JSON
-      data.forEach(zona => {
+      zonas.forEach(zona => {
         const card = document.createElement('div');
         card.className = 'col-lg-4 col-md-6 portfolio-item';
 
@@ -482,10 +481,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const id = button.getAttribute('data-id'); // Extraer el ID del atributo data-id
 
         // Encontrar la zona con el ID correspondiente en el JSON
-        const zona = data.find(z => z.identifier === id);
+        const zona = zonas.find(z => z.identifier === id);
 
         if (zona) {
-          updateZonaModalContent(zona, data); // Llamar a la función para llenar el contenido del modal
+          updateZonaModalContent(zona, zonas); // Llamar a la función para llenar el contenido del modal
         }
       });
     })

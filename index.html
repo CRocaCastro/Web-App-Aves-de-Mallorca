@@ -499,24 +499,43 @@
   </div>
 
     <!-- Modal para las Zonas -->
-  <div class="modal fade" id="zonaModal" tabindex="-1" aria-labelledby="zonaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!-- Contenido dinámico del modal -->
-          <div id="modalZonaTitle"></div> <!-- Título dinámico -->
-          <div id="modalZonaDescription"></div> <!-- Descripción dinámica -->
-          <div id="modalZonaAdditionalInfo"></div> <!-- Información adicional dinámica -->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+    <div class="modal fade" id="zonaModal" tabindex="-1" aria-labelledby="zonaModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Carrusel dinámico -->
+            <div id="zonaCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner" id="modalZonaCarouselInner">
+                <!-- Las imágenes se generarán dinámicamente aquí -->
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#zonaCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#zonaCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
+            </div>
+    
+            <!-- Título dinámico -->
+            <div id="modalZonaTitle"></div>
+    
+            <!-- Descripción dinámica -->
+            <div id="modalZonaDescription"></div>
+    
+            <!-- Información adicional dinámica -->
+            <div id="modalZonaAdditionalInfo"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
   <!-- Modal del Quiz -->
   <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModalLabel" aria-hidden="true">
