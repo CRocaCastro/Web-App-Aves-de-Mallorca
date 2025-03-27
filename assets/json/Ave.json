@@ -267,6 +267,15 @@
         "alternateName": "Ardea purpurea",
         "description": "La garza imperial es un ave de gran tamaño, que mide 78-97 cm de largo, con una altura de 70 a 94 cm y una envergadura lar de 120–152 cm.​ Es un poco más pequeña que la garza real, de la que además puede distinguirse por su plumaje más de tonos pardo rojizos de sus laterales, y en los adultos su espalda gris más oscura. Los adultos de garza imperial tienen la frente y el píleo negros, y una lista oscura les recorre la parte posterior del cuello desde la espalda hasta la nuca, donde les cuelga una pequeña cresta. Es un ave migratoria que llega a Mallorca en primavera, permaneciendo hasta el final del verano, cuando migra hacia África para pasar el invierno.",
         "disambiguatingDescription": "Ave fundamentalmente estival en España, la garza imperial muestra hábitos coloniales a la hora de criar, aunque constituye agregaciones poco densas y casi siempre monoespecíficas. Su coloración general vinosa y púrpura la hace fácilmente distinguible.",
+        "taxonRank": {
+        "@type": "PropertyValue",
+        "name": "Especie",
+        "value": "species"
+        },
+        "parentTaxon": {
+        "@type": "Taxon",
+        "name": "Accipitridae"
+        },
         "identifier": "A4",
         "image": [
             "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsiBlEeCm_Iul65oeSwoTXTUI2pjlIV9SofWlhI6B-gajYEsJzCfk0zS5J0jhDCtJbZMutAYnfGW4AW8Be4Q1fQkEGfKebzWK4xsFBj1Ygu7rB6lQoFVtA-8mi2K22Bg8yWrE9GWURvMs6/s1600/Garza+imperial.jpg",
@@ -325,6 +334,15 @@
         "alternateName": "Anas crecca",
         "description": "La cerceta común presenta como rasgo más característico su pequeño tamaño, siendo el menor de los patos que frecuentan nuestras zonas húmedas. Los machos en plumaje nupcial tienen un diseño bello, destacando el color castaño rojizo de la cabeza, que aparece surcada por un llamativo antifaz verde bordeado de una línea amarillenta. El pecho es cremoso moteado de oscuro y los flancos, grisáceos, delicadamente vermiculados, con una franja blanca. Las hembras presentan un diseño parduzco con una nota de color verde en el espejuelo. Estos patos se elevan fácilmente del agua para emprender un vuelo ágil, con giros frecuentes y cambios bruscos de dirección.",
         "disambiguatingDescription": "Fácil de reconocer por su minúsculo tamaño y por el vistoso diseño de los machos, la cerceta común es una especie bastante sensible a las molestias humanas y a la alteración del hábitat. Presenta un área de distribución mundial muy amplia, aunque se reproduce de forma escasa y localizada en nuestro país.",
+        "taxonRank": {
+        "@type": "PropertyValue",
+        "name": "Especie",
+        "value": "species"
+        },
+        "parentTaxon": {
+        "@type": "Taxon",
+        "name": "Accipitridae"
+        },
         "identifier": "A5",
         "image": [
             "https://upload.wikimedia.org/wikipedia/commons/0/02/Anas_crecca_%28male%29.JPG",
@@ -383,6 +401,15 @@
         "alternateName": "Himantopus himantopus",
         "description": "La cigüeñuela común (Himantopus himantopus) es una especie de ave caradriforme de la familia Recurvirostridae propia de Eurasia y África. Es un ave zancuda de medio tamaño bastante común en zonas pantanosas. Los adultos miden entre 33 y 36 cm de largo. Se caracteriza por sus larguísimas patas de color rosado, y su pico negro, recto, fino y largo. Sus alas son cortas y de forma triangular. El plumaje es blanco en las partes inferiores y flancos, mientras que los machos tienen las partes superiores de color negro, con iridiscencias verdes, y las hembras las tienen pardas.",
         "disambiguatingDescription": "Uno de los sonidos más habituales de muchos de nuestros humedales es el repetitivo y penetrante grito emitido por las cigüeñuelas comunes, aves zanquilargas, estilizadas y de tonos blanquinegros, que no dejan de reclamar y volar en grupo cuando detectan la presencia de algún peligro.",
+        "taxonRank": {
+        "@type": "PropertyValue",
+        "name": "Especie",
+        "value": "species"
+        },
+        "parentTaxon": {
+        "@type": "Taxon",
+        "name": "Accipitridae"
+        },
         "identifier": "A6",
         "image": [
             "https://www.fundacionaquae.org/wp-content/uploads/2018/05/ciguenela-e1608301849497.jpg",
@@ -441,6 +468,15 @@
         "alternateName": "Bubulcus ibis",
         "description": "La garcilla bueyera es una especie de la familia Ardeidae, es un ave esbelta y blanca adornada con plumas doradas o anaranjadas en cabeza y cuello en temporada de cría. Mide entre 46 y 56 cm de largo, pesa entre 270 y 512 g, y tiene una envergadura alar de 88-96 cm. El pico, cuello y patas son largos, y su color de ojos y pico es amarillo, mientras que las patas son generalmente grises. Esta especie ha protagonizado la expansión natural más amplia y rápida de todas las aves. Habita en sabanas, pastizales, manglares, pantanos y áreas agrícolas, siendo común verla acompañando al ganado.",
         "disambiguatingDescription": "Hasta la segunda mitad del siglo XIX, la garcilla bueyera habitaba en zonas tropicales y subtropicales de África, pero en el siglo pasado comenzó un proceso colonizador que la ha llevado a convertirse en una especie cosmopolita, actualmente extendida desde el sur de Europa hasta Oceanía y desde África hasta Norteamérica.",
+        "taxonRank": {
+        "@type": "PropertyValue",
+        "name": "Especie",
+        "value": "species"
+        },
+        "parentTaxon": {
+        "@type": "Taxon",
+        "name": "Accipitridae"
+        },
         "identifier": "A7",
         "image": [
             "https://cdn.download.ams.birds.cornell.edu/api/v2/asset/304971031/1200",

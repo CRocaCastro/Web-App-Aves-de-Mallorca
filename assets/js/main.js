@@ -213,33 +213,33 @@
 --------------------------------------------------------------*/
 
 // Función para el botón Ver más
-document.addEventListener("DOMContentLoaded", () => {
-  const portfolioItems = document.querySelectorAll("#aves .portfolio-item");
-  const loadMoreButton = document.getElementById("load-more");
-  const isotopeContainer = document.querySelector(".isotope-container"); // Contenedor principal
+// document.addEventListener("DOMContentLoaded", () => {
+//   const portfolioItems = document.querySelectorAll("#aves .portfolio-item");
+//   const loadMoreButton = document.getElementById("load-more");
+//   const isotopeContainer = document.querySelector(".isotope-container"); // Contenedor principal
 
-  // Mostrar solo la primera fila (3 elementos)
-  const itemsPerRow = 3;
-  portfolioItems.forEach((item, index) => {
-    if (index >= itemsPerRow) {
-      item.style.display = "none";
-    }
-  });
+//   // Mostrar solo la primera fila (3 elementos)
+//   const itemsPerRow = 3;
+//   portfolioItems.forEach((item, index) => {
+//     if (index >= itemsPerRow) {
+//       item.style.display = "none";
+//     }
+//   });
 
-  // Mostrar más elementos al hacer clic en el botón
-  loadMoreButton.addEventListener("click", () => {
-    portfolioItems.forEach((item) => {
-      item.style.display = "block";
-    });
+//   // Mostrar más elementos al hacer clic en el botón
+//   loadMoreButton.addEventListener("click", () => {
+//     portfolioItems.forEach((item) => {
+//       item.style.display = "block";
+//     });
 
-    // Ajustar la altura del contenedor
-    if (isotopeContainer) {
-      isotopeContainer.style.height = `${isotopeContainer.scrollHeight}px`;
-    }
+//     // Ajustar la altura del contenedor
+//     if (isotopeContainer) {
+//       isotopeContainer.style.height = `${isotopeContainer.scrollHeight}px`;
+//     }
 
-    loadMoreButton.style.display = "none"; // Ocultar el botón después de cargar más
-  });
-});
+//     loadMoreButton.style.display = "none"; // Ocultar el botón después de cargar más
+//   });
+// });
 
 // Función para cargar las aves desde un archivo JSON
 
