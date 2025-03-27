@@ -756,6 +756,70 @@ h6 {
   font-family: var(--nav-font);
 }
 
+
+/* Contenedor de la imagen en el modal */
+.modal-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modal-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.modal-overlay h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.modal-overlay p {
+  font-size: 1rem;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Descripción en el modal */
+.modal-description {
+  background-color: #003366; /* Azul oscuro */
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+/* Información adicional */
+.modal-info p {
+  margin: 5px 0;
+}
+
+.modal-reviews {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+.modal-reviews h5 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+
+
 /*--------------------------------------------------------------
 # Aqui acaba lo que he añadido
 --------------------------------------------------------------*/
@@ -1063,8 +1127,77 @@ section,
 }
 
 /*--------------------------------------------------------------
-# About Section
+# Contáctanos Section
 --------------------------------------------------------------*/
+/* Modificaciones */
+
+.team-member {
+  display: flex; /* Usa flexbox para centrar contenido */
+  flex-direction: column; /* Asegura que los elementos estén en columna */
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  text-align: center; /* Centra el texto */
+  height: 100%; /* Asegura que ocupe toda la altura del contenedor */
+}
+
+.member-info {
+  display: flex; /* Usa flexbox para centrar el texto */
+  flex-direction: column; /* Asegura que los elementos estén en columna */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  text-align: center; /* Centra el texto */
+  height: 100%; /* Asegura que ocupe toda la altura disponible */
+}
+
+.member-info {
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+.team-member .member-info h4,
+.team-member .member-info p {
+  margin: 0; /* Elimina márgenes adicionales */
+  text-align: center;
+}
+
+.team-member .pic {
+  border-radius: 50%;  /* Hace las imágenes redondas */
+  overflow: hidden;
+  width: 200px;        /* Tamaño fijo para las imágenes */
+  height: 200px;       /* Tamaño fijo para las imágenes */
+  margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+}
+
+
+.team-member h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px; /* Espacio entre la imagen y el nombre */
+}
+
+.team-member p {
+  color: #6c757d; /* Color más suave para la descripción */
+  margin-bottom: 10px; /* Espacio entre la descripción y los iconos */
+}
+
+.team-member .social {
+  display: flex;
+  justify-content: center; /* Centra los íconos de redes sociales */
+  gap: 10px;
+  margin-top: 10px; /* Espacio entre la descripción y los íconos */
+}
+
+.team-member .social i {
+  font-size: 1.5rem; /* Tamaño de los íconos */
+  color: #333;       /* Color predeterminado */
+}
+
+.team-member .social a:hover i {
+  color: #007bff; /* Color cuando el mouse pasa sobre el ícono */
+}
+
+
+/* Fin Modificaciones */
+
 .about .content h3 {
   font-size: 2rem;
   font-weight: 700;
@@ -1259,7 +1392,7 @@ section,
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
-/* 🔥 Estilos modernos para los filtros tipo dropdown y búsqueda */
+/* Estilos modernos para los filtros tipo dropdown y búsqueda */
 
 .filters-wrapper {
   display: flex;
@@ -1395,6 +1528,15 @@ section,
 
 .portfolio .portfolio-content:hover img {
   transform: scale(1.1);
+}
+
+.portfolio .portfolio-content .card-title a {
+  color: var(--heading-color); /* Cambia el color del enlace a negro */
+  text-decoration: none; /* Opcional: elimina el subrayado */
+}
+
+.portfolio .portfolio-content .card-title a:hover {
+  color: var(--accent-color); /* Opcional: cambia el color al pasar el mouse */
 }
 
 /*--------------------------------------------------------------
@@ -1665,6 +1807,31 @@ section,
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
+/* Modificación */
+/* Asegura que la imagen tenga la misma altura que el formulario */
+#contact-section .col-md-4 {
+  display: flex;
+  align-items: stretch; /* Alinea la imagen verticalmente */
+}
+
+#contact-section .col-md-4 img {
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+  width: 100%; /* La imagen ocupa todo el ancho de la columna */
+  height: 100%; /* La imagen toma el 100% de la altura de la columna */
+}
+
+.custom-btn {
+  background-color: #2dc997; /* Color de fondo */
+  color: white;              /* Color del texto */
+  border: none;              /* Elimina el borde predeterminado */
+}
+
+.custom-btn:hover {
+  background-color:color-mix(in srgb, var(--accent-color), transparent 20%); /* Color de fondo cuando se pasa el mouse */
+}
+
+
+/* Fin Modificación */
 .contact .info-item+.info-item {
   margin-top: 40px;
 }
@@ -1914,7 +2081,214 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
+/* .starter-section {
   /* Add your styles here */
+/* } */ 
+
+/*--------------------------------------------------------------
+# QUIZZ
+--------------------------------------------------------------*/
+/* Fondo personalizado para la sección del quiz */
+#quizz {
+  background-color: #bbd9e4; /* Cambia este color por el que prefieras */
+}       
+
+
+/* Estilo del título de la pregunta */
+#quizModal .modal-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #2c3e50;
 }
+
+/* Texto de la pregunta */
+#quiz-question-text {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #34495e;
+}
+
+/* Centrar imagen y añadir margen */
+#quiz-question-image {
+  display: block;                 /* Asegura que sea un bloque */
+  margin: 0 auto 20px auto;       /* Centrado + espacio inferior */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-height: 300px;
+  object-fit: cover;
+}
+
+/* Centrar las opciones y limitar su ancho */
+#quiz-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Opciones más estrechas y centradas */
+#quiz-options .form-check {
+  width: 100%;
+  max-width: 500px; /* <-- Cambia esto si las quieres más o menos anchas */
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  text-align: left;
+}
+
+
+#quiz-options .form-check:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+  border-color: #dee2e6;
+}
+
+#quiz-options input[type="radio"]:checked + label {
+  font-weight: 600;
+  color: #0d6efd;
+}
+
+/* Centrar el mensaje de feedback */
+#quiz-feedback {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+
+/* Botones */
+#quizModal .btn {
+  margin-top: 50px; 
+  min-width: 120px;
+}
+
+/* Botón de reinicio */
+#restart-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+/* Mensaje final */
+#quiz-end p {
+  font-size: 1.2rem;
+  color: #28a745;
+}
+
+.quiz-option-btn {
+  width: 100%;                         /* Ocupa todo el ancho del contenedor */
+  max-width: 600px;                    /* Máximo ancho para que no se vea gigante */
+  margin: 4px auto !important;         /* Centrado y con poco margen */
+  padding: 6px 12px;
+  font-size: 0.95rem;
+  text-align: center;
+  white-space: normal;                 /* Permite saltos de línea */
+}
+
+
+#quiz-options {
+  margin-bottom: 0 !important;       /* quitar margen inferior */
+  padding-bottom: 0 !important;
+}
+
+#quiz-options .btn {
+  border-radius: 6px;
+}
+
+/* .quiz-option-btn {
+  transition: all 0.2s ease;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.quiz-option-btn.active {
+  background-color: #0d6efd;
+  color: white;
+} */
+
+.quiz-option-btn {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.quiz-option-btn.active {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(13, 110, 253, 0.6);
+}
+
+
+
+/* Responsive image in modal */
+@media (max-width: 576px) {
+  #quiz-question-image {
+    max-height: 200px;
+  }
+}
+
+/* Animación fade-in para las preguntas e imagen */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+#quiz-progress-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  background-color: #e9ecef;
+  border-radius: 50px;
+  height: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+#quiz-progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #2dc997;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.6s ease-in-out;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+
+/* Responsive para pantallas muy pequeñas */
+@media (max-width: 576px) {
+  #quiz-progress-bar {
+    font-size: 0.85rem;
+    height: 20px;
+    line-height: 20px;
+  }
+}
+
+
+/* Asegura que el canvas de confetti esté delante de todo */
+canvas.confetti-canvas {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 9999 !important;
+  pointer-events: none;
+}
+
+
+
+
 

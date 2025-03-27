@@ -17,7 +17,7 @@
         },
         "identifier": "A0",
         "image": [
-            "https://example.com/images/milano_real.jpg"
+            "https://zoo.cordoba.es/wp-content/uploads/2023/07/MILANO-REAL-scaled.jpg"
         ],
         "hasDefinedTerm": [
         {
@@ -256,6 +256,238 @@
                     "Z0"
                 ],
                 "description": "Identificadores de las zonas en las que se encuentra el Ánade azulón."
+            }
+        ]
+    },
+
+    {
+        "@context": "https://schema.org/",
+        "@type": "Taxon",
+        "name": "Garza imperial",
+        "alternateName": "Ardea purpurea",
+        "description": "La garza imperial es un ave de gran tamaño, que mide 78-97 cm de largo, con una altura de 70 a 94 cm y una envergadura lar de 120–152 cm.​ Es un poco más pequeña que la garza real, de la que además puede distinguirse por su plumaje más de tonos pardo rojizos de sus laterales, y en los adultos su espalda gris más oscura. Los adultos de garza imperial tienen la frente y el píleo negros, y una lista oscura les recorre la parte posterior del cuello desde la espalda hasta la nuca, donde les cuelga una pequeña cresta. Es un ave migratoria que llega a Mallorca en primavera, permaneciendo hasta el final del verano, cuando migra hacia África para pasar el invierno.",
+        "disambiguatingDescription": "Ave fundamentalmente estival en España, la garza imperial muestra hábitos coloniales a la hora de criar, aunque constituye agregaciones poco densas y casi siempre monoespecíficas. Su coloración general vinosa y púrpura la hace fácilmente distinguible.",
+        "identifier": "A4",
+        "image": [
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsiBlEeCm_Iul65oeSwoTXTUI2pjlIV9SofWlhI6B-gajYEsJzCfk0zS5J0jhDCtJbZMutAYnfGW4AW8Be4Q1fQkEGfKebzWK4xsFBj1Ygu7rB6lQoFVtA-8mi2K22Bg8yWrE9GWURvMs6/s1600/Garza+imperial.jpg",
+            "https://seo.org/wp-content/uploads/2013/11/F118_Foto_02.jpg",
+            "https://plumarium.es/wp-content/uploads/2021/11/foto-3.png",
+            "https://static.costadelsolmalaga.org/malaga/subidas/imagenes/7/0/arc_216207_g.jpg",
+            "https://seo.org/wp-content/uploads/2013/11/F118_Foto_03.jpg"
+        ],
+        "hasDefinedTerm": [
+            {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "Es un ave migratoria que llega a Mallorca en primavera, permaneciendo hasta el final del verano, cuando migra hacia África para pasar el invierno.",
+                "alternateName": ["Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto"]
+            },
+            {
+                "@type": "DefinedTerm",
+                "name": "Habitat de presencia",
+                "termCode": "habitat",
+                "description": "La Garza Imperial habita principalmente en zonas húmedas como marismas, lagunas, cañaverales y ríos con abundante vegetación palustre. Prefiere áreas con escasa intervención humana.",
+                "alternateName": ["Humedales", "Marismas"]
+            }
+        ],
+        "subjectOf": [
+            {
+                "@type": "MediaObject",
+                "name": "Canto de la Garza Imperial",
+                "contentUrl": "https://example.com/audio/garza_imperial.mp3",
+                "encodingFormat": "audio/mpeg"
+            },
+            {
+                "@type": "MediaObject",
+                "name": "Garza Imperial en su hábitat natural",
+                "contentUrl": "https://example.com/video/garza_imperial.mp4",
+                "encodingFormat": "video/mp4"
+            }
+        ],
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": [
+                    "ZX",
+                    "ZX"
+                ],
+                "description": "Identificadores de las zonas en las que se encuentra la Garza Imperial."
+            }
+        ]
+    },
+
+    {
+        "@context": "https://schema.org/",
+        "@type": "Taxon",
+        "name": "Cerceta común",
+        "alternateName": "Anas crecca",
+        "description": "La cerceta común presenta como rasgo más característico su pequeño tamaño, siendo el menor de los patos que frecuentan nuestras zonas húmedas. Los machos en plumaje nupcial tienen un diseño bello, destacando el color castaño rojizo de la cabeza, que aparece surcada por un llamativo antifaz verde bordeado de una línea amarillenta. El pecho es cremoso moteado de oscuro y los flancos, grisáceos, delicadamente vermiculados, con una franja blanca. Las hembras presentan un diseño parduzco con una nota de color verde en el espejuelo. Estos patos se elevan fácilmente del agua para emprender un vuelo ágil, con giros frecuentes y cambios bruscos de dirección.",
+        "disambiguatingDescription": "Fácil de reconocer por su minúsculo tamaño y por el vistoso diseño de los machos, la cerceta común es una especie bastante sensible a las molestias humanas y a la alteración del hábitat. Presenta un área de distribución mundial muy amplia, aunque se reproduce de forma escasa y localizada en nuestro país.",
+        "identifier": "A5",
+        "image": [
+            "https://upload.wikimedia.org/wikipedia/commons/0/02/Anas_crecca_%28male%29.JPG",
+            "https://seo.org/wp-content/uploads/2013/11/F27_Foto_02.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Anas_carolinensis_FWS.jpg/1200px-Anas_carolinensis_FWS.jpg",
+            "https://seo.org/wp-content/uploads/2013/11/F27_Foto_03.jpg",
+            "https://media.istockphoto.com/id/1481684798/es/foto/cerceta-de-alas-verdes.jpg?s=612x612&w=0&k=20&c=C-6h1J2cLSEhPNoV13o4yHxKskyZw29aXks5Ygnuk4Q="
+        ],
+        "hasDefinedTerm": [
+            {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "La Cerceta común es una especie migratoria que llega a Mallorca durante el otoño y permanece hasta la primavera, cuando migra de regreso a sus áreas de cría en Europa del Norte.",
+                "alternateName": ["Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero"]
+            },
+            {
+                "@type": "DefinedTerm",
+                "name": "Habitat de presencia",
+                "termCode": "habitat",
+                "description": "Habita en zonas húmedas como marismas, lagunas y embalses, donde hay abundante vegetación acuática. Prefiere aguas poco profundas con vegetación flotante o sumergida.",
+                "alternateName": ["Marismas", "Lagunas", "Embalses"]
+            }
+        ],
+        "subjectOf": [
+            {
+                "@type": "MediaObject",
+                "name": "Canto de la Cerceta común",
+                "contentUrl": "https://example.com/audio/cerceta_comun.mp3",
+                "encodingFormat": "audio/mpeg"
+            },
+            {
+                "@type": "MediaObject",
+                "name": "Cerceta común en su hábitat natural",
+                "contentUrl": "https://example.com/video/cerceta_comun.mp4",
+                "encodingFormat": "video/mp4"
+            }
+        ],
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": [
+                    "ZX",
+                    "ZX"
+                ],
+                "description": "Identificadores de las zonas en las que se encuentra la Cerceta común."
+            }
+        ]
+    },
+
+    {
+        "@context": "https://schema.org/",
+        "@type": "Taxon",
+        "name": "Cigüeñuela común",
+        "alternateName": "Himantopus himantopus",
+        "description": "La cigüeñuela común (Himantopus himantopus) es una especie de ave caradriforme de la familia Recurvirostridae propia de Eurasia y África. Es un ave zancuda de medio tamaño bastante común en zonas pantanosas. Los adultos miden entre 33 y 36 cm de largo. Se caracteriza por sus larguísimas patas de color rosado, y su pico negro, recto, fino y largo. Sus alas son cortas y de forma triangular. El plumaje es blanco en las partes inferiores y flancos, mientras que los machos tienen las partes superiores de color negro, con iridiscencias verdes, y las hembras las tienen pardas.",
+        "disambiguatingDescription": "Uno de los sonidos más habituales de muchos de nuestros humedales es el repetitivo y penetrante grito emitido por las cigüeñuelas comunes, aves zanquilargas, estilizadas y de tonos blanquinegros, que no dejan de reclamar y volar en grupo cuando detectan la presencia de algún peligro.",
+        "identifier": "A6",
+        "image": [
+            "https://www.fundacionaquae.org/wp-content/uploads/2018/05/ciguenela-e1608301849497.jpg",
+            "https://seo.org/wp-content/uploads/2013/11/F195_Foto_03.jpg",
+            "https://seo.org/wp-content/uploads/2013/11/F195_Foto_02.jpg",
+            "https://i.redd.it/cig%C3%BCe%C3%B1uela-com%C3%BAn-himantopus-himantopus-volando-en-cantabria-v0-yk1mgtp6xxxd1.jpg?width=3507&format=pjpg&auto=webp&s=e030b816b303822fc9b368e3e1c5755fc07493f5",
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiLGp5lb48ra_LkVMb4hDdLvzOoAFoar_2eywLekof6BYQi9X782QozQR02k0NxWEsjzJM_2KRuBjeER-58ufbyY08Tb3WDozrM6UwevKCUg-wnT0Dk5A792C7FfKqvnG0svTBqChdHZ-A/w1200-h630-p-k-no-nu/cigue%C3%B1uela-comun.jpg"
+        ],
+        "hasDefinedTerm": [
+            {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "La cigüeñuela común es una especie migratoria que pasa la mayor parte del año en Mallorca durante la primavera y el verano. Llega en primavera para criar en humedales y marismas, y migra hacia África en otoño.",
+                "alternateName": ["Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre"]
+            },
+            {
+                "@type": "DefinedTerm",
+                "name": "Habitat de presencia",
+                "termCode": "habitat",
+                "description": "La Cigüeñuela común habita en humedales, marismas, lagunas salinas y estuarios, donde suele encontrar sustrato fangoso o de poca profundidad para alimentarse. Prefiere zonas con vegetación palustre o áreas abiertas donde pueda moverse fácilmente en busca de invertebrados acuáticos.",
+                "alternateName": ["Humedales", "Marismas", "Estuarios", "Lagunas salinas"]
+            }
+        ],
+        "subjectOf": [
+            {
+                "@type": "MediaObject",
+                "name": "Canto de la Cigüeñuela común",
+                "contentUrl": "https://example.com/audio/cigueñuela_comun.mp3",
+                "encodingFormat": "audio/mpeg"
+            },
+            {
+                "@type": "MediaObject",
+                "name": "Cigüeñuela común en su hábitat natural",
+                "contentUrl": "https://example.com/video/cigueñuela_comun.mp4",
+                "encodingFormat": "video/mp4"
+            }
+        ],
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": [
+                    "ZX",
+                    "ZX"
+                ],
+                "description": "Identificadores de las zonas en las que se encuentra la Cigüeñuela común."
+            }
+        ]
+    },
+
+    {
+        "@context": "https://schema.org/",
+        "@type": "Taxon",
+        "name": "Garcilla bueyera",
+        "alternateName": "Bubulcus ibis",
+        "description": "La garcilla bueyera es una especie de la familia Ardeidae, es un ave esbelta y blanca adornada con plumas doradas o anaranjadas en cabeza y cuello en temporada de cría. Mide entre 46 y 56 cm de largo, pesa entre 270 y 512 g, y tiene una envergadura alar de 88-96 cm. El pico, cuello y patas son largos, y su color de ojos y pico es amarillo, mientras que las patas son generalmente grises. Esta especie ha protagonizado la expansión natural más amplia y rápida de todas las aves. Habita en sabanas, pastizales, manglares, pantanos y áreas agrícolas, siendo común verla acompañando al ganado.",
+        "disambiguatingDescription": "Hasta la segunda mitad del siglo XIX, la garcilla bueyera habitaba en zonas tropicales y subtropicales de África, pero en el siglo pasado comenzó un proceso colonizador que la ha llevado a convertirse en una especie cosmopolita, actualmente extendida desde el sur de Europa hasta Oceanía y desde África hasta Norteamérica.",
+        "identifier": "A7",
+        "image": [
+            "https://cdn.download.ams.birds.cornell.edu/api/v2/asset/304971031/1200",
+            "https://seo.org/wp-content/uploads/2013/10/Garcilla-bueyera-Bubulculus-ibis-4F-064-Rafa-scaled.jpg",
+            "https://seo.org/wp-content/uploads/2013/11/F112_Foto_02.jpg",
+            "https://content.nationalgeographic.com.es/medio/2019/05/09/wlc1-abr2019-pag10c_7111e890_1600x1066.jpg",
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq9q52CHx7FiTvDvregp-OrZ7SHfKy8mwqtRgULiot231wpqCi8v_f1c-syWqn_etISvcD_T9J5kxwT1G96B8pNySBMvUe3mrgRFwsNUFZzVho2Vb_LjPyWOf1QJat-KXjLWp545MBj8Yi/s1600/garcilla-bueyera-bubulcus-ibis-5.JPG"
+        ],
+        "hasDefinedTerm": [
+            {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "La Garcilla bueyera es una especie migratoria que llega a Mallorca en primavera y migra a África en otoño. Su presencia en la isla está asociada principalmente a humedales y zonas agrícolas.",
+                "alternateName": ["Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre"]
+            },
+            {
+                "@type": "DefinedTerm",
+                "name": "Habitat de presencia",
+                "termCode": "habitat",
+                "description": "Habita en zonas húmedas, marismas, humedales y campos agrícolas. Es común verla en terrenos de pastoreo donde se alimenta de insectos y pequeños vertebrados que siguen a los animales de pastoreo, especialmente ganado.",
+                "alternateName": ["Humedales", "Marismas", "Campos agrícolas"]
+            }
+        ],
+        "subjectOf": [
+            {
+                "@type": "MediaObject",
+                "name": "Canto de la Garcilla bueyera",
+                "contentUrl": "https://example.com/audio/garcilla_bueyera.mp3",
+                "encodingFormat": "audio/mpeg"
+            },
+            {
+                "@type": "MediaObject",
+                "name": "Garcilla bueyera en su hábitat natural",
+                "contentUrl": "https://example.com/video/garcilla_bueyera.mp4",
+                "encodingFormat": "video/mp4"
+            }
+        ],
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": [
+                    "ZX",
+                    "ZX"
+                ],
+                "description": "Identificadores de las zonas en las que se encuentra la Garcilla bueyera."
             }
         ]
     }
