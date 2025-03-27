@@ -1,0 +1,262 @@
+[
+    {
+        "@context": "https://schema.org/",
+        "@type": "Taxon",
+        "name": "Milano real",
+        "alternateName": "Milvus milvus",
+        "description": "Ave rapaz de tamaño mediano con una envergadura que puede superar los 150 cm. Se distingue por su cola ahorquillada y su vuelo elegante.",
+        "disambiguatingDescription": "Especie de ave rapaz diurna de la familia Accipitridae.",
+        "taxonRank": {
+        "@type": "PropertyValue",
+        "name": "Especie",
+        "value": "species"
+        },
+        "parentTaxon": {
+        "@type": "Taxon",
+        "name": "Accipitridae"
+        },
+        "identifier": "A0",
+        "image": [
+            "https://example.com/images/milano_real.jpg"
+        ],
+        "hasDefinedTerm": [
+        {
+            "@type": "DefinedTerm",
+            "name": "Estaciones de presencia",
+            "termCode": "season",
+            "description": "El Milano real está presente todo el año.",
+            "alternateName": ["Invierno", "Primavera", "Verano", "Otoño"]
+        },
+        {
+            "@type": "DefinedTerm",
+            "name": "Habitat de presencia",
+            "termCode": "habitat",
+            "description": "El Milano real está presente en bosques abiertos, dehesas y praderas.",
+            "alternateName": ["Montaña", "Bosque"]
+        }
+        ],
+        "subjectOf": [
+            {
+                "@type": "MediaObject",
+                "name": "Canto del Milano Real",
+                "contentUrl": "https://example.com/audio/milano_real.mp3",
+                "encodingFormat": "audio/mpeg"
+            },
+            {
+                "@type": "MediaObject",
+                "name": "Vuelo del Milano Real",
+                "contentUrl": "https://example.com/video/milano_real.mp4",
+                "encodingFormat": "video/mp4"
+            }
+        ],
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": [
+                    "zone:la_gola",
+                    "zone:sierra_tramuntana",
+                    "zone:parque_natural_albufera"
+                ],
+                "description": "Identificadores de las zonas en las que se encuentra el Milano Real."
+            }
+        ]
+    },
+
+    {
+        "@context": "https://schema.org/",
+        "@type": "Taxon",
+        "name": "Papamoscas gris",
+        "alternateName": "Muscicapa striata",
+        "description": "Tiende a posarse bastante erguido sobre posaderos expuestos, desde donde captura insectos en vuelo, donde a menudo vuelve a la misma percha. Se identifica más fácilmente por el comportamiento que por el plumaje, que es monótono de color marrón grisáceo por encima, blanquecino apagado por debajo y con vetas oscuras en la coronilla y el pecho. Sin diferencias significativas entre ambos sexos. ",
+        "disambiguatingDescription": "De naturaleza básicamente insectívora, captura sobre todo insectos voladores, como mariposas, moscas, mosquitos, chinches, etc., que atrapa directamente en el aire gracias a la ligereza y agilidad de su vuelo.",
+        "taxonRank": {
+        "@type": "PropertyValue",
+        "name": "Especie",
+        "value": "species"
+        },
+        "parentTaxon": {
+        "@type": "Taxon",
+        "name": "Accipitridae"
+        },
+        "identifier": "A1",
+        "image": [
+            "https://www.oscardiez.es/gallery/OscarDiez/16943392Gl.jpg",
+            "https://www.mnemolia.com/images/66/MAEJjKuHAwE.webp",
+            "https://www.naturephoto-cz.com/photos/birds/papamoscas-gris-265057.jpg",
+            "https://sierradebaza.org/images/noticias/imagenes_25-03/Imagen_2.jpg?1740673701922=",
+            "https://fotosdeaquiydealla.wordpress.com/wp-content/uploads/2018/09/papamoscas-gris-3.jpg"
+        ],
+        "hasDefinedTerm": [
+        {
+            "@type": "DefinedTerm",
+            "name": "Estaciones de presencia",
+            "termCode": "season",
+            "description": "Se trata de un ave migradora transahariana en toda su área de distribución, cuya zona de invernada se sitúa en las regiones tropicales africanas.",
+            "alternateName": ["Primavera", "Verano"]
+        },
+        {
+            "@type": "DefinedTerm",
+            "name": "Habitat de presencia",
+            "termCode": "habitat",
+            "description": "Ocupa gran diversidad de hábitats, aunque prefiere áreas arboladas, si bien no muy densas, con sotos, matorrales y zonas húmedas cercanas. Frecuentemente, ocupa cultivos de frutales, así como jardines y parques.",
+            "alternateName": ["Montaña"]
+        }
+        ],
+        "subjectOf": [
+            {
+                "@type": "MediaObject",
+                "name": "Canto del Papamoscas Gris",
+                "contentUrl": "https://seo.org/ave/papamoscas-gris/",
+                "encodingFormat": "audio/mpeg"
+            },
+            {
+                "@type": "MediaObject",
+                "name": "Papamoscas Gris en un árbol",
+                "contentUrl": "https://seo.org/wp-content/uploads/2013/11/F477_Video.mp4",
+                "encodingFormat": "video/mp4"
+            }
+        ],
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": [
+                    "Z0"
+                ],
+                "description": "Identificadores de las zonas en las que se encuentra el Papamoscas Gris."
+            }
+        ]
+    },
+
+    {
+        "@context": "https://schema.org/",
+        "@type": "Taxon",
+        "name": "Ánade azulón",
+        "alternateName": "Anas platyrhynchos",
+        "description": "En el plumaje del macho de ánade azulón destaca el color verde brillante con irisaciones que presenta en cabeza y cuello. Un estrecho collar blanco separa a este del pecho, que es castaño. El pico es amarillo con la uña negra, en tanto que las patas poseen una coloración anaranjada. Como rasgos característicos destacan, por un lado, las dos plumas negras y rizadas que presenta sobre la cola y, por otro, el espejuelo, de una tonalidad azul violácea, de donde deriva el nombre de azulón. Las hembras tienen un tamaño algo menor que el del macho y son muy crípticas, con un plumaje parduzco moteado en el que tan solo resalta el espejuelo, del mismo color que en el macho.",
+        "disambiguatingDescription": "Aunque su principal aporte alimentario lo constituyen las plantas acuáticas, no duda en ingerir insectos, gusanos, moluscos o pequeños peces.",
+        "taxonRank": {
+        "@type": "PropertyValue",
+        "name": "Especie",
+        "value": "species"
+        },
+        "parentTaxon": {
+        "@type": "Taxon",
+        "name": "Accipitridae"
+        },
+        "identifier": "A2",
+        "image": [
+            "https://meteosierra.com/wp-content/uploads/anade-azulon-anas-platyrhynchos-1024x683.jpg",
+            "https://naturarem700.wordpress.com/wp-content/uploads/2016/03/dsc2104.jpg?w=768&h=512",
+            "https://static.costadelsolmalaga.org/malaga/subidas/imagenes/4/9/arc_252994_g.jpg",
+            "https://scontent.fpmi1-1.fna.fbcdn.net/v/t39.30808-6/486206309_1653672085573613_4539411084940176110_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YxCh9ckyUh4Q7kNvgHpm8xC&_nc_oc=AdnYFEIpqbRhPSv1Cn_GO0BoLSgbgoKSsUjN6DGT7k8xZgKXq20KmQ59fWPSrcU2aqo&_nc_zt=23&_nc_ht=scontent.fpmi1-1.fna&_nc_gid=GMZNRC_mpwDpNbzZ6DX_CQ&oh=00_AYHHlav_DdynZWH0V8tGnXhtqUweQcNxSI8p7OZgqmVaPQ&oe=67EA3305",
+            "https://lh3.googleusercontent.com/proxy/CxUWDvGPzonxu2at9eUtq5EHXnHySAKb9hECYcq9Gkz3lewEXq9gB88uF6tjdsUfviZRK4ouoloxG10bv91f1NLQLoFOTM9R5sodVH4"
+        ],
+        "hasDefinedTerm": [
+        {
+            "@type": "DefinedTerm",
+            "name": "Estaciones de presencia",
+            "termCode": "season",
+            "description": "Todo el año",
+            "alternateName": ["Invierno","Primavera", "Verano","Otoño"]
+        },
+        {
+            "@type": "DefinedTerm",
+            "name": "Habitat de presencia",
+            "termCode": "habitat",
+            "description": "Frecuenta zonas húmedas de todo tipo, como cursos lentos de agua, marismas, lagunas, embalses e incluso charcas estacionales o estanques en parques y jardines. En todo caso, muestra preferencia por aguas someras o poco profundas.",
+            "alternateName": ["Montaña"]
+        }
+        ],
+        "subjectOf": [
+            {
+                "@type": "MediaObject",
+                "name": "Graznido del Ánade azulón",
+                "contentUrl": "https://seo.org/ave/anade-azulon/",
+                "encodingFormat": "audio/mpeg"
+            },
+            {
+                "@type": "MediaObject",
+                "name": "Ánade azulón nadando ",
+                "contentUrl": "https://www.youtube.com/watch?v=gVaP-qpF-i8",
+                "encodingFormat": "video/mp4"
+            }
+        ],
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": [
+                    "Z0"
+                ],
+                "description": "Identificadores de las zonas en las que se encuentra el Ánade azulón."
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org/",
+        "@type": "Taxon",
+        "name": "Andarríos chico",
+        "alternateName": "Actitis hypoleucos.",
+        "description": "El andarríos chico es una limícola estilizada, de pequeño tamaño (el menor entre los andarríos) y patas bastante cortas, que balancea la cola y la cabeza de forma característica cuando está posada. Sus partes superiores son pardas y las inferiores, blancas, con un característico entrante pálido que sube desde los lados del pecho hasta el cuello, por delante del vértice del ala. El adulto en plumaje nupcial luce las plumas de las partes superiores de color pardo grisáceo, con barrados y punteaduras que le dan un aspecto poco uniforme.",
+        "disambiguatingDescription": "El nido, construido principalmente por la hembra, se ubica en el suelo, no muy lejos del agua, y consiste en una suave depresión tapizada con materia vegetal y piedras.",
+        "taxonRank": {
+        "@type": "PropertyValue",
+        "name": "Especie",
+        "value": "species"
+        },
+        "parentTaxon": {
+        "@type": "Taxon",
+        "name": "Accipitridae"
+        },
+        "identifier": "A3",
+        "image": [
+            "https://manoloc.es/aves/images/andarrios_chico1.jpg",
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEseKTkAOFRD54csH5ce__prFv-QQCTb8O0rpaazO7_GfvCUY_PbxQf_QM185q9dwyBK9g-pgjHiU84whvn5xAWqjOsNrjS3Ry1Ct6fi084Sbdt0RF4VoiatQRHxbqklwa-nMAW8WGFlmq/s1600/45+%2528372%2529a.jpg",
+            "https://www.jorgefoto.com/wp-content/uploads/photo-gallery/AndarrioChico_Jucar_2011_3.jpg?bwg=1706984019",
+            "https://www.ecoregistros.org/site/images/dataimages/2018/10/28/294728/56-actitis-hypoleucos--2-.JPG",
+            "https://seo.org/wp-content/uploads/2013/11/F258_Foto_01.jpg"
+        ],
+        "hasDefinedTerm": [
+        {
+            "@type": "DefinedTerm",
+            "name": "Estaciones de presencia",
+            "termCode": "season",
+            "description": "Todo el año",
+            "alternateName": ["Invierno","Primavera", "Verano","Otoño"]
+        },
+        {
+            "@type": "DefinedTerm",
+            "name": "Habitat de presencia",
+            "termCode": "habitat",
+            "description": "El andarríos chico cría de forma muy dispersa por ríos, arroyos y embalses de la Península, donde ocupa ensenadas, bancos arenosos y acumulaciones de grava. En migración e invernada puede aparecer también en estuarios, marismas, playas y áreas rocosas.",
+            "alternateName": ["Paya","Montaña"]
+        }
+        ],
+        "subjectOf": [
+            {
+                "@type": "MediaObject",
+                "name": "Canto del Andarríos Chico",
+                "contentUrl": "https://seo.org/ave/andarrios-chico/",
+                "encodingFormat": "audio/mpeg"
+            },
+            {
+                "@type": "MediaObject",
+                "name": "Andar del andarríos chico",
+                "contentUrl": "https://www.youtube.com/watch?v=V8oyaW_HCbY",
+                "encodingFormat": "video/mp4"
+            }
+        ],
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": [
+                    "Z0"
+                ],
+                "description": "Identificadores de las zonas en las que se encuentra el Ánade azulón."
+            }
+        ]
+    }
+]

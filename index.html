@@ -4,9 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Regna Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Aves Mallorquinas</title>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -16,6 +14,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,127 +26,413 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-whatever-integrity-hash" crossorigin="anonymous"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- =======================================================
-  * Template Name: Regna
-  * Template URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
+  * Asignatura: Tecnología Multimedia
+  * URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
   * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
+  * Autores: 
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
 
 <body class="index-page">
-
+  <!-------------------------------------------------------------------------------------------------------------------------------------->
+  <!--------------------------------------------------------------- HEADER --------------------------------------------------------------->
+  <!-------------------------------------------------------------------------------------------------------------------------------------->
   <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Regna</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-    </div>
-  </header>
+      <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+  
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <img src="assets/img/logo.png" alt="">
+        </a>
+  
+        <nav id="navmenu" class="navmenu mx-auto">
+          <ul class="d-flex justify-content-center">
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#aves">Aves</a></li>
+            <li><a href="#habitat">Hábitat</a></li>
+            <li><a href="#quizz">Quizz</a></li>
+            <li><a href="#autores">Autores</a></li>
+            <li><a href="#contactanos">Contáctanos</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+  
+      </div>
+    </header>
 
   <main class="main">
+    <!-- Hero Section with Carousel -->
+    <section id="hero" class="hero-section position-relative">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+        <!-- Slides -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://seo.org/wp-content/uploads/2013/10/F167Secundaria-2.jpg" class="d-block w-100 hero-img" alt="Ave 1">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Ave 1</h5>
+              <p>Descubre la fauna de Mallorca</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://seo.org/wp-content/uploads/2013/11/F101_Foto_01.jpg" class="d-block w-100 hero-img" alt="Ave 2">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Ave 2</h5>
+              <p>Vuela con nuestras especies autóctonas</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://seo.org/wp-content/uploads/2013/11/F451_Foto_01.jpg" class="d-block w-100 hero-img" alt="Ave 3">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Ave 3</h5>
+              <p>Una experiencia visual única</p>
+            </div>
+          </div>
+        </div>
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
 
-      <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <h2>Welcome to Our Website</h2>
-            <p>We are team of talented designers making websites with Bootstrap</p>
-            <a href="#about" class="btn-get-started">Get Started</a>
+      </div>
+    </section><!-- /Hero Section -->
+
+
+    <!-- Portfolio Section -->
+    <section id="aves" class="portfolio section">
+
+      <!-- Título de la sección -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 style="text-align: left;">Aves</h2>
+      </div>
+
+      <div class="container">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          
+          <!-- Filtros Dropdown: Estación, Hábitat, Nombre + Búsqueda -->
+          <!-- FILTROS -->
+          <div class="container py-4">
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+              
+              <!-- Estación -->
+              <div class="dropdown">
+                <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Estación
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Primavera</a></li>
+                  <li><a class="dropdown-item" href="#">Verano</a></li>
+                  <li><a class="dropdown-item" href="#">Otoño</a></li>
+                  <li><a class="dropdown-item" href="#">Invierno</a></li>
+                </ul>
+              </div>
+          
+              <!-- Hábitat -->
+              <div class="dropdown">
+                <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Hábitat
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Bosque</a></li>
+                  <li><a class="dropdown-item" href="#">Humedal</a></li>
+                  <li><a class="dropdown-item" href="#">Pradera</a></li>
+                </ul>
+              </div>
+          
+              <!-- Nombre -->
+              <div class="dropdown">
+                <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Nombre
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Nombre común</a></li>
+                  <li><a class="dropdown-item" href="#">Nombre científico</a></li>
+                </ul>
+              </div>
+          
+              <!-- Buscador -->
+              <div class="input-group" style="max-width: 240px;">
+                <span class="input-group-text bg-gray"><i class="bi bi-search text-muted"></i></span>
+                <input type="text" class="form-control" placeholder="Buscar ave...">
+              </div>
+          
+            </div>
+          </div>
+
+          <div class="row gy-4">
+            <!-- Portfolio items go here -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A0">
+                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="#" title="More Details">Milano real</a></h5>
+                  <p class="card-text">Milvus milvus</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A1">
+                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="#" title="More Details">Algo</a></h5>
+                  <p class="card-text">Aaaaa</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A2">
+                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Buitre negro</a></h5>
+                  <p class="card-text">Aegypius monachus</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A3">
+                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Garza real</a></h5>
+                  <p class="card-text">Ardea cinerea</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A4">
+                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Águila pescadora</a></h5>
+                  <p class="card-text">Pandion haliaetus</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A5">
+                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Flamenco</a></h5>
+                  <p class="card-text">Aegypius monachus</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A6">
+                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Calamón Común</a></h5>
+                  <p class="card-text">Porphyrio porphyrio</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A7">
+                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Halcón de Eleonora</a></h5>
+                  <p class="card-text">Falco eleonorae</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <a href="assets/img/aves/books-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox">
+                  <img src="assets/img/aves/books-3.jpg" class="card-img-top" alt="">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Cormorán moñudo</a></h5>
+                  <p class="card-text">Phalacrocorax aristotelis desmarestii</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A8">
+                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Abubilla</a></h5>
+                  <p class="card-text">Upupa epops</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A9">
+                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Curruca balear</a></h5>
+                  <p class="card-text">Sylvia balearica</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div>
+
+          <!-- Botón de cargar más -->
+          <div class="text-center mt-4">
+            <button id="load-more" class="btn btn-primary">Ver más</button>
           </div>
         </div>
       </div>
+    </section><!-- /Portfolio Section -->
 
-    </section><!-- /Hero Section -->
 
-    <!-- About Section -->
-    <section id="about" class="about section">
+        <!-- Habitat Section -->
+        <section id="habitat" class="services section">
+
+          <!-- Section Title -->
+          <div class="container section-title" data-aos="fade-up">
+            <h2 style="text-align: left;">Zonas</h2>
+          </div><!-- End Section Title -->
+    
+          <div class="container">
+    
+            <div class="row gy-4">
+    
+              <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                  <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A0">
+                    <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="#" title="More Details">Milano real</a></h5>
+                    <p class="card-text">Milvus milvus</p>
+                  </div>
+                </div>
+              </div><!-- End Portfolio Item -->
+  
+              <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                  <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A1">
+                    <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="#" title="More Details">Algo</a></h5>
+                    <p class="card-text">Aaaaa</p>
+                  </div>
+                </div>
+              </div><!-- End Portfolio Item -->
+  
+              <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                  <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A2">
+                    <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Buitre negro</a></h5>
+                    <p class="card-text">Aegypius monachus</p>
+                  </div>
+                </div>
+              </div><!-- End Portfolio Item -->
+  
+              <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                  <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A3">
+                    <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Garza real</a></h5>
+                    <p class="card-text">Ardea cinerea</p>
+                  </div>
+                </div>
+              </div><!-- End Portfolio Item -->
+  
+              <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                  <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A4">
+                    <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Águila pescadora</a></h5>
+                    <p class="card-text">Pandion haliaetus</p>
+                  </div>
+                </div>
+              </div><!-- End Portfolio Item -->
+  
+              <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                  <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A5">
+                    <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Flamenco</a></h5>
+                    <p class="card-text">Aegypius monachus</p>
+                  </div>
+                </div>
+              </div><!-- End Portfolio Item -->
+  
+    
+            </div>
+    
+          </div>
+    
+        </section><!-- /Habitat Section -->
+
+    <!-- Quizz Section -->
+    <section id="quizz" class="call-to-action section dark-background">
+
+      <img src="assets/img/cta-bg.jpg" alt="">
 
       <div class="container">
 
-        <div class="row gy-4">
-
-          <div class="col-lg-6 position-relative d-flex align-items-center order-lg-last" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/about.jpg" class="img-fluid flex-shrink-0" alt="">
-            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-12 text-center">
+            <h3>¡Aprende de aves jugando con nuestros quiz!</h3>
+            <p>¡Juega, aprende y pon a prueba tus conocimientos con nuestros Quizzes!</p>
+            <p>¡Preguntas y respuestas para aprender divirtiéndote!</p>
+            <div class="cta-btn-container">
+              <a class="cta-btn align-middle" href="#aves">Jugar</a>
+            </div>
           </div>
-
-          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <h3>About Us</h3>
-            <p>
-              Dolor iure expedita id fuga asperiores qui sunt consequatur minima. Quidem voluptas deleniti. Sit quia molestiae quia quas qui magnam itaque veritatis dolores. Corrupti totam ut eius incidunt reiciendis veritatis asperiores placeat.
-            </p>
-            <ul>
-              <li>
-                <i class="bi bi-diagram-3"></i>
-                <div>
-                  <h5>Ullamco laboris nisi ut aliquip consequat</h5>
-                  <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
-                </div>
-              </li>
-              <li>
-                <i class="bi bi-fullscreen-exit"></i>
-                <div>
-                  <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                  <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
-                </div>
-              </li>
-              <li>
-                <i class="bi bi-broadcast"></i>
-                <div>
-                  <h5>Voluptatem et qui exercitationem</h5>
-                  <p>Et velit et eos maiores est tempora et quos dolorem autem tempora incidunt maxime veniam</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-
         </div>
 
       </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section light-background">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -185,353 +470,10 @@
 
       </div>
 
-    </section><!-- /Stats Section -->
+    </section><!-- /Quizz Section -->
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item  position-relative">
-              <div class="icon">
-                <i class="bi bi-activity"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Nesciunt Mete</h3>
-              </a>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-broadcast"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Eosle Commodi</h3>
-              </a>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-easel"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Ledo Markt</h3>
-              </a>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-bounding-box-circles"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Asperiores Commodit</h3>
-              </a>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="service-details.html" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Velit Doloremque</h3>
-              </a>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="service-details.html" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Dolori Architecto</h3>
-              </a>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="service-details.html" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section dark-background">
-
-      <img src="assets/img/cta-bg.jpg" alt="">
-
-      <div class="container">
-
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-9 text-center text-xl-start">
-            <h3>Call To Action</h3>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-          <div class="col-xl-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Call To Action Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Product</li>
-            <li data-filter=".filter-branding">Branding</li>
-            <li data-filter=".filter-books">Books</li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">App 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Product 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/branding-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Branding 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/books-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Books 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/app-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">App 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/product-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Product 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/branding-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Branding 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/books-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Books 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/app-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">App 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/product-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Product 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/branding-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Branding 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/books-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Books 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Pricing</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pricing-item">
-              <h3>Free Plan</h3>
-              <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <a href="#" class="cta-btn">Start a free trial</a>
-              <p class="text-center small">No credit card required</p>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-              </ul>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-item featured">
-              <p class="popular">Popular</p>
-              <h3>Business Plan</h3>
-              <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <a href="#" class="cta-btn">Start a free trial</a>
-              <p class="text-center small">No credit card required</p>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                <li><i class="bi bi-check"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-              </ul>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="pricing-item">
-              <h3>Developer Plan</h3>
-              <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <a href="#" class="cta-btn">Start a free trial</a>
-              <p class="text-center small">No credit card required</p>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                <li><i class="bi bi-check"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                <li><i class="bi bi-check"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-              </ul>
-            </div>
-          </div><!-- End Pricing Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Pricing Section -->
-
-    <!-- Team Section -->
-    <section id="team" class="team section">
+    <!-- Autores Section -->
+    <section id="autores" class="team section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -547,7 +489,7 @@
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Walter White</h4>
+                <h4>Claudia Roca</h4>
                 <span>Chief Executive Officer</span>
                 <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
                 <div class="social">
@@ -564,7 +506,7 @@
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Sarah Jhonson</h4>
+                <h4>Luz Salva</h4>
                 <span>Product Manager</span>
                 <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
                 <div class="social">
@@ -581,26 +523,9 @@
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>William Anderson</h4>
+                <h4>Juan Francisco Riera</h4>
                 <span>CTO</span>
                 <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -615,10 +540,10 @@
 
       </div>
 
-    </section><!-- /Team Section -->
+    </section><!-- /Autores Section -->
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <section id="contacto" class="contact section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -746,6 +671,28 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+
+  <!-- Modal -->
+  <div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="portfolioModalLabel">Detalles del Portafolio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Contenido personalizado del modal -->
+          <h4 id="modalTitle">Título del Proyecto</h4>
+          <p id="modalDescription">Descripción del proyecto.</p>
+          <img id="modalImage" src="" alt="Imagen del proyecto" class="img-fluid">
+          <!-- Puedes agregar más contenido aquí -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

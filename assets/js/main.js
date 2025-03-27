@@ -67,7 +67,7 @@
       preloader.remove();
     });
   }
-
+  
   /**
    * Scroll top button
    */
@@ -207,3 +207,59 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+// Función para el botón Ver más
+document.addEventListener("DOMContentLoaded", () => {
+  const portfolioItems = document.querySelectorAll("#aves .portfolio-item");
+  const loadMoreButton = document.getElementById("load-more");
+  const isotopeContainer = document.querySelector(".isotope-container"); // Contenedor principal
+
+  // Mostrar solo la primera fila (3 elementos)
+  const itemsPerRow = 3;
+  portfolioItems.forEach((item, index) => {
+    if (index >= itemsPerRow) {
+      item.style.display = "none";
+    }
+  });
+
+  // Mostrar más elementos al hacer clic en el botón
+  loadMoreButton.addEventListener("click", () => {
+    portfolioItems.forEach((item) => {
+      item.style.display = "block";
+    });
+
+    // Ajustar la altura del contenedor
+    if (isotopeContainer) {
+      isotopeContainer.style.height = `${isotopeContainer.scrollHeight}px`;
+    }
+
+    loadMoreButton.style.display = "none"; // Ocultar el botón después de cargar más
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  var portfolioModal = document.getElementById('portfolioModal');
+
+  portfolioModal.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget; // Botón que activó el modal
+    var id = button.getAttribute('data-id'); // Extraer el ID del atributo data-id
+
+    // Cargar el contenido del JSON
+    fetch('assets/json/Ave.json')
+      .then(response => response.json())
+      .then(data => {
+        // Encontrar el elemento con el ID correspondiente
+        var item = data.find(item => item.identifier === id);
+
+        // Actualizar el contenido del modal
+        var modalTitle = portfolioModal.querySelector('#modalTitle');
+        var modalDescription = portfolioModal.querySelector('#modalDescription');
+        var modalImage = portfolioModal.querySelector('#modalImage');
+
+        modalTitle.textContent = item.name;
+        modalDescription.textContent = item.description;
+        modalImage.src = item.image[0];
+      })
+      .catch(error => console.error('Error al cargar el JSON:', error));
+  });
+});
