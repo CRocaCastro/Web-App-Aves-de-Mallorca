@@ -29,7 +29,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-whatever-integrity-hash" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
 
 
@@ -46,28 +46,56 @@
   <!-------------------------------------------------------------------------------------------------------------------------------------->
   <!--------------------------------------------------------------- HEADER --------------------------------------------------------------->
   <!-------------------------------------------------------------------------------------------------------------------------------------->
-  <header id="header" class="header d-flex align-items-center fixed-top">
-      <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
   
-        <a href="index.html" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="assets/img/logo.png" alt="">
-        </a>
+      <!-- Logo -->
+      <a href="#hero" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="Logo" />
+      </a>
   
-        <nav id="navmenu" class="navmenu mx-auto">
-          <ul class="d-flex justify-content-center">
-            <li><a href="#hero" class="active">Home</a></li>
-            <li><a href="#aves">Aves</a></li>
-            <li><a href="#zonas">Zonas</a></li>
-            <li><a href="#quizz">Quizz</a></li>
-            <li><a href="#autores">Autores</a></li>
-            <li><a href="#contactanos">Contáctanos</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
+      <!-- Botón SVG personalizado para mobile nav -->
+      <button id="mobile-nav-toggle" class="d-xl-none" aria-label="Abrir menú">
+        <svg id="hamburger-icon" width="30" height="30" viewBox="0 0 100 80" fill="currentColor">
+          <rect width="100" height="10"></rect>
+          <rect y="30" width="100" height="10"></rect>
+          <rect y="60" width="100" height="10"></rect>
+        </svg>
+        <svg id="close-icon" width="30" height="30" viewBox="0 0 100 100" fill="currentColor" style="display: none;">
+          <line x1="10" y1="10" x2="90" y2="90" stroke="currentColor" stroke-width="10" />
+          <line x1="90" y1="10" x2="10" y2="90" stroke="currentColor" stroke-width="10" />
+        </svg>
+      </button>
   
-      </div>
-    </header>
+      <!-- Menú normal (desktop) -->
+      <nav id="navmenu" class="navmenu d-none d-xl-block w-100">
+        <ul class="d-flex justify-content-center gap-4 list-unstyled mb-0">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#aves">Aves</a></li>
+          <li><a href="#zonas">Zonas</a></li>
+          <li><a href="#quizz">Quizz</a></li>
+          <li><a href="#autores">Autores</a></li>
+          <li><a href="#contactanos">Contáctanos</a></li>
+        </ul>
+      </nav>
+
+  
+    <!-- Menú móvil (inicialmente oculto) -->
+    <div class="mobile-nav d-xl-none" id="mobileNav">
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#aves">Aves</a></li>
+        <li><a href="#zonas">Zonas</a></li>
+        <li><a href="#quizz">Quizz</a></li>
+        <li><a href="#autores">Autores</a></li>
+        <li><a href="#contactanos">Contáctanos</a></li>
+      </ul>
+    </div>
+  </header>
+  
+  
+  
+  
 
   <main class="main">
     <!-- Hero Section with Carousel -->
@@ -84,25 +112,16 @@
         <!-- Slides -->
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://seo.org/wp-content/uploads/2013/10/F167Secundaria-2.jpg" class="d-block w-100 hero-img" alt="Ave 1">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Ave 1</h5>
-              <p>Descubre la fauna de Mallorca</p>
-            </div>
+            <img src="assets/img/Aves/papamoscas/papamoscas1.webp" class="d-block w-100 hero-img" alt="Ave 1">
+            
           </div>
           <div class="carousel-item">
-            <img src="https://seo.org/wp-content/uploads/2013/11/F101_Foto_01.jpg" class="d-block w-100 hero-img" alt="Ave 2">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Ave 2</h5>
-              <p>Vuela con nuestras especies autóctonas</p>
-            </div>
+            <img src="assets/img/Aves/papamoscas/papamoscas2.webp" class="d-block w-100 hero-img" alt="Ave 2">
+            
           </div>
           <div class="carousel-item">
-            <img src="https://seo.org/wp-content/uploads/2013/11/F451_Foto_01.jpg" class="d-block w-100 hero-img" alt="Ave 3">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Ave 3</h5>
-              <p>Una experiencia visual única</p>
-            </div>
+            <img src="assets/img/Aves/papamoscas/papamoscas3.webp" class="d-block w-100 hero-img" alt="Ave 3">
+            
           </div>
         </div>
 

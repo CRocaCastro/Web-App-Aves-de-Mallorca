@@ -25,38 +25,32 @@
   /**
    * Mobile nav toggle
    */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
-  }
-  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
-
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
+  document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const toggleBtn = document.getElementById('mobile-nav-toggle');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const mobileNav = document.getElementById('mobileNav');
+  
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('mobile-nav-active');
+  
+      const isActive = body.classList.contains('mobile-nav-active');
+      hamburgerIcon.style.display = isActive ? 'none' : 'block';
+      closeIcon.style.display = isActive ? 'block' : 'none';
     });
-
-  });
-
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
+  
+    // Cierra el menú al hacer clic en un enlace
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        body.classList.remove('mobile-nav-active');
+        hamburgerIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+      });
     });
   });
+  
+  
 
   /**
    * Preloader

@@ -81,8 +81,8 @@
         },
         "identifier": "A1",
         "image": [
-            "/assets/img/Aves/papamoscas/papamoscas1.webp",
-            "/assets/img/Aves/papamoscas/papamoscas2.webp",
+            "assets/img/Aves/papamoscas/papamoscas1.webp",
+            "assets/img/Aves/papamoscas/papamoscas2.webp",
             "assets/img/Aves/papamoscas/papamoscas3.webp",
             "assets/img/Aves/papamoscas/papamoscas4.webp",
             "assets/img/Aves/papamoscas/papamoscas5.webp"

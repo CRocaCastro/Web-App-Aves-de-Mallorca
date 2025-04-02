@@ -88,6 +88,172 @@ h6 {
   font-family: var(--heading-font);
 }
 
+
+/* === HEADER === */
+.header {
+  background-color: #2f3942;
+  padding: 20px 40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header .logo img {
+  height: 40px;
+}
+
+/* === NAVMENU === */
+.navmenu ul {
+  list-style: none;
+  display: flex;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navmenu li {
+  position: relative;
+}
+
+.navmenu a {
+  font-family: var(--nav-font);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--contrast-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+
+
+/* Cambiar color al pasar */
+.navmenu a:hover,
+.navmenu a.active {
+  color: var(--accent-color);
+}
+
+
+
+/* === RESPONSIVE === */
+@media (max-width: 1199px) {
+  .navmenu {
+    display: none;
+  }
+}
+
+/* Modo escritorio: ocultar toggle, mostrar menú normal */
+@media (min-width: 1200px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
+
+  .navmenu {
+    display: block !important;
+  }
+}
+
+/* Modo móvil: ocultar navmenu por defecto */
+@media (max-width: 1199px) {
+  .navmenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--background-color);
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  .mobile-nav-active .navmenu {
+    display: block;
+  }
+
+  .navmenu ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .navmenu li {
+    text-align: center;
+  }
+
+  .mobile-nav-toggle {
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+}
+
+/* NAV MÓVIL BONITO */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 35%;
+  height: 100vh;
+  background: rgba(33, 33, 33, 0.95);
+  color: #fff;
+  z-index: 999;
+  padding: 60px 20px;
+  transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav ul li {
+  margin: 20px 0;
+}
+
+.mobile-nav ul li a {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.mobile-nav ul li a:hover {
+  color: var(--accent-color, #2dc997);
+}
+
+/* Estado activo */
+body.mobile-nav-active .mobile-nav {
+  right: 0;
+}
+
+/* Botón SVG */
+#mobile-nav-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  z-index: 1000;
+  position: relative;
+}
+
+/* Icono oscuro si el fondo es blanco */
+body:not(.mobile-nav-active) #mobile-nav-toggle svg {
+  color: var(--heading-color, #333);
+}
+
+
+
+
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -108,12 +274,71 @@ h6 {
   margin-top: -90px; /* ajusta según el alto de tu navbar */
 }
 
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: -66px; /* Si el navbar es más bajo en móvil */
+  }
+}
+
+
 /* Imágenes más pequeñas en el carrusel */
 .hero-img {
   width: 100%;
   height: 100vh;
   object-fit: cover;
   object-position: center;
+}
+
+
+@media (max-width: 768px) {
+  .hero-img {
+    height: 60vh;
+  }
+
+  .hero .carousel-container {
+    inset: 70px 20px 40px 20px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-img {
+    height: 60vh;
+  }
+
+  .hero-section {
+    margin-top: 0;
+  }
+
+  .hero .carousel-container {
+    inset: 70px 20px 40px 20px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+  }
+
+  .hero .btn-get-started {
+    font-size: 14px;
+    padding: 6px 24px;
+  }
 }
 
 
@@ -153,13 +378,12 @@ h6 {
   overflow: hidden;
 }
 
-.hero .carousel-item:before {
-  content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 50%);
-  position: absolute;
-  inset: 0;
-  z-index: 2;
+.hero .carousel-item::before {
+  content: none !important;
+  display: none !important;
 }
+
+
 
 .hero .carousel-container {
   position: absolute;
@@ -178,6 +402,8 @@ h6 {
   font-weight: 700;
   animation: fadeInDown 1s both;
 }
+
+
 
 @media (max-width: 768px) {
   .hero h2 {
@@ -215,6 +441,14 @@ h6 {
 .hero .btn-get-started:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
+
+@media (max-width: 576px) {
+  .hero .btn-get-started {
+    font-size: 14px;
+    padding: 6px 24px;
+  }
+}
+
 
 .hero .carousel-control-prev,
 .hero .carousel-control-next {
@@ -263,6 +497,15 @@ h6 {
   transition: background-color 0.3s ease;
 }
 
+@media (max-width: 576px) {
+  .carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+  }
+}
+
+
 .carousel-indicators .active {
   background-color: #ffffff;
 }
@@ -291,6 +534,26 @@ h6 {
     transform: translate3d(0, 0, 0);
   }
 }
+
+
+/* 🔧 Forzar eliminación de línea blanca en carrusel */
+.hero .carousel-item::before,
+.hero::before,
+.hero-section::before {
+  content: none !important;
+  display: none !important;
+}
+
+.hero,
+.hero-img,
+.hero .carousel,
+.hero .carousel-item {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
 
 /* Pulsating Play Button
 ------------------------------*/
@@ -2318,7 +2581,6 @@ canvas.confetti-canvas {
   z-index: 9999 !important;
   pointer-events: none;
 }
-
 
 
 
