@@ -25,7 +25,7 @@
             "name": "¿Cuál es una característica distintiva del Papamoscas gris?",
             "identifier": 0,
             "text": "plumaje  monótono de color marrón grisáceo por encima, blanquecino apagado por debajo y con vetas oscuras en la coronilla y el pecho.",
-            "image": "https://www.mnemolia.com/images/66/MAEJjKuHAwE.webp",
+            "image": "assets/img/Aves/papamoscas/papamoscas1.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -55,7 +55,7 @@
             "name": "¿Qué pájaro es el de la imagen? ",
             "identifier": 1,
             "text": "¡Adivina el ave!",
-            "image": "https://www.oscardiez.es/gallery/OscarDiez/16943392Gl.jpg",
+            "image": "assets/img/Aves/papamoscas/papamoscas2.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -85,7 +85,7 @@
             "name": "¿En qué estaciones podemos encontrar el Papamoscas gris en España?",
             "identifier": 2,
             "text": "El papamoscas gris ocupa gran diversidad de hábitats, aunque prefiere áreas arboladas, si bien no muy densas, con sotos, matorrales y zonas húmedas cercanas. Frecuentemente, ocupa cultivos de frutales, así como jardines y parques.",
-            "image": "https://sierradebaza.org/images/noticias/imagenes_25-03/Imagen_2.jpg?1740673701922=",
+            "image": "assets/img/Aves/papamoscas/papamoscas2.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -115,7 +115,7 @@
             "name": "¿Qué ave corresponde a la de la imagen?",
             "identifier": 3,
             "text": "Ave muy críptica, con un plumaje parduzco moteado en el que tan solo resalta el espejuelo azul.",
-            "image": "https://glseobarcelona.com/wp-content/uploads/Seccion-Conocelas-Grupo-Local-SEO-Barcelona-057-anade-azulon-ID.jpg",
+            "image": "assets/img/Aves/anadeazulon/anadeazulon2.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -145,7 +145,7 @@
             "name": "¿En qué tipo de hábitat es más común encontrar al Ánade azulón?",
             "identifier": 4,
             "text": "El Ánade azulón macho destaca por su cabeza verde brillante con irisaciones, un collar blanco que separa el cuello del pecho castaño, un pico amarillo con uña negra y patas anaranjadas. Además, presenta dos plumas negras rizadas sobre la cola y un espejuelo azul violáceo. La hembra, de menor tamaño, tiene un plumaje parduzco moteado con el mismo espejuelo que el macho.",
-            "image": "https://seo.org/wp-content/uploads/2013/11/F29_Dibujo_02.jpg",
+            "image": "assets/img/Aves/anadeazulon/anadeazulon1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -175,7 +175,7 @@
             "name": "¿Qué tipo de alimentación es consumida por el Ánade azulón?",
             "identifier": 5,
             "text": "El Ánade azulón frecuenta zonas húmedas como marismas, lagunas y estanques.",
-            "image": "https://meteosierra.com/fotos/fauna/azulon-1.jpg",
+            "image": "assets/img/Aves/anadeazulon/anadeazulon1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -205,7 +205,7 @@
             "name": "¿Dónde suele construir su nido el Andarríos chico?",
             "identifier": 6,
             "text": "El Andarríos chico es una limícola de pequeño tamaño con patas cortas, conocido por balancear la cola y la cabeza de manera característica cuando está posada. En su plumaje nupcial, presenta un color pardo grisáceo con barrados y punteaduras. Su nido es construido principalmente por la hembra.",
-            "image": "https://www.ecoregistros.org/site/images/dataimages/2018/10/28/294728/56-actitis-hypoleucos--2-.JPG",
+            "image": "/assets/img/Aves/andarrios/andarrios1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -235,7 +235,7 @@
             "name": "¿Cuál es una de las características más notables del comportamiento del Andarríos chico cuando está posado?",
             "identifier": 7,
             "text": "El Andarríos chico es conocido por su pequeño tamaño, patas cortas y su comportamiento característico al estar posado. Sus partes superiores son de color pardo y las inferiores blancas con un entrante pálido que sube desde el pecho hasta el cuello.",
-            "image": "https://www.ecoregistros.org/site/images/dataimages/2018/10/28/294728/56-actitis-hypoleucos--2-.JPG",
+            "image": "/assets/img/Aves/andarrios/andarrios3.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -265,7 +265,7 @@
             "name": "¿En qué tipo de hábitat se encuentra comúnmente el Andarríos chico durante la migración e invernada?",
             "identifier": 8,
             "text": "Es una especie residente en la Península, aunque también resulta común en los pasos migratorios.",
-            "image": "https://www.jorgefoto.com/wp-content/uploads/photo-gallery/AndarrioChico_Jucar_2011_3.jpg?bwg=1706984019",
+            "image": "/assets/img/Aves/andarrios/andarrios2.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {

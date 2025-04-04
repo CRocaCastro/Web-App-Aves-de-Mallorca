@@ -12,9 +12,9 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: 'Rozha One', serif;
-  --heading-font: 'Rozha One', serif;
-  --nav-font: 'Rozha One', serif;
+  --default-font: 'Baloo 2', cursive;
+  --heading-font: 'Baloo 2', cursive;
+  --nav-font: 'Baloo 2', cursive;
 }
 
 
@@ -30,7 +30,7 @@
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #151758;  /* The default color of the main navmenu links */
+  --nav-color: #666666;  /* The default color of the main navmenu links */
   --nav-hover-color:#ffffff; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
@@ -96,10 +96,6 @@ h6 {
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   z-index: 1000;
   transition: all 0.3s ease;
-}
-
-.header .logo img {
-  height: 40px;
 }
 
 /* === NAVMENU === */
@@ -1113,6 +1109,22 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
   object-position: center; /* Centra la imagen dentro del recorte */
 }
 
+
+/* Estilo para el botón "Ver resultados guardados" y "Ocultar resultados guardados" */
+#show-results-btn {
+  background-color: var(--accent-color); /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s ease; /* Transición suave al cambiar el color */
+}
+
+#show-results-btn:hover {
+  background-color: var(--accent-color); /* Color de fondo al pasar el mouse */
+}
 
 /*--------------------------------------------------------------
 # Aqui acaba lo que he añadido
@@ -2237,6 +2249,27 @@ section,
   background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
+/* Botón Ver más zonas*/
+#load-more-zonas {
+  padding: 10px 60px; /* Aumenta el relleno horizontal */
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#load-more-zonas:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+/* Oculta todas las imágenes excepto las primeras tres al cargar la página.*/
+.row.gy-4 .portfolio-item:nth-child(n+4) {
+  display: none;
+}
+
 /* Para que el contenedor de ítems se ajuste cuando cliques en ver más*/
 .isotope-container {
   display: grid;
@@ -2244,6 +2277,28 @@ section,
   gap: 20px; /* Espacio entre los elementos */
 }
 
+/* Filtros de las aves */
+
+/* Cambiar el color del botón a verde cuando hay una selección */
+.dropdown .btn-selected {
+  background-color: #2dc997 !important; /* Verde */
+  color: white !important;
+}
+
+/* Agregar un borde verde a la opción seleccionada */
+.dropdown-item.selected {
+  border: 2px solid #2dc997;
+  border-radius: 4px;
+}
+
+/* Barra de búsqueda */
+
+/* Estilo para la barra de búsqueda deshabilitada */
+.input-group input:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+}
 
 /* Fin Añadido Luz*/
 

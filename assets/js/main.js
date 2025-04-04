@@ -206,34 +206,74 @@
 # Aves
 --------------------------------------------------------------*/
 
+// Función para habilitar y deshabilitar la barra de búsqueda
+
+document.addEventListener('DOMContentLoaded', function () {
+  const dropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item');
+  const searchInput = document.querySelector('.input-group input');
+
+  // Inicialmente deshabilitar la barra de búsqueda
+  searchInput.disabled = true;
+  searchInput.placeholder = 'Selecciona el tipo de nombre para la búsqueda';
+
+  dropdownItems.forEach(item => {
+    item.addEventListener('click', function (event) {
+      event.preventDefault(); // Evita que el enlace recargue la página
+
+      // Alternar selección
+      if (this.classList.contains('selected')) {
+        this.classList.remove('selected');
+        searchInput.disabled = true;
+        searchInput.placeholder = 'Selecciona el tipo de nombre para la búsqueda';
+      } else {
+        // Deseleccionar otras opciones
+        dropdownItems.forEach(option => option.classList.remove('selected'));
+
+        // Seleccionar la opción actual
+        this.classList.add('selected');
+
+        // Actualizar el placeholder según la selección
+        if (this.textContent.trim() === 'Nombre común') {
+          searchInput.disabled = false;
+          searchInput.placeholder = 'Buscar por nombre común';
+        } else if (this.textContent.trim() === 'Nombre científico') {
+          searchInput.disabled = false;
+          searchInput.placeholder = 'Buscar por nombre científico';
+        }
+      }
+    });
+  });
+});
+
 // Función para el botón Ver más
-// document.addEventListener("DOMContentLoaded", () => {
-//   const portfolioItems = document.querySelectorAll("#aves .portfolio-item");
-//   const loadMoreButton = document.getElementById("load-more");
-//   const isotopeContainer = document.querySelector(".isotope-container"); // Contenedor principal
+document.getElementById('load-more').addEventListener('click', function () {
+  // Selecciona todas las imágenes ocultas y las muestra
+  document.querySelectorAll('.row.gy-4 .portfolio-item:nth-child(n+4)').forEach(function (item) {
+    item.style.display = 'block';
+  });
 
-//   // Mostrar solo la primera fila (3 elementos)
-//   const itemsPerRow = 3;
-//   portfolioItems.forEach((item, index) => {
-//     if (index >= itemsPerRow) {
-//       item.style.display = "none";
-//     }
-//   });
+  // Oculta el botón "Ver más" y muestra el botón "Ver menos"
+  this.style.display = 'none';
+  document.getElementById('load-less').style.display = 'inline-block';
+});
 
-//   // Mostrar más elementos al hacer clic en el botón
-//   loadMoreButton.addEventListener("click", () => {
-//     portfolioItems.forEach((item) => {
-//       item.style.display = "block";
-//     });
+// Función para el botón Ver menos
+document.getElementById('load-less').addEventListener('click', function () {
+  // Oculta todas las imágenes excepto las primeras tres
+  document.querySelectorAll('.row.gy-4 .portfolio-item:nth-child(n+4)').forEach(function (item) {
+    item.style.display = 'none';
+  });
 
-//     // Ajustar la altura del contenedor
-//     if (isotopeContainer) {
-//       isotopeContainer.style.height = `${isotopeContainer.scrollHeight}px`;
-//     }
+  // Oculta el botón "Ver menos" y muestra el botón "Ver más"
+  this.style.display = 'none';
+  document.getElementById('load-more').style.display = 'inline-block';
 
-//     loadMoreButton.style.display = "none"; // Ocultar el botón después de cargar más
-//   });
-// });
+  // Desplazar la página hacia la sección de "Aves"
+  document.getElementById('aves').scrollIntoView({
+    behavior: 'smooth', // Desplazamiento suave
+    block: 'start' // Alinea al inicio de la sección
+  });
+});
 
 // Función para cargar las aves desde un archivo JSON
 
@@ -284,22 +324,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const otherBirds = data.filter(bird => bird.identifier !== item.identifier); // Excluir el ave actual
     modalAdditionalInfo.innerHTML = `
       <h5>Otras aves</h5>
-      <div class="row gy-4">
-        ${otherBirds.map(bird => `
-          <div class="col-lg-4 col-md-6">
+      <div class="row gy-4" id="other-birds-container">
+        ${otherBirds.slice(0, 3).map(bird => `
+          <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="card h-100">
-              <a href="#" class="portfolio-link" data-id="${bird.identifier}">
+              <a class="portfolio-link" data-id="${bird.identifier}">
                 <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
               </a>
               <div class="card-body">
-                <h5 class="card-title"><a href="#" title="More Details">${bird.name}</a></h5>
+                <h5 class="card-title"><a title="More Details">${bird.name}</a></h5>
                 <p class="card-text">${bird.alternateName}</p>
               </div>
             </div>
           </div>
         `).join('')}
       </div>
+      ${otherBirds.length > 3 ? '<div class="text-center mt-3"><button class="btn btn-primary btn-sm" id="load-more-other-birds">Cargar más</button></div>' : ''}
     `;
+
+    
 
     // Configurar eventos para las tarjetas de otras aves
     const otherBirdLinks = modalAdditionalInfo.querySelectorAll('.portfolio-link');
@@ -331,11 +374,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         card.innerHTML = `
           <div class="card h-100">
-            <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${item.identifier}">
-              <img src="${item.image[0]}" class="card-img-top" alt="${item.name}">
+            <a  class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${item.identifier}">
+              <img src="${item.image[0]}" class="card-img-top" alt="${item.name}" loading="lazy">
             </a>
             <div class="card-body">
-              <h5 class="card-title"><a href="#" title="More Details">${item.name}</a></h5>
+              <h5 class="card-title"><a  title="More Details">${item.name}</a></h5>
               <p class="card-text">${item.alternateName}</p>
             </div>
           </div>
@@ -369,6 +412,39 @@ document.addEventListener('DOMContentLoaded', function () {
 /*--------------------------------------------------------------
 # Zonas
 --------------------------------------------------------------*/
+
+// Función para el botón "Ver más" en Zonas
+document.getElementById('load-more-zonas').addEventListener('click', function () {
+  // Selecciona todas las tarjetas ocultas y las muestra
+  document.querySelectorAll('#zonas .row.gy-4 .portfolio-item:nth-child(n+4)').forEach(function (item) {
+    item.style.display = 'block';
+  });
+
+  // Oculta el botón "Ver más" y muestra el botón "Ver menos"
+  this.style.display = 'none';
+  document.getElementById('load-less-zonas').style.display = 'inline-block';
+});
+
+// Función para el botón "Ver menos" en Zonas
+document.getElementById('load-less-zonas').addEventListener('click', function () {
+  // Oculta todas las tarjetas excepto las primeras tres
+  document.querySelectorAll('#zonas .row.gy-4 .portfolio-item:nth-child(n+4)').forEach(function (item) {
+    item.style.display = 'none';
+  });
+
+  // Oculta el botón "Ver menos" y muestra el botón "Ver más"
+  this.style.display = 'none';
+  document.getElementById('load-more-zonas').style.display = 'inline-block';
+
+  // Desplazar la página hacia la sección de "Zonas"
+  document.getElementById('zonas').scrollIntoView({
+    behavior: 'smooth', // Desplazamiento suave
+    block: 'start' // Alinea al inicio de la sección
+  });
+});
+
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const jsonZonaUrl = 'assets/json/Zona.json'; // Ruta del archivo JSON de zonas
@@ -413,11 +489,11 @@ document.addEventListener('DOMContentLoaded', function () {
         ${otherZonas.map(z => `
           <div class="col-lg-4 col-md-6">
             <div class="card h-100">
-              <a href="#" class="zona-link" data-id="${z.identifier}">
+              <a class="zona-link" data-id="${z.identifier}">
                 <img src="${z.image[0]}" class="card-img-top" alt="${z.name}">
               </a>
               <div class="card-body">
-                <h5 class="card-title"><a href="#" title="More Details">${z.name}</a></h5>
+                <h5 class="card-title"><a title="More Details">${z.name}</a></h5>
                 <p class="card-text">${z.alternateName}</p>
               </div>
             </div>
@@ -456,11 +532,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         card.innerHTML = `
           <div class="card h-100">
-            <a href="#" class="zona-link" data-bs-toggle="modal" data-bs-target="#zonaModal" data-id="${zona.identifier}">
+            <a class="zona-link" data-bs-toggle="modal" data-bs-target="#zonaModal" data-id="${zona.identifier}">
               <img src="${zona.image[0]}" class="card-img-top" alt="${zona.name}">
             </a>
             <div class="card-body">
-              <h5 class="card-title"><a href="#" title="More Details">${zona.name}</a></h5>
+              <h5 class="card-title"><a title="More Details">${zona.name}</a></h5>
               <p class="card-text">${zona.alternateName}</p>
             </div>
           </div>
@@ -686,7 +762,48 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  document.getElementById("next-btn").addEventListener("click", () => {
+  // document.getElementById("next-btn").addEventListener("click", () => {
+  //   if (currentIndex < preguntas.length - 1) {
+  //     currentIndex++;
+  //     mostrarPregunta();
+  //   } else if (currentIndex === preguntas.length - 1 && preguntasComprobadas[currentIndex]) {
+  //     const aciertos = respuestasUsuario.filter((r, i) =>
+  //       r?.trim() === preguntas[i].acceptedAnswer.text.trim()
+  //     ).length;
+
+  //     const tiempoTotal = Math.floor((Date.now() - inicioTiempo) / 1000);
+
+  //     const quizEnd = document.getElementById("quiz-end");
+  //     quizEnd.innerHTML = `
+  //       <p class="fw-bold fs-4 text-success">¡Has finalizado el quiz!</p>
+  //       <p class="text-success fs-5">Aciertos: <strong>${aciertos} de ${preguntas.length}</strong></p>
+  //       <p class="text-success fs-5">Tiempo total: <strong>${tiempoTotal} segundos</strong></p>
+  //       <button class="btn btn-success mt-3" id="restart-btn">Volver a empezar</button>
+  //     `;
+
+  //     quizEnd.classList.remove("d-none");
+
+  //     myConfetti({
+  //       particleCount: 180,
+  //       spread: 100,
+  //       origin: { y: 0.6 },
+  //       gravity: 0.3,    
+  //       ticks: 200       
+  //     });
+      
+
+  //     document.getElementById("quizModalLabel").classList.add("d-none");
+  //     document.getElementById("quiz-question-text").classList.add("d-none");
+  //     document.getElementById("quiz-question-image").classList.add("d-none");
+  //     document.getElementById("quiz-options").classList.add("d-none");
+  //     document.getElementById("quiz-feedback").classList.add("d-none");
+  //     document.getElementById("check-btn").classList.add("d-none");
+  //     document.getElementById("prev-btn").classList.add("d-none");
+  //     document.getElementById("next-btn").classList.add("d-none");
+  //   }
+  // });
+
+    document.getElementById("next-btn").addEventListener("click", () => {
     if (currentIndex < preguntas.length - 1) {
       currentIndex++;
       mostrarPregunta();
@@ -694,9 +811,23 @@ document.addEventListener("DOMContentLoaded", function () {
       const aciertos = respuestasUsuario.filter((r, i) =>
         r?.trim() === preguntas[i].acceptedAnswer.text.trim()
       ).length;
-
+  
       const tiempoTotal = Math.floor((Date.now() - inicioTiempo) / 1000);
-
+  
+      // Guardar los resultados en localStorage
+      const resultados = {
+        fecha: new Date().toLocaleString(),
+        aciertos: aciertos,
+        totalPreguntas: preguntas.length,
+        tiempo: tiempoTotal
+      };
+  
+      // Recuperar resultados previos y agregar el nuevo
+      const resultadosPrevios = JSON.parse(localStorage.getItem("quizResultados")) || [];
+      resultadosPrevios.push(resultados);
+      localStorage.setItem("quizResultados", JSON.stringify(resultadosPrevios));
+  
+      // Mostrar los resultados al usuario
       const quizEnd = document.getElementById("quiz-end");
       quizEnd.innerHTML = `
         <p class="fw-bold fs-4 text-success">¡Has finalizado el quiz!</p>
@@ -704,18 +835,17 @@ document.addEventListener("DOMContentLoaded", function () {
         <p class="text-success fs-5">Tiempo total: <strong>${tiempoTotal} segundos</strong></p>
         <button class="btn btn-success mt-3" id="restart-btn">Volver a empezar</button>
       `;
-
+  
       quizEnd.classList.remove("d-none");
-
+  
       myConfetti({
         particleCount: 180,
         spread: 100,
         origin: { y: 0.6 },
-        gravity: 0.3,    
-        ticks: 200       
+        gravity: 0.3,
+        ticks: 200
       });
-      
-
+  
       document.getElementById("quizModalLabel").classList.add("d-none");
       document.getElementById("quiz-question-text").classList.add("d-none");
       document.getElementById("quiz-question-image").classList.add("d-none");
@@ -737,5 +867,73 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("quiz-end").classList.add("d-none");
       mostrarPregunta();
     }
+  });
+
+
+  // Guardar resultados en localStorage
+    function mostrarResultadosGuardados() {
+    const resultados = JSON.parse(localStorage.getItem("quizResultados")) || [];
+    const listaResultados = document.getElementById("resultados-lista");
+  
+    listaResultados.innerHTML = ""; // Limpiar la lista
+  
+    resultados.forEach((resultado, index) => {
+      const li = document.createElement("li");
+      li.className = "list-group-item";
+      li.innerHTML = `
+        <strong>Intento ${index + 1}:</strong> 
+        Aciertos: ${resultado.aciertos}/${resultado.totalPreguntas}, 
+        Tiempo: ${resultado.tiempo} segundos, 
+        Fecha: ${resultado.fecha}
+      `;
+      listaResultados.appendChild(li);
+    });
+  }
+  
+  // Llamar a la función al cargar la página
+  document.addEventListener("DOMContentLoaded", mostrarResultadosGuardados);
+
+    // Función para mostrar los resultados guardados
+  function mostrarResultadosGuardados() {
+    const resultados = JSON.parse(localStorage.getItem("quizResultados")) || [];
+    const listaResultados = document.getElementById("resultados-lista");
+  
+    listaResultados.innerHTML = ""; // Limpiar la lista
+  
+    if (resultados.length === 0) {
+      listaResultados.innerHTML = "<li class='list-group-item'>No hay resultados guardados.</li>";
+      return;
+    }
+  
+    resultados.forEach((resultado, index) => {
+      const li = document.createElement("li");
+      li.className = "list-group-item";
+      li.innerHTML = `
+        <strong>Intento ${index + 1}:</strong> 
+        <strong>Aciertos: </strong> ${resultado.aciertos}/${resultado.totalPreguntas}, 
+        <strong>Tiempo: </strong> ${resultado.tiempo} segundos, 
+        <strong>Fecha: </strong>  ${resultado.fecha}
+      `;
+      listaResultados.appendChild(li);
+    });
+  }
+  
+  // Evento para mostrar/ocultar los resultados al hacer clic en el botón
+  document.getElementById("show-results-btn").addEventListener("click", () => {
+    const quizResults = document.getElementById("quiz-results");
+    const showResultsBtn = document.getElementById("show-results-btn");
+  
+    // Alternar visibilidad de los resultados
+    quizResults.classList.toggle("d-none");
+  
+    // Cambiar el texto del botón
+    if (quizResults.classList.contains("d-none")) {
+      showResultsBtn.innerText = "Ver resultados guardados";
+    } else {
+      showResultsBtn.innerText = "Ocultar resultados guardados";
+    }
+  
+    // Actualizar la lista de resultados
+    mostrarResultadosGuardados();
   });
 });
