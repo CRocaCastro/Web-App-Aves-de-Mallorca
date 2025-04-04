@@ -520,6 +520,70 @@
                 "description": "Identificadores de las zonas en las que se encuentra la Garcilla bueyera."
             }
         ]
+    },
+    {
+        "@type": "Taxon",
+        "name": "Jilguero europeo",
+        "alternateName": "Carduelis carduelis",
+        "description": "El jilguero europeo es un pequeño pájaro cantor muy colorido. Se reconoce fácilmente por su rostro rojo intenso, cabeza blanca y negra, y alas negras con una llamativa franja amarilla. Su canto es alegre y melodioso, lo que lo hace muy apreciado entre los aficionados a las aves.",
+        "disambiguatingDescription": "En vuelo se reconocen bien por la presencia de dos amplias bandas alares de color amarillo dorado.",
+        "taxonRank": {
+        "@type": "PropertyValue",
+        "name": "Especie",
+        "value": "species"
+        },
+        "parentTaxon": {
+        "@type": "Taxon",
+        "name": "Accipitridae"
+        },
+        "identifier": "A8",
+        "image": [
+            "/assets/img/Aves/jilguero/jilguero1.webp",
+            "/assets/img/Aves/jilguero/jilguero2.webp",
+            "/assets/img/Aves/jilguero/jilguero3.webp",
+            "/assets/img/Aves/jilguero/jilguero4.webp",
+            "/assets/img/Aves/jilguero/jilguero5.webp"
+        ],
+        "hasDefinedTerm": [
+            {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "Podemos encontrar al jilguero europeo durante todo el año, aunque su presencia es más notable en primavera y verano, cuando se reproduce.",
+                "alternateName": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+            },
+            {
+                "@type": "DefinedTerm",
+                "name": "Habitat de presencia",
+                "termCode": "habitat",
+                "description": "Se establece en una gran variedad de hábitats, siempre y cuando haya cierta cobertura arbórea y el clima sea suave. No suele instalarse a más de 1.800 metros de altitud.",
+                "alternateName": ["Humedales", "Marismas", "Campos agrícolas"]
+            }
+        ],
+        "subjectOf": [
+            {
+                "@type": "MediaObject",
+                "name": "Canto del Jilguero europeo",
+                "contentUrl": "https://seo.org/ave/jilguero-europeo/",
+                "encodingFormat": "audio/mpeg"
+            },
+            {
+                "@type": "MediaObject",
+                "name": "Jilguero europeo en su hábitat natural",
+                "contentUrl": "https://www.youtube.com/watch?v=WOkJ-k_U3aM&t=3s",
+                "encodingFormat": "video/mp4"
+            }
+        ],
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": [
+                    "Z0"
+                ],
+                "description": "Identificadores de las zonas en las que se encuentra el Jilguero europeo."
+            }
+        ]
     }
     ]
 }

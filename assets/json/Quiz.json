@@ -289,6 +289,68 @@
                 "@type": "Answer",
                 "text": "Estuarios, marismas, playas y áreas rocosas."
             }
+        },
+
+        {
+            "@type": "Question",
+            "name": "¿Qué ave corresponde a la de la imagen?",
+            "identifier": 9,
+            "text": "Su canto es alegre y melodioso, lo que lo hace muy apreciado entre los aficionados a las aves.",
+            "image": "/assets/img/Aves/jilguero/jilguero3.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+                {
+                    "@type": "Answer",
+                    "text": "Papamoscas gris."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Andarríos chico."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Calamón común."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Jilguero europeo. "
+                }
+            ],
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Jilguero europeo. "
+            }
+        },
+
+        {
+            "@type": "Question",
+            "name": "¿Dónde se establece el jilguero europeo?",
+            "identifier": 10,
+            "text": "Su canto es alegre y melodioso, lo que lo hace muy apreciado entre los aficionados a las aves.",
+            "image": "/assets/img/Aves/jilguero/jilguero3.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+                {
+                    "@type": "Answer",
+                    "text": "Donde haya cierta cobertura arbórea y el clima sea suave."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Zonas boscosas."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Cerca del agua ."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Zonas de clima árido y poca agua. "
+                }
+            ],
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Donde haya cierta cobertura arbórea y el clima sea suave."
+            }
         }
     ],
     "potentialAction": {
