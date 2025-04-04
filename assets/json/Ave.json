@@ -479,11 +479,11 @@
             },
             "identifier": "A7",
             "image": [
+                "assets/img/Aves/garzilla/garzilla5.jpg",
                 "assets/img/Aves/garzilla/garzilla1.jpg",
-                "assets/img/Aves/garzilla/garzilla2.webp",
                 "assets/img/Aves/garzilla/garzilla3.jpg",
                 "assets/img/Aves/garzilla/garzilla4.jpg",
-                "assets/img/Aves/garzilla/garzilla5.jpg",
+                "assets/img/Aves/garzilla/garzilla2.webp",
                 "assets/img/Aves/garzilla/garzilla6.jpg"
             ],
             "hasDefinedTerm": [
@@ -545,8 +545,8 @@
             },
             "identifier": "A8",
             "image": [
-                "/assets/img/Aves/jilguero/jilguero1.webp",
                 "/assets/img/Aves/jilguero/jilguero2.webp",
+                "/assets/img/Aves/jilguero/jilguero1.webp",
                 "/assets/img/Aves/jilguero/jilguero3.webp",
                 "/assets/img/Aves/jilguero/jilguero4.webp",
                 "/assets/img/Aves/jilguero/jilguero5.webp"
@@ -591,7 +591,395 @@
                     "description": "Identificadores de las zonas en las que se encuentra el Jilguero europeo."
                 }
             ]
-        }
+        },
+        {
+            "@type": "Taxon",
+            "name": "Garza real",
+            "alternateName": "Ardea cinerea",
+            "description": "Ave zancuda de gran tamaño con plumaje grisáceo, cabeza blanca con una franja negra y pico largo y afilado. Se la suele ver en zonas húmedas y ríos, cazando peces con movimientos precisos.",
+            "disambiguatingDescription": "Se distingue por su gran tamaño, plumaje gris y vuelo pausado con el cuello recogido en forma de S.",
+            "taxonRank": {
+            "@type": "PropertyValue",
+            "name": "Especie",
+            "value": "species"
+            },
+            "parentTaxon": {
+            "@type": "Taxon",
+            "name": "Ardeidae"
+            },
+            "identifier": "A9",
+            "image": [
+                "/assets/img/Aves/garzareal/garzareal1.jpg",
+                "/assets/img/Aves/garzareal/garzareal2.jpg",
+                "/assets/img/Aves/garzareal/garzareal3.jpg",
+                "/assets/img/Aves/garzareal/garzareal4.jpg",
+                "/assets/img/Aves/garzareal/garzareal5.jpg"
+            ],
+            "hasDefinedTerm": [
+                {
+                    "@type": "DefinedTerm",
+                    "name": "Estaciones de presencia",
+                    "termCode": "season",
+                    "description": "Es habitual encontrar a la garza real en los meses más fríos del año, siendo el invierno la estación en la que resulta más frecuente.",
+                    "alternateName": ["Enero", "Febrero", "Marzo", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+                },
+                {
+                    "@type": "DefinedTerm",
+                    "name": "Habitat de presencia",
+                    "termCode": "habitat",
+                    "description": "Prefiere zonas húmedas, incluyendo lagunas, marismas, humedales y ríos de aguas tranquilas. Se alimenta de peces y pequeños invertebrados.",
+                    "alternateName": ["Humedales", "Marismas", "Zonas de agua dulce"]
+                }
+            ],
+            "subjectOf": [
+                {
+                    "@type": "MediaObject",
+                    "name": "Canto de la Garza Real",
+                    "contentUrl": " ",
+                    "encodingFormat": "audio/mpeg"
+                },
+                {
+                    "@type": "MediaObject",
+                    "name": "Garza real en su hábitat natural",
+                    "contentUrl": " ",
+                    "encodingFormat": "video/mp4"
+                }
+            ],
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "Zona de distribución",
+                    "value": [
+                        "Z1", "Z5"
+                    ],
+                    "description": "Identificadores de las zonas en las que se encuentra la Garza Real."
+                }
+            ]
+        },
+        {
+            "@type": "Taxon",
+            "name": "Águila pescadora",
+            "alternateName": "Pandion haliaetus",
+            "description": "La águila pescadora es un ave rapaz única e inconfundible. Es la única especie dentro de su familia y tiene una distribución casi mundial. Presenta el pecho y vientre mayormente blancos, con algunas rayas oscuras. Las alas tienen un característico patrón blanco y negro, al igual que la cola. Su espalda es de color marrón oscuro. La cabeza se distingue por una cresta blanca, una franja oscura que cruza la cara y unos ojos amarillos intensos. La hembra suele presentar una banda pectoral más marcada que el macho.",
+            "disambiguatingDescription": "Es la única especie de su familia y se encuentra distribuida por todo el mundo, especialmente en zonas costeras y cuerpos de agua dulce.",
+            "taxonRank": {
+                "@type": "PropertyValue",
+                "name": "Especie",
+                "value": "species"
+            },
+            "parentTaxon": {
+                "@type": "Taxon",
+                "name": "Pandionidae"
+            },
+            "identifier": "A10",
+            "image": [
+                "/assets/img/Aves/aguilapescadora/aguilapescadora6.jpg",
+                "/assets/img/Aves/aguilapescadora/aguilapescadora2.jpg",
+                "/assets/img/Aves/aguilapescadora/aguilapescadora3.jpg",
+                "/assets/img/Aves/aguilapescadora/aguilapescadora4.jpg",
+                "/assets/img/Aves/aguilapescadora/aguilapescadora5.jpg",
+                "/assets/img/Aves/aguilapescadora/aguilapescadora1.jpg",
+                "/assets/img/Aves/aguilapescadora/aguilapescadora7.jpg",
+                "/assets/img/Aves/aguilapescadora/aguilapescadora8.jpg",
+                "/assets/img/Aves/aguilapescadora/aguilapescadora9.jpeg",
+                "/assets/img/Aves/aguilapescadora/aguilapescadora10.jpg"
+            ],
+            "hasDefinedTerm": [
+                {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "Ave migratoria que se puede observar en Mallorca entre los meses de septiembre y abril.",
+                "alternateName": ["Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril"]
+                },
+                {
+                "@type": "DefinedTerm",
+                "name": "Hábitat de presencia",
+                "termCode": "habitat",
+                "description": "Prefiere hábitats cercanos al agua como costas, humedales, marismas y embalses, donde se alimenta principalmente de peces. Se la suele ver sobrevolando aguas tranquilas y lanzándose en picado para cazar.",
+                "alternateName": ["Áreas de agua dulce", "Costas", "Humedales", "Embalses"]
+                }
+            ],
+            "subjectOf": [
+                {
+                "@type": "MediaObject",
+                "name": "Canto del Águila Pescadora",
+                "contentUrl": "",
+                "encodingFormat": "audio/mpeg"
+                },
+                {
+                "@type": "MediaObject",
+                "name": "Águila pescadora en su hábitat natural",
+                "contentUrl": "",
+                "encodingFormat": "video/mp4"
+                }
+            ],
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": ["Z0", "Z1", "Z5"],
+                "description": "Identificadores de las zonas en Mallorca donde se puede observar al águila pescadora: La Gola, S'Albufera y s'Albufereta."
+                }
+            ]
+        },
+        {
+            "@type": "Taxon",
+            "name": "Flamenco",
+            "alternateName": "Phoenicopterus roseus",
+            "description": "El flamenco común es conocido por su característico color rosado y su forma de alimentarse. Posee un pico curvado especializado que le permite filtrar pequeños organismos como plancton, larvas y peces diminutos. En aguas poco profundas y zonas fangosas, remueve el fondo con sus largas patas y entierra su cabeza para filtrar el agua a través de su pico, separando el alimento del barro. Los flamencos se alimentan y reproducen en grandes bandadas, lo que les proporciona protección contra depredadores. Las crías nacen de un solo huevo, son grises al nacer y no adquieren su color rosado hasta los dos años.",
+            "disambiguatingDescription": "Ave zancuda de gran tamaño, de plumaje rosado, pico curvado y sociabilidad marcada. Se alimenta filtrando el agua y suele encontrarse en zonas salinas y húmedas.",
+            "taxonRank": {
+                "@type": "PropertyValue",
+                "name": "Especie",
+                "value": "species"
+            },
+            "parentTaxon": {
+                "@type": "Taxon",
+                "name": "Phoenicopteridae"
+            },
+            "identifier": "A11",
+            "image": [
+                "/assets/img/Aves/flamenco/flamenco2.jpg",
+                "/assets/img/Aves/flamenco/flamenco1.jpg",
+                "/assets/img/Aves/flamenco/flamenco4.webp",
+                "/assets/img/Aves/flamenco/flamenco6.webp",
+                "/assets/img/Aves/flamenco/flamenco8.jpeg",
+                "/assets/img/Aves/flamenco/flamenco9.jpeg",
+                "/assets/img/Aves/flamenco/flamenco10.jpg"
+            ],
+            "hasDefinedTerm": [
+                {
+                    "@type": "DefinedTerm",
+                    "name": "Estaciones de presencia",
+                    "termCode": "season",
+                    "description": "El flamenco es un ave invernante en Mallorca. Se observa principalmente entre los meses de agosto y marzo.",
+                    "alternateName": ["Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo"]
+                },
+                {
+                    "@type": "DefinedTerm",
+                    "name": "Hábitat de presencia",
+                    "termCode": "habitat",
+                    "description": "Prefiere lagunas salinas, humedales y marismas de aguas poco profundas, donde se alimenta filtrando algas, crustáceos y otros pequeños organismos.",
+                    "alternateName": ["Aguas someras", "Lagunas salinas", "Marismas", "Humedales salinos"]
+                }
+            ],
+            "subjectOf": [
+                {
+                    "@type": "MediaObject",
+                    "name": "Canto del Flamenco",
+                    "contentUrl": "https://macaulaylibrary.org/asset/203905311",
+                    "encodingFormat": "audio/mpeg"
+                },
+                {
+                    "@type": "MediaObject",
+                    "name": "Flamencos en su entorno natural",
+                    "contentUrl": "",
+                    "encodingFormat": "video/mp4"
+                }
+            ],
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "Zona de distribución",
+                    "value": ["Z1"],
+                    "description": "Identificador de la zona donde se puede observar al flamenco común en Mallorca."
+                }
+            ]
+        },
+        {
+            "@type": "Taxon",
+            "name": "Calamón Común",
+            "alternateName": "Porphyrio porphyrio",
+            "description": "El calamón común es el mayor de los rálidos europeos y de aspecto inconfundible. Su plumaje combina tonos azulados y violáceos con reflejos purpúreos. Presenta una franja blanca muy visible en la parte inferior de la cola, que utiliza como señal visual para comunicarse. Durante la época de celo, su pico cónico, escudete frontal y largas patas rojizas se intensifican en color. Estas patas terminan en dedos muy largos, ideales para moverse entre la vegetación flotante y manipular tallos. Aunque es torpe en el vuelo, se desplaza con agilidad entre los carrizales.",
+            "disambiguatingDescription": "Uno de los rálidos más grandes, de cuerpo robusto, plumaje azul oscuro y negro, con pico y patas de intenso color rojo. Juveniles con vientre grisáceo y coloración menos llamativa.",
+            "taxonRank": {
+              "@type": "PropertyValue",
+              "name": "Especie",
+              "value": "species"
+            },
+            "parentTaxon": {
+              "@type": "Taxon",
+              "name": "Rallidae"
+            },
+            "identifier": "A12",
+            "image": [
+                "/assets/img/Aves/calamon/calamon2.JPG",
+                "/assets/img/Aves/calamon/calamon5.jpg",
+                "/assets/img/Aves/calamon/calamon1.webp",
+                "/assets/img/Aves/calamon/calamon3.jpg",
+                "/assets/img/Aves/calamon/calamon4.jpg"
+            ],
+            "hasDefinedTerm": [
+              {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "El Calamón Común es una especie residente en Mallorca, presente todo el año en lugares como S'Albufera de Mallorca. Su actividad reproductiva aumenta en primavera y verano.",
+                "alternateName": ["Todo el año", "Primavera", "Verano"]
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Hábitat de presencia",
+                "termCode": "habitat",
+                "description": "Prefiere humedales, marismas y lagunas con vegetación densa, especialmente carrizales donde puede ocultarse, desplazarse con agilidad y construir sus nidos.",
+                "alternateName": ["Humedales con vegetación densa", "Carrizales", "Marismas", "Zonas inundadas"]
+              }
+            ],
+            "subjectOf": [
+              {
+                "@type": "MediaObject",
+                "name": "Canto del Calamón Común",
+                "contentUrl": "",
+                "encodingFormat": "audio/mpeg"
+              },
+              {
+                "@type": "MediaObject",
+                "name": "Calamón Común en su entorno natural",
+                "contentUrl": "",
+                "encodingFormat": "video/mp4"
+              }
+            ],
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": ["Z1", "Z5"],
+                "description": "Identificador de la zona en Mallorca donde se puede observar habitualmente al Calamón Común: S'Albufera de Mallorca."
+              }
+            ]
+        },
+        {
+            "@type": "Taxon",
+            "name": "Halcón de Eleonora",
+            "alternateName": "Falco eleonorae",
+            "description": "El Halcón de Eleonora es una rapaz migratoria de tamaño mediano, conocida por su elegante vuelo y su inusual ciclo reproductivo. Presenta dos fases de coloración: una clara, con plumaje gris pizarra y pecho rayado, y otra oscura, completamente marrón negruzco. Forma colonias en acantilados costeros del Mediterráneo, donde cría en verano. A diferencia de otras rapaces, retrasa su puesta hasta finales de julio y agosto, coincidiendo con la migración otoñal de pequeñas aves, su principal fuente de alimento. También consume insectos en primavera y durante sus desplazamientos migratorios. Cada año realiza una larga migración hasta Madagascar. Mallorca alberga una de las poblaciones más importantes de la especie, con unas 150-200 parejas.",
+            "disambiguatingDescription": "Rapaz de tamaño medio, ágil y estilizada, con dos morfos de coloración y un comportamiento colonial. Se alimenta de aves migratorias y cría en acantilados del Mediterráneo entre julio y octubre.",
+            "taxonRank": {
+              "@type": "PropertyValue",
+              "name": "Especie",
+              "value": "species"
+            },
+            "parentTaxon": {
+              "@type": "Taxon",
+              "name": "Falconidae"
+            },
+            "identifier": "A13",
+            "image": [
+              "/assets/img/Aves/halconeleonora/halconeleonora1.jpg",
+              "/assets/img/Aves/halconeleonora/halconeleonora5.jpg",
+              "/assets/img/Aves/halconeleonora/halconeleonora3.jpg",
+              "/assets/img/Aves/halconeleonora/halconeleonora4.jpg",
+              "/assets/img/Aves/halconeleonora/halconeleonora2.jpg"
+            ],
+            "hasDefinedTerm": [
+              {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "Se puede observar en Mallorca entre abril y octubre, coincidiendo con su llegada desde África para criar en acantilados y zonas costeras.",
+                "alternateName": ["Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre"]
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Hábitat de presencia",
+                "termCode": "habitat",
+                "description": "Prefiere acantilados costeros e islotes para anidar. Se le puede observar cazando aves migratorias sobre el mar o zonas de litoral, y también sobrevolando espacios abiertos.",
+                "alternateName": ["Acantilados marinos", "Islotes", "Espacios abiertos", "Zonas húmedas"]
+              }
+            ],
+            "subjectOf": [
+              {
+                "@type": "MediaObject",
+                "name": "Canto del Halcón de Eleonora",
+                "contentUrl": "https://macaulaylibrary.org/asset/203979891",
+                "encodingFormat": "audio/mpeg"
+              },
+              {
+                "@type": "MediaObject",
+                "name": "Halcón de Eleonora en su entorno natural",
+                "contentUrl": "",
+                "encodingFormat": "video/mp4"
+              }
+            ],
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": ["Z3"],
+                "description": "Zonas en Mallorca donde se puede observar al Halcón de Eleonora, como la Serra de Tramuntana."
+              }
+            ]
+        },
+        
+        {
+            "@type": "Taxon",
+            "name": "Cormorán moñudo",
+            "alternateName": "Phalacrocorax aristotelis desmarestii",
+            "description": "El Cormorán Moñudo Mediterráneo es una subespecie del cormorán moñudo adaptada al mar Mediterráneo. De menor tamaño que su pariente atlántico, presenta plumaje negro con reflejos verdosos, silueta esbelta y un característico moño de plumas sobre la cabeza, visible en época reproductiva. Es un ave marina residente que habita acantilados costeros, islotes y pequeñas bahías, donde cría en colonias reducidas. Su pico largo y afilado le permite capturar peces en aguas poco profundas, sumergiéndose repetidamente con gran habilidad. A diferencia del Cormorán Grande, evita zonas interiores y prefiere entornos marinos con aguas limpias y poca perturbación humana.",
+            "disambiguatingDescription": "Ave marina de tamaño mediano con plumaje negro brillante, moño visible durante la reproducción, ojos verdes y pico delgado con base amarillenta. Vive en zonas costeras rocosas del Mediterráneo y se alimenta buceando tras peces.",
+            "taxonRank": {
+              "@type": "PropertyValue",
+              "name": "Especie",
+              "value": "species"
+            },
+            "parentTaxon": {
+              "@type": "Taxon",
+              "name": "Phalacrocoracidae"
+            },
+            "identifier": "A14",
+            "image": [
+              "/assets/img/Aves/cormoran/cormoran1.jpg",
+              "/assets/img/Aves/cormoran/cormoran2.jpg",
+              "/assets/img/Aves/cormoran/cormoran3.jpg",
+              "/assets/img/Aves/cormoran/cormoran4.webp",
+              "/assets/img/Aves/cormoran/cormoran5.jpeg",
+              "/assets/img/Aves/cormoran/cormoran6.webp"
+            ],
+            "hasDefinedTerm": [
+              {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "Es una especie residente en Mallorca, observable durante todo el año.",
+                "alternateName": [
+                  "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+                ]
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Hábitat de presencia",
+                "termCode": "habitat",
+                "description": "Habita acantilados costeros, zonas rocosas e islotes, donde anida en grietas y cuevas protegidas. Caza en aguas marinas cercanas a la costa, donde se zambulle en busca de peces pequeños.",
+                "alternateName": [
+                  "Acantilados", "Zonas costeras rocosas", "Islotes", "Bahías protegidas"
+                ]
+              }
+            ],
+            "subjectOf": [
+              {
+                "@type": "MediaObject",
+                "name": "Canto del Cormorán moñudo",
+                "contentUrl": "https://macaulaylibrary.org/asset/215805911",
+                "encodingFormat": "audio/mpeg"
+              },
+              {
+                "@type": "MediaObject",
+                "name": "Cormorán moñudo en su entorno natural",
+                "contentUrl": "",
+                "encodingFormat": "video/mp4"
+              }
+            ],
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": ["Z3"],
+                "description": "Zonas en Mallorca donde se encuentra el Cormorán Moñudo Mediterráneo: Serra de Tramuntana."
+              }
+            ]
+        }      
     ]
 }
   
