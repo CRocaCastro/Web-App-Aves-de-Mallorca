@@ -908,3 +908,74 @@ document.addEventListener("DOMContentLoaded", function () {
     mostrarResultadosGuardados();
   });
 });
+
+
+/*--------------------------------------------------------------
+#   Carrusel hero cambio por estación
+--------------------------------------------------------------*/
+document.addEventListener("DOMContentLoaded", async () => {
+  const carouselInner = document.querySelector("#heroCarousel .carousel-inner");
+  const indicators = document.querySelector(".carousel-indicators");
+
+  try {
+    const response = await fetch("assets/json/Ave.json");
+    const data = await response.json();
+
+    // El array real de aves está dentro de "species"
+    const especies = data.species;
+
+    // Obtener el mes actual en formato capitalizado
+    const meses = [
+      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+    const mesActual = meses[new Date().getMonth()];
+
+    // Filtrar las aves que tienen presencia en el mes actual
+    const avesDelMes = especies.filter(ave =>
+      ave.hasDefinedTerm?.some(term =>
+        term.termCode === "season" &&
+        term.alternateName?.includes(mesActual)
+      )
+    );
+
+    // Si no hay aves, no hacemos nada
+    if (avesDelMes.length === 0) return;
+
+    // Limpiar contenido previo del carrusel
+    carouselInner.innerHTML = "";
+    indicators.innerHTML = "";
+
+    // Añadir aves al carrusel
+    avesDelMes.forEach((ave, i) => {
+      const activo = i === 0 ? "active" : "";
+      const imagen = ave.image?.[0] || "assets/img/default.jpg";
+
+      // Indicador
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("data-bs-target", "#heroCarousel");
+      btn.setAttribute("data-bs-slide-to", i);
+      btn.setAttribute("aria-label", `Slide ${i + 1}`);
+      if (activo) {
+        btn.classList.add("active");
+        btn.setAttribute("aria-current", "true");
+      }
+      indicators.appendChild(btn);
+
+      // Slide
+      const slide = document.createElement("div");
+      slide.className = `carousel-item ${activo}`;
+      slide.innerHTML = `
+        <img src="${imagen}" class="d-block w-100 hero-img" alt="${ave.name}">
+        <div class="carousel-caption d-none d-md-block">
+          <p style="font-size: 1.5rem;">${ave.name}</p>
+        </div>
+      `;
+      carouselInner.appendChild(slide);
+    });
+
+  } catch (error) {
+    console.error("Error cargando aves del mes:", error);
+  }
+});
