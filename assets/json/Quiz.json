@@ -413,7 +413,172 @@
                 "@type": "Answer",
                 "text": "Vuela a gran velocidad y baja altura, batiendo las alas rápidamente y emitiendo su reclamo."
             }
-        }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué especie se caracteriza por su vuelo en forma de 'M' y garras especializadas para pescar?",
+            "identifier": 13,
+            "text": "Este ave rapaz tiene un plumaje blanco con alas largas y dobladas hacia arriba. Puede invertir sus dedos para atrapar peces.",
+            "image": "/assets/img/Aves/aguilapescadora/aguilapescadora1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Halcón peregrino" },
+              { "@type": "Answer", "text": "Águila pescadora" },
+              { "@type": "Answer", "text": "Milano negro" },
+              { "@type": "Answer", "text": "Cormorán grande" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Águila pescadora" }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué coloración corporal es típica del flamenco común?",
+            "identifier": 14,
+            "text": "Aves de patas largas que filtran el alimento del agua gracias a su pico curvo. Viven en colonias grandes.",
+            "image": "/assets/img/Aves/flamenco/flamenco1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Blanco y negro" },
+              { "@type": "Answer", "text": "Gris y marrón" },
+              { "@type": "Answer", "text": "Rosa pálido con patas largas" },
+              { "@type": "Answer", "text": "Amarillo con manchas negras" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Rosa pálido con patas largas" }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué ave es endémica del archipiélago balear y habita en matorrales bajos?",
+            "identifier": 15,
+            "text": "Tiene un plumaje pardo-grisáceo, anillo ocular rojizo y es difícil de ver entre arbustos densos.",
+            "image": "/assets/img/Aves/curruca/curruca1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Zorzal común" },
+              { "@type": "Answer", "text": "Curruca balear" },
+              { "@type": "Answer", "text": "Ruiseñor común" },
+              { "@type": "Answer", "text": "Mirlo" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Curruca balear" }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué función ecológica cumple el buitre negro en la Serra de Tramuntana?",
+            "identifier": 16,
+            "text": "Este ave carroñera de gran tamaño ayuda a limpiar el ecosistema de restos animales.",
+            "image": "/assets/img/Aves/buitrenegro/buitrenegro1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Poliniza flores silvestres" },
+              { "@type": "Answer", "text": "Caza pequeños roedores" },
+              { "@type": "Answer", "text": "Consume carroña y evita enfermedades" },
+              { "@type": "Answer", "text": "Protege a otras aves" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Consume carroña y evita enfermedades" }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es el hábitat preferido del cormorán moñudo en Mallorca?",
+            "identifier": 17,
+            "text": "Es un ave marina que se zambulle para pescar, y suele verse en acantilados o islotes.",
+            "image": "/assets/img/Aves/cormoran/cormoran1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Bosques densos del interior" },
+              { "@type": "Answer", "text": "Lagunas interiores y arrozales" },
+              { "@type": "Answer", "text": "Acantilados costeros y rocas marinas" },
+              { "@type": "Answer", "text": "Ciudades con canales" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Acantilados costeros y rocas marinas" }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué comportamiento reproductivo tiene el halcón de Eleonora?",
+            "identifier": 18,
+            "text": "Esta ave atrasa su reproducción para coincidir con la migración otoñal de otras aves.",
+            "image": "/assets/img/Aves/halconeleonora/halcon1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Cría en invierno como la mayoría de rapaces" },
+              { "@type": "Answer", "text": "Cría en colonias en árboles" },
+              { "@type": "Answer", "text": "Cría en julio-agosto en acantilados para cazar aves migratorias" },
+              { "@type": "Answer", "text": "Nidifica bajo tierra" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Cría en julio-agosto en acantilados para cazar aves migratorias" }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es una de las funciones de la cresta de la abubilla?",
+            "identifier": 19,
+            "text": "Ave de aspecto exótico, con alas rayadas y un vuelo ondulante, muy común en campos abiertos.",
+            "image": "/assets/img/Aves/abubilla/abubilla1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Para planear mejor durante el vuelo" },
+              { "@type": "Answer", "text": "Para excavar nidos en la tierra" },
+              { "@type": "Answer", "text": "Para exhibirse o alertar al posarse" },
+              { "@type": "Answer", "text": "Para atrapar insectos en el aire" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Para exhibirse o alertar al posarse" }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué característica permite identificar fácilmente a la Garza Real en vuelo?",
+            "identifier": 20,
+            "text": "La Garza Real es un ave zancuda de gran tamaño, que puede observarse frecuentemente en Mallorca durante los meses más fríos. En vuelo, presenta una silueta muy característica.",
+            "image": "/assets/img/Aves/garza/garza1.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Extiende completamente el cuello al volar."
+              },
+              {
+                "@type": "Answer",
+                "text": "Vuela con el cuello recogido en forma de 'S'."
+              },
+              {
+                "@type": "Answer",
+                "text": "Se sumerge en el agua para nadar como un pato."
+              },
+              {
+                "@type": "Answer",
+                "text": "Tiene un canto muy melodioso y agudo."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vuela con el cuello recogido en forma de 'S'."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿En qué época del año es más habitual ver la Garza Real en Mallorca?",
+            "identifier": 21,
+            "text": "La Garza Real es un ave que frecuenta zonas húmedas como lagunas, marismas y ríos tranquilos. Aunque puede verse todo el año, hay una estación donde su presencia aumenta.",
+            "image": "/assets/img/Aves/garza/garza2.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Primavera"
+              },
+              {
+                "@type": "Answer",
+                "text": "Verano"
+              },
+              {
+                "@type": "Answer",
+                "text": "Otoño"
+              },
+              {
+                "@type": "Answer",
+                "text": "Invierno"
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Invierno"
+            }
+        } 
     ],
     "potentialAction": {
         "@type": "PlayAction",

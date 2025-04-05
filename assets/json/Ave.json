@@ -673,16 +673,12 @@
             },
             "identifier": "A10",
             "image": [
+                "/assets/img/Aves/aguilapescadora/aguilapescadora5.jpg",
+                "/assets/img/Aves/aguilapescadora/aguilapescadora4.jpg",
                 "/assets/img/Aves/aguilapescadora/aguilapescadora6.jpg",
                 "/assets/img/Aves/aguilapescadora/aguilapescadora2.jpg",
                 "/assets/img/Aves/aguilapescadora/aguilapescadora3.jpg",
-                "/assets/img/Aves/aguilapescadora/aguilapescadora4.jpg",
-                "/assets/img/Aves/aguilapescadora/aguilapescadora5.jpg",
-                "/assets/img/Aves/aguilapescadora/aguilapescadora1.jpg",
-                "/assets/img/Aves/aguilapescadora/aguilapescadora7.jpg",
-                "/assets/img/Aves/aguilapescadora/aguilapescadora8.jpg",
-                "/assets/img/Aves/aguilapescadora/aguilapescadora9.jpeg",
-                "/assets/img/Aves/aguilapescadora/aguilapescadora10.jpg"
+                "/assets/img/Aves/aguilapescadora/aguilapescadora1.jpg"
             ],
             "hasDefinedTerm": [
                 {
@@ -980,13 +976,12 @@
               }
             ]
         },
-        
         {
             "@type": "Taxon",
-            "name": "Martín Pescador",
-            "alternateName": "Alcedo atthis",
-            "description": "El martín pescador es un ave de pequeño tamaño y aspecto compacto, que se caracteriza por poseer uno de los más vistosos plumajes de nuestra fauna. Dominan en su librea los colores azules y verdosos (brillantes y metálicos) en las regiones dorsales y los anaranjados en las ventrales.",
-            "disambiguatingDescription": "Cuando vuela también resulta inconfundible, pues se desplaza a gran velocidad y poca altura mediante un frenético batir de alas, emitiendo habitualmente su característico reclamo.",
+            "name": "Abubilla",
+            "alternateName": "Upupa epops",
+            "description": "La Abubilla es un ave de tamaño mediano reconocida por su exótica apariencia. Tiene plumaje anaranjado-rosado en cabeza y cuerpo, con alas y cola de franjas blancas y negras. Su característica cresta de plumas se abre en abanico cuando está alerta o posada. El pico largo y curvado le permite buscar larvas e insectos en el suelo. Es migratoria, llega a Mallorca entre marzo y abril y permanece hasta septiembre u octubre. Suele anidar en huecos de árboles o construcciones y defiende activamente su territorio de cría.",
+            "disambiguatingDescription": "Ave migratoria inconfundible por su plumaje anaranjado y su cresta eréctil. Vuela con un movimiento ondulante y busca alimento en el suelo con su largo pico curvado. Cría en huecos y se observa entre marzo y septiembre.",
             "taxonRank": {
               "@type": "PropertyValue",
               "name": "Especie",
@@ -994,22 +989,84 @@
             },
             "parentTaxon": {
               "@type": "Taxon",
-              "name": "Alcedinidae"
+              "name": "Upupidae"
             },
             "identifier": "A15",
             "image": [
-              "/assets/img/Aves/martinPescador/martinPescador1.webp",
-              "/assets/img/Aves/martinPescador/martinPescador2.webp",
-              "/assets/img/Aves/martinPescador/martinPescador3.webp",
-              "/assets/img/Aves/martinPescador/martinPescador4.webp",
-              "/assets/img/Aves/martinPescador/martinPescador5.webp"
+              "/assets/img/Aves/abubilla/abubilla2.jpg",
+              "/assets/img/Aves/abubilla/abubilla1.jpg",
+              "/assets/img/Aves/abubilla/abubilla3.jpg",
+              "/assets/img/Aves/abubilla/abubilla4.jpg",
+              "/assets/img/Aves/abubilla/abubilla5.jpg"
             ],
             "hasDefinedTerm": [
               {
                 "@type": "DefinedTerm",
                 "name": "Estaciones de presencia",
                 "termCode": "season",
-                "description": "Es una especie residente en Mallorca, observable durante todo el año.",
+                "description": "Especie migratoria que se puede observar en Mallorca desde marzo hasta septiembre.",
+                "alternateName": ["Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre"]
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Hábitat de presencia",
+                "termCode": "habitat",
+                "description": "Prefiere zonas abiertas con vegetación baja como prados, cultivos, olivares y pinares claros. También frecuenta áreas rurales, bordes de caminos y campos agrícolas donde busca alimento en el suelo.",
+                "alternateName": ["Campos abiertos", "Zonas agrícolas", "Olivar", "Pinar claro", "Prados"]
+              }
+            ],
+            "subjectOf": [
+              {
+                "@type": "MediaObject",
+                "name": "Canto del Abubilla",
+                "contentUrl": "https://macaulaylibrary.org/asset/463326631",
+                "encodingFormat": "audio/mpeg"
+              },
+              {
+                "@type": "MediaObject",
+                "name": "Abubilla en su entorno natural",
+                "contentUrl": "",
+                "encodingFormat": "video/mp4"
+              }
+            ],
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": ["Z1", "Z2", "Z3", "Z6"],
+                "description": "Zonas en Mallorca donde se puede observar a la Abubilla: S'Albufera, Parque Natural de Mondragó, Serra de Tramuntana y campos agrícolas del Pla de Mallorca."
+              }
+            ]
+        },
+        {
+            "@type": "Taxon",
+            "name": "Curruca balear",
+            "alternateName": "Sylvia balearica",
+            "description": "La Curruca Balear es un pequeño paseriforme endémico del archipiélago balear. Su plumaje es pardo-grisáceo con tonos claros en el vientre y un anillo ocular rojizo muy característico. Discreta y esquiva, se mueve ágilmente entre la vegetación densa del matorral mediterráneo. Su canto aflautado es más frecuente en primavera y verano, cuando los machos marcan territorio. Se alimenta principalmente de insectos, aunque también incorpora frutos en su dieta. Es una especie residente durante todo el año en Mallorca, donde se encuentra en zonas como la Serra de Tramuntana, S'Albufera y el Parque Natural de Mondragó.",
+            "disambiguatingDescription": "Paseriforme endémico de las Islas Baleares, de tamaño pequeño y plumaje pardo-grisáceo. Destaca por su anillo ocular rojizo y su canto melodioso. Vive en matorrales densos y es residente todo el año.",
+            "taxonRank": {
+              "@type": "PropertyValue",
+              "name": "Especie",
+              "value": "species"
+            },
+            "parentTaxon": {
+              "@type": "Taxon",
+              "name": "Sylviidae"
+            },
+            "identifier": "A16",
+            "image": [
+              "/assets/img/Aves/curruca/curruca4.jpeg",
+              "/assets/img/Aves/curruca/curruca1.jpeg",
+              "/assets/img/Aves/curruca/curruca3.jpg",
+              "/assets/img/Aves/curruca/curruca2.webp",
+              "/assets/img/Aves/curruca/curruca5.jpg"
+            ],
+            "hasDefinedTerm": [
+              {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "Especie residente en Mallorca, observable durante todo el año.",
                 "alternateName": [
                   "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
                   "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
@@ -1019,23 +1076,21 @@
                 "@type": "DefinedTerm",
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
-                "description": "Precisa de una cierta calidad de las aguas, vegetación palustre más o menos densa, posaderos apropiados, pesca abundante y taludes arenosos en los que instalar el nido.",
-                "alternateName": [
-                  "Lagunas", "marismas", "albuferas", "ríos", "embalses", "torrentes", "canales", "charcas"
-                ]
+                "description": "Prefiere matorrales mediterráneos, pinares abiertos, zonas de monte bajo y áreas agrícolas con arbustos y setos densos donde se refugia y se alimenta.",
+                "alternateName": ["Matorrales", "Pinares", "Monte bajo", "Setos agrícolas", "Vegetación densa"]
               }
             ],
             "subjectOf": [
               {
                 "@type": "MediaObject",
-                "name": "Canto del Martín Pescador",
-                "contentUrl": "https://seo.org/ave/martin-pescador-comun/",
+                "name": "Canto de la Curruca balear",
+                "contentUrl": "https://macaulaylibrary.org/asset/203977491",
                 "encodingFormat": "audio/mpeg"
               },
               {
                 "@type": "MediaObject",
-                "name": "Martín pescador en su entorno natural",
-                "contentUrl": "https://youtu.be/uS7EaqxMBBg?si=-T7rYJdWJ8XdnlPi",
+                "name": "Curruca balear en su entorno natural",
+                "contentUrl": "",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -1043,11 +1098,144 @@
               {
                 "@type": "PropertyValue",
                 "name": "Zona de distribución",
+                "value": ["Z1", "Z2", "Z3"],
+                "description": "Zonas en Mallorca donde se puede observar a la Curruca Balear: S'Albufera, Parque Natural de Mondragó y Serra de Tramuntana."
+              }
+            ]
+        },
+        {
+            "@type": "Taxon",
+            "name": "Buitre negro",
+            "alternateName": "Aegypius monachus",
+            "description": "El Buitre Negro es una de las aves carroñeras más grandes de Europa, con una envergadura que supera los 2,8 metros y un peso que puede alcanzar los 12 kg. De plumaje marrón oscuro o negro, destaca por su gran tamaño, su vuelo pausado y su comportamiento reservado. Su cabeza y cuello están cubiertos por un fino vello claro, y su pico, fuerte y curvado, está adaptado para desgarrar la carroña, su principal fuente de alimento. Suele planear a gran altura durante largos periodos, localizando restos desde el aire. Aunque generalmente es solitario, puede compartir carroña con otras rapaces. En Mallorca, mantiene una población estable gracias a programas de conservación y cría en la Serra de Tramuntana.",
+            "disambiguatingDescription": "Ave rapaz carroñera de gran tamaño, con alas largas y anchas, plumaje oscuro y un pico robusto. En vuelo planea con eficiencia y se muestra solitario. Cría en árboles altos o acantilados de zonas montañosas.",
+            "taxonRank": {
+              "@type": "PropertyValue",
+              "name": "Especie",
+              "value": "species"
+            },
+            "parentTaxon": {
+              "@type": "Taxon",
+              "name": "Accipitridae"
+            },
+            "identifier": "A17",
+            "image": [
+              "/assets/img/Aves/buitrenegro/buitrenegro1.jpg",
+              "/assets/img/Aves/buitrenegro/buitrenegro2.jpg",
+              "/assets/img/Aves/buitrenegro/buitrenegro3.jpeg",
+              "/assets/img/Aves/buitrenegro/buitrenegro4.jpg",
+              "/assets/img/Aves/buitrenegro/buitrenegro5.jpg"
+            ],
+            "hasDefinedTerm": [
+              {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "Especie residente en Mallorca, observable todo el año. Cría y se alimenta en la Serra de Tramuntana, donde su población ha aumentado gracias a esfuerzos de conservación.",
+                "alternateName": [
+                  "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+                ]
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Hábitat de presencia",
+                "termCode": "habitat",
+                "description": "Prefiere zonas montañosas con bosques de encinas y pinares. Nidifica en grandes árboles o acantilados, en áreas tranquilas y alejadas de la actividad humana, donde encuentra carroña con facilidad.",
+                "alternateName": ["Bosques montañosos", "Acantilados", "Pinares", "Encinares"]
+              }
+            ],
+            "subjectOf": [
+              {
+                "@type": "MediaObject",
+                "name": "Canto del Buitre negro",
+                "contentUrl": "",
+                "encodingFormat": "audio/mpeg"
+              },
+              {
+                "@type": "MediaObject",
+                "name": "Buitre negro en su entorno natural",
+                "contentUrl": "",
+                "encodingFormat": "video/mp4"
+              }
+            ],
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": ["Z3"],
+                "description": "Zona principal de observación del Buitre Negro en Mallorca: Serra de Tramuntana."
+              }
+            ]
+        },
+        {
+            "@type": "Taxon",
+            "name": "Martín Pescador",
+            "alternateName": "Alcedo atthis",
+            "description": "El martín pescador es un ave de pequeño tamaño y aspecto compacto, que se caracteriza por poseer uno de los más vistosos plumajes de nuestra fauna. Dominan en su librea los colores azules y verdosos (brillantes y metálicos) en las regiones dorsales y los anaranjados en las ventrales.",
+            "disambiguatingDescription": "Cuando vuela también resulta inconfundible, pues se desplaza a gran velocidad y poca altura mediante un frenético batir de alas, emitiendo habitualmente su característico reclamo.",
+            "taxonRank": {
+                "@type": "PropertyValue",
+                "name": "Especie",
+                "value": "species"
+            },
+            "parentTaxon": {
+                "@type": "Taxon",
+                "name": "Alcedinidae"
+            },
+            "identifier": "A18",
+            "image": [
+                "/assets/img/Aves/martinPescador/martinPescador1.webp",
+                "/assets/img/Aves/martinPescador/martinPescador2.webp",
+                "/assets/img/Aves/martinPescador/martinPescador3.webp",
+                "/assets/img/Aves/martinPescador/martinPescador4.webp",
+                "/assets/img/Aves/martinPescador/martinPescador5.webp"
+            ],
+            "hasDefinedTerm": [
+                {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "Es una especie residente en Mallorca, observable durante todo el año.",
+                "alternateName": [
+                    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+                ]
+                },
+                {
+                "@type": "DefinedTerm",
+                "name": "Hábitat de presencia",
+                "termCode": "habitat",
+                "description": "Precisa de una cierta calidad de las aguas, vegetación palustre más o menos densa, posaderos apropiados, pesca abundante y taludes arenosos en los que instalar el nido.",
+                "alternateName": [
+                    "Lagunas", "marismas", "albuferas", "ríos", "embalses", "torrentes", "canales", "charcas"
+                ]
+                }
+            ],
+            "subjectOf": [
+                {
+                "@type": "MediaObject",
+                "name": "Canto del Martín Pescador",
+                "contentUrl": "https://seo.org/ave/martin-pescador-comun/",
+                "encodingFormat": "audio/mpeg"
+                },
+                {
+                "@type": "MediaObject",
+                "name": "Martín pescador en su entorno natural",
+                "contentUrl": "https://youtu.be/uS7EaqxMBBg?si=-T7rYJdWJ8XdnlPi",
+                "encodingFormat": "video/mp4"
+                }
+            ],
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
                 "value": ["Z0"],
                 "description": "Zonas en Mallorca donde se encuentra el Martín pescador: La Gola."
-              }
+                }
             ]
         }  
     ]
 }
+                        
   
