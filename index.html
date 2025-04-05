@@ -15,6 +15,8 @@
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,8 +29,11 @@
   <link href="assets/css/main.css" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-whatever-integrity-hash" crossorigin="anonymous"></script>
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  
+
 
   <!-- =======================================================
   * Asignatura: Tecnología Multimedia
@@ -43,66 +48,68 @@
   <!-------------------------------------------------------------------------------------------------------------------------------------->
   <!--------------------------------------------------------------- HEADER --------------------------------------------------------------->
   <!-------------------------------------------------------------------------------------------------------------------------------------->
-  <header id="header" class="header d-flex align-items-center fixed-top">
-      <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
   
-        <a href="index.html" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="assets/img/logo.png" alt="">
-        </a>
+      <!-- Logo -->
+      <a href="#hero" class="logo d-flex align-items-center">
+        <img src="assets/img/Logo AvesMallorquinas.svg" alt="Logo" style="object-fit: cover; width: 130px; height: 100px; overflow: hidden;" />
+      </a>      
   
-        <nav id="navmenu" class="navmenu mx-auto">
-          <ul class="d-flex justify-content-center">
-            <li><a href="#hero" class="active">Home</a></li>
-            <li><a href="#aves">Aves</a></li>
-            <li><a href="#habitat">Hábitat</a></li>
-            <li><a href="#quizz">Quizz</a></li>
-            <li><a href="#autores">Autores</a></li>
-            <li><a href="#contactanos">Contáctanos</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
+      <!-- Botón SVG personalizado para mobile nav -->
+      <button id="mobile-nav-toggle" class="d-xl-none" aria-label="Abrir menú">
+        <svg id="hamburger-icon" width="30" height="30" viewBox="0 0 100 80" fill="currentColor">
+          <rect width="100" height="10"></rect>
+          <rect y="30" width="100" height="10"></rect>
+          <rect y="60" width="100" height="10"></rect>
+        </svg>
+        <svg id="close-icon" width="30" height="30" viewBox="0 0 100 100" fill="currentColor" style="display: none;">
+          <line x1="10" y1="10" x2="90" y2="90" stroke="currentColor" stroke-width="10" />
+          <line x1="90" y1="10" x2="10" y2="90" stroke="currentColor" stroke-width="10" />
+        </svg>
+      </button>
   
-      </div>
-    </header>
+      <!-- Menú normal (desktop) -->
+      <nav id="navmenu" class="navmenu d-none d-xl-block w-100">
+        <ul class="d-flex justify-content-center gap-4 list-unstyled mb-0">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#aves">Aves</a></li>
+          <li><a href="#zonas">Zonas</a></li>
+          <li><a href="#quizz">Quizz</a></li>
+          <li><a href="#autores">Autores</a></li>
+          <li><a href="#contactanos">Contáctanos</a></li>
+        </ul>
+      </nav>
+
+  
+    <!-- Menú móvil (inicialmente oculto) -->
+    <div class="mobile-nav d-xl-none" id="mobileNav">
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#aves">Aves</a></li>
+        <li><a href="#zonas">Zonas</a></li>
+        <li><a href="#quizz">Quizz</a></li>
+        <li><a href="#autores">Autores</a></li>
+        <li><a href="#contactanos">Contáctanos</a></li>
+      </ul>
+    </div>
+  </header>
+  
+  
+  
+  
 
   <main class="main">
     <!-- Hero Section with Carousel -->
     <section id="hero" class="hero-section position-relative">
       <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
         
-        <!-- Indicators -->
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-
+        <!-- Indicators (vacío al inicio) -->
+        <div class="carousel-indicators"></div>
+    
         <!-- Slides -->
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://seo.org/wp-content/uploads/2013/10/F167Secundaria-2.jpg" class="d-block w-100 hero-img" alt="Ave 1">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Ave 1</h5>
-              <p>Descubre la fauna de Mallorca</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://seo.org/wp-content/uploads/2013/11/F101_Foto_01.jpg" class="d-block w-100 hero-img" alt="Ave 2">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Ave 2</h5>
-              <p>Vuela con nuestras especies autóctonas</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://seo.org/wp-content/uploads/2013/11/F451_Foto_01.jpg" class="d-block w-100 hero-img" alt="Ave 3">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Ave 3</h5>
-              <p>Una experiencia visual única</p>
-            </div>
-          </div>
-        </div>
-
+        <div class="carousel-inner"></div>
+    
         <!-- Controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -112,9 +119,10 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Siguiente</span>
         </button>
-
+    
       </div>
-    </section><!-- /Hero Section -->
+    </section>
+    <!-- /Hero Section -->
 
 
     <!-- Portfolio Section -->
@@ -155,12 +163,13 @@
                   <li><a class="dropdown-item" href="#">Bosque</a></li>
                   <li><a class="dropdown-item" href="#">Humedal</a></li>
                   <li><a class="dropdown-item" href="#">Pradera</a></li>
+                  <li><a class="dropdown-item" href="#">Mar</a></li>
                 </ul>
               </div>
           
               <!-- Nombre -->
               <div class="dropdown">
-                <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button id="btn-nombre" class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Nombre
                 </button>
                 <ul class="dropdown-menu">
@@ -170,7 +179,7 @@
               </div>
           
               <!-- Buscador -->
-              <div class="input-group" style="max-width: 240px;">
+              <div class="input-group" style="max-width: 350px;">
                 <span class="input-group-text bg-gray"><i class="bi bi-search text-muted"></i></span>
                 <input type="text" class="form-control" placeholder="Buscar ave...">
               </div>
@@ -179,457 +188,250 @@
           </div>
 
           <div class="row gy-4">
-            <!-- Portfolio items go here -->
-            <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
-                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A0">
-                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="#" title="More Details">Milano real</a></h5>
-                  <p class="card-text">Milvus milvus</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
-                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A1">
-                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="#" title="More Details">Algo</a></h5>
-                  <p class="card-text">Aaaaa</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
-                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A2">
-                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Buitre negro</a></h5>
-                  <p class="card-text">Aegypius monachus</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
-                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A3">
-                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Garza real</a></h5>
-                  <p class="card-text">Ardea cinerea</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
-                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A4">
-                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Águila pescadora</a></h5>
-                  <p class="card-text">Pandion haliaetus</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
-                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A5">
-                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Flamenco</a></h5>
-                  <p class="card-text">Aegypius monachus</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
-                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A6">
-                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Calamón Común</a></h5>
-                  <p class="card-text">Porphyrio porphyrio</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
-                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A7">
-                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Halcón de Eleonora</a></h5>
-                  <p class="card-text">Falco eleonorae</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
-                <a href="assets/img/aves/books-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox">
-                  <img src="assets/img/aves/books-3.jpg" class="card-img-top" alt="">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Cormorán moñudo</a></h5>
-                  <p class="card-text">Phalacrocorax aristotelis desmarestii</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
-                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A8">
-                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Abubilla</a></h5>
-                  <p class="card-text">Upupa epops</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
-                <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A9">
-                  <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Curruca balear</a></h5>
-                  <p class="card-text">Sylvia balearica</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
+            <!-- Los items se generarán dinámicamente desde el archivo main.js -->
           </div>
+          
+          
 
           <!-- Botón de cargar más -->
           <div class="text-center mt-4">
             <button id="load-more" class="btn btn-primary">Ver más</button>
+            <button id="load-less" class="btn btn-secondary" style="display: none;">Ver menos</button>
           </div>
         </div>
       </div>
     </section><!-- /Portfolio Section -->
 
 
-        <!-- Habitat Section -->
-        <section id="habitat" class="services section">
+    <!-- Habitat Section 
+    <section id="zonas" class="services section">
 
-          <!-- Section Title -->
-          <div class="container section-title" data-aos="fade-up">
-            <h2 style="text-align: left;">Zonas</h2>
-          </div><!-- End Section Title -->
-    
+      
+      <div class="container section-title" data-aos="fade-up">
+        <h2 style="text-align: left;">Zonas</h2>
+      </div>
+      <div class="container">
+
+        <div class="row gy-4">
+
+        </div>
+
+      </div>
+
+    </section> /Habitat Section -->
+
+    <!-- Habitat Section -->
+    <section id="zonas" class="services section">
+
+      <!-- Título de la sección -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 style="text-align: left;">Zonas</h2>
+      </div>
+
+      <div class="container">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          
+          <!-- FILTROS -->
+          <div class="container py-4">
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+                        
+              <!-- Hábitat -->
+              <div class="dropdown">
+                <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Tipo Hábitat
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Bosque</a></li>
+                  <li><a class="dropdown-item" href="#">Humedal</a></li>
+                  <li><a class="dropdown-item" href="#">Pradera</a></li>
+                  <li><a class="dropdown-item" href="#">Mar</a></li>
+                </ul>
+              </div>         
+            </div>
+          </div>
+
           <div class="container">
-    
+
             <div class="row gy-4">
-    
-              <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                  <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A0">
-                    <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                  </a>
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="#" title="More Details">Milano real</a></h5>
-                    <p class="card-text">Milvus milvus</p>
-                  </div>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                  <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A1">
-                    <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                  </a>
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="#" title="More Details">Algo</a></h5>
-                    <p class="card-text">Aaaaa</p>
-                  </div>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                  <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A2">
-                    <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                  </a>
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Buitre negro</a></h5>
-                    <p class="card-text">Aegypius monachus</p>
-                  </div>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                  <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A3">
-                    <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                  </a>
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Garza real</a></h5>
-                    <p class="card-text">Ardea cinerea</p>
-                  </div>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                  <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A4">
-                    <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                  </a>
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Águila pescadora</a></h5>
-                    <p class="card-text">Pandion haliaetus</p>
-                  </div>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                  <a href="#" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="A5">
-                    <img src="assets/img/aves/app-1.jpg" class="card-img-top" alt="">
-                  </a>
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="portfolio-details.html" title="More Details">Flamenco</a></h5>
-                    <p class="card-text">Aegypius monachus</p>
-                  </div>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
     
             </div>
     
           </div>
-    
-        </section><!-- /Habitat Section -->
 
-    <!-- Quizz Section -->
+          <!-- Botón de cargar más -->
+          <div class="text-center mt-4">
+            <button id="load-more-zonas" class="btn btn-primary">Ver más</button>
+            <button id="load-less-zonas" class="btn btn-secondary" style="display: none;">Ver menos</button>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Habitat Section -->
+
+
+
     <section id="quizz" class="call-to-action section dark-background">
-
-      <img src="assets/img/cta-bg.jpg" alt="">
-
       <div class="container">
-
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-xl-12 text-center">
             <h3>¡Aprende de aves jugando con nuestros quiz!</h3>
             <p>¡Juega, aprende y pon a prueba tus conocimientos con nuestros Quizzes!</p>
             <p>¡Preguntas y respuestas para aprender divirtiéndote!</p>
             <div class="cta-btn-container">
-              <a class="cta-btn align-middle" href="#aves">Jugar</a>
+              <a class="cta-btn align-middle" href="#" id="play-quiz-btn">Jugar</a>
             </div>
+            <!-- Botón para mostrar resultados guardados -->
+            <button class="btn btn-info mt-3" id="show-results-btn">Ver resultados guardados</button>
           </div>
         </div>
-
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Clients</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Workers</p>
-            </div>
-          </div><!-- End Stats Item -->
-
+    
+        <!-- Contenedor para mostrar los resultados -->
+        <div id="quiz-results" class="mt-4 d-none">
+          <h4>Resultados anteriores</h4>
+          <ul id="resultados-lista" class="list-group"></ul>
         </div>
-
       </div>
-
-    </section><!-- /Quizz Section -->
+    </section>
 
     <!-- Autores Section -->
-    <section id="autores" class="team section">
+    <section id="autores" class="team section" style="background-color: #f8f9fa;">
 
-      <!-- Section Title -->
+      <!-- Título de la sección -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+        <h2 style="text-align: left;">Autores</h2>
+      </div>
 
       <div class="container">
+        <div class="row gy-4 justify-content-center">
 
-        <div class="row gy-4">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Claudia Roca</h4>
-                <span>Chief Executive Officer</span>
-                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+          <!-- Autor 1 -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member text-center d-flex flex-column align-items-center">
+              <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
+                <img src="https://www.playademuro.net/images/playademuro/planes-experiencias/bird/muro_birdwatching_guia_7.webp" class="img-fluid" alt="Luz Salvá">
+              </div>
+              <div class="member-info mt-3">
+                <h4>Luz Salvá</h4>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
           </div><!-- End Team Member -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Luz Salva</h4>
-                <span>Product Manager</span>
-                <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
+          <!-- Autor 2 -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member text-center d-flex flex-column align-items-center">
+              <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
+                <img src="https://www.playademuro.net/images/playademuro/planes-experiencias/bird/muro_birdwatching_guia_7.webp" class="img-fluid" alt="Juan Francisco Riera">
               </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
+              <div class="member-info mt-3">
                 <h4>Juan Francisco Riera</h4>
-                <span>CTO</span>
-                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <!-- Autor 3 -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-member text-center d-flex flex-column align-items-center">
+              <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
+                <img src="https://www.playademuro.net/images/playademuro/planes-experiencias/bird/muro_birdwatching_guia_7.webp" class="img-fluid" alt="Claudia Roca">
+              </div>
+              <div class="member-info mt-3">
+                <h4>Claudia Roca</h4>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
           </div><!-- End Team Member -->
 
         </div>
-
       </div>
 
-    </section><!-- /Autores Section -->
+    </section><!-- End Autores Section -->
 
-    <!-- Contact Section -->
-    <section id="contacto" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
-          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div><!-- End Google Maps -->
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Us</h3>
-                <p>info@example.com</p>
-              </div>
-            </div><!-- End Info Item -->
-
+    <!-- Sección Contáctanos -->
+    <section class="site-section" id="contactanos">
+      <div class="container">
+        <!-- Título -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2 style="text-align: left;">Contáctanos</h2>
+        </div><!-- Fin Title -->
+        
+        <div class="row">
+          <!-- Columna para la fotografía -->
+          <div class="col-md-4 d-flex align-items-stretch">
+            <img src="https://www.playademuro.net/images/playademuro/planes-experiencias/bird/muro_birdwatching_guia_7.webp" alt="Imagen de contacto" class="img-fluid" style="max-height: 300px; width: 100%; object-fit: cover;">
           </div>
 
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
+                  
+          <!-- Columna para el formulario -->
+          <div class="col-md-8 mb-5">
+            <form id="contact-form" class="p-5 bg-white">
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">Nombre</label>
+                  <input type="text" id="fname" name="fname" class="form-control" required>
+                </div>
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  <label class="text-black" for="lname">Apellidos</label>
+                  <input type="text" id="lname" name="lname" class="form-control" required>
                 </div>
+              </div>
 
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
+              <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                  <label class="text-black" for="email">Email</label> 
+                  <input type="email" id="email" name="email" class="form-control" required>
                 </div>
+              </div>
 
+              <div class="row form-group">
                 <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                  <label class="text-black" for="subject">Asunto</label> 
+                  <input type="text" id="subject" name="subject" class="form-control" required>
                 </div>
+              </div>
 
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="message">Mensaje</label> 
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" required></textarea>
                 </div>
+              </div>
 
+              <div class="row form-group mt-3">
+                <div class="col-md-12">
+                  <button type="submit" class="custom-btn w-100">Enviar</button>
+                </div>
               </div>
             </form>
-          </div><!-- End Contact Form -->
-
+          </div>
         </div>
-
       </div>
+    </section><!-- End New Contact Section -->
 
-    </section><!-- /Contact Section -->
+
 
   </main>
 
   <footer id="footer" class="footer dark-background">
     <div class="container">
-      <h3 class="sitename">Regna</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <h3 class="sitename">Aves mallorquinas</h3>
+      <p>Explora el mundo de las aves y conecta con la biodiversidad de Mallorca.</p>
       <div class="social-links d-flex justify-content-center">
         <a href=""><i class="bi bi-twitter-x"></i></a>
         <a href=""><i class="bi bi-facebook"></i></a>
@@ -639,14 +441,7 @@
       </div>
       <div class="container">
         <div class="copyright">
-          <span>Copyright</span> <strong class="px-1 sitename">Regna</strong> <span>All Rights Reserved</span>
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          <p>&copy; 2025 Aves Mallorquinas. Todos los derechos reservados.</p> <!-- Poner que el año sea acorde a la fecha -->
         </div>
       </div>
     </div>
@@ -672,20 +467,40 @@
   <script src="assets/js/main.js"></script>
 
 
-  <!-- Modal -->
+  <!-- Modal para las aves -->
   <div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="portfolioModalLabel">Detalles del Portafolio</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- Contenido personalizado del modal -->
-          <h4 id="modalTitle">Título del Proyecto</h4>
-          <p id="modalDescription">Descripción del proyecto.</p>
-          <img id="modalImage" src="" alt="Imagen del proyecto" class="img-fluid">
-          <!-- Puedes agregar más contenido aquí -->
+          <!-- Carrusel dinámico -->
+          <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" id="modalCarouselInner">
+              <!-- Las imágenes se generarán dinámicamente aquí -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+  
+          <!-- Título dinámico -->
+          <div id="modalTitle"></div>
+  
+          <!-- Descripción dinámica -->
+          <div id="modalDescription"></div>
+  
+          <!-- Reseñas dinámicas -->
+          <div id="modalUsersReviews"></div>
+  
+          <!-- Información adicional dinámica -->
+          <div id="modalAdditionalInfo"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -693,6 +508,81 @@
       </div>
     </div>
   </div>
+
+    <!-- Modal para las Zonas -->
+    <div class="modal fade" id="zonaModal" tabindex="-1" aria-labelledby="zonaModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Carrusel dinámico -->
+            <div id="zonaCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner" id="modalZonaCarouselInner">
+                <!-- Las imágenes se generarán dinámicamente aquí -->
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#zonaCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#zonaCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
+            </div>
+    
+            <!-- Título dinámico -->
+            <div id="modalZonaTitle"></div>
+    
+            <!-- Descripción dinámica -->
+            <div id="modalZonaDescription"></div>
+    
+            <!-- Información adicional dinámica -->
+            <div id="modalZonaAdditionalInfo"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Modal del Quiz -->
+  <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="quizModalLabel">Pregunta del Quiz</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <!-- Dentro del modal-body, antes de las opciones -->
+        <div class="d-flex justify-content-center">
+          <div id="quiz-progress-container">
+            <div id="quiz-progress-bar">0 / 5</div>
+          </div>          
+        </div>
+                
+
+        <div class="modal-body">
+          <h5 id="quiz-question-text"></h5>
+          <img id="quiz-question-image" src="" alt="" class="img-fluid my-3 d-none">
+          <form id="quiz-options" class="mb-3"></form>
+          <div id="quiz-feedback" class="mb-3 fw-bold"></div>
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-secondary" id="prev-btn">Anterior</button>
+            <button class="btn btn-primary" id="check-btn">Comprobar</button>
+            <button class="btn btn-secondary" id="next-btn">Siguiente</button>
+          </div>
+          <div class="mt-4 text-center d-none" id="quiz-end">
+            <p class="fw-bold">¡Has finalizado el quiz!</p>
+            <button class="btn btn-success" id="restart-btn">Volver a empezar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </body>
 
 </html>

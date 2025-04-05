@@ -25,7 +25,7 @@
             "name": "¿Cuál es una característica distintiva del Papamoscas gris?",
             "identifier": 0,
             "text": "plumaje  monótono de color marrón grisáceo por encima, blanquecino apagado por debajo y con vetas oscuras en la coronilla y el pecho.",
-            "image": "https://www.mnemolia.com/images/66/MAEJjKuHAwE.webp",
+            "image": "assets/img/Aves/papamoscas/papamoscas1.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -55,7 +55,7 @@
             "name": "¿Qué pájaro es el de la imagen? ",
             "identifier": 1,
             "text": "¡Adivina el ave!",
-            "image": "https://www.oscardiez.es/gallery/OscarDiez/16943392Gl.jpg",
+            "image": "assets/img/Aves/papamoscas/papamoscas2.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -85,7 +85,7 @@
             "name": "¿En qué estaciones podemos encontrar el Papamoscas gris en España?",
             "identifier": 2,
             "text": "El papamoscas gris ocupa gran diversidad de hábitats, aunque prefiere áreas arboladas, si bien no muy densas, con sotos, matorrales y zonas húmedas cercanas. Frecuentemente, ocupa cultivos de frutales, así como jardines y parques.",
-            "image": "https://sierradebaza.org/images/noticias/imagenes_25-03/Imagen_2.jpg?1740673701922=",
+            "image": "assets/img/Aves/papamoscas/papamoscas2.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -115,7 +115,7 @@
             "name": "¿Qué ave corresponde a la de la imagen?",
             "identifier": 3,
             "text": "Ave muy críptica, con un plumaje parduzco moteado en el que tan solo resalta el espejuelo azul.",
-            "image": "https://glseobarcelona.com/wp-content/uploads/Seccion-Conocelas-Grupo-Local-SEO-Barcelona-057-anade-azulon-ID.jpg",
+            "image": "assets/img/Aves/anadeazulon/anadeazulon2.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -145,7 +145,7 @@
             "name": "¿En qué tipo de hábitat es más común encontrar al Ánade azulón?",
             "identifier": 4,
             "text": "El Ánade azulón macho destaca por su cabeza verde brillante con irisaciones, un collar blanco que separa el cuello del pecho castaño, un pico amarillo con uña negra y patas anaranjadas. Además, presenta dos plumas negras rizadas sobre la cola y un espejuelo azul violáceo. La hembra, de menor tamaño, tiene un plumaje parduzco moteado con el mismo espejuelo que el macho.",
-            "image": "https://seo.org/wp-content/uploads/2013/11/F29_Dibujo_02.jpg",
+            "image": "assets/img/Aves/anadeazulon/anadeazulon1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -175,7 +175,7 @@
             "name": "¿Qué tipo de alimentación es consumida por el Ánade azulón?",
             "identifier": 5,
             "text": "El Ánade azulón frecuenta zonas húmedas como marismas, lagunas y estanques.",
-            "image": "https://meteosierra.com/fotos/fauna/azulon-1.jpg",
+            "image": "assets/img/Aves/anadeazulon/anadeazulon1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -205,7 +205,7 @@
             "name": "¿Dónde suele construir su nido el Andarríos chico?",
             "identifier": 6,
             "text": "El Andarríos chico es una limícola de pequeño tamaño con patas cortas, conocido por balancear la cola y la cabeza de manera característica cuando está posada. En su plumaje nupcial, presenta un color pardo grisáceo con barrados y punteaduras. Su nido es construido principalmente por la hembra.",
-            "image": "https://www.ecoregistros.org/site/images/dataimages/2018/10/28/294728/56-actitis-hypoleucos--2-.JPG",
+            "image": "/assets/img/Aves/andarrios/andarrios1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -235,7 +235,7 @@
             "name": "¿Cuál es una de las características más notables del comportamiento del Andarríos chico cuando está posado?",
             "identifier": 7,
             "text": "El Andarríos chico es conocido por su pequeño tamaño, patas cortas y su comportamiento característico al estar posado. Sus partes superiores son de color pardo y las inferiores blancas con un entrante pálido que sube desde el pecho hasta el cuello.",
-            "image": "https://www.ecoregistros.org/site/images/dataimages/2018/10/28/294728/56-actitis-hypoleucos--2-.JPG",
+            "image": "/assets/img/Aves/andarrios/andarrios3.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -265,7 +265,7 @@
             "name": "¿En qué tipo de hábitat se encuentra comúnmente el Andarríos chico durante la migración e invernada?",
             "identifier": 8,
             "text": "Es una especie residente en la Península, aunque también resulta común en los pasos migratorios.",
-            "image": "https://www.jorgefoto.com/wp-content/uploads/photo-gallery/AndarrioChico_Jucar_2011_3.jpg?bwg=1706984019",
+            "image": "/assets/img/Aves/andarrios/andarrios2.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -289,7 +289,296 @@
                 "@type": "Answer",
                 "text": "Estuarios, marismas, playas y áreas rocosas."
             }
-        }
+        },
+
+        {
+            "@type": "Question",
+            "name": "¿Qué ave corresponde a la de la imagen?",
+            "identifier": 9,
+            "text": "Su canto es alegre y melodioso, lo que lo hace muy apreciado entre los aficionados a las aves.",
+            "image": "/assets/img/Aves/jilguero/jilguero3.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+                {
+                    "@type": "Answer",
+                    "text": "Papamoscas gris."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Andarríos chico."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Calamón común."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Jilguero europeo. "
+                }
+            ],
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Jilguero europeo. "
+            }
+        },
+
+        {
+            "@type": "Question",
+            "name": "¿Dónde se establece el jilguero europeo?",
+            "identifier": 10,
+            "text": "Su canto es alegre y melodioso, lo que lo hace muy apreciado entre los aficionados a las aves.",
+            "image": "/assets/img/Aves/jilguero/jilguero3.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+                {
+                    "@type": "Answer",
+                    "text": "Donde haya cierta cobertura arbórea y el clima sea suave."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Zonas boscosas."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Cerca del agua ."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Zonas de clima árido y poca agua. "
+                }
+            ],
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Donde haya cierta cobertura arbórea y el clima sea suave."
+            }
+        }, 
+
+        {
+            "@type": "Question",
+            "name": "¿En cuál de los siguientes hábitats es más probable observar al martín pescador en Mallorca?",
+            "identifier": 11,
+            "text": "Cuando vuela resulta inconfundible, pues se desplaza a gran velocidad y poca altura mediante un frenético batir de alas.",
+            "image": "/assets/img/Aves/martinPescador/martinPescador2.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+                {
+                    "@type": "Answer",
+                    "text": "Zonas desérticas y secas."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Praderas abiertas y campos de cultivo."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Bosques densos de montaña."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Ríos, lagunas y marismas con vegetación palustre"
+                }
+            ],
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ríos, lagunas y marismas con vegetación palustre"
+            }
+        }, 
+
+        {
+            "@type": "Question",
+            "name": "¿Qué comportamiento es característico del martín pescador cuando está en vuelo?",
+            "identifier": 12,
+            "text": "El martín pescador es un ave de pequeño tamaño que se caracteriza por poseer uno de los más vistosos plumajes de nuestra fauna.",
+            "image": "/assets/img/Aves/martinPescador/martinPescador1.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+                {
+                    "@type": "Answer",
+                    "text": "Planea en círculos altos antes de cazar."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Se mantiene estático en el aire como un colibrí."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Vuela a gran velocidad y baja altura, batiendo las alas rápidamente y emitiendo su reclamo."
+                },
+                {
+                    "@type": "Answer",
+                    "text": "Se lanza en picado desde grandes alturas como un águila"
+                }
+            ],
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Vuela a gran velocidad y baja altura, batiendo las alas rápidamente y emitiendo su reclamo."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué especie se caracteriza por su vuelo en forma de 'M' y garras especializadas para pescar?",
+            "identifier": 13,
+            "text": "Este ave rapaz tiene un plumaje blanco con alas largas y dobladas hacia arriba. Puede invertir sus dedos para atrapar peces.",
+            "image": "/assets/img/Aves/aguilapescadora/aguilapescadora1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Halcón peregrino" },
+              { "@type": "Answer", "text": "Águila pescadora" },
+              { "@type": "Answer", "text": "Milano negro" },
+              { "@type": "Answer", "text": "Cormorán grande" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Águila pescadora" }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué coloración corporal es típica del flamenco común?",
+            "identifier": 14,
+            "text": "Aves de patas largas que filtran el alimento del agua gracias a su pico curvo. Viven en colonias grandes.",
+            "image": "/assets/img/Aves/flamenco/flamenco1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Blanco y negro" },
+              { "@type": "Answer", "text": "Gris y marrón" },
+              { "@type": "Answer", "text": "Rosa pálido con patas largas" },
+              { "@type": "Answer", "text": "Amarillo con manchas negras" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Rosa pálido con patas largas" }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué ave es endémica del archipiélago balear y habita en matorrales bajos?",
+            "identifier": 15,
+            "text": "Tiene un plumaje pardo-grisáceo, anillo ocular rojizo y es difícil de ver entre arbustos densos.",
+            "image": "/assets/img/Aves/curruca/curruca1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Zorzal común" },
+              { "@type": "Answer", "text": "Curruca balear" },
+              { "@type": "Answer", "text": "Ruiseñor común" },
+              { "@type": "Answer", "text": "Mirlo" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Curruca balear" }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué función ecológica cumple el buitre negro en la Serra de Tramuntana?",
+            "identifier": 16,
+            "text": "Este ave carroñera de gran tamaño ayuda a limpiar el ecosistema de restos animales.",
+            "image": "/assets/img/Aves/buitrenegro/buitrenegro1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Poliniza flores silvestres" },
+              { "@type": "Answer", "text": "Caza pequeños roedores" },
+              { "@type": "Answer", "text": "Consume carroña y evita enfermedades" },
+              { "@type": "Answer", "text": "Protege a otras aves" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Consume carroña y evita enfermedades" }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es el hábitat preferido del cormorán moñudo en Mallorca?",
+            "identifier": 17,
+            "text": "Es un ave marina que se zambulle para pescar, y suele verse en acantilados o islotes.",
+            "image": "/assets/img/Aves/cormoran/cormoran1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Bosques densos del interior" },
+              { "@type": "Answer", "text": "Lagunas interiores y arrozales" },
+              { "@type": "Answer", "text": "Acantilados costeros y rocas marinas" },
+              { "@type": "Answer", "text": "Ciudades con canales" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Acantilados costeros y rocas marinas" }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué comportamiento reproductivo tiene el halcón de Eleonora?",
+            "identifier": 18,
+            "text": "Esta ave atrasa su reproducción para coincidir con la migración otoñal de otras aves.",
+            "image": "/assets/img/Aves/halconeleonora/halcon1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Cría en invierno como la mayoría de rapaces" },
+              { "@type": "Answer", "text": "Cría en colonias en árboles" },
+              { "@type": "Answer", "text": "Cría en julio-agosto en acantilados para cazar aves migratorias" },
+              { "@type": "Answer", "text": "Nidifica bajo tierra" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Cría en julio-agosto en acantilados para cazar aves migratorias" }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es una de las funciones de la cresta de la abubilla?",
+            "identifier": 19,
+            "text": "Ave de aspecto exótico, con alas rayadas y un vuelo ondulante, muy común en campos abiertos.",
+            "image": "/assets/img/Aves/abubilla/abubilla1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              { "@type": "Answer", "text": "Para planear mejor durante el vuelo" },
+              { "@type": "Answer", "text": "Para excavar nidos en la tierra" },
+              { "@type": "Answer", "text": "Para exhibirse o alertar al posarse" },
+              { "@type": "Answer", "text": "Para atrapar insectos en el aire" }
+            ],
+            "acceptedAnswer": { "@type": "Answer", "text": "Para exhibirse o alertar al posarse" }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué característica permite identificar fácilmente a la Garza Real en vuelo?",
+            "identifier": 20,
+            "text": "La Garza Real es un ave zancuda de gran tamaño, que puede observarse frecuentemente en Mallorca durante los meses más fríos. En vuelo, presenta una silueta muy característica.",
+            "image": "/assets/img/Aves/garza/garza1.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Extiende completamente el cuello al volar."
+              },
+              {
+                "@type": "Answer",
+                "text": "Vuela con el cuello recogido en forma de 'S'."
+              },
+              {
+                "@type": "Answer",
+                "text": "Se sumerge en el agua para nadar como un pato."
+              },
+              {
+                "@type": "Answer",
+                "text": "Tiene un canto muy melodioso y agudo."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vuela con el cuello recogido en forma de 'S'."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿En qué época del año es más habitual ver la Garza Real en Mallorca?",
+            "identifier": 21,
+            "text": "La Garza Real es un ave que frecuenta zonas húmedas como lagunas, marismas y ríos tranquilos. Aunque puede verse todo el año, hay una estación donde su presencia aumenta.",
+            "image": "/assets/img/Aves/garza/garza2.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Primavera"
+              },
+              {
+                "@type": "Answer",
+                "text": "Verano"
+              },
+              {
+                "@type": "Answer",
+                "text": "Otoño"
+              },
+              {
+                "@type": "Answer",
+                "text": "Invierno"
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Invierno"
+            }
+        } 
     ],
     "potentialAction": {
         "@type": "PlayAction",
