@@ -650,6 +650,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  function mezclarArray(array) {
+    const copia = [...array];
+    for (let i = copia.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copia[i], copia[j]] = [copia[j], copia[i]];
+    }
+    return copia;
+  }
+  
+
   function mostrarPregunta() {
     const pregunta = preguntas[currentIndex];
 
@@ -764,48 +774,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // document.getElementById("next-btn").addEventListener("click", () => {
-  //   if (currentIndex < preguntas.length - 1) {
-  //     currentIndex++;
-  //     mostrarPregunta();
-  //   } else if (currentIndex === preguntas.length - 1 && preguntasComprobadas[currentIndex]) {
-  //     const aciertos = respuestasUsuario.filter((r, i) =>
-  //       r?.trim() === preguntas[i].acceptedAnswer.text.trim()
-  //     ).length;
-
-  //     const tiempoTotal = Math.floor((Date.now() - inicioTiempo) / 1000);
-
-  //     const quizEnd = document.getElementById("quiz-end");
-  //     quizEnd.innerHTML = `
-  //       <p class="fw-bold fs-4 text-success">¡Has finalizado el quiz!</p>
-  //       <p class="text-success fs-5">Aciertos: <strong>${aciertos} de ${preguntas.length}</strong></p>
-  //       <p class="text-success fs-5">Tiempo total: <strong>${tiempoTotal} segundos</strong></p>
-  //       <button class="btn btn-success mt-3" id="restart-btn">Volver a empezar</button>
-  //     `;
-
-  //     quizEnd.classList.remove("d-none");
-
-  //     myConfetti({
-  //       particleCount: 180,
-  //       spread: 100,
-  //       origin: { y: 0.6 },
-  //       gravity: 0.3,    
-  //       ticks: 200       
-  //     });
-      
-
-  //     document.getElementById("quizModalLabel").classList.add("d-none");
-  //     document.getElementById("quiz-question-text").classList.add("d-none");
-  //     document.getElementById("quiz-question-image").classList.add("d-none");
-  //     document.getElementById("quiz-options").classList.add("d-none");
-  //     document.getElementById("quiz-feedback").classList.add("d-none");
-  //     document.getElementById("check-btn").classList.add("d-none");
-  //     document.getElementById("prev-btn").classList.add("d-none");
-  //     document.getElementById("next-btn").classList.add("d-none");
-  //   }
-  // });
-
-    document.getElementById("next-btn").addEventListener("click", () => {
+  document.getElementById("next-btn").addEventListener("click", () => {
     if (currentIndex < preguntas.length - 1) {
       currentIndex++;
       mostrarPregunta();
