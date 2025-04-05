@@ -979,7 +979,75 @@
                 "description": "Zonas en Mallorca donde se encuentra el Cormorán Moñudo Mediterráneo: Serra de Tramuntana."
               }
             ]
-        }      
+        },
+        
+        {
+            "@type": "Taxon",
+            "name": "Martín Pescador",
+            "alternateName": "Alcedo atthis",
+            "description": "El martín pescador es un ave de pequeño tamaño y aspecto compacto, que se caracteriza por poseer uno de los más vistosos plumajes de nuestra fauna. Dominan en su librea los colores azules y verdosos (brillantes y metálicos) en las regiones dorsales y los anaranjados en las ventrales.",
+            "disambiguatingDescription": "Cuando vuela también resulta inconfundible, pues se desplaza a gran velocidad y poca altura mediante un frenético batir de alas, emitiendo habitualmente su característico reclamo.",
+            "taxonRank": {
+              "@type": "PropertyValue",
+              "name": "Especie",
+              "value": "species"
+            },
+            "parentTaxon": {
+              "@type": "Taxon",
+              "name": "Alcedinidae"
+            },
+            "identifier": "A15",
+            "image": [
+              "/assets/img/Aves/martinPescador/martinPescador1.webp",
+              "/assets/img/Aves/martinPescador/martinPescador2.webp",
+              "/assets/img/Aves/martinPescador/martinPescador3.webp",
+              "/assets/img/Aves/martinPescador/martinPescador4.webp",
+              "/assets/img/Aves/martinPescador/martinPescador5.webp"
+            ],
+            "hasDefinedTerm": [
+              {
+                "@type": "DefinedTerm",
+                "name": "Estaciones de presencia",
+                "termCode": "season",
+                "description": "Es una especie residente en Mallorca, observable durante todo el año.",
+                "alternateName": [
+                  "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+                ]
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Hábitat de presencia",
+                "termCode": "habitat",
+                "description": "Precisa de una cierta calidad de las aguas, vegetación palustre más o menos densa, posaderos apropiados, pesca abundante y taludes arenosos en los que instalar el nido.",
+                "alternateName": [
+                  "Lagunas", "marismas", "albuferas", "ríos", "embalses", "torrentes", "canales", "charcas"
+                ]
+              }
+            ],
+            "subjectOf": [
+              {
+                "@type": "MediaObject",
+                "name": "Canto del Martín Pescador",
+                "contentUrl": "https://seo.org/ave/martin-pescador-comun/",
+                "encodingFormat": "audio/mpeg"
+              },
+              {
+                "@type": "MediaObject",
+                "name": "Martín pescador en su entorno natural",
+                "contentUrl": "https://youtu.be/uS7EaqxMBBg?si=-T7rYJdWJ8XdnlPi",
+                "encodingFormat": "video/mp4"
+              }
+            ],
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Zona de distribución",
+                "value": ["Z0"],
+                "description": "Zonas en Mallorca donde se encuentra el Martín pescador: La Gola."
+              }
+            ]
+        }  
     ]
 }
   
