@@ -206,15 +206,14 @@
 # Aves
 --------------------------------------------------------------*/
 
-// Función para habilitar y deshabilitar la barra de búsqueda
-
 document.addEventListener('DOMContentLoaded', function () {
   const dropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item');
   const searchInput = document.querySelector('.input-group input');
+  const dropdownMenu = document.querySelector('#btn-nombre'); // Contenedor del menú desplegable
 
   // Inicialmente deshabilitar la barra de búsqueda
   searchInput.disabled = true;
-  searchInput.placeholder = 'Selecciona el tipo de nombre para la búsqueda';
+  searchInput.placeholder = 'Selecciona el tipo de nombre';
 
   dropdownItems.forEach(item => {
     item.addEventListener('click', function (event) {
@@ -224,7 +223,8 @@ document.addEventListener('DOMContentLoaded', function () {
       if (this.classList.contains('selected')) {
         this.classList.remove('selected');
         searchInput.disabled = true;
-        searchInput.placeholder = 'Selecciona el tipo de nombre para la búsqueda';
+        searchInput.placeholder = 'Selecciona el tipo de nombre';
+        dropdownMenu.classList.remove('btn-selected'); // Quitar color verde
       } else {
         // Deseleccionar otras opciones
         dropdownItems.forEach(option => option.classList.remove('selected'));
@@ -240,6 +240,8 @@ document.addEventListener('DOMContentLoaded', function () {
           searchInput.disabled = false;
           searchInput.placeholder = 'Buscar por nombre científico';
         }
+
+        dropdownMenu.classList.add('btn-selected'); // Añadir color verde
       }
     });
   });
