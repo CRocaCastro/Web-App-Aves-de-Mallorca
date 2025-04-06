@@ -299,6 +299,15 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     `;
 
+      // Agregar el reproductor de audio si hay un archivo de audio disponible
+  const audioObject = item.subjectOf?.find(media => media.encodingFormat === "audio/wav");
+  const audioPlayer = audioObject
+    ? `<audio controls class="w-100 mt-3">
+          <source src="${audioObject.contentUrl}" type="audio/wav">
+          Tu navegador no soporta el elemento de audio.
+        </audio>`
+    : `<p class="text-muted mt-3">No hay audio disponible para esta ave.</p>`;
+
     // Actualizar la descripción
     modalDescription.innerHTML = `
       <div class="modal-description">

@@ -578,7 +578,487 @@
               "@type": "Answer",
               "text": "Invierno"
             }
-        } 
+        },
+        {
+            "@type": "Question",
+            "name": "¿Cuál de estas características distingue a la Garza Imperial?",
+            "identifier": 22,
+            "text": "Elige la respuesta correcta:",
+            "image": "assets/img/Aves/garza imperial/garzaImperial1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Es mucho más grande que la garza real."
+              },
+              {
+                "@type": "Answer",
+                "text": "Su plumaje presenta tonos pardo rojizos en los laterales."
+              },
+              {
+                "@type": "Answer",
+                "text": "Tiene el dorso completamente blanco."
+              },
+              {
+                "@type": "Answer",
+                "text": "No migra y permanece siempre en la misma zona."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Su plumaje presenta tonos pardo rojizos en los laterales."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es el hábitat típico de la Garza Imperial?",
+            "identifier": 23,
+            "text": "Selecciona dónde vive habitualmente:",
+            "image": "assets/img/Aves/garza imperial/garzaImperial2.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Grandes ciudades con mucha actividad humana."
+              },
+              {
+                "@type": "Answer",
+                "text": "Humedales, marismas y cañaverales."
+              },
+              {
+                "@type": "Answer",
+                "text": "Bosques muy densos de coníferas."
+              },
+              {
+                "@type": "Answer",
+                "text": "Zonas montañosas de gran altitud."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Humedales, marismas y cañaverales."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es el comportamiento migratorio de la Garza Imperial en Mallorca?",
+            "identifier": 24,
+            "text": "Escoge la respuesta correcta:",
+            "image": "assets/img/Aves/garza imperial/garzaImperial3.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Permanece en Mallorca durante todo el año."
+              },
+              {
+                "@type": "Answer",
+                "text": "Llega en primavera y se va a finales de verano hacia África."
+              },
+              {
+                "@type": "Answer",
+                "text": "Solo llega durante los meses de invierno."
+              },
+              {
+                "@type": "Answer",
+                "text": "Permanece en la isla únicamente durante el otoño."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Llega en primavera y se va a finales de verano hacia África."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es aproximadamente la envergadura de la Garza Imperial?",
+            "identifier": 25,
+            "text": "Indica la envergadura aproximada:",
+            "image": "assets/img/Aves/garza imperial/garzaImperial4.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Entre 10 y 15 centímetros."
+              },
+              {
+                "@type": "Answer",
+                "text": "Entre 50 y 70 centímetros."
+              },
+              {
+                "@type": "Answer",
+                "text": "Entre 120 y 152 centímetros."
+              },
+              {
+                "@type": "Answer",
+                "text": "Más de 250 centímetros."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Entre 120 y 152 centímetros."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es la característica más destacada de la cerceta común?",
+            "identifier": 26,
+            "text": "Selecciona la respuesta correcta:",
+            "image": "assets/img/Aves/cerceta común/cerceta1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Es una de las especies de pato de mayor tamaño."
+              },
+              {
+                "@type": "Answer",
+                "text": "Destaca por su pequeño tamaño, el menor de los patos de nuestras zonas húmedas."
+              },
+              {
+                "@type": "Answer",
+                "text": "Su plumaje es completamente blanco."
+              },
+              {
+                "@type": "Answer",
+                "text": "Vive exclusivamente en zonas de alta montaña."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Destaca por su pequeño tamaño, el menor de los patos de nuestras zonas húmedas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es el rasgo más llamativo del macho en plumaje nupcial?",
+            "identifier": 27,
+            "text": "Elige la opción correcta:",
+            "image": "assets/img/Aves/cerceta común/cerceta2.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Un antifaz verde con borde amarillento en la cabeza."
+              },
+              {
+                "@type": "Answer",
+                "text": "Un gran copete de plumas blancas sobre la nuca."
+              },
+              {
+                "@type": "Answer",
+                "text": "Plumas rosadas en las alas."
+              },
+              {
+                "@type": "Answer",
+                "text": "Un pico verde fosforescente."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un antifaz verde con borde amarillento en la cabeza."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es el comportamiento migratorio de la cerceta común en Mallorca?",
+            "identifier": 28,
+            "text": "Selecciona la respuesta adecuada:",
+            "image": "assets/img/Aves/cerceta común/cerceta3.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Llega en primavera y permanece hasta finales de verano."
+              },
+              {
+                "@type": "Answer",
+                "text": "Permanece todo el año sin migrar."
+              },
+              {
+                "@type": "Answer",
+                "text": "Llega en otoño y se marcha en primavera."
+              },
+              {
+                "@type": "Answer",
+                "text": "Solo llega durante los meses de invierno y no abandona la isla."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Llega en otoño y se marcha en primavera."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué tipo de hábitat prefiere la cerceta común?",
+            "identifier": 29,
+            "text": "Elige la opción correcta:",
+            "image": "assets/img/Aves/cerceta común/cerceta4.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Zonas secas y desérticas con escasa vegetación."
+              },
+              {
+                "@type": "Answer",
+                "text": "Grandes ciudades con abundante tráfico."
+              },
+              {
+                "@type": "Answer",
+                "text": "Humedales como marismas, lagunas y embalses con vegetación acuática."
+              },
+              {
+                "@type": "Answer",
+                "text": "Bosques de coníferas en zonas de alta montaña."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Humedales como marismas, lagunas y embalses con vegetación acuática."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es la longitud aproximada de la Cigüeñuela común?",
+            "identifier": 30,
+            "text": "Elige la respuesta correcta:",
+            "image": "assets/img/Aves/ciguena comun/ciguena1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Entre 10 y 15 centímetros."
+              },
+              {
+                "@type": "Answer",
+                "text": "Entre 20 y 25 centímetros."
+              },
+              {
+                "@type": "Answer",
+                "text": "Entre 33 y 36 centímetros."
+              },
+              {
+                "@type": "Answer",
+                "text": "Más de 50 centímetros."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Entre 33 y 36 centímetros."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué rasgo distingue especialmente a la Cigüeñuela común?",
+            "identifier": 31,
+            "text": "Selecciona la respuesta adecuada:",
+            "image": "assets/img/Aves/ciguena comun/ciguena2.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Su gran cresta de plumas azules."
+              },
+              {
+                "@type": "Answer",
+                "text": "Sus patas muy largas y de color rosado."
+              },
+              {
+                "@type": "Answer",
+                "text": "Sus alas completamente rojas."
+              },
+              {
+                "@type": "Answer",
+                "text": "Su pico corto y curvado hacia abajo."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sus patas muy largas y de color rosado."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es el comportamiento migratorio de la Cigüeñuela común en Mallorca?",
+            "identifier": 32,
+            "text": "Elige la opción correcta:",
+            "image": "assets/img/Aves/ciguena comun/ciguena3.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Permanece todo el año en la isla, sin migrar."
+              },
+              {
+                "@type": "Answer",
+                "text": "Llega en otoño y permanece hasta la primavera."
+              },
+              {
+                "@type": "Answer",
+                "text": "Llega en primavera y se marcha en otoño rumbo a África."
+              },
+              {
+                "@type": "Answer",
+                "text": "Solo se ve durante el invierno en zonas costeras."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Llega en primavera y se marcha en otoño rumbo a África."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿En qué tipo de hábitat se encuentra normalmente la Cigüeñuela común?",
+            "identifier": 33,
+            "text": "Selecciona la respuesta más adecuada:",
+            "image": "assets/img/Aves/ciguena comun/ciguena4.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Humedales, marismas, estuarios y lagunas salinas con fondos poco profundos."
+              },
+              {
+                "@type": "Answer",
+                "text": "Densas selvas tropicales con mucha vegetación."
+              },
+              {
+                "@type": "Answer",
+                "text": "Zonas de alta montaña con rocas y nieve."
+              },
+              {
+                "@type": "Answer",
+                "text": "Grandes ciudades con tráfico intenso."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Humedales, marismas, estuarios y lagunas salinas con fondos poco profundos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es la longitud aproximada de la Garcilla bueyera?",
+            "identifier": 34,
+            "text": "Selecciona la respuesta adecuada:",
+            "image": "assets/img/Aves/garzilla/garzilla1.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Mide aproximadamente 20 cm de largo."
+              },
+              {
+                "@type": "Answer",
+                "text": "Tiene una longitud que oscila entre 46 y 56 cm."
+              },
+              {
+                "@type": "Answer",
+                "text": "Supera con facilidad los 70 cm de largo."
+              },
+              {
+                "@type": "Answer",
+                "text": "No suele sobrepasar los 10 cm de largo."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tiene una longitud que oscila entre 46 y 56 cm."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué rasgo destaca en la Garcilla bueyera durante la época de cría?",
+            "identifier": 35,
+            "text": "Elige la respuesta correcta:",
+            "image": "assets/img/Aves/garzilla/garzilla2.webp",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Sus plumas son completamente negras durante el verano."
+              },
+              {
+                "@type": "Answer",
+                "text": "Desarrolla un penacho rojo en la cabeza."
+              },
+              {
+                "@type": "Answer",
+                "text": "Su plumaje adquiere tonalidades doradas o anaranjadas en cabeza y cuello."
+              },
+              {
+                "@type": "Answer",
+                "text": "Sus patas se vuelven intensamente azules."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Su plumaje adquiere tonalidades doradas o anaranjadas en cabeza y cuello."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es el comportamiento migratorio de la Garcilla bueyera en Mallorca?",
+            "identifier": 36,
+            "text": "Selecciona la opción correcta:",
+            "image": "assets/img/Aves/garzilla/garzilla3.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Permanece durante todo el año en la isla sin migrar."
+              },
+              {
+                "@type": "Answer",
+                "text": "Llega en primavera y migra a África en otoño."
+              },
+              {
+                "@type": "Answer",
+                "text": "Únicamente hace escala durante el invierno."
+              },
+              {
+                "@type": "Answer",
+                "text": "Llega a finales de verano y permanece hasta la primavera siguiente."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Llega en primavera y migra a África en otoño."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿En qué tipo de hábitat se observa habitualmente a la Garcilla bueyera?",
+            "identifier": 37,
+            "text": "Elige la respuesta adecuada:",
+            "image": "assets/img/Aves/garzilla/garzilla4.jpg",
+            "answerCount": 4,
+            "suggestedAnswer": [
+              {
+                "@type": "Answer",
+                "text": "Zonas de alta montaña con temperaturas muy bajas."
+              },
+              {
+                "@type": "Answer",
+                "text": "Bosques densos de coníferas con escasa luz."
+              },
+              {
+                "@type": "Answer",
+                "text": "Áreas húmedas, marismas y campos agrícolas con ganado."
+              },
+              {
+                "@type": "Answer",
+                "text": "Exclusivamente en arrecifes coralinos."
+              }
+            ],
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Áreas húmedas, marismas y campos agrícolas con ganado."
+            }
+          }
     ],
     "potentialAction": {
         "@type": "PlayAction",

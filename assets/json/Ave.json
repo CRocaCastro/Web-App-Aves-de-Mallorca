@@ -305,13 +305,13 @@
                 {
                     "@type": "MediaObject",
                     "name": "Canto de la Garza Imperial",
-                    "contentUrl": "https://example.com/audio/garza_imperial.mp3",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/garzaImperial.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
                     "name": "Garza Imperial en su hábitat natural",
-                    "contentUrl": "https://example.com/video/garza_imperial.mp4",
+                    "contentUrl": "assets/mp4/garzaImperial.mp4",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -320,8 +320,7 @@
                     "@type": "PropertyValue",
                     "name": "Zona de distribución",
                     "value": [
-                        "ZX",
-                        "ZX"
+                        "Z4"
                     ],
                     "description": "Identificadores de las zonas en las que se encuentra la Garza Imperial."
                 }
@@ -372,8 +371,8 @@
                 {
                     "@type": "MediaObject",
                     "name": "Canto de la Cerceta común",
-                    "contentUrl": "https://example.com/audio/cerceta_comun.mp3",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/cercetaComun.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
@@ -387,8 +386,7 @@
                     "@type": "PropertyValue",
                     "name": "Zona de distribución",
                     "value": [
-                        "ZX",
-                        "ZX"
+                        "Z4"
                     ],
                     "description": "Identificadores de las zonas en las que se encuentra la Cerceta común."
                 }
@@ -439,13 +437,13 @@
                 {
                     "@type": "MediaObject",
                     "name": "Canto de la Cigüeñuela común",
-                    "contentUrl": "https://example.com/audio/cigueñuela_comun.mp3",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/cigueñelaComun.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
                     "name": "Cigüeñuela común en su hábitat natural",
-                    "contentUrl": "https://example.com/video/cigueñuela_comun.mp4",
+                    "contentUrl": "assets/mp4/cigueñelaComun.mp4",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -454,8 +452,7 @@
                     "@type": "PropertyValue",
                     "name": "Zona de distribución",
                     "value": [
-                        "ZX",
-                        "ZX"
+                        "Z4"
                     ],
                     "description": "Identificadores de las zonas en las que se encuentra la Cigüeñuela común."
                 }
@@ -506,13 +503,13 @@
                 {
                     "@type": "MediaObject",
                     "name": "Canto de la Garcilla bueyera",
-                    "contentUrl": "https://example.com/audio/garcilla_bueyera.mp3",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/garcillaBueyera.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
                     "name": "Garcilla bueyera en su hábitat natural",
-                    "contentUrl": "https://example.com/video/garcilla_bueyera.mp4",
+                    "contentUrl": "assets/mp4/garcillaBueyera.mp4",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -521,8 +518,7 @@
                     "@type": "PropertyValue",
                     "name": "Zona de distribución",
                     "value": [
-                        "ZX",
-                        "ZX"
+                        "Z4"
                     ],
                     "description": "Identificadores de las zonas en las que se encuentra la Garcilla bueyera."
                 }
@@ -1237,5 +1233,3 @@
         }  
     ]
 }
-                        
-  
