@@ -60,9 +60,9 @@
                     "@type": "PropertyValue",
                     "name": "Zona de distribución",
                     "value": [
-                        "zone:la_gola",
-                        "zone:sierra_tramuntana",
-                        "zone:parque_natural_albufera"
+                        "Z0",
+                        "Z3",
+                        "Z5"
                     ],
                     "description": "Identificadores de las zonas en las que se encuentra el Milano Real."
                 }
@@ -169,7 +169,7 @@
                 "name": "Habitat de presencia",
                 "termCode": "habitat",
                 "description": "Frecuenta zonas húmedas de todo tipo, como cursos lentos de agua, marismas, lagunas, embalses e incluso charcas estacionales o estanques en parques y jardines. En todo caso, muestra preferencia por aguas someras o poco profundas.",
-                "alternateName": ["Montaña"]
+                "alternateName": ["Humedal"]
             }
             ],
             "subjectOf": [
@@ -232,7 +232,7 @@
                 "name": "Habitat de presencia",
                 "termCode": "habitat",
                 "description": "El andarríos chico cría de forma muy dispersa por ríos, arroyos y embalses de la Península, donde ocupa ensenadas, bancos arenosos y acumulaciones de grava. En migración e invernada puede aparecer también en estuarios, marismas, playas y áreas rocosas.",
-                "alternateName": ["Paya","Montaña"]
+                "alternateName": ["Mar","Montaña"]
             }
             ],
             "subjectOf": [
@@ -298,7 +298,7 @@
                     "name": "Habitat de presencia",
                     "termCode": "habitat",
                     "description": "La Garza Imperial habita principalmente en zonas húmedas como marismas, lagunas, cañaverales y ríos con abundante vegetación palustre. Prefiere áreas con escasa intervención humana.",
-                    "alternateName": ["Humedales", "Marismas"]
+                    "alternateName": ["Humedales", "Mar"]
                 }
             ],
             "subjectOf": [
@@ -364,7 +364,7 @@
                     "name": "Habitat de presencia",
                     "termCode": "habitat",
                     "description": "Habita en zonas húmedas como marismas, lagunas y embalses, donde hay abundante vegetación acuática. Prefiere aguas poco profundas con vegetación flotante o sumergida.",
-                    "alternateName": ["Marismas", "Lagunas", "Embalses"]
+                    "alternateName": ["Mar", "Humedal"]
                 }
             ],
             "subjectOf": [
@@ -430,7 +430,7 @@
                     "name": "Habitat de presencia",
                     "termCode": "habitat",
                     "description": "La Cigüeñuela común habita en humedales, marismas, lagunas salinas y estuarios, donde suele encontrar sustrato fangoso o de poca profundidad para alimentarse. Prefiere zonas con vegetación palustre o áreas abiertas donde pueda moverse fácilmente en busca de invertebrados acuáticos.",
-                    "alternateName": ["Humedales", "Marismas", "Estuarios", "Lagunas salinas"]
+                    "alternateName": ["Humedales", "Mar"]
                 }
             ],
             "subjectOf": [
@@ -496,7 +496,7 @@
                     "name": "Habitat de presencia",
                     "termCode": "habitat",
                     "description": "Habita en zonas húmedas, marismas, humedales y campos agrícolas. Es común verla en terrenos de pastoreo donde se alimenta de insectos y pequeños vertebrados que siguen a los animales de pastoreo, especialmente ganado.",
-                    "alternateName": ["Humedales", "Marismas", "Campos agrícolas"]
+                    "alternateName": ["Humedal", "Mar", "Campos agrícolas"]
                 }
             ],
             "subjectOf": [
@@ -560,7 +560,7 @@
                     "name": "Habitat de presencia",
                     "termCode": "habitat",
                     "description": "Se establece en una gran variedad de hábitats, siempre y cuando haya cierta cobertura arbórea y el clima sea suave. No suele instalarse a más de 1.800 metros de altitud.",
-                    "alternateName": ["Humedales", "Marismas", "Campos agrícolas"]
+                    "alternateName": ["Humedal", "Mar", "Campos agrícolas"]
                 }
             ],
             "subjectOf": [
@@ -624,7 +624,7 @@
                     "name": "Habitat de presencia",
                     "termCode": "habitat",
                     "description": "Prefiere zonas húmedas, incluyendo lagunas, marismas, humedales y ríos de aguas tranquilas. Se alimenta de peces y pequeños invertebrados.",
-                    "alternateName": ["Humedales", "Marismas", "Zonas de agua dulce"]
+                    "alternateName": ["Humedal", "Mar"]
                 }
             ],
             "subjectOf": [
@@ -689,7 +689,7 @@
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
                 "description": "Prefiere hábitats cercanos al agua como costas, humedales, marismas y embalses, donde se alimenta principalmente de peces. Se la suele ver sobrevolando aguas tranquilas y lanzándose en picado para cazar.",
-                "alternateName": ["Áreas de agua dulce", "Costas", "Humedales", "Embalses"]
+                "alternateName": ["Mar", "Humedales"]
                 }
             ],
             "subjectOf": [
@@ -753,7 +753,7 @@
                     "name": "Hábitat de presencia",
                     "termCode": "habitat",
                     "description": "Prefiere lagunas salinas, humedales y marismas de aguas poco profundas, donde se alimenta filtrando algas, crustáceos y otros pequeños organismos.",
-                    "alternateName": ["Aguas someras", "Lagunas salinas", "Marismas", "Humedales salinos"]
+                    "alternateName": ["Mar", "Humedal"]
                 }
             ],
             "subjectOf": [
@@ -815,7 +815,7 @@
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
                 "description": "Prefiere humedales, marismas y lagunas con vegetación densa, especialmente carrizales donde puede ocultarse, desplazarse con agilidad y construir sus nidos.",
-                "alternateName": ["Humedales con vegetación densa", "Carrizales", "Marismas", "Zonas inundadas"]
+                "alternateName": ["Humedal", "Carrizales", "Mar"]
               }
             ],
             "subjectOf": [
@@ -877,7 +877,7 @@
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
                 "description": "Prefiere acantilados costeros e islotes para anidar. Se le puede observar cazando aves migratorias sobre el mar o zonas de litoral, y también sobrevolando espacios abiertos.",
-                "alternateName": ["Acantilados marinos", "Islotes", "Espacios abiertos", "Zonas húmedas"]
+                "alternateName": ["Mar", "Humedal", "Espacios abiertos", "Acantilados"]
               }
             ],
             "subjectOf": [
@@ -945,7 +945,7 @@
                 "termCode": "habitat",
                 "description": "Habita acantilados costeros, zonas rocosas e islotes, donde anida en grietas y cuevas protegidas. Caza en aguas marinas cercanas a la costa, donde se zambulle en busca de peces pequeños.",
                 "alternateName": [
-                  "Acantilados", "Zonas costeras rocosas", "Islotes", "Bahías protegidas"
+                  "Acantilados", "Mar"
                 ]
               }
             ],
@@ -1008,7 +1008,7 @@
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
                 "description": "Prefiere zonas abiertas con vegetación baja como prados, cultivos, olivares y pinares claros. También frecuenta áreas rurales, bordes de caminos y campos agrícolas donde busca alimento en el suelo.",
-                "alternateName": ["Campos abiertos", "Zonas agrícolas", "Olivar", "Pinar claro", "Prados"]
+                "alternateName": ["Espacios abiertos", "Campos agrícolas", "Olivar", "Prados"]
               }
             ],
             "subjectOf": [
@@ -1073,7 +1073,7 @@
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
                 "description": "Prefiere matorrales mediterráneos, pinares abiertos, zonas de monte bajo y áreas agrícolas con arbustos y setos densos donde se refugia y se alimenta.",
-                "alternateName": ["Matorrales", "Pinares", "Monte bajo", "Setos agrícolas", "Vegetación densa"]
+                "alternateName": ["Montaña", "Bosque", "Campos agrícolas"]
               }
             ],
             "subjectOf": [
@@ -1138,7 +1138,7 @@
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
                 "description": "Prefiere zonas montañosas con bosques de encinas y pinares. Nidifica en grandes árboles o acantilados, en áreas tranquilas y alejadas de la actividad humana, donde encuentra carroña con facilidad.",
-                "alternateName": ["Bosques montañosos", "Acantilados", "Pinares", "Encinares"]
+                "alternateName": ["Bosque", "Acantilados"]
               }
             ],
             "subjectOf": [
@@ -1204,7 +1204,7 @@
                 "termCode": "habitat",
                 "description": "Precisa de una cierta calidad de las aguas, vegetación palustre más o menos densa, posaderos apropiados, pesca abundante y taludes arenosos en los que instalar el nido.",
                 "alternateName": [
-                    "Lagunas", "marismas", "albuferas", "ríos", "embalses", "torrentes", "canales", "charcas"
+                    "Humedal", "Mar"
                 ]
                 }
             ],

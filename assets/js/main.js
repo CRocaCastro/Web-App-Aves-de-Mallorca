@@ -205,46 +205,350 @@
 /*--------------------------------------------------------------
 # Aves
 --------------------------------------------------------------*/
-
+//Función para filtrar por nombre
 document.addEventListener('DOMContentLoaded', function () {
-  const dropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item');
+  const dropdownItems = document.querySelectorAll('#btn-nombre + .dropdown-menu .dropdown-item'); // Solo los del filtro de nombre
   const searchInput = document.querySelector('.input-group input');
-  const dropdownMenu = document.querySelector('#btn-nombre'); // Contenedor del menú desplegable
+  const dropdownMenu = document.querySelector('#btn-nombre');
+  const portfolioContainer = document.querySelector('#aves .row.gy-4');
+  let searchType = null;
+  let birdsData = [];
 
-  // Inicialmente deshabilitar la barra de búsqueda
+  // Desactivar inicialmente
   searchInput.disabled = true;
   searchInput.placeholder = 'Selecciona el tipo de nombre';
 
+  // Cargar datos del JSON
+  fetch('assets/json/Ave.json')
+    .then(response => response.json())
+    .then(data => {
+      birdsData = data.species;
+      renderBirds(birdsData);
+    });
+
+  // Manejar selección de tipo de nombre
   dropdownItems.forEach(item => {
     item.addEventListener('click', function (event) {
-      event.preventDefault(); // Evita que el enlace recargue la página
+      event.preventDefault();
 
       // Alternar selección
       if (this.classList.contains('selected')) {
         this.classList.remove('selected');
         searchInput.disabled = true;
         searchInput.placeholder = 'Selecciona el tipo de nombre';
-        dropdownMenu.classList.remove('btn-selected'); // Quitar color verde
+        dropdownMenu.classList.remove('btn-selected');
+        searchType = null;
+        renderBirds(birdsData); // Mostrar todo si se desactiva
       } else {
-        // Deseleccionar otras opciones
+        // Deseleccionar otros
         dropdownItems.forEach(option => option.classList.remove('selected'));
 
-        // Seleccionar la opción actual
         this.classList.add('selected');
+        dropdownMenu.classList.add('btn-selected');
 
-        // Actualizar el placeholder según la selección
+        // Activar input
+        searchInput.disabled = false;
+
+        // Definir el tipo de búsqueda
         if (this.textContent.trim() === 'Nombre común') {
-          searchInput.disabled = false;
           searchInput.placeholder = 'Buscar por nombre común';
+          searchType = 'name';
         } else if (this.textContent.trim() === 'Nombre científico') {
-          searchInput.disabled = false;
           searchInput.placeholder = 'Buscar por nombre científico';
+          searchType = 'alternateName';
         }
-
-        dropdownMenu.classList.add('btn-selected'); // Añadir color verde
       }
     });
   });
+
+  // Manejar búsqueda
+  searchInput.addEventListener('input', function () {
+    const query = this.value.toLowerCase().trim(); // Texto ingresado en la barra de búsqueda
+
+    // Filtrar aves según el tipo de búsqueda y el texto ingresado
+    const filteredBirds = birdsData.filter(bird => {
+      if (searchType === 'name') {
+        return bird.name.toLowerCase().includes(query);
+      } else if (searchType === 'alternateName') {
+        return bird.alternateName.toLowerCase().includes(query);
+      }
+      return false;
+    });
+
+    // Renderizar las aves filtradas
+    renderBirds(filteredBirds);
+  });
+
+  // Función para renderizar las aves en el contenedor
+  function renderBirds(birds) {
+    portfolioContainer.innerHTML = ''; // Limpiar el contenedor donde se muestran las aves
+  
+    // Recorrer cada ave y crear un card
+    birds.forEach(bird => {
+      // Crear un elemento div para la ave
+      const birdElement = document.createElement('div');
+      birdElement.classList.add('col-lg-4', 'col-md-6', 'portfolio-item');
+  
+      // Asignar el contenido HTML al elemento con el diseño de Bootstrap
+      birdElement.innerHTML = `
+        <div class="card h-100">
+          <a class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${bird.identifier}">
+            <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">${bird.name}</h5>
+            <p class="card-text"><em>${bird.alternateName}</em></p>
+          </div>
+        </div>
+      `;
+  
+      // Agregar el elemento al contenedor de aves
+      portfolioContainer.appendChild(birdElement);
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const jsonUrl = 'assets/json/Ave.json';
+  const portfolioContainer = document.querySelector('#aves .row.gy-4');
+  const portfolioModal = document.getElementById('portfolioModal');
+
+  const btnEstacion = document.querySelector('#btn-estacion');
+  const estacionDropdownItems = document.querySelectorAll('#btn-estacion + .dropdown-menu .dropdown-item');
+
+  let birdsData = [];
+  let selectedEstacion = null;
+
+  function filtrarPorEstacion(aves, estacion) {
+    const mesesPorEstacion = {
+      "Primavera": ["Marzo", "Abril", "Mayo"],
+      "Verano": ["Junio", "Julio", "Agosto"],
+      "Otoño": ["Septiembre", "Octubre", "Noviembre"],
+      "Invierno": ["Diciembre", "Enero", "Febrero"]
+    };
+    const meses = mesesPorEstacion[estacion];
+
+    return aves.filter(ave => {
+      const estaciones = ave.hasDefinedTerm?.filter(term => term.termCode === "season");
+      if (!estaciones?.length) return false;
+      return estaciones.some(estacion =>
+        estacion.alternateName?.some(mes => meses.includes(mes))
+      );
+    });
+  }
+
+  function renderBirds(birds) {
+    portfolioContainer.innerHTML = '';
+    birds.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'col-lg-4 col-md-6 portfolio-item';
+      card.innerHTML = `
+        <div class="card h-100">
+          <a class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${item.identifier}">
+            <img src="${item.image[0]}" class="card-img-top" alt="${item.name}" loading="lazy">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title"><a>${item.name}</a></h5>
+            <p class="card-text"><em>${item.alternateName}</em></p>
+          </div>
+        </div>
+      `;
+      portfolioContainer.appendChild(card);
+    });
+  }
+
+  // FUNCIÓN MUESTRA MODAL DE LAS AVES
+  function updateModalContent(item, data) {
+    const modalTitle = portfolioModal.querySelector('#modalTitle');
+    const modalDescription = portfolioModal.querySelector('#modalDescription');
+    const modalCarouselInner = portfolioModal.querySelector('#modalCarouselInner');
+    const modalAdditionalInfo = portfolioModal.querySelector('#modalAdditionalInfo');
+    const modalUsersReviews = portfolioModal.querySelector('#modalUsersReviews');
+    const modalAudioContainer = portfolioModal.querySelector('#modalAudioContainer');
+
+    const audioObject = item.subjectOf?.find(media => media.encodingFormat === "audio/wav");
+    const audioPlayer = audioObject && audioObject.contentUrl
+      ? `<h5 class="mt-3">Escucha el canto:</h5>
+         <audio controls class="w-100 mt-2">
+            <source src="${audioObject.contentUrl}" type="${audioObject.encodingFormat}">
+            Tu navegador no soporta el elemento de audio.
+         </audio>`
+      : `<p class="text-muted mt-3">No hay audio disponible para esta ave.</p>`;
+
+    modalAudioContainer.innerHTML = audioPlayer;
+
+    modalTitle.innerHTML = `
+      <div class="modal-title-container">
+        <h4>${item.name}</h4>
+        <p><em>${item.alternateName}</em></p>
+      </div>
+    `;
+
+    modalDescription.innerHTML = `
+      <div class="modal-description">
+        <p><strong>Descripción:</strong> ${item.description}</p>
+        <p><strong>Familia:</strong> ${item.parentTaxon.name}</p>
+      </div>
+    `;
+
+    modalCarouselInner.innerHTML = item.image.map((img, index) => `
+      <div class="carousel-item ${index === 0 ? 'active' : ''}">
+        <img src="${img}" class="d-block w-100" alt="${item.name}">
+      </div>
+    `).join('');
+
+    modalUsersReviews.innerHTML = `
+      <div class="modal-reviews">
+        <h5>Reseñas de usuarios</h5>
+        <p>${item.review ? item.review : "Aún no hay reseñas, ¡añade una ahora!"}</p>
+      </div>
+    `;
+
+    const otherBirds = data.filter(bird => bird.identifier !== item.identifier);
+    modalAdditionalInfo.innerHTML = `
+      <h5>Otras aves</h5>
+      <div class="row gy-4" id="other-birds-container">
+        ${otherBirds.slice(0, 3).map(bird => `
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="card h-100">
+              <a class="portfolio-link" data-id="${bird.identifier}">
+                <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title"><a>${bird.name}</a></h5>
+                <p class="card-text">${bird.alternateName}</p>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    modalAdditionalInfo.querySelectorAll('.portfolio-link').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const newId = this.getAttribute('data-id');
+        const newItem = data.find(bird => bird.identifier === newId);
+        if (newItem) updateModalContent(newItem, data);
+      });
+    });
+  }
+
+  // Cargar JSON
+  fetch(jsonUrl)
+    .then(response => response.json())
+    .then(data => {
+      birdsData = data.species;
+      renderBirds(birdsData);
+
+      // Modal
+      portfolioModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        const id = button.getAttribute('data-id');
+        const item = birdsData.find(item => item.identifier === id);
+        if (item) updateModalContent(item, birdsData);
+      });
+
+      // Filtro por estación
+      estacionDropdownItems.forEach(btn => {
+        btn.addEventListener('click', function () {
+          // Deseleccionar todos
+          estacionDropdownItems.forEach(option => option.classList.remove('selected'));
+
+          // Si seleccionas la misma estación otra vez → desactiva filtro
+          if (selectedEstacion === this.textContent.trim()) {
+            selectedEstacion = null;
+            btnEstacion.classList.remove('btn-selected');
+            renderBirds(birdsData);
+          } else {
+            // Selección nueva
+            selectedEstacion = this.textContent.trim();
+            this.classList.add('selected');
+            btnEstacion.classList.add('btn-selected');
+            const avesFiltradas = filtrarPorEstacion(birdsData, selectedEstacion);
+            renderBirds(avesFiltradas);
+          }
+        });
+      });
+    })
+    .catch(error => console.error('Error al cargar el JSON:', error));
+});
+
+
+// Función para filtrar por hábitat  las aves 
+document.addEventListener('DOMContentLoaded', function () {
+  const habitatDropdownItems = document.querySelectorAll('#btn-habitat + .dropdown-menu .dropdown-item'); // Opciones del dropdown de hábitat
+  const habitatDropdownMenu = document.querySelector('#btn-habitat'); // Botón del menú desplegable de hábitat
+  const portfolioContainer = document.querySelector('#aves .row.gy-4'); // Contenedor de las aves
+  let selectedHabitat = null; // Hábitat seleccionado
+
+  // Cargar datos del JSON
+  let birdsData = [];
+  fetch('assets/json/Ave.json')
+    .then(response => response.json())
+    .then(data => {
+      birdsData = data.species; // Guardar las aves en una variable
+      renderBirds(birdsData); // Renderizar todas las aves inicialmente
+    })
+    .catch(error => console.error('Error al cargar el JSON:', error));
+
+  // Manejar selección del hábitat
+  habitatDropdownItems.forEach(item => {
+    item.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      // Alternar selección
+      if (this.classList.contains('selected')) {
+        this.classList.remove('selected');
+        habitatDropdownMenu.classList.remove('btn-selected'); // Quitar color verde
+        selectedHabitat = null; // Resetear el hábitat seleccionado
+        renderBirds(birdsData); // Mostrar todas las aves
+      } else {
+        // Deseleccionar otras opciones
+        habitatDropdownItems.forEach(option => option.classList.remove('selected'));
+
+        // Seleccionar la opción actual
+        this.classList.add('selected');
+        habitatDropdownMenu.classList.add('btn-selected'); // Añadir color verde
+        selectedHabitat = this.textContent.trim(); // Guardar el hábitat seleccionado
+
+        // Filtrar aves por el hábitat seleccionado
+        const filteredBirds = birdsData.filter(bird => {
+          const habitatTerm = bird.hasDefinedTerm?.find(term => term.termCode === 'habitat');
+          if (habitatTerm && habitatTerm.alternateName) {
+            return habitatTerm.alternateName.some(h => h.toLowerCase() === selectedHabitat.toLowerCase());
+          }
+          return false;
+        });
+
+        renderBirds(filteredBirds); // Renderizar las aves filtradas
+      }
+    });
+  });
+
+  // Función para renderizar las aves en el contenedor
+  function renderBirds(birds) {
+    portfolioContainer.innerHTML = ''; // Limpiar el contenedor donde se muestran las aves
+
+    birds.forEach(bird => {
+      const birdElement = document.createElement('div');
+      birdElement.classList.add('col-lg-4', 'col-md-6', 'portfolio-item');
+
+      birdElement.innerHTML = `
+        <div class="card h-100">
+          <a class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${bird.identifier}">
+            <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">${bird.name}</h5>
+            <p class="card-text"><em>${bird.alternateName}</em></p>
+          </div>
+        </div>
+      `;
+
+      portfolioContainer.appendChild(birdElement);
+    });
+  }
 });
 
 // Función para el botón Ver más
@@ -276,149 +580,6 @@ document.getElementById('load-less').addEventListener('click', function () {
     block: 'start' // Alinea al inicio de la sección
   });
 });
-
-// Función para cargar las aves desde un archivo JSON
-
-document.addEventListener('DOMContentLoaded', function () {
-  const jsonUrl = 'assets/json/Ave.json'; // Ruta del archivo JSON
-  const portfolioContainer = document.querySelector('#aves .row.gy-4'); // Contenedor de los items
-  const portfolioModal = document.getElementById('portfolioModal'); // Modal del portafolio
-
-  function updateModalContent(item, data) {
-    const modalTitle = portfolioModal.querySelector('#modalTitle');
-    const modalDescription = portfolioModal.querySelector('#modalDescription');
-    const modalCarouselInner = portfolioModal.querySelector('#modalCarouselInner');
-    const modalAdditionalInfo = portfolioModal.querySelector('#modalAdditionalInfo');
-    const modalUsersReviews = portfolioModal.querySelector('#modalUsersReviews');
-
-    // Actualizar el título
-    modalTitle.innerHTML = `
-      <div class="modal-title-container">
-        <h4>${item.name}</h4>
-        <p><em>${item.alternateName}</em></p>
-      </div>
-    `;
-
-      // Agregar el reproductor de audio si hay un archivo de audio disponible
-  const audioObject = item.subjectOf?.find(media => media.encodingFormat === "audio/wav");
-  const audioPlayer = audioObject
-    ? `<audio controls class="w-100 mt-3">
-          <source src="${audioObject.contentUrl}" type="audio/wav">
-          Tu navegador no soporta el elemento de audio.
-        </audio>`
-    : `<p class="text-muted mt-3">No hay audio disponible para esta ave.</p>`;
-
-    // Actualizar la descripción
-    modalDescription.innerHTML = `
-      <div class="modal-description">
-        <p><strong>Descripción:</strong> ${item.description}</p>
-        <p><strong>Familia:</strong> ${item.parentTaxon.name}</p>
-      </div>
-    `;
-
-    // Generar las imágenes del carrusel
-    modalCarouselInner.innerHTML = item.image.map((img, index) => `
-      <div class="carousel-item ${index === 0 ? 'active' : ''}">
-        <img src="${img}" class="d-block w-100" alt="${item.name}">
-      </div>
-    `).join('');
-
-    // Actualizar las reseñas
-    modalUsersReviews.innerHTML = `
-      <div class="modal-reviews">
-        <h5>Reseñas de usuarios</h5>
-        <p>${item.review ? item.review : "Aún no hay reseñas, ¡añade una ahora!"}</p>
-      </div>
-    `;
-
-    // Generar tarjetas de otras aves
-    const otherBirds = data.filter(bird => bird.identifier !== item.identifier); // Excluir el ave actual
-    modalAdditionalInfo.innerHTML = `
-      <h5>Otras aves</h5>
-      <div class="row gy-4" id="other-birds-container">
-        ${otherBirds.slice(0, 3).map(bird => `
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card h-100">
-              <a class="portfolio-link" data-id="${bird.identifier}">
-                <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title"><a title="More Details">${bird.name}</a></h5>
-                <p class="card-text">${bird.alternateName}</p>
-              </div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-      ${otherBirds.length > 3 ? '<div class="text-center mt-3"><button class="btn btn-primary btn-sm" id="load-more-other-birds">Cargar más</button></div>' : ''}
-    `;
-
-    
-
-    // Configurar eventos para las tarjetas de otras aves
-    const otherBirdLinks = modalAdditionalInfo.querySelectorAll('.portfolio-link');
-    otherBirdLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const newId = this.getAttribute('data-id'); // Obtener el ID de la nueva ave
-        const newItem = data.find(bird => bird.identifier === newId); // Buscar la nueva ave
-        if (newItem) {
-          updateModalContent(newItem, data);
-        }
-      });
-    });
-  }
-
-  // Cargar el JSON y generar los bloques dinámicamente
-  fetch(jsonUrl)
-    .then(response => response.json())
-    .then(data => {
-      const birds = data.species; // Acceder al array species
-
-      // Limpiar el contenido existente
-      portfolioContainer.innerHTML = '';
-
-      // Generar un bloque por cada ave en el JSON
-      birds.forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'col-lg-4 col-md-6 portfolio-item';
-
-        card.innerHTML = `
-          <div class="card h-100">
-            <a  class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${item.identifier}">
-              <img src="${item.image[0]}" class="card-img-top" alt="${item.name}" loading="lazy">
-            </a>
-            <div class="card-body">
-              <h5 class="card-title"><a  title="More Details">${item.name}</a></h5>
-              <p class="card-text">${item.alternateName}</p>
-            </div>
-          </div>
-        `;
-
-        portfolioContainer.appendChild(card);
-      });
-
-      // Configurar el evento para abrir el modal y actualizar su contenido
-      portfolioModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget; // Botón que activó el modal
-        const id = button.getAttribute('data-id'); // Extraer el ID del atributo data-id
-
-        // Encontrar el elemento con el ID correspondiente en el JSON
-        const item = birds.find(item => item.identifier === id);
-
-        if (item) {
-          updateModalContent(item, birds); // Llamar a la función para llenar el contenido del modal
-          // Desplazar a la parte superior del modal
-          portfolioModal.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        }
-      });
-    })
-    .catch(error => console.error('Error al cargar el JSON:', error));
-});
-
 
 /*--------------------------------------------------------------
 # Zonas
@@ -590,8 +751,8 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     message: formData.get('message')
   };
 
-  // URL de la API a la que se enviarán los datos CAMBIARRRRR
-  const apiUrl = 'https://tu-api.com/endpoint'; 
+  // URL de la API a la que se enviarán los datos 
+  const apiUrl = 'https://getform.io/f/apjnvqya'; 
 
   // Solicitud POST a la API
   fetch(apiUrl, {
@@ -986,5 +1147,65 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   } catch (error) {
     console.error("Error cargando aves del mes:", error);
+  }
+});
+
+// Validar el formulario de contacto
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Evita el envío del formulario si hay errores
+
+  // Validar cada campo
+  const fname = document.getElementById('fname');
+  const lname = document.getElementById('lname');
+  const email = document.getElementById('email');
+  const subject = document.getElementById('subject');
+  const message = document.getElementById('message');
+
+  let isValid = true;
+
+  // Validar Nombre
+  if (!fname.checkValidity()) {
+    document.getElementById('fname-error').textContent = fname.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('fname-error').textContent = '';
+  }
+
+  // Validar Apellidos
+  if (!lname.checkValidity()) {
+    document.getElementById('lname-error').textContent = lname.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('lname-error').textContent = '';
+  }
+
+  // Validar Email
+  if (!email.checkValidity()) {
+    document.getElementById('email-error').textContent = email.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('email-error').textContent = '';
+  }
+
+  // Validar Asunto
+  if (!subject.checkValidity()) {
+    document.getElementById('subject-error').textContent = subject.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('subject-error').textContent = '';
+  }
+
+  // Validar Mensaje
+  if (!message.checkValidity()) {
+    document.getElementById('message-error').textContent = message.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('message-error').textContent = '';
+  }
+
+  // Si todo es válido, enviar el formulario
+  if (isValid) {
+    alert('Formulario enviado correctamente.');
+    this.submit();
   }
 });

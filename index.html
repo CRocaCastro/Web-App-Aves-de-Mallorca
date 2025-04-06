@@ -143,27 +143,31 @@
               
               <!-- Estación -->
               <div class="dropdown">
-                <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button id="btn-estacion" class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Estación
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Primavera</a></li>
-                  <li><a class="dropdown-item" href="#">Verano</a></li>
-                  <li><a class="dropdown-item" href="#">Otoño</a></li>
-                  <li><a class="dropdown-item" href="#">Invierno</a></li>
+                  <li><a class="dropdown-item" role="button">Primavera</a></li>
+                  <li><a class="dropdown-item" role="button">Verano</a></li>
+                  <li><a class="dropdown-item" role="button">Otoño</a></li>
+                  <li><a class="dropdown-item" role="button">Invierno</a></li>
                 </ul>
               </div>
           
               <!-- Hábitat -->
               <div class="dropdown">
-                <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button id="btn-habitat" class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Hábitat
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Bosque</a></li>
-                  <li><a class="dropdown-item" href="#">Humedal</a></li>
-                  <li><a class="dropdown-item" href="#">Pradera</a></li>
-                  <li><a class="dropdown-item" href="#">Mar</a></li>
+                  <li><a class="dropdown-item" role="button">Bosque</a></li>
+                  <li><a class="dropdown-item" role="button">Humedal</a></li>
+                  <li><a class="dropdown-item" role="button">Prados</a></li>
+                  <li><a class="dropdown-item" role="button">Mar</a></li>
+                  <li><a class="dropdown-item" role="button">Campos agrícolas</a></li>
+                  <li><a class="dropdown-item" role="button">Carrizales</a></li>
+                  <li><a class="dropdown-item" role="button">Espacios abiertos</a></li>
+                  <li><a class="dropdown-item" role="button">Acantilados</a></li>
                 </ul>
               </div>
           
@@ -303,30 +307,11 @@
 
       <div class="container">
         <div class="row gy-4 justify-content-center">
-
-          <!-- Autor 1 -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member text-center d-flex flex-column align-items-center">
-              <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
-                <img src="https://www.playademuro.net/images/playademuro/planes-experiencias/bird/muro_birdwatching_guia_7.webp" class="img-fluid" alt="Luz Salvá">
-              </div>
-              <div class="member-info mt-3">
-                <h4>Luz Salvá</h4>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <!-- Autor 2 -->
+          <!-- Autor Juanfra -->
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member text-center d-flex flex-column align-items-center">
               <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
-                <img src="https://www.playademuro.net/images/playademuro/planes-experiencias/bird/muro_birdwatching_guia_7.webp" class="img-fluid" alt="Juan Francisco Riera">
+                <img src="assets/img/Autores/Autor_Juanfra.webp" class="img-fluid" alt="Juan Francisco Riera">
               </div>
               <div class="member-info mt-3">
                 <h4>Juan Francisco Riera</h4>
@@ -340,11 +325,29 @@
             </div>
           </div><!-- End Team Member -->
 
-          <!-- Autor 3 -->
+          <!-- Autor Luz -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member text-center d-flex flex-column align-items-center">
+              <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
+                <img src="assets/img/Autores/Autor_Luz.webp" class="img-fluid" alt="Luz Salvá">
+              </div>
+              <div class="member-info mt-3">
+                <h4>Luz Salvá</h4>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <!-- Autor Claudia -->
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member text-center d-flex flex-column align-items-center">
               <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
-                <img src="https://www.playademuro.net/images/playademuro/planes-experiencias/bird/muro_birdwatching_guia_7.webp" class="img-fluid" alt="Claudia Roca">
+                <img src="assets/img/Autores/Autor_Claudia.webp" class="img-fluid" alt="Claudia Roca">
               </div>
               <div class="member-info mt-3">
                 <h4>Claudia Roca</h4>
@@ -376,43 +379,52 @@
           <div class="col-md-4 d-flex align-items-stretch">
             <img src="https://www.playademuro.net/images/playademuro/planes-experiencias/bird/muro_birdwatching_guia_7.webp" alt="Imagen de contacto" class="img-fluid" style="max-height: 300px; width: 100%; object-fit: cover;">
           </div>
-
-                  
+    
           <!-- Columna para el formulario -->
           <div class="col-md-8 mb-5">
-            <form id="contact-form" class="p-5 bg-white">
+            <form id="contact-form" class="p-5 bg-white" novalidate>
+              <!-- Nombre -->
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="text-black" for="fname">Nombre</label>
-                  <input type="text" id="fname" name="fname" class="form-control" required>
+                  <input type="text" id="fname" name="fname" class="form-control" required minlength="3" placeholder="Tu nombre completo">
+                  <span class="error-message" id="fname-error"></span>
                 </div>
                 <div class="col-md-6">
                   <label class="text-black" for="lname">Apellidos</label>
-                  <input type="text" id="lname" name="lname" class="form-control" required>
+                  <input type="text" id="lname" name="lname" class="form-control" required minlength="3" placeholder="Tus apellidos">
+                  <span class="error-message" id="lname-error"></span>
                 </div>
               </div>
-
+    
+              <!-- Correo Electrónico -->
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Email</label> 
-                  <input type="email" id="email" name="email" class="form-control" required>
+                  <label class="text-black" for="email">Email</label>
+                  <input type="email" id="email" name="email" class="form-control" required placeholder="ejemplo@correo.com">
+                  <span class="error-message" id="email-error"></span>
                 </div>
               </div>
-
+    
+              <!-- Asunto -->
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="subject">Asunto</label> 
-                  <input type="text" id="subject" name="subject" class="form-control" required>
+                  <label class="text-black" for="subject">Asunto</label>
+                  <input type="text" id="subject" name="subject" class="form-control" required minlength="5" placeholder="Asunto del mensaje">
+                  <span class="error-message" id="subject-error"></span>
                 </div>
               </div>
-
+    
+              <!-- Mensaje -->
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="message">Mensaje</label> 
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" required></textarea>
+                  <label class="text-black" for="message">Mensaje</label>
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" required minlength="10" placeholder="Escribe tu mensaje aquí"></textarea>
+                  <span class="error-message" id="message-error"></span>
                 </div>
               </div>
-
+    
+              <!-- Botón de Enviar -->
               <div class="row form-group mt-3">
                 <div class="col-md-12">
                   <button type="submit" class="custom-btn w-100">Enviar</button>
@@ -422,7 +434,7 @@
           </div>
         </div>
       </div>
-    </section><!-- End New Contact Section -->
+    </section>
 
 
 
@@ -492,6 +504,11 @@
   
           <!-- Título dinámico -->
           <div id="modalTitle"></div>
+
+          <!-- Contenedor para el reproductor de audio -->
+          <div id="modalAudioContainer" class="mt-3">
+            <!-- Aquí se insertará dinámicamente el reproductor de audio -->
+          </div>
   
           <!-- Descripción dinámica -->
           <div id="modalDescription"></div>
