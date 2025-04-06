@@ -386,10 +386,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     modalDescription.innerHTML = `
       <div class="modal-description">
-        <p><strong>Descripción:</strong> ${item.description}</p>
-        <p><strong>Familia:</strong> ${item.parentTaxon.name}</p>
+        <div class="texto-para-leer">
+          <p><strong>Descripción:</strong> ${item.description}</p>
+          <p><strong>Familia:</strong> ${item.parentTaxon.name}</p>
+        </div>
+        <button class="btn btn-outline-primary mt-2" id="btnLeer">🔊 Escuchar</button>
       </div>
     `;
+
 
     modalCarouselInner.innerHTML = item.image.map((img, index) => `
       <div class="carousel-item ${index === 0 ? 'active' : ''}">
@@ -640,11 +644,15 @@ document.addEventListener('DOMContentLoaded', function () {
   
     modalDescription.innerHTML = `
       <div class="modal-description">
-        <p><strong>Descripción:</strong> ${zona.description}</p>
-        <p><strong>Ubicación:</strong> ${zona.address.addressLocality}, ${zona.address.addressRegion}, ${zona.address.addressCountry}</p>
-        <p><strong>Coordenadas:</strong> Latitud: ${zona.geo.latitude}, Longitud: ${zona.geo.longitude}</p>
+        <div class="texto-para-leer">
+          <p><strong>Descripción:</strong> ${zona.description}</p>
+          <p><strong>Ubicación:</strong> ${zona.address.addressLocality}, ${zona.address.addressRegion}, ${zona.address.addressCountry}</p>
+          <p><strong>Coordenadas:</strong> Latitud: ${zona.geo.latitude}, Longitud: ${zona.geo.longitude}</p>
+        </div>
+        <button class="btn btn-outline-primary mt-2" id="btnLeer">🔊 Escuchar</button>
       </div>
     `;
+
   
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = zona.image.map((img, index) => `
@@ -732,6 +740,46 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .catch(error => console.error('Error al cargar el JSON de zonas:', error));
 });
+
+/*--------------------------------------------------------------
+# APIS DE TEXTO A VOZ (SpeechSynthesis)
+--------------------------------------------------------------*/
+let leyendo = false;
+let lecturaActual = null;
+
+function leerTexto(texto, boton) {
+  if (!leyendo) {
+    lecturaActual = new SpeechSynthesisUtterance(texto);
+    lecturaActual.lang = 'es-ES';
+    lecturaActual.rate = 1;
+    lecturaActual.pitch = 1;
+
+    lecturaActual.onend = () => {
+      leyendo = false;
+      if (boton) boton.innerText = '🔊 Escuchar';
+    };
+
+    speechSynthesis.speak(lecturaActual);
+    leyendo = true;
+    if (boton) boton.innerText = '🔇 Detener';
+  } else {
+    speechSynthesis.cancel();
+    leyendo = false;
+    if (boton) boton.innerText = '🔊 Escuchar';
+  }
+}
+
+document.addEventListener('click', function (e) {
+  if (e.target && e.target.id === 'btnLeer') {
+    const boton = e.target;
+    const textoContainer = boton.closest('.modal-description').querySelector('.texto-para-leer');
+    const texto = textoContainer.innerText;
+
+    leerTexto(texto, boton);
+  }
+});
+
+
 
 /*--------------------------------------------------------------
 # Contact Section
