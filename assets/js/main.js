@@ -627,6 +627,19 @@ document.addEventListener('DOMContentLoaded', function () {
   const zonaContainer = document.querySelector('#zonas .row.gy-4'); // Contenedor de las zonas
   const zonaModal = document.getElementById('zonaModal'); // Modal para las zonas
 
+  // Función para obtener el clima de una zona
+  async function obtenerClima(lat, lon) {
+    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      return data.current_weather; // Devuelve los datos actuales del clima
+    } catch (error) {
+      console.error('Error al obtener el clima:', error);
+      return null;
+    }
+  }
+
   // Función para actualizar el contenido del modal de zonas
     function updateZonaModalContent(zona, data) {
     const modalTitle = zonaModal.querySelector('#modalZonaTitle');
@@ -709,7 +722,7 @@ document.addEventListener('DOMContentLoaded', function () {
       zonas.forEach(zona => {
         const card = document.createElement('div');
         card.className = 'col-lg-4 col-md-6 portfolio-item';
-
+        
         card.innerHTML = `
           <div class="card h-100">
             <a class="zona-link" data-bs-toggle="modal" data-bs-target="#zonaModal" data-id="${zona.identifier}">
@@ -734,7 +747,25 @@ document.addEventListener('DOMContentLoaded', function () {
         const zona = zonas.find(z => z.identifier === id);
 
         if (zona) {
-          updateZonaModalContent(zona, zonas); // Llamar a la función para llenar el contenido del modal
+        // Obtener el clima de la zona al abrir el modal
+        obtenerClima(zona.geo.latitude, zona.geo.longitude)
+          .then(clima => {
+            const climaHtml = clima
+              ? `<p><strong>Clima actual:</strong> ${clima.temperature}°C, <strong>Viento: </strong>${clima.windspeed} km/h</p>`
+              : '<p><strong>Clima actual:</strong> No disponible</p>';
+
+            // Actualizar el contenido del modal
+            updateZonaModalContent(zona, zonas);
+
+            // Insertar el clima en el modal
+            const modalWeather = zonaModal.querySelector('#modalZonaWeather');
+            modalWeather.innerHTML = climaHtml;
+          })
+          .catch(error => {
+            console.error('Error al obtener el clima:', error);
+            const modalWeather = zonaModal.querySelector('#modalZonaWeather');
+            modalWeather.innerHTML = '<p><strong>Clima actual:</strong> No disponible</p>';
+          });     
         }
       });
     })
