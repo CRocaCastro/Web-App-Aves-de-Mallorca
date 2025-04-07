@@ -45,8 +45,8 @@
                 {
                     "@type": "MediaObject",
                     "name": "Canto del Milano Real",
-                    "contentUrl": "https://example.com/audio/milano_real.mp3",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/milanoReal.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
@@ -112,8 +112,8 @@
                 {
                     "@type": "MediaObject",
                     "name": "Canto del Papamoscas Gris",
-                    "contentUrl": "https://seo.org/ave/papamoscas-gris/",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/papamoscasGris.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
@@ -176,8 +176,8 @@
                 {
                     "@type": "MediaObject",
                     "name": "Graznido del Ánade azulón",
-                    "contentUrl": "https://seo.org/ave/anade-azulon/",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/añadeAzulon.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
@@ -239,8 +239,8 @@
                 {
                     "@type": "MediaObject",
                     "name": "Canto del Andarríos Chico",
-                    "contentUrl": "https://seo.org/ave/andarrios-chico/",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/andarriosChico.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
@@ -567,8 +567,8 @@
                 {
                     "@type": "MediaObject",
                     "name": "Canto del Jilguero europeo",
-                    "contentUrl": "https://seo.org/ave/jilguero-europeo/",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/jilgueroEuropeo.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
@@ -631,8 +631,8 @@
                 {
                     "@type": "MediaObject",
                     "name": "Canto de la Garza Real",
-                    "contentUrl": " ",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/garzaReal.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
@@ -696,8 +696,8 @@
                 {
                 "@type": "MediaObject",
                 "name": "Canto del Águila Pescadora",
-                "contentUrl": "",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/aguilaPescadora.wav",
+                "encodingFormat": "audio/wav"
                 },
                 {
                 "@type": "MediaObject",
@@ -760,8 +760,8 @@
                 {
                     "@type": "MediaObject",
                     "name": "Canto del Flamenco",
-                    "contentUrl": "https://macaulaylibrary.org/asset/203905311",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/flamenco.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
@@ -822,8 +822,8 @@
               {
                 "@type": "MediaObject",
                 "name": "Canto del Calamón Común",
-                "contentUrl": "",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/calamonComun.wav",
+                "encodingFormat": "audio/wav"
               },
               {
                 "@type": "MediaObject",
@@ -884,8 +884,8 @@
               {
                 "@type": "MediaObject",
                 "name": "Canto del Halcón de Eleonora",
-                "contentUrl": "https://macaulaylibrary.org/asset/203979891",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/halconDeEleonora.wav",
+                "encodingFormat": "audio/wav"
               },
               {
                 "@type": "MediaObject",
@@ -953,8 +953,8 @@
               {
                 "@type": "MediaObject",
                 "name": "Canto del Cormorán moñudo",
-                "contentUrl": "https://macaulaylibrary.org/asset/215805911",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/cormoranMoñudo.wav",
+                "encodingFormat": "audio/wav"
               },
               {
                 "@type": "MediaObject",
@@ -1015,8 +1015,8 @@
               {
                 "@type": "MediaObject",
                 "name": "Canto del Abubilla",
-                "contentUrl": "https://macaulaylibrary.org/asset/463326631",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/abubillaComun.wav",
+                "encodingFormat": "audio/wav"
               },
               {
                 "@type": "MediaObject",
@@ -1080,8 +1080,8 @@
               {
                 "@type": "MediaObject",
                 "name": "Canto de la Curruca balear",
-                "contentUrl": "https://macaulaylibrary.org/asset/203977491",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/currucaBalear.wav",
+                "encodingFormat": "audio/wav"
               },
               {
                 "@type": "MediaObject",
@@ -1145,8 +1145,8 @@
               {
                 "@type": "MediaObject",
                 "name": "Canto del Buitre negro",
-                "contentUrl": "",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/buitreNegro.wav",
+                "encodingFormat": "audio/wav"
               },
               {
                 "@type": "MediaObject",
@@ -1212,8 +1212,8 @@
                 {
                 "@type": "MediaObject",
                 "name": "Canto del Martín Pescador",
-                "contentUrl": "https://seo.org/ave/martin-pescador-comun/",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/martinPescador.wav",
+                "encodingFormat": "audio/wav"
                 },
                 {
                 "@type": "MediaObject",
