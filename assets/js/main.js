@@ -205,120 +205,161 @@
 /*--------------------------------------------------------------
 # Aves
 --------------------------------------------------------------*/
-//Función para filtrar por nombre
-document.addEventListener('DOMContentLoaded', function () {
-  const dropdownItems = document.querySelectorAll('#btn-nombre + .dropdown-menu .dropdown-item'); // Solo los del filtro de nombre
-  const searchInput = document.querySelector('.input-group input');
-  const dropdownMenu = document.querySelector('#btn-nombre');
-  const portfolioContainer = document.querySelector('#aves .row.gy-4');
-  let searchType = null;
-  let birdsData = [];
 
-  // Desactivar inicialmente
+//* Función para filtrar las aves por estación, hábitat y nombre común/científico
+document.addEventListener('DOMContentLoaded', function () {
+  // Variables globales o estado de los filtros
+  let birdsData = [];
+  let selectedEstacion = null;
+  let selectedHabitat = null;
+  let searchType = null;
+  let searchQuery = '';
+
+  // Elementos del DOM que usarás
+  const portfolioContainer = document.querySelector('#aves .row.gy-4');
+  const btnEstacion = document.querySelector('#btn-estacion');
+  const estacionDropdownItems = document.querySelectorAll('#btn-estacion + .dropdown-menu .dropdown-item');
+  const btnHabitat = document.querySelector('#btn-habitat');
+  const habitatDropdownItems = document.querySelectorAll('#btn-habitat + .dropdown-menu .dropdown-item');
+  const dropdownItemsName = document.querySelectorAll('#btn-nombre + .dropdown-menu .dropdown-item');
+  const searchInput = document.querySelector('.input-group input'); // Input de nombre
+
+  // Desactivar input de búsqueda al principio
   searchInput.disabled = true;
   searchInput.placeholder = 'Selecciona el tipo de nombre';
 
-  // Cargar datos del JSON
+  // 1. Cargar JSON una sola vez
   fetch('assets/json/Ave.json')
     .then(response => response.json())
     .then(data => {
       birdsData = data.species;
-      renderBirds(birdsData);
-    });
+      renderBirds(birdsData); // Mostrar todas las aves inicialmente
+    })
+    .catch(error => console.error('Error al cargar el JSON:', error));
 
-  // Manejar selección de tipo de nombre
-  dropdownItems.forEach(item => {
-    item.addEventListener('click', function (event) {
+  // 2. Configurar EVENTOS DE ESTACIÓN
+  estacionDropdownItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const stationText = item.textContent.trim();
+      // Si ya está seleccionada, la reseteas
+      if (selectedEstacion === stationText) {
+        // Si haces clic en la misma estación → deselecciona
+        selectedEstacion = null;
+        btnEstacion.classList.remove('btn-selected');
+        
+        // Quitar la clase 'selected' a todos (o al menos al item actual)
+        estacionDropdownItems.forEach(opt => opt.classList.remove('selected'));
+      } else {
+        // Si seleccionas una estación diferente
+        estacionDropdownItems.forEach(opt => opt.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedEstacion = stationText;
+        btnEstacion.classList.add('btn-selected');
+      }
+      applyAllFilters();
+    });
+  });
+
+  // 3. Configurar EVENTOS DE HÁBITAT
+  habitatDropdownItems.forEach(item => {
+    item.addEventListener('click', event => {
+      event.preventDefault();
+      const habitatText = item.textContent.trim();
+
+      if (selectedHabitat === habitatText) {
+        // Quitar selección
+        selectedHabitat = null;
+        btnHabitat.classList.remove('btn-selected');
+        item.classList.remove('selected');
+      } else {
+        // Deseleccionar las demás
+        habitatDropdownItems.forEach(opt => opt.classList.remove('selected'));
+        selectedHabitat = habitatText;
+        btnHabitat.classList.add('btn-selected');
+        item.classList.add('selected');
+      }
+      // Aplicar filtros
+      applyAllFilters();
+    });
+  });
+
+  // 4. Configurar EVENTOS DE NOMBRE (nombre común / científico)
+  dropdownItemsName.forEach(item => {
+    item.addEventListener('click', (event) => {
       event.preventDefault();
 
-      // Alternar selección
-      if (this.classList.contains('selected')) {
-        this.classList.remove('selected');
+      if (item.classList.contains('selected')) {
+        item.classList.remove('selected');
         searchInput.disabled = true;
         searchInput.placeholder = 'Selecciona el tipo de nombre';
-        dropdownMenu.classList.remove('btn-selected');
+        document.querySelector('#btn-nombre').classList.remove('btn-selected');
         searchType = null;
-        renderBirds(birdsData); // Mostrar todo si se desactiva
+        searchQuery = '';
       } else {
         // Deseleccionar otros
-        dropdownItems.forEach(option => option.classList.remove('selected'));
-
-        this.classList.add('selected');
-        dropdownMenu.classList.add('btn-selected');
+        dropdownItemsName.forEach(opt => opt.classList.remove('selected'));
+        item.classList.add('selected');
+        document.querySelector('#btn-nombre').classList.add('btn-selected');
 
         // Activar input
         searchInput.disabled = false;
-
-        // Definir el tipo de búsqueda
-        if (this.textContent.trim() === 'Nombre común') {
-          searchInput.placeholder = 'Buscar por nombre común';
+        if (item.textContent.trim() === 'Nombre común') {
           searchType = 'name';
-        } else if (this.textContent.trim() === 'Nombre científico') {
-          searchInput.placeholder = 'Buscar por nombre científico';
+          searchInput.placeholder = 'Buscar por nombre común';
+        } else {
           searchType = 'alternateName';
+          searchInput.placeholder = 'Buscar por nombre científico';
         }
       }
+      applyAllFilters();
     });
   });
 
-  // Manejar búsqueda
+  // 5. Manejar cambio en el INPUT de búsqueda
   searchInput.addEventListener('input', function () {
-    const query = this.value.toLowerCase().trim(); // Texto ingresado en la barra de búsqueda
-
-    // Filtrar aves según el tipo de búsqueda y el texto ingresado
-    const filteredBirds = birdsData.filter(bird => {
-      if (searchType === 'name') {
-        return bird.name.toLowerCase().includes(query);
-      } else if (searchType === 'alternateName') {
-        return bird.alternateName.toLowerCase().includes(query);
-      }
-      return false;
-    });
-
-    // Renderizar las aves filtradas
-    renderBirds(filteredBirds);
+    searchQuery = this.value.toLowerCase().trim();
+    applyAllFilters();
   });
 
-  // Función para renderizar las aves en el contenedor
-  function renderBirds(birds) {
-    portfolioContainer.innerHTML = ''; // Limpiar el contenedor donde se muestran las aves
-  
-    // Recorrer cada ave y crear un card
-    birds.forEach(bird => {
-      // Crear un elemento div para la ave
-      const birdElement = document.createElement('div');
-      birdElement.classList.add('col-lg-4', 'col-md-6', 'portfolio-item');
-  
-      // Asignar el contenido HTML al elemento con el diseño de Bootstrap
-      birdElement.innerHTML = `
-        <div class="card h-100">
-          <a class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${bird.identifier}">
-            <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">${bird.name}</h5>
-            <p class="card-text"><em>${bird.alternateName}</em></p>
-          </div>
-        </div>
-      `;
-  
-      // Agregar el elemento al contenedor de aves
-      portfolioContainer.appendChild(birdElement);
-    });
+  // --------------------------------------------------------------
+  // Función que aplica TODOS los filtros vigentes y luego renderiza
+  // --------------------------------------------------------------
+  function applyAllFilters() {
+    let filteredBirds = [...birdsData]; // Copia de todas las aves
+
+    // Filtro por Estación
+    if (selectedEstacion) {
+      filteredBirds = filtrarPorEstacion(filteredBirds, selectedEstacion);
+    }
+
+    // Filtro por Hábitat
+    if (selectedHabitat) {
+      filteredBirds = filteredBirds.filter(bird => {
+        const habitatTerm = bird.hasDefinedTerm?.find(term => term.termCode === 'habitat');
+        if (!habitatTerm || !habitatTerm.alternateName) return false;
+        // Comparación ignorando mayúsculas
+        return habitatTerm.alternateName.some(h => h.toLowerCase() === selectedHabitat.toLowerCase());
+      });
+    }
+
+    // Filtro por Nombre (común o científico)
+    if (searchType && searchQuery) {
+      filteredBirds = filteredBirds.filter(bird => {
+        if (searchType === 'name') {
+          return bird.name.toLowerCase().includes(searchQuery);
+        } else if (searchType === 'alternateName') {
+          // Ten en cuenta que bird.alternateName puede ser un string o array
+          return bird.alternateName.toLowerCase().includes(searchQuery);
+        }
+        return false;
+      });
+    }
+
+    // Renderizar con los filtros aplicados
+    renderBirds(filteredBirds);
   }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-  const jsonUrl = 'assets/json/Ave.json';
-  const portfolioContainer = document.querySelector('#aves .row.gy-4');
-  const portfolioModal = document.getElementById('portfolioModal');
-
-  const btnEstacion = document.querySelector('#btn-estacion');
-  const estacionDropdownItems = document.querySelectorAll('#btn-estacion + .dropdown-menu .dropdown-item');
-
-  let birdsData = [];
-  let selectedEstacion = null;
-
+  // 6. Función para filtrar por estación
   function filtrarPorEstacion(aves, estacion) {
     const mesesPorEstacion = {
       "Primavera": ["Marzo", "Abril", "Mayo"],
@@ -331,213 +372,18 @@ document.addEventListener('DOMContentLoaded', function () {
     return aves.filter(ave => {
       const estaciones = ave.hasDefinedTerm?.filter(term => term.termCode === "season");
       if (!estaciones?.length) return false;
-      return estaciones.some(estacion =>
-        estacion.alternateName?.some(mes => meses.includes(mes))
+      return estaciones.some(est => 
+        est.alternateName?.some(mes => meses.includes(mes))
       );
     });
   }
 
+  // 7. Función para renderizar las aves
   function renderBirds(birds) {
     portfolioContainer.innerHTML = '';
-    birds.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'col-lg-4 col-md-6 portfolio-item';
-      card.innerHTML = `
-        <div class="card h-100">
-          <a class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${item.identifier}">
-            <img src="${item.image[0]}" class="card-img-top" alt="${item.name}" loading="lazy">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title"><a>${item.name}</a></h5>
-            <p class="card-text"><em>${item.alternateName}</em></p>
-          </div>
-        </div>
-      `;
-      portfolioContainer.appendChild(card);
-    });
-  }
-
-  // FUNCIÓN MUESTRA MODAL DE LAS AVES
-  function updateModalContent(item, data) {
-    const modalTitle = portfolioModal.querySelector('#modalTitle');
-    const modalDescription = portfolioModal.querySelector('#modalDescription');
-    const modalCarouselInner = portfolioModal.querySelector('#modalCarouselInner');
-    const modalAdditionalInfo = portfolioModal.querySelector('#modalAdditionalInfo');
-    const modalUsersReviews = portfolioModal.querySelector('#modalUsersReviews');
-    const modalAudioContainer = portfolioModal.querySelector('#modalAudioContainer');
-
-    const audioObject = item.subjectOf?.find(media => media.encodingFormat === "audio/wav");
-    const audioPlayer = audioObject && audioObject.contentUrl
-      ? `<h5 class="mt-3">Escucha el canto:</h5>
-         <audio controls class="w-100 mt-2">
-            <source src="${audioObject.contentUrl}" type="${audioObject.encodingFormat}">
-            Tu navegador no soporta el elemento de audio.
-         </audio>`
-      : `<p class="text-muted mt-3">No hay audio disponible para esta ave.</p>`;
-
-    modalAudioContainer.innerHTML = audioPlayer;
-
-    modalTitle.innerHTML = `
-      <div class="modal-title-container">
-        <h4>${item.name}</h4>
-        <p><em>${item.alternateName}</em></p>
-      </div>
-    `;
-
-    modalDescription.innerHTML = `
-      <div class="modal-description">
-        <div class="texto-para-leer">
-          <p><strong>Descripción:</strong> ${item.description}</p>
-          <p><strong>Familia:</strong> ${item.parentTaxon.name}</p>
-        </div>
-        <button class="btn btn-outline-primary mt-2" id="btnLeer">🔊 Escuchar</button>
-      </div>
-    `;
-
-
-    modalCarouselInner.innerHTML = item.image.map((img, index) => `
-      <div class="carousel-item ${index === 0 ? 'active' : ''}">
-        <img src="${img}" class="d-block w-100" alt="${item.name}">
-      </div>
-    `).join('');
-
-    modalUsersReviews.innerHTML = `
-      <div class="modal-reviews">
-        <h5>Reseñas de usuarios</h5>
-        <p>${item.review ? item.review : "Aún no hay reseñas, ¡añade una ahora!"}</p>
-      </div>
-    `;
-
-    const otherBirds = data.filter(bird => bird.identifier !== item.identifier);
-    modalAdditionalInfo.innerHTML = `
-      <h5>Otras aves</h5>
-      <div class="row gy-4" id="other-birds-container">
-        ${otherBirds.slice(0, 3).map(bird => `
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card h-100">
-              <a class="portfolio-link" data-id="${bird.identifier}">
-                <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title"><a>${bird.name}</a></h5>
-                <p class="card-text">${bird.alternateName}</p>
-              </div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    `;
-
-    modalAdditionalInfo.querySelectorAll('.portfolio-link').forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const newId = this.getAttribute('data-id');
-        const newItem = data.find(bird => bird.identifier === newId);
-        if (newItem) updateModalContent(newItem, data);
-      });
-    });
-  }
-
-  // Cargar JSON
-  fetch(jsonUrl)
-    .then(response => response.json())
-    .then(data => {
-      birdsData = data.species;
-      renderBirds(birdsData);
-
-      // Modal
-      portfolioModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
-        const id = button.getAttribute('data-id');
-        const item = birdsData.find(item => item.identifier === id);
-        if (item) updateModalContent(item, birdsData);
-      });
-
-      // Filtro por estación
-      estacionDropdownItems.forEach(btn => {
-        btn.addEventListener('click', function () {
-          // Deseleccionar todos
-          estacionDropdownItems.forEach(option => option.classList.remove('selected'));
-
-          // Si seleccionas la misma estación otra vez → desactiva filtro
-          if (selectedEstacion === this.textContent.trim()) {
-            selectedEstacion = null;
-            btnEstacion.classList.remove('btn-selected');
-            renderBirds(birdsData);
-          } else {
-            // Selección nueva
-            selectedEstacion = this.textContent.trim();
-            this.classList.add('selected');
-            btnEstacion.classList.add('btn-selected');
-            const avesFiltradas = filtrarPorEstacion(birdsData, selectedEstacion);
-            renderBirds(avesFiltradas);
-          }
-        });
-      });
-    })
-    .catch(error => console.error('Error al cargar el JSON:', error));
-});
-
-
-// Función para filtrar por hábitat  las aves 
-document.addEventListener('DOMContentLoaded', function () {
-  const habitatDropdownItems = document.querySelectorAll('#btn-habitat + .dropdown-menu .dropdown-item'); // Opciones del dropdown de hábitat
-  const habitatDropdownMenu = document.querySelector('#btn-habitat'); // Botón del menú desplegable de hábitat
-  const portfolioContainer = document.querySelector('#aves .row.gy-4'); // Contenedor de las aves
-  let selectedHabitat = null; // Hábitat seleccionado
-
-  // Cargar datos del JSON
-  let birdsData = [];
-  fetch('assets/json/Ave.json')
-    .then(response => response.json())
-    .then(data => {
-      birdsData = data.species; // Guardar las aves en una variable
-      renderBirds(birdsData); // Renderizar todas las aves inicialmente
-    })
-    .catch(error => console.error('Error al cargar el JSON:', error));
-
-  // Manejar selección del hábitat
-  habitatDropdownItems.forEach(item => {
-    item.addEventListener('click', function (event) {
-      event.preventDefault();
-
-      // Alternar selección
-      if (this.classList.contains('selected')) {
-        this.classList.remove('selected');
-        habitatDropdownMenu.classList.remove('btn-selected'); // Quitar color verde
-        selectedHabitat = null; // Resetear el hábitat seleccionado
-        renderBirds(birdsData); // Mostrar todas las aves
-      } else {
-        // Deseleccionar otras opciones
-        habitatDropdownItems.forEach(option => option.classList.remove('selected'));
-
-        // Seleccionar la opción actual
-        this.classList.add('selected');
-        habitatDropdownMenu.classList.add('btn-selected'); // Añadir color verde
-        selectedHabitat = this.textContent.trim(); // Guardar el hábitat seleccionado
-
-        // Filtrar aves por el hábitat seleccionado
-        const filteredBirds = birdsData.filter(bird => {
-          const habitatTerm = bird.hasDefinedTerm?.find(term => term.termCode === 'habitat');
-          if (habitatTerm && habitatTerm.alternateName) {
-            return habitatTerm.alternateName.some(h => h.toLowerCase() === selectedHabitat.toLowerCase());
-          }
-          return false;
-        });
-
-        renderBirds(filteredBirds); // Renderizar las aves filtradas
-      }
-    });
-  });
-
-  // Función para renderizar las aves en el contenedor
-  function renderBirds(birds) {
-    portfolioContainer.innerHTML = ''; // Limpiar el contenedor donde se muestran las aves
-
     birds.forEach(bird => {
       const birdElement = document.createElement('div');
       birdElement.classList.add('col-lg-4', 'col-md-6', 'portfolio-item');
-
       birdElement.innerHTML = `
         <div class="card h-100">
           <a class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${bird.identifier}">
@@ -549,11 +395,13 @@ document.addEventListener('DOMContentLoaded', function () {
           </div>
         </div>
       `;
-
       portfolioContainer.appendChild(birdElement);
     });
   }
 });
+
+
+
 
 // Función para el botón Ver más
 document.getElementById('load-more').addEventListener('click', function () {
@@ -588,6 +436,101 @@ document.getElementById('load-less').addEventListener('click', function () {
 /*--------------------------------------------------------------
 # Zonas
 --------------------------------------------------------------*/
+// Función para filtrar las zonas por hábitat
+
+document.addEventListener('DOMContentLoaded', function () {
+  const habitatDropdown = document.querySelector('#btn-tipo-habitat').closest('.dropdown');
+  const habitatDropdownItems = habitatDropdown.querySelectorAll('.dropdown-menu .dropdown-item');
+  const habitatDropdownBtn = document.querySelector('#btn-tipo-habitat');
+  const zonaContainer = document.querySelector('#zonas .row.gy-4');
+  let selectedTipoHabitat = null;
+  let zonasData = [];
+
+  // 1. Cargar datos del JSON de zonas
+  fetch('assets/json/Zona.json')
+    .then(res => res.json())
+    .then(data => {
+      // Asegura que zonasData sea siempre un array
+      if (Array.isArray(data)) {
+        zonasData = data;
+      } else if (Array.isArray(data.zonas)) {
+        zonasData = data.zonas;
+      } else {
+        console.error("❌ Formato inesperado del JSON de zonas:", data);
+        zonasData = [];
+      }
+
+      renderZonas(zonasData);
+    })
+    .catch(err => console.error('Error cargando zonas:', err));
+
+  // 2. Manejar selección del filtro
+  habitatDropdownItems.forEach(item => {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      const selectedText = this.textContent.trim().toLowerCase();
+
+      if (selectedTipoHabitat === selectedText) {
+        // Deselección
+        selectedTipoHabitat = null;
+        habitatDropdownBtn.classList.remove('btn-selected');
+        habitatDropdownItems.forEach(opt => opt.classList.remove('selected'));
+        renderZonas(zonasData);
+      } else {
+        // Nueva selección
+        selectedTipoHabitat = selectedText;
+        habitatDropdownItems.forEach(opt => opt.classList.remove('selected'));
+        this.classList.add('selected');
+        habitatDropdownBtn.classList.add('btn-selected');
+
+        // Filtrar zonas
+        const filtradas = zonasData.filter(zona => {
+          const tipo = zona.additionalProperty?.find(p =>
+            p.name?.toLowerCase().trim() === "tipo de zona"
+          );
+
+          if (!tipo || !tipo.value) return false;
+
+          if (Array.isArray(tipo.value)) {
+            return tipo.value.some(v =>
+              v.toLowerCase().includes(selectedTipoHabitat)
+            );
+          } else if (typeof tipo.value === 'string') {
+            return tipo.value.toLowerCase().includes(selectedTipoHabitat);
+          }
+
+          return false;
+        });
+
+        console.log("Filtro aplicado:", selectedTipoHabitat);
+        console.log("Zonas mostradas:", filtradas.map(z => z.name));
+
+        renderZonas(filtradas);
+      }
+    });
+  });
+
+  // 3. Renderizar zonas
+  function renderZonas(zonas) {
+    zonaContainer.innerHTML = '';
+    zonas.forEach(zona => {
+      const zonaElement = document.createElement('div');
+      zonaElement.classList.add('col-lg-4', 'col-md-6', 'portfolio-item');
+      zonaElement.innerHTML = `
+        <div class="card h-100">
+          <img src="${zona.image?.[0]}" class="card-img-top" alt="${zona.name}" loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title">${zona.name}</h5>
+            <p class="card-text"><em>${zona.alternateName}</em></p>
+          </div>
+        </div>
+      `;
+      zonaContainer.appendChild(zonaElement);
+    });
+  }
+});
+
+
 
 // Función para el botón "Ver más" en Zonas
 document.getElementById('load-more-zonas').addEventListener('click', function () {

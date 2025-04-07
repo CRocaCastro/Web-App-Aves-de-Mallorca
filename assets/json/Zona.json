@@ -25,7 +25,14 @@
                 "assets/img/Zonas/Gola/gola3.webp",
                 "assets/img/Zonas/Gola/gola4.jpeg",
                 "assets/img/Zonas/Gola/gola5.jpg"
-                ]
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Humedal"]
+                }
+            ]
         },
 
         {
@@ -55,6 +62,13 @@
                 "assets/img/Zonas/Albufera/albufera6.jpg",
                 "assets/img/Zonas/Albufera/albufera7.jpg",
                 "assets/img/Zonas/Albufera/albufera8.jpg"    
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Humedal"]
+                }
             ]
         },
 
@@ -84,6 +98,13 @@
                 "assets/img/Zonas/Mondrago/mondrago5.jpg",
                 "assets/img/Zonas/Mondrago/mondrago6.jpg",
                 "assets/img/Zonas/Mondrago/mondrago7.jpg" 
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Bosque"]
+                }
             ]
         },
 
@@ -113,6 +134,13 @@
                 "assets/img/Zonas/Tramuntana/tramuntana5.webp",
                 "assets/img/Zonas/Tramuntana/tramuntana6.webp",
                 "assets/img/Zonas/Tramuntana/tramuntana7.webp"    
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Montaña", "Bosque"]
+                }
             ]
         },
 
@@ -142,6 +170,13 @@
                 "assets/img/Zonas/Albufereta/albufereta5.webp",
                 "assets/img/Zonas/Albufereta/albufereta6.webp"
 
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Humedal"]
+                }
             ],
             "video": "https://www.youtube.com/watch?v=8QP1GpoN-DU&ab_channel=IB3Not%C3%ADcies"
         }
