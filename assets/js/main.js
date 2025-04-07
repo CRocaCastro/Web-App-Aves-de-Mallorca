@@ -439,45 +439,40 @@ document.getElementById('load-less').addEventListener('click', function () {
 // Función para filtrar las zonas por hábitat
 
 document.addEventListener('DOMContentLoaded', function () {
-  const habitatDropdown = document.querySelector('#btn-tipo-habitat').closest('.dropdown');
-  const habitatDropdownItems = habitatDropdown.querySelectorAll('.dropdown-menu .dropdown-item');
+  const habitatDropdownItems = document.querySelectorAll('#btn-tipo-habitat + .dropdown-menu .dropdown-item');
   const habitatDropdownBtn = document.querySelector('#btn-tipo-habitat');
   const zonaContainer = document.querySelector('#zonas .row.gy-4');
-  let selectedTipoHabitat = null;
   let zonasData = [];
+  let selectedTipoHabitat = null;
 
-  // 1. Cargar datos del JSON de zonas
+  // Cargar datos del JSON
   fetch('assets/json/Zona.json')
     .then(res => res.json())
     .then(data => {
-      // Asegura que zonasData sea siempre un array
-      if (Array.isArray(data)) {
-        zonasData = data;
-      } else if (Array.isArray(data.zonas)) {
-        zonasData = data.zonas;
+      if (Array.isArray(data.landforms)) {
+        zonasData = data.landforms;
       } else {
         console.error("❌ Formato inesperado del JSON de zonas:", data);
         zonasData = [];
       }
-
-      renderZonas(zonasData);
+      renderZonas(zonasData); // Renderizar todas las zonas inicialmente
     })
     .catch(err => console.error('Error cargando zonas:', err));
 
-  // 2. Manejar selección del filtro
+  // Manejar selección del hábitat
   habitatDropdownItems.forEach(item => {
     item.addEventListener('click', function (e) {
       e.preventDefault();
       const selectedText = this.textContent.trim().toLowerCase();
+      console.log('Hábitat seleccionado:', selectedText); // Verificar el hábitat seleccionado
 
+      // Alternar selección
       if (selectedTipoHabitat === selectedText) {
-        // Deselección
         selectedTipoHabitat = null;
         habitatDropdownBtn.classList.remove('btn-selected');
         habitatDropdownItems.forEach(opt => opt.classList.remove('selected'));
-        renderZonas(zonasData);
+        renderZonas(zonasData); // Mostrar todas las zonas
       } else {
-        // Nueva selección
         selectedTipoHabitat = selectedText;
         habitatDropdownItems.forEach(opt => opt.classList.remove('selected'));
         this.classList.add('selected');
@@ -492,25 +487,21 @@ document.addEventListener('DOMContentLoaded', function () {
           if (!tipo || !tipo.value) return false;
 
           if (Array.isArray(tipo.value)) {
-            return tipo.value.some(v =>
-              v.toLowerCase().includes(selectedTipoHabitat)
-            );
+            return tipo.value.some(v => v.toLowerCase() === selectedTipoHabitat);
           } else if (typeof tipo.value === 'string') {
-            return tipo.value.toLowerCase().includes(selectedTipoHabitat);
+            return tipo.value.toLowerCase() === selectedTipoHabitat;
           }
 
           return false;
         });
 
-        console.log("Filtro aplicado:", selectedTipoHabitat);
-        console.log("Zonas mostradas:", filtradas.map(z => z.name));
-
-        renderZonas(filtradas);
+        console.log("Zonas filtradas:", filtradas.map(z => z.name)); // Verificar las zonas filtradas
+        renderZonas(filtradas); // Renderizar las zonas filtradas
       }
     });
   });
 
-  // 3. Renderizar zonas
+  // Función para renderizar zonas
   function renderZonas(zonas) {
     zonaContainer.innerHTML = '';
     zonas.forEach(zona => {
@@ -521,7 +512,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <img src="${zona.image?.[0]}" class="card-img-top" alt="${zona.name}" loading="lazy">
           <div class="card-body">
             <h5 class="card-title">${zona.name}</h5>
-            <p class="card-text"><em>${zona.alternateName}</em></p>
+            <p class="card-text"><em>${zona.alternateName || ''}</em></p>
           </div>
         </div>
       `;
