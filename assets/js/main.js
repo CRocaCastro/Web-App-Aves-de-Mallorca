@@ -353,11 +353,41 @@ document.addEventListener('DOMContentLoaded', function () {
     return aves.filter(ave => {
       const estaciones = ave.hasDefinedTerm?.filter(term => term.termCode === "season");
       if (!estaciones?.length) return false;
-      return estaciones.some(est => est.alternateName?.some(mes => meses.includes(mes)));
+      return estaciones.some(est => 
+        est.alternateName?.some(mes => meses.includes(mes))
+      );
     });
   }
 
-  // Renderizar aves
+  // Función para limpiar los filtros
+  
+  const btnClearFilters = document.getElementById('btn-clear-filters');
+
+  btnClearFilters.addEventListener('click', function () {
+    // Resetear todos los filtros como ya haces
+    selectedEstacion = null;
+    selectedHabitat = null;
+    searchType = null;
+    searchQuery = '';
+
+    document.querySelectorAll('#btn-estacion + .dropdown-menu .dropdown-item').forEach(item => item.classList.remove('selected'));
+    document.querySelector('#btn-estacion').classList.remove('btn-selected');
+    document.querySelectorAll('#btn-habitat + .dropdown-menu .dropdown-item').forEach(item => item.classList.remove('selected'));
+    document.querySelector('#btn-habitat').classList.remove('btn-selected');
+    document.querySelectorAll('#btn-nombre + .dropdown-menu .dropdown-item').forEach(item => item.classList.remove('selected'));
+    document.querySelector('#btn-nombre').classList.remove('btn-selected');
+
+    const searchInput = document.querySelector('.input-group input');
+    searchInput.value = '';
+    searchInput.disabled = true;
+    searchInput.placeholder = 'Selecciona el tipo de nombre';
+
+    // Mostrar todas las aves 
+    renderBirds(birdsData);
+  });
+
+
+  // 7. Función para renderizar las aves
   function renderBirds(birds) {
     portfolioContainer.innerHTML = '';
     birds.forEach(bird => {
@@ -378,12 +408,85 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Mostrar contenido del modal
   portfolioModal.addEventListener('show.bs.modal', function (event) {
     const button = event.relatedTarget;
     const id = button.getAttribute('data-id');
     const item = birdsData.find(bird => bird.identifier === id);
     if (item) updateModalContent(item, birdsData);
+  });
+
+  // Actualizar contenido del modal
+  function updateModalContent(item, data) {
+    const modalTitle = portfolioModal.querySelector('#modalTitle');
+    const modalDescription = portfolioModal.querySelector('#modalDescription');
+    const modalCarouselInner = portfolioModal.querySelector('#modalCarouselInner');
+    const modalAdditionalInfo = portfolioModal.querySelector('#modalAdditionalInfo');
+    const modalAudioContainer = portfolioModal.querySelector('#modalAudioContainer'); // Contenedor para el audio
+  
+    // Buscar el archivo de audio en los datos del ave
+    const audioObject = item.subjectOf?.find(media => media.encodingFormat === "audio/wav");
+    const audioPlayer = audioObject && audioObject.contentUrl
+      ? `<h5 class="mt-3">Escucha el canto:</h5>
+         <audio controls class="w-100 mt-2">
+            <source src="${audioObject.contentUrl}" type="${audioObject.encodingFormat}">
+            Tu navegador no soporta el elemento de audio.
+         </audio>`
+      : `<p class="text-muted mt-3">No hay audio disponible para esta ave.</p>`;
+  
+    // Insertar el reproductor de audio en el modal
+    modalAudioContainer.innerHTML = audioPlayer;
+  
+    // Actualizar el título
+    modalTitle.innerHTML = `
+      <div class="modal-title-container">
+        <h4>${item.name}</h4>
+        <p><em>${item.alternateName}</em></p>
+      </div>
+    `;
+  
+    // Actualizar la descripción
+    modalDescription.innerHTML = `
+      <div class="modal-description">
+        <p><strong>Descripción:</strong> ${item.description}</p>
+        <p><strong>Familia:</strong> ${item.parentTaxon.name}</p>
+      </div>
+    `;
+  
+    // Generar las imágenes del carrusel
+    modalCarouselInner.innerHTML = item.image.map((img, index) => `
+      <div class="carousel-item ${index === 0 ? 'active' : ''}">
+        <img src="${img}" class="d-block w-100" alt="${item.name}">
+      </div>
+    `).join('');
+  
+    // Generar información adicional
+    const otherBirds = data.filter(bird => bird.identifier !== item.identifier);
+    modalAdditionalInfo.innerHTML = `
+      <h5>Otras aves</h5>
+      <div class="row gy-4">
+        ${otherBirds.slice(0, 3).map(bird => `
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="card h-100">
+              <a class="portfolio-link" data-id="${bird.identifier}">
+                <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">${bird.name}</h5>
+                <p class="card-text">${bird.alternateName}</p>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+});
+
+// Función para el botón Ver más
+document.getElementById('load-more').addEventListener('click', function () {
+  // Selecciona todas las imágenes ocultas y las muestra
+  document.querySelectorAll('.row.gy-4 .portfolio-item:nth-child(n+4)').forEach(function (item) {
+    item.style.display = 'block';
   });
 
   // Actualizar contenido del modal

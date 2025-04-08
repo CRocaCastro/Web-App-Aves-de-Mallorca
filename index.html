@@ -139,7 +139,12 @@
           <!-- Filtros Dropdown: Estación, Hábitat, Nombre + Búsqueda -->
           <!-- FILTROS -->
           <div class="container py-4">
-            <div class="d-flex flex-wrap gap-3 justify-content-center">
+            <div class="d-flex flex-wrap gap-3 justify-content-center align-items-center">
+
+              <!-- Botón para eliminar todos los filtros -->
+              <div class="text-center">
+                <button id="btn-clear-filters" class="btn btn-outline-dark">Eliminar filtros</button>
+              </div>
               
               <!-- Estación -->
               <div class="dropdown">
@@ -187,7 +192,7 @@
                 <span class="input-group-text bg-gray"><i class="bi bi-search text-muted"></i></span>
                 <input type="text" class="form-control" placeholder="Buscar ave...">
               </div>
-          
+
             </div>
           </div>
 
@@ -195,8 +200,6 @@
             <!-- Los items se generarán dinámicamente desde el archivo main.js -->
           </div>
           
-          
-
           <!-- Botón de cargar más -->
           <div class="text-center mt-4">
             <button id="load-more" class="btn btn-primary">Ver más</button>

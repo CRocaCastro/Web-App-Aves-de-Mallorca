@@ -2228,13 +2228,35 @@ section,
   background-color: color-mix(in srgb, var(--background-color), transparent 50%);
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
-/* Falta arreglar que el focus salga en verde y no en negro*/
+
 .aves .search-bar:focus {
   border-color: 1px solid var(--accent-color);
 }
 
 .aves .search-bar::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+/* Botón eliminar filtros */
+
+/* Estilo para el botón de eliminar filtros */
+#btn-clear-filters {
+  font-size: 1rem; /* Ajusta el tamaño de la fuente al de los dropdowns */
+  padding: 7px 20px;
+  border-radius: 5px;
+  border: 1px solid #000; /* Borde oscuro como los dropdowns */
+  background-color: #ffffff; /* Fondo blanco */
+  color: #000; /* Texto oscuro */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#btn-clear-filters:hover {
+  background-color: #c82333; /* Un rojo más oscuro */
+  transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+#btn-clear-filters:active {
+  transform: scale(0.95); /* Efecto de clic */
 }
 
 /* Botón Ver más*/
