@@ -51,7 +51,7 @@
                 {
                     "@type": "MediaObject",
                     "name": "Vuelo del Milano Real",
-                    "contentUrl": "https://example.com/video/milano_real.mp4",
+                    "contentUrl": "https://www.youtube.com/watch?v=sts-PToFGgQ",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -118,7 +118,7 @@
                 {
                     "@type": "MediaObject",
                     "name": "Papamoscas Gris en un árbol",
-                    "contentUrl": "https://seo.org/wp-content/uploads/2013/11/F477_Video.mp4",
+                    "contentUrl": "https://www.youtube.com/watch?v=WdOHEgwZX0M&t=35s",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -311,7 +311,7 @@
                 {
                     "@type": "MediaObject",
                     "name": "Garza Imperial en su hábitat natural",
-                    "contentUrl": "assets/mp4/garzaImperial.mp4",
+                    "contentUrl": "https://www.youtube.com/watch?v=rLeLM4e4B14&t=2s",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -377,7 +377,7 @@
                 {
                     "@type": "MediaObject",
                     "name": "Cerceta común en su hábitat natural",
-                    "contentUrl": "https://example.com/video/cerceta_comun.mp4",
+                    "contentUrl": "https://www.youtube.com/watch?v=m9CUkHidUZ0&t=9s",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -443,7 +443,7 @@
                 {
                     "@type": "MediaObject",
                     "name": "Cigüeñuela común en su hábitat natural",
-                    "contentUrl": "assets/mp4/cigueñelaComun.mp4",
+                    "contentUrl": "https://www.youtube.com/watch?v=IUiV_oTqrNI&t=25s",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -509,7 +509,7 @@
                 {
                     "@type": "MediaObject",
                     "name": "Garcilla bueyera en su hábitat natural",
-                    "contentUrl": "assets/mp4/garcillaBueyera.mp4",
+                    "contentUrl": "https://www.youtube.com/watch?v=70ZGREKS_Ic&t=10s",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -637,7 +637,7 @@
                 {
                     "@type": "MediaObject",
                     "name": "Garza real en su hábitat natural",
-                    "contentUrl": " ",
+                    "contentUrl": "https://youtu.be/P8yttfEYVVo?si=TunK2TI2XgKMM8Eo",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -702,7 +702,7 @@
                 {
                 "@type": "MediaObject",
                 "name": "Águila pescadora en su hábitat natural",
-                "contentUrl": "",
+                "contentUrl": "https://youtu.be/_MZzHLMsMlQ?si=OOsl9tQxrfsinFlq",
                 "encodingFormat": "video/mp4"
                 }
             ],
@@ -766,7 +766,7 @@
                 {
                     "@type": "MediaObject",
                     "name": "Flamencos en su entorno natural",
-                    "contentUrl": "",
+                    "contentUrl": "https://youtu.be/XHdAooH3VKQ?si=on0Cuyg1UOb-y-a9",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -828,7 +828,7 @@
               {
                 "@type": "MediaObject",
                 "name": "Calamón Común en su entorno natural",
-                "contentUrl": "",
+                "contentUrl": "https://www.youtube.com/watch?v=_q58iE-zHLA",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -890,7 +890,7 @@
               {
                 "@type": "MediaObject",
                 "name": "Halcón de Eleonora en su entorno natural",
-                "contentUrl": "",
+                "contentUrl": "https://www.youtube.com/watch?v=AtfHD7xge74",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -959,7 +959,7 @@
               {
                 "@type": "MediaObject",
                 "name": "Cormorán moñudo en su entorno natural",
-                "contentUrl": "",
+                "contentUrl": "https://www.youtube.com/watch?v=ck_oCMr1UcY",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -1021,7 +1021,7 @@
               {
                 "@type": "MediaObject",
                 "name": "Abubilla en su entorno natural",
-                "contentUrl": "",
+                "contentUrl": "https://www.youtube.com/watch?v=_-_cBADYJ-U",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -1086,7 +1086,7 @@
               {
                 "@type": "MediaObject",
                 "name": "Curruca balear en su entorno natural",
-                "contentUrl": "",
+                "contentUrl": "https://www.youtube.com/watch?v=DFqe74eY6mg",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -1151,7 +1151,7 @@
               {
                 "@type": "MediaObject",
                 "name": "Buitre negro en su entorno natural",
-                "contentUrl": "",
+                "contentUrl": "https://www.youtube.com/watch?v=HsPt7j2frPc&t=3s",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -1218,7 +1218,7 @@
                 {
                 "@type": "MediaObject",
                 "name": "Martín pescador en su entorno natural",
-                "contentUrl": "https://youtu.be/uS7EaqxMBBg?si=-T7rYJdWJ8XdnlPi",
+                "contentUrl": "https://www.youtube.com/watch?v=PdsQtXKMXdE",
                 "encodingFormat": "video/mp4"
                 }
             ],

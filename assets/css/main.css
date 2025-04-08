@@ -1015,6 +1015,23 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
   font-family: var(--nav-font);
 }
 
+/* Cambiar el color de la banda superior del modal */
+.modal-header {
+  background-color: var(--accent-color); /* Cambia este color al que desees */
+  color: white; /* Cambia el color del texto si es necesario */
+  border-bottom: none; /* Opcional: elimina el borde inferior */
+}
+
+/* Opcional: Cambiar el color del botón de cierre */
+.modal-header .btn-close {
+  background-color: white; /* Fondo blanco para el botón */
+  border-radius: 50%; /* Botón redondeado */
+  opacity: 1; /* Asegura que sea completamente visible */
+}
+
+.modal-header .btn-close:hover {
+  background-color: #ff6666; /* Cambia el color al pasar el mouse */
+}
 
 /* Contenedor de la imagen en el modal */
 .modal-image-container {
@@ -1076,6 +1093,29 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
   margin-bottom: 10px;
 }
 
+/* Estilo para el contenedor del título en los modales */
+.rounded-title {
+  background-color: #f8f9fa; /* Fondo gris claro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 15px; /* Espaciado interno */
+  text-align: center; /* Centrar el texto */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  margin-bottom: 20px; /* Espacio inferior */
+}
+
+.rounded-title h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333; /* Color del texto principal */
+}
+
+.rounded-title p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  color: #555; /* Color del texto secundario */
+  font-style: italic;
+}
 
 /* Estilo para las imágenes de las tarjetas */
 .card-img-top {
@@ -1099,6 +1139,9 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
   height: 400px; /* Altura fija para las imágenes del carrusel */
   object-fit: cover; /* Recorta la imagen para que encaje en el contenedor */
   object-position: center; /* Centra la imagen dentro del recorte */
+  border-top-left-radius: 15px; /* Redondea la esquina superior izquierda */
+  border-top-right-radius: 15px; /* Redondea la esquina superior derecha */
+  overflow: hidden; /* Asegura que las imágenes no sobresalgan */
 }
 
 /* Estilo para las imágenes del carrusel dentro del modal de zonas */
@@ -1107,6 +1150,9 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
   height: 400px; /* Altura fija para las imágenes del carrusel */
   object-fit: cover; /* Recorta la imagen para que encaje en el contenedor */
   object-position: center; /* Centra la imagen dentro del recorte */
+  border-top-left-radius: 15px; /* Redondea la esquina superior izquierda */
+  border-top-right-radius: 15px; /* Redondea la esquina superior derecha */
+  overflow: hidden; /* Asegura que las imágenes no sobresalgan */
 }
 
 
@@ -1128,6 +1174,12 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
 
 #modalAudioContainer {
   display: block !important;
+}
+
+#modalZonaMap {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 30px;
 }
 
 /*--------------------------------------------------------------
@@ -2673,8 +2725,51 @@ canvas.confetti-canvas {
 }
 
 
+/*--------------------------------------------------------------
+# Weather
+--------------------------------------------------------------*/
 
+.weather-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
 
+.weather-card {
+  width: 100px;
+  min-height: 130px;
+  border-radius: 16px;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
+.weather-card .icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
 
+.weather-card .temp {
+  font-size: 16px;
+  font-weight: bold;
+}
 
+.weather-card .range,
+.weather-card .wind,
+.weather-card .day {
+  font-size: 12px;
+  opacity: 0.85;
+  margin: 2px 0;
+}
+
+/* Estilo especial para el de hoy */
+.weather-card.today {
+  color: white;
+}

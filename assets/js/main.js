@@ -202,6 +202,11 @@
 
 })();
 
+let youtubePlayers = {};
+
+function onYouTubeIframeAPIReady() {
+  console.log("YouTube API cargada");
+}
 /*--------------------------------------------------------------
 # Aves
 --------------------------------------------------------------*/
@@ -436,9 +441,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Insertar el reproductor de audio en el modal
     modalAudioContainer.innerHTML = audioPlayer;
   
+
+    
+
+
     // Actualizar el título
     modalTitle.innerHTML = `
-      <div class="modal-title-container">
+      <div class="modal-title-container rounded-title">
         <h4>${item.name}</h4>
         <p><em>${item.alternateName}</em></p>
       </div>
@@ -458,36 +467,119 @@ document.addEventListener('DOMContentLoaded', function () {
         <img src="${img}" class="d-block w-100" alt="${item.name}">
       </div>
     `).join('');
-  
-    // Generar información adicional
-    const otherBirds = data.filter(bird => bird.identifier !== item.identifier);
-    modalAdditionalInfo.innerHTML = `
-      <h5>Otras aves</h5>
-      <div class="row gy-4">
-        ${otherBirds.slice(0, 3).map(bird => `
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card h-100">
-              <a class="portfolio-link" data-id="${bird.identifier}">
-                <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">${bird.name}</h5>
-                <p class="card-text">${bird.alternateName}</p>
-              </div>
+    // Buscar si hay video de YouTube para añadirlo al carrusel de las aves
+
+    const videoObject = item.subjectOf?.find(obj => obj.contentUrl.includes('youtube.com') || obj.contentUrl.includes('youtu.be'));
+    console.log('Video encontrado:', videoObject); // Verifica si el video se encuentra
+
+    if (videoObject) {
+      // Extraer ID del video de YouTube
+      const videoUrl = new URL(videoObject.contentUrl);
+      console.log('URL del video:', videoUrl); // Verifica la URL del video
+      const videoId = videoUrl.hostname === 'youtu.be'
+        ? videoUrl.pathname.slice(1)
+        : new URLSearchParams(videoUrl.search).get('v');
+
+      if (videoId) {
+        modalCarouselInner.innerHTML += `
+          <div class="carousel-item">
+            <div class="ratio ratio-16x9">
+              <iframe 
+                src="https://www.youtube.com/embed/${videoId}" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+              </iframe>
             </div>
           </div>
-        `).join('')}
-      </div>
-    `;
-  }
+        `;
+      }
+    }
+
+    modalCarouselInner.innerHTML = modalCarouselInner.innerHTML;
+  
+  // Generar información adicional
+  const otherBirds = data.filter(bird => bird.identifier !== item.identifier);
+  modalAdditionalInfo.innerHTML = `
+    <h5>Otras aves</h5>
+    <div class="row gy-4" id="otherBirdsContainer">
+      ${otherBirds.map(bird => `
+        <div class="col-lg-4 col-md-6 portfolio-item">
+          <div class="card h-100">
+            <a class="portfolio-link" data-id="${bird.identifier}">
+              <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">${bird.name}</h5>
+              <p class="card-text">${bird.alternateName}</p>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="text-center mt-3">
+      <button class="btn btn-primary show-more">Ver más</button>
+      <button class="btn btn-secondary show-less d-none">Ver menos</button>
+    </div>
+  `;
+
+  // Configurar funcionalidad de los enlaces de "Otras aves"
+  const otherBirdLinks = modalAdditionalInfo.querySelectorAll('.portfolio-link');
+  otherBirdLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const birdId = this.getAttribute('data-id');
+      const selectedBird = data.find(bird => bird.identifier === birdId);
+      if (selectedBird) {
+        updateModalContent(selectedBird, data); // Actualizar el contenido del modal
+        portfolioModal.scrollTo({
+          top: 0,
+          behavior: 'smooth' // Desplazamiento suave
+        });
+      }
+    });
+  });
+  
+  // Configurar funcionalidad de los botones "Ver más" y "Ver menos"
+  const showMoreButton = modalAdditionalInfo.querySelector('.show-more');
+  const showLessButton = modalAdditionalInfo.querySelector('.show-less');
+  const otherBirdItems = modalAdditionalInfo.querySelectorAll('#otherBirdsContainer .portfolio-item');
+
+  showMoreButton.addEventListener('click', () => {
+    otherBirdItems.forEach((item, index) => {
+      if (index >= 3) {
+        item.classList.remove('d-none'); // Mostrar las aves ocultas
+      }
+    });
+    showMoreButton.classList.add('d-none'); // Ocultar el botón "Ver más"
+    showLessButton.classList.remove('d-none'); // Mostrar el botón "Ver menos"
+  });
+
+  showLessButton.addEventListener('click', () => {
+    otherBirdItems.forEach((item, index) => {
+      if (index >= 3) {
+        item.classList.add('d-none'); // Ocultar las aves adicionales
+      }
+    });
+    showMoreButton.classList.remove('d-none'); // Mostrar el botón "Ver más"
+    showLessButton.classList.add('d-none'); // Ocultar el botón "Ver menos"
+  });
+  
+    }
 });
+
+
 
 // Función para el botón Ver más
 document.getElementById('load-more').addEventListener('click', function () {
-  // Selecciona todas las imágenes ocultas y las muestra
-  document.querySelectorAll('.row.gy-4 .portfolio-item:nth-child(n+4)').forEach(function (item) {
+  // Mostrar más aves
+  document.querySelectorAll('#aves .row.gy-4 .portfolio-item:nth-child(n+4)').forEach(function (item) {
     item.style.display = 'block';
   });
+
+  // Ocultar el botón "Ver más" y mostrar el botón "Ver menos"
+  this.style.display = 'none';
+  document.getElementById('load-less').style.display = 'inline-block';
 
   // Actualizar contenido del modal
   function updateModalContent(item, data) {
@@ -527,11 +619,71 @@ document.getElementById('load-more').addEventListener('click', function () {
     `;
   
     // Generar las imágenes del carrusel
-    modalCarouselInner.innerHTML = item.image.map((img, index) => `
-      <div class="carousel-item ${index === 0 ? 'active' : ''}">
-        <img src="${img}" class="d-block w-100" alt="${item.name}">
-      </div>
-    `).join('');
+    let carouselHTML = item.image.map((img, index) => `
+    <div class="carousel-item ${index === 0 ? 'active' : ''}">
+      <img src="${img}" class="d-block w-100" alt="${item.name}">
+    </div>
+  `).join('');
+  
+
+    // Buscar si hay video de YouTube para añadirlo al carrusel de las aves
+
+    const videoObject = item.subjectOf?.find(obj => obj.contentUrl.includes('youtube.com') || obj.contentUrl.includes('youtu.be'));
+    console.log('Video encontrado:', videoObject); // Verifica si el video se encuentra
+
+    if (videoObject) {
+      // Extraer ID del video de YouTube
+      const videoUrl = new URL(videoObject.contentUrl);
+      console.log('URL del video:', videoUrl); // Verifica la URL del video
+      const videoId = videoUrl.hostname === 'youtu.be'
+        ? videoUrl.pathname.slice(1)
+        : new URLSearchParams(videoUrl.search).get('v');
+
+      if (videoId) {
+        carouselHTML += `
+          <div class="carousel-item">
+            <div class="ratio ratio-16x9">
+              <iframe 
+                src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen
+                id="youtube-video-${videoId}">
+              </iframe>
+            </div>
+          </div>
+        `;
+        // Manejar eventos del video
+        setTimeout(() => handleYouTubeVideoEvents(videoId), 500); // Esperar a que el iframe se cargue
+      }
+    }
+    
+    modalCarouselInner.innerHTML = carouselHTML;
+    
+    function handleYouTubeVideoEvents(videoId) {
+      const iframe = document.getElementById(`youtube-video-${videoId}`);
+      const carousel = document.querySelector('#portfolioModal .carousel');
+    
+      if (!iframe || !carousel) return;
+    
+      const player = new YT.Player(iframe, {
+        events: {
+          onStateChange: function (event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+              // Desactivar las flechas del carrusel
+              carousel.querySelector('.carousel-control-prev').style.pointerEvents = 'none';
+              carousel.querySelector('.carousel-control-next').style.pointerEvents = 'none';
+            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+              // Reactivar las flechas del carrusel
+              carousel.querySelector('.carousel-control-prev').style.pointerEvents = 'auto';
+              carousel.querySelector('.carousel-control-next').style.pointerEvents = 'auto';
+            }
+          }
+        }
+      });
+    }
+
+
   
     // Generar información adicional
     const otherBirds = data.filter(bird => bird.identifier !== item.identifier);
@@ -554,6 +706,24 @@ document.getElementById('load-more').addEventListener('click', function () {
       </div>
     `;
   }
+});
+
+// Función para el botón "Ver menos"
+document.getElementById('load-less').addEventListener('click', function () {
+  // Ocultar las aves adicionales
+  document.querySelectorAll('#aves .row.gy-4 .portfolio-item:nth-child(n+4)').forEach(function (item) {
+    item.style.display = 'none'; // Ocultar las aves adicionales
+  });
+
+  // Ocultar el botón "Ver menos" y mostrar el botón "Ver más"
+  this.style.display = 'none';
+  document.getElementById('load-more').style.display = 'inline-block';
+
+  // Opcional: Desplazar la página hacia la sección de "Aves"
+  document.getElementById('aves').scrollIntoView({
+    behavior: 'smooth', // Desplazamiento suave
+    block: 'start' // Alinea al inicio de la sección
+  });
 });
 
 /*--------------------------------------------------------------
@@ -686,27 +856,69 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Función para obtener el clima de una zona
   async function obtenerClima(lat, lon) {
-    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=auto`;
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
-      return data.current_weather; // Devuelve los datos actuales del clima
+      return {
+        current: data.current_weather,
+        forecast: data.daily
+      };
     } catch (error) {
       console.error('Error al obtener el clima:', error);
       return null;
     }
   }
-
+  
+  function getWeatherIcon(code) {
+    const icons = {
+      0: "☀️",     // Soleado
+      1: "🌤️",    // Mayormente soleado
+      2: "⛅",     // Parcialmente nublado
+      3: "☁️",     // Nublado
+      45: "🌫️",    // Niebla
+      51: "🌦️",    // Lluvia ligera
+      61: "🌧️",    // Lluvia moderada
+      71: "🌨️",    // Nieve
+      80: "🌦️",    // Chubascos
+      95: "⛈️"     // Tormenta
+    };
+    return icons[code] || "❓";
+  }
+  
+  function getWeatherGradient(code) {
+    if ([0, 1].includes(code)) {
+      return "linear-gradient(135deg, #f6d365, #fda085)"; // Soleado
+    } else if ([2, 3].includes(code)) {
+      return "linear-gradient(135deg, #89f7fe, #66a6ff)"; // Parcialmente nublado
+    } else if ([45].includes(code)) {
+      return "linear-gradient(135deg, #cfd9df, #e2ebf0)"; // Niebla
+    } else if ([51, 61, 80].includes(code)) {
+      return "linear-gradient(135deg, #667db6, #0082c8, #0082c8, #667db6)"; // Lluvia ligera
+    } else if ([95].includes(code)) {
+      return "linear-gradient(135deg, #373B44, #4286f4)"; // Tormenta
+    } else if ([71].includes(code)) {
+      return "linear-gradient(135deg, #83a4d4, #b6fbff)"; // Nieve
+    } else {
+      return "linear-gradient(135deg, #00c6ff, #0072ff)"; // Por defecto (azul limpio)
+    }
+  }
+  
+  
+  let currentMap = null; // Variable global para almacenar el mapa actual
   // Función para actualizar el contenido del modal de zonas
     function updateZonaModalContent(zona, data) {
+    
     const modalTitle = zonaModal.querySelector('#modalZonaTitle');
     const modalDescription = zonaModal.querySelector('#modalZonaDescription');
     const modalCarouselInner = zonaModal.querySelector('#modalZonaCarouselInner');
     const modalAdditionalInfo = zonaModal.querySelector('#modalZonaAdditionalInfo');
+    const modalMap = zonaModal.querySelector('#modalZonaMap'); // Contenedor del mapa
+    const modalExcursions = zonaModal.querySelector('#modalZonaExcursions'); // Contenedor de excursiones
   
     // Actualizar el contenido dinámico del modal
     modalTitle.innerHTML = `
-      <div class="modal-title-container">
+      <div class="modal-title-container rounded-title">
         <h4>${zona.name}</h4>
         <p><em>${zona.alternateName}</em></p>
       </div>
@@ -717,7 +929,6 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="texto-para-leer">
           <p><strong>Descripción:</strong> ${zona.description}</p>
           <p><strong>Ubicación:</strong> ${zona.address.addressLocality}, ${zona.address.addressRegion}, ${zona.address.addressCountry}</p>
-          <p><strong>Coordenadas:</strong> Latitud: ${zona.geo.latitude}, Longitud: ${zona.geo.longitude}</p>
         </div>
         <button class="btn btn-outline-primary mt-2" id="btnLeer">🔊 Escuchar</button>
       </div>
@@ -730,6 +941,60 @@ document.addEventListener('DOMContentLoaded', function () {
         <img src="${img}" class="d-block w-100" alt="${zona.name}">
       </div>
     `).join('');
+
+    // Destruir el mapa existente si ya fue inicializado
+    if (currentMap) {
+      currentMap.remove();
+      currentMap = null;
+    }
+
+    // Inicializar el mapa
+    if (modalMap) {
+      modalMap.innerHTML = ''; // Limpiar el contenedor del mapa
+      currentMap = L.map(modalMap, {
+        scrollWheelZoom: false // Deshabilitar el zoom con la rueda del ratón desde el inicio
+      }).setView([zona.geo.latitude, zona.geo.longitude], 13);
+    
+      // Añadir capa base de OpenStreetMap
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(currentMap);
+    
+      // Añadir marcador en la ubicación de la zona
+      L.marker([zona.geo.latitude, zona.geo.longitude])
+        .addTo(currentMap)
+        .bindPopup(`<b>${zona.name}</b><br>${zona.address.addressLocality}`)
+        .openPopup();
+    
+      // Asegurarse de que el mapa se renderice correctamente
+      setTimeout(() => {
+        currentMap.invalidateSize();
+      }, 200);
+    
+      // Habilitar zoom con Ctrl
+      let ctrlPressed = false;
+    
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Control') {
+          ctrlPressed = true;
+          currentMap.scrollWheelZoom.enable(); // Habilitar zoom con la rueda del ratón
+        }
+      });
+    
+      document.addEventListener('keyup', (e) => {
+        if (e.key === 'Control') {
+          ctrlPressed = false;
+          currentMap.scrollWheelZoom.disable(); // Deshabilitar zoom con la rueda del ratón
+        }
+      });
+    
+      // Mostrar un mensaje cuando el usuario intente hacer zoom sin presionar Ctrl
+      currentMap.on('zoomstart', (e) => {
+        if (!ctrlPressed) {
+          alert('Mantén presionada la tecla Ctrl para hacer zoom.');
+        }
+      });
+    }
   
     // Generar tarjetas de otras zonas
     const otherZonas = data.filter(z => z.identifier !== zona.identifier); // Excluir la zona actual
@@ -751,20 +1016,44 @@ document.addEventListener('DOMContentLoaded', function () {
         `).join('')}
       </div>
     `;
-  
+
     // Configurar eventos para las tarjetas de otras zonas
     const otherZonaLinks = modalAdditionalInfo.querySelectorAll('.zona-link');
     otherZonaLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const newId = this.getAttribute('data-id'); // Obtener el ID de la nueva zona
-        const newZona = data.find(z => z.identifier === newId); // Buscar la nueva zona
-        if (newZona) {
-          updateZonaModalContent(newZona, data); // Actualizar el contenido del modal con la nueva zona
-        }
-      });
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const newId = this.getAttribute('data-id'); // Obtener el ID de la nueva zona
+            const newZona = data.find(z => z.identifier === newId); // Buscar la nueva zona
+            if (newZona) {
+              updateZonaModalContent(newZona, data); // Actualizar el contenido del modal con la nueva zona
+              portfolioModal.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Desplazamiento suave
+              });
+            }
+        });
     });
-  }
+
+      // Generar excursiones
+      modalExcursions.innerHTML = `
+        <h5>Excursiones en la zona</h5>
+        ${
+          zona.excursions && zona.excursions.length > 0
+            ? `
+              <ul class="list-group">
+                ${zona.excursions.map(excursion => `
+                  <li class="list-group-item">
+                    <h6>${excursion.title}</h6>
+                    <p>${excursion.description}</p>
+                    <a href="${excursion.link}" target="_blank" class="btn btn-primary btn-sm">Más información</a>
+                  </li>
+                `).join('')}
+              </ul>
+            `
+            : `<p class="text-muted">No hay excursiones disponibles para esta zona.</p>`
+        }
+      `;
+}
 
   // Cargar el JSON y generar las tarjetas dinámicamente
   fetch(jsonZonaUrl)
@@ -797,34 +1086,61 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Configurar el evento para abrir el modal y actualizar su contenido
       zonaModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget; // Botón que activó el modal
-        const id = button.getAttribute('data-id'); // Extraer el ID del atributo data-id
-
-        // Encontrar la zona con el ID correspondiente en el JSON
+        const button = event.relatedTarget;
+        const id = button.getAttribute('data-id');
         const zona = zonas.find(z => z.identifier === id);
+        if (!zona) return;
+      
+        updateZonaModalContent(zona, zonas);
+      
+        obtenerClima(zona.geo.latitude, zona.geo.longitude).then(clima => {
+          const forecastContainer = zonaModal.querySelector('#modalZonaForecast');
 
-        if (zona) {
-        // Obtener el clima de la zona al abrir el modal
-        obtenerClima(zona.geo.latitude, zona.geo.longitude)
-          .then(clima => {
-            const climaHtml = clima
-              ? `<p><strong>Clima actual:</strong> ${clima.temperature}°C, <strong>Viento: </strong>${clima.windspeed} km/h</p>`
-              : '<p><strong>Clima actual:</strong> No disponible</p>';
+          if (clima && clima.current && clima.forecast) {
+            const iconToday = getWeatherIcon(clima.current.weathercode);
+            const temp = clima.current.temperature.toFixed(1);
+            const min = clima.forecast.temperature_2m_min[0].toFixed(1);
+            const max = clima.forecast.temperature_2m_max[0].toFixed(1);
+            const wind = clima.current.windspeed.toFixed(1);
+            const gradient = getWeatherGradient(clima.current.weathercode);
 
-            // Actualizar el contenido del modal
-            updateZonaModalContent(zona, zonas);
+            // Comenzar todas las tarjetas
+            let forecastHtml = `<div class="weather-row">`;
 
-            // Insertar el clima en el modal
-            const modalWeather = zonaModal.querySelector('#modalZonaWeather');
-            modalWeather.innerHTML = climaHtml;
-          })
-          .catch(error => {
-            console.error('Error al obtener el clima:', error);
-            const modalWeather = zonaModal.querySelector('#modalZonaWeather');
-            modalWeather.innerHTML = '<p><strong>Clima actual:</strong> No disponible</p>';
-          });     
-        }
+            // Hoy (primera tarjeta con degradado)
+            forecastHtml += `
+              <div class="weather-card today" style="background: ${gradient}; color: white;">
+                <div class="icon">${iconToday}</div>
+                <div class="temp">${temp}°</div>
+                <div class="range">${min}° ~ ${max}°</div>
+                <div class="wind">💨 ${wind} km/h</div>
+              </div>
+            `;
+
+            // Próximos días
+            const { time, temperature_2m_max, temperature_2m_min, weathercode } = clima.forecast;
+
+            for (let i = 1; i <= 4; i++) {
+              const day = new Date(time[i]).toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
+              const icon = getWeatherIcon(weathercode[i]);
+              forecastHtml += `
+                <div class="weather-card">
+                  <div class="day">${day}</div>
+                  <div class="icon">${icon}</div>
+                  <div class="temp">${temperature_2m_min[i].toFixed(1)}° / ${temperature_2m_max[i].toFixed(1)}°</div>
+                </div>
+              `;
+            }
+
+            forecastHtml += '</div>';
+            forecastContainer.innerHTML = forecastHtml;
+          } else {
+            forecastContainer.innerHTML = 'Clima no disponible';
+          }
+
+        });        
       });
+
     })
     .catch(error => console.error('Error al cargar el JSON de zonas:', error));
 });
@@ -1345,3 +1661,44 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     this.submit();
   }
 });
+
+
+/*--------------------------------------------------------------
+#   API OAuth: Iniciar sesión
+--------------------------------------------------------------*/
+const CLIENT_ID = "245517641522-oh2g2j0rektmfgili0d5ujalntli9re1.apps.googleusercontent.com"; 
+
+window.onload = () => {
+  google.accounts.id.initialize({
+    client_id: CLIENT_ID,
+    callback: handleCredentialResponse
+  });
+
+  const loginBtn = document.getElementById("login-btn");
+  if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+      google.accounts.id.prompt(); // Lanza la ventana de Google Login
+    });
+  }
+};
+
+function handleCredentialResponse(response) {
+  const payload = parseJwt(response.credential);
+
+  // Mostrar nombre de usuario
+  const userInfo = document.getElementById("user-info");
+  if (userInfo) {
+    userInfo.innerHTML = `Hola, ${payload.name} 👋`;
+  }
+
+  // Guardar info en sessionStorage
+  sessionStorage.setItem("userId", payload.sub);
+  sessionStorage.setItem("userName", payload.name);
+  sessionStorage.setItem("userEmail", payload.email);
+}
+
+function parseJwt(token) {
+  const base64Url = token.split('.')[1];
+  const base64 = atob(base64Url);
+  return JSON.parse(base64);
+}
