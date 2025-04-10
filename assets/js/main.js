@@ -460,6 +460,78 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     `;
 
+    // Contenedor para reseñas
+    const modalUsersReviews = portfolioModal.querySelector('#modalUsersReviews');
+
+    // Limpiar contenido anterior
+    modalUsersReviews.innerHTML = `
+      <h5 class="mt-4">Comentarios de usuarios</h5>
+      <div id="commentsContainer" class="mb-3"></div>
+      <div id="commentFormContainer"></div>
+    `;
+
+    // Obtener contenedores
+    const commentsContainer = modalUsersReviews.querySelector('#commentsContainer');
+    const commentFormContainer = modalUsersReviews.querySelector('#commentFormContainer');
+
+    // Cargar comentarios desde el JSON
+    fetch('assets/json/ComentariosAves.json')
+      .then(response => response.json())
+      .then(data => {
+        const comentarios = data.comment;
+        const comentariosAve = comentarios.filter(c => c.about?.identifier === item.identifier);
+
+        if (comentariosAve.length > 0) {
+          commentsContainer.innerHTML = comentariosAve.map(comment => `
+            <div class="comment border rounded p-2 mb-2">
+              <p class="mb-1">${comment.text}</p>
+              <small class="text-muted">${new Date(comment.datePublished).toLocaleString()} - ${comment.author.name}</small>
+            </div>
+          `).join('');
+        } else {
+          commentsContainer.innerHTML = `<p class="text-muted">No hay comentarios para esta ave todavía.</p>`;
+        }
+
+        // Verificar sesión del usuario
+        const userName = sessionStorage.getItem('userName');
+        if (userName) {
+          commentFormContainer.innerHTML = `
+            <textarea id="newCommentText" class="form-control mb-2" rows="2" placeholder="Escribe tu comentario..."></textarea>
+            <button id="submitCommentBtn" class="btn btn-primary btn-sm">Publicar</button>
+          `;
+
+          const submitBtn = commentFormContainer.querySelector('#submitCommentBtn');
+          submitBtn.addEventListener('click', () => {
+            const text = commentFormContainer.querySelector('#newCommentText').value.trim();
+            if (!text) return;
+
+            const nuevoComentarioHTML = `
+              <div class="comment border rounded p-2 mb-2">
+                <p class="mb-1">${text}</p>
+                <small class="text-muted">Ahora mismo - ${userName}</small>
+              </div>
+            `;
+            commentsContainer.insertAdjacentHTML('afterbegin', nuevoComentarioHTML);
+            commentFormContainer.querySelector('#newCommentText').value = '';
+
+            // 🛑 Aquí guardarías en Firestore o backend
+            console.log("Comentario añadido:", {
+              text,
+              author: userName,
+              birdId: item.identifier,
+              date: new Date().toISOString()
+            });
+          });
+        } else {
+          commentFormContainer.innerHTML = `<p class="text-muted">Inicia sesión con Google para comentar.</p>`;
+        }
+      })
+      .catch(err => {
+        commentsContainer.innerHTML = `<p class="text-danger">Error al cargar los comentarios.</p>`;
+        console.error('Error al cargar comentarios:', err);
+      });
+
+
   
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = item.image.map((img, index) => `
@@ -587,8 +659,8 @@ document.getElementById('load-more').addEventListener('click', function () {
     const modalDescription = portfolioModal.querySelector('#modalDescription');
     const modalCarouselInner = portfolioModal.querySelector('#modalCarouselInner');
     const modalAdditionalInfo = portfolioModal.querySelector('#modalAdditionalInfo');
-    const modalAudioContainer = portfolioModal.querySelector('#modalAudioContainer'); // Contenedor para el audio
-  
+    const modalAudioContainer = portfolioModal.querySelector('#modalAudioContainer'); 
+
     // Buscar el archivo de audio en los datos del ave
     const audioObject = item.subjectOf?.find(media => media.encodingFormat === "audio/wav");
     const audioPlayer = audioObject && audioObject.contentUrl
@@ -616,7 +688,9 @@ document.getElementById('load-more').addEventListener('click', function () {
         <p><strong>Descripción:</strong> ${item.description}</p>
         <p><strong>Familia:</strong> ${item.parentTaxon.name}</p>
       </div>
+
     `;
+    
   
     // Generar las imágenes del carrusel
     let carouselHTML = item.image.map((img, index) => `
