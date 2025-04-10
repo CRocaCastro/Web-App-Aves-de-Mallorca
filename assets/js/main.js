@@ -440,10 +440,6 @@ document.addEventListener('DOMContentLoaded', function () {
   
     // Insertar el reproductor de audio en el modal
     modalAudioContainer.innerHTML = audioPlayer;
-  
-
-    
-
 
     // Actualizar el título
     modalTitle.innerHTML = `
@@ -456,10 +452,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Actualizar la descripción
     modalDescription.innerHTML = `
       <div class="modal-description">
-        <p><strong>Descripción:</strong> ${item.description}</p>
-        <p><strong>Familia:</strong> ${item.parentTaxon.name}</p>
+        <div class="texto-para-leer">
+          <p><strong>Descripción:</strong> ${item.description}</p>
+          <p><strong>Familia:</strong> ${item.parentTaxon.name}</p>
+        </div>
+        <button class="btn btn-outline-primary mt-2" id="btnLeerAve">🔊 Escuchar</button>
       </div>
     `;
+
   
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = item.image.map((img, index) => `
@@ -1174,7 +1174,7 @@ function leerTexto(texto, boton) {
 }
 
 document.addEventListener('click', function (e) {
-  if (e.target && e.target.id === 'btnLeer') {
+  if (e.target && (e.target.id === 'btnLeer' || e.target.id === 'btnLeerAve')) {
     const boton = e.target;
     const textoContainer = boton.closest('.modal-description').querySelector('.texto-para-leer');
     const texto = textoContainer.innerText;
@@ -1182,7 +1182,6 @@ document.addEventListener('click', function (e) {
     leerTexto(texto, boton);
   }
 });
-
 
 
 /*--------------------------------------------------------------
