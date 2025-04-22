@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-  // 7. Función para renderizar las aves
+  // 7. Función para renderizar las aves %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%H5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   function renderBirds(birds) {
     portfolioContainer.innerHTML = '';
     birds.forEach(bird => {
@@ -404,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
           </a>
           <div class="card-body">
-            <h5 class="card-title">${bird.name}</h5>
+            // // <h5 class="card-title">${bird.name}</h5>
             <p class="card-text"><em>${bird.alternateName}</em></p>
           </div>
         </div>
