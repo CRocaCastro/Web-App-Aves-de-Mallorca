@@ -35,79 +35,7 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
-    import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyDN0EnaNhwR8k48Mn4m86D6oqp6it6FzOQ",
-      authDomain: "avesmallorquinas-2aad1.firebaseapp.com",
-      projectId: "avesmallorquinas-2aad1",
-      storageBucket: "avesmallorquinas-2aad1.firebasestorage.app",
-      messagingSenderId: "440219672006",
-      appId: "1:440219672006:web:d05264186284dc8ceba6c7",
-      measurementId: "G-DPB488RC3E"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const loginBtnDesktop = document.getElementById("login-btn-desktop");
-      const logoutBtnDesktop = document.getElementById("logout-btn-desktop");
-
-      const loginBtnMobile = document.getElementById("login-btn-mobile");
-      const logoutBtnMobile = document.getElementById("logout-btn-mobile");
-
-      const userName = sessionStorage.getItem("userName");
-
-      if (userName) {
-        loginBtnDesktop.innerHTML = `<i class="bi bi-person"></i> ${userName}`;
-        logoutBtnDesktop.style.display = "inline-block";
-        logoutBtnMobile.style.display = "block"; // también mostrar en móvil
-      }
-
-      function login() {
-        signInWithPopup(auth, provider)
-          .then(result => {
-            const user = result.user;
-            alert(`Hola, ${user.displayName} 👋`);
-
-            // Mostrar nombre en escritorio
-            loginBtnDesktop.innerHTML = `<i class="bi bi-person"></i> ${user.displayName}`;
-            logoutBtnDesktop.style.display = "inline-block";
-
-            // Mostrar botones en móvil
-            logoutBtnMobile.style.display = "block";
-
-            sessionStorage.setItem("userId", user.uid);
-            sessionStorage.setItem("userName", user.displayName);
-            sessionStorage.setItem("userEmail", user.email);
-          })
-          .catch(error => {
-            console.error("Error al iniciar sesión:", error);
-          });
-      }
-
-      function logout() {
-        signOut(auth).then(() => {
-          sessionStorage.clear();
-          alert("Sesión cerrada");
-          location.reload();
-        });
-      }
-
-      loginBtnDesktop.addEventListener("click", login);
-      loginBtnMobile.addEventListener("click", login);
-      logoutBtnDesktop.addEventListener("click", logout);
-      logoutBtnMobile.addEventListener("click", logout);
-    });
-  </script>
-  
-  
+  <script type="module" src="assets/js/main.js"></script>  
 
 
   <!-- =======================================================
@@ -154,12 +82,12 @@
           <li><a href="#autores">Autores</a></li>
           <li><a href="#contactanos">Contáctanos</a></li>
           <li class="d-none d-xl-block">
-            <button id="login-btn-desktop" class="btn btn-primary me-2">
+            <button id="login-btn-desktop" class="btn-transparent me-2">
               <i class="bi bi-person"></i> Iniciar sesión
             </button>
-            <button id="logout-btn-desktop" class="btn btn-danger" style="display: none;">
+            <button id="logout-btn-desktop" class="btn-transparent" style="display: none;">
               <i class="bi bi-box-arrow-right"></i> Cerrar sesión
-            </button>
+            </button>            
           </li>          
         </ul>
       </nav>
@@ -175,12 +103,12 @@
         <li><a href="#autores">Autores</a></li>
         <li><a href="#contactanos">Contáctanos</a></li>
         <li class="d-xl-none w-100">
-          <button id="login-btn-mobile" class="btn btn-primary w-100 mb-2">
+          <button id="login-btn-mobile" class="btn-transparent w-100 mb-2">
             <i class="bi bi-person"></i> Iniciar sesión
           </button>
-          <button id="logout-btn-mobile" class="btn btn-danger w-100" style="display: none;">
+          <button id="logout-btn-mobile" class="btn-transparent w-100" style="display: none;">
             <i class="bi bi-box-arrow-right"></i> Cerrar sesión
-          </button>
+          </button>          
         </li>
         
       </ul>
@@ -387,11 +315,12 @@
                 <img src="assets/img/Autores/Autor_Juanfra.webp" class="img-fluid" alt="Juan Francisco Riera">
               </div>
               <div class="member-info mt-3">
-                <h4>Juan Francisco Riera</h4>
+                <h3>Juan Francisco Riera</h3>
                 <div class="social d-flex justify-content-center">
                   <a href="https://www.linkedin.com/in/juan-francisco-riera-fern%C3%A1ndez-466458266/" target="_blank" rel="noopener noreferrer">
                     <i class="bi bi-linkedin"></i>
-                  </a>
+                    <span class="visually-hidden">Perfil de Juan Francisco en LinkedIn</span>
+                  </a>                  
                 </div>
               </div>
             </div>
@@ -404,10 +333,11 @@
                 <img src="assets/img/Autores/Autor_Luz.webp" class="img-fluid" alt="Luz Salvá">
               </div>
               <div class="member-info mt-3">
-                <h4>Luz Salvá</h4>
+                <h3>Luz Salvá</h3>
                 <div class="social d-flex justify-content-center">
                   <a href="https://www.linkedin.com/in/luz-salv%C3%A1-castro-362a43354/" target="_blank" rel="noopener noreferrer">
                     <i class="bi bi-linkedin"></i>
+                    <span class="visually-hidden">Perfil de Luz Salvá en LinkedIn</span>
                   </a>
                 </div>
               </div>
@@ -421,10 +351,11 @@
                 <img src="assets/img/Autores/Autor_Claudia.webp" class="img-fluid" alt="Claudia Roca">
               </div>
               <div class="member-info mt-3">
-                <h4>Claudia Roca</h4>
+                <h3>Claudia Roca</h3>
                 <div class="social d-flex justify-content-center">
                   <a href="https://www.linkedin.com/in/claudia-roca-castro-48baab234/" target="_blank" rel="noopener noreferrer">
                     <i class="bi bi-linkedin"></i>
+                    <span class="visually-hidden">Perfil de Claudia Roca en LinkedIn</span>
                   </a>
                 </div>
               </div>

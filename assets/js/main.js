@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-  // 7. Función para renderizar las aves %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%H5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  // 7. Función para renderizar las aves
   function renderBirds(birds) {
     portfolioContainer.innerHTML = '';
     birds.forEach(bird => {
@@ -404,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
           </a>
           <div class="card-body">
-            // // <h5 class="card-title">${bird.name}</h5>
+            <p class="card-title fw-bold fs-5 mb-1">${bird.name}</p>
             <p class="card-text"><em>${bird.alternateName}</em></p>
           </div>
         </div>
@@ -431,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Buscar el archivo de audio en los datos del ave
     const audioObject = item.subjectOf?.find(media => media.encodingFormat === "audio/wav");
     const audioPlayer = audioObject && audioObject.contentUrl
-      ? `<h5 class="mt-3">Escucha el canto:</h5>
+      ? `<p class="fw-bold mt-3 mb-1" aria-label="Título del reproductor de audio">Escucha el canto:</p>
          <audio controls class="w-100 mt-2">
             <source src="${audioObject.contentUrl}" type="${audioObject.encodingFormat}">
             Tu navegador no soporta el elemento de audio.
@@ -465,7 +465,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Limpiar contenido anterior
     modalUsersReviews.innerHTML = `
-      <h5 class="mt-4">Comentarios de usuarios</h5>
+      <p class="fw-bold fs-5 mt-4 mb-2" id="commentsHeading">Comentarios de usuarios</p>
       <div id="commentsContainer" class="mb-3"></div>
       <div id="commentFormContainer"></div>
     `;
@@ -497,7 +497,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (userName) {
           commentFormContainer.innerHTML = `
             <textarea id="newCommentText" class="form-control mb-2" rows="2" placeholder="Escribe tu comentario..."></textarea>
-            <button id="submitCommentBtn" class="btn btn-primary btn-sm">Publicar</button>
+            <button id="submitCommentBtn" class="btn btn-primary btn-sm mb-4">Publicar</button>
           `;
 
           const submitBtn = commentFormContainer.querySelector('#submitCommentBtn');
@@ -573,27 +573,28 @@ document.addEventListener('DOMContentLoaded', function () {
   // Generar información adicional
   const otherBirds = data.filter(bird => bird.identifier !== item.identifier);
   modalAdditionalInfo.innerHTML = `
-    <h5>Otras aves</h5>
-    <div class="row gy-4" id="otherBirdsContainer">
-      ${otherBirds.map(bird => `
-        <div class="col-lg-4 col-md-6 portfolio-item">
-          <div class="card h-100">
-            <a class="portfolio-link" data-id="${bird.identifier}">
-              <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">${bird.name}</h5>
-              <p class="card-text">${bird.alternateName}</p>
-            </div>
+  <p class="fw-bold fs-5">Otras aves</p>
+  <div class="row gy-4" id="otherBirdsContainer">
+    ${otherBirds.map(bird => `
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="card h-100">
+          <a class="portfolio-link" data-id="${bird.identifier}">
+            <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
+          </a>
+          <div class="card-body">
+            <p class="card-title fw-bold">${bird.name}</p>
+            <p class="card-text">${bird.alternateName}</p>
           </div>
         </div>
-      `).join('')}
-    </div>
-    <div class="text-center mt-3">
-      <button class="btn btn-primary show-more">Ver más</button>
-      <button class="btn btn-secondary show-less d-none">Ver menos</button>
-    </div>
-  `;
+      </div>
+    `).join('')}
+  </div>
+  <div class="text-center mt-3">
+    <button class="btn btn-primary show-more">Ver más</button>
+    <button class="btn btn-secondary show-less d-none">Ver menos</button>
+  </div>
+`;
+
 
   // Configurar funcionalidad de los enlaces de "Otras aves"
   const otherBirdLinks = modalAdditionalInfo.querySelectorAll('.portfolio-link');
@@ -664,7 +665,7 @@ document.getElementById('load-more').addEventListener('click', function () {
     // Buscar el archivo de audio en los datos del ave
     const audioObject = item.subjectOf?.find(media => media.encodingFormat === "audio/wav");
     const audioPlayer = audioObject && audioObject.contentUrl
-      ? `<h5 class="mt-3">Escucha el canto:</h5>
+      ? `<p class="fw-bold fs-5 mt-3">Escucha el canto:</p>
          <audio controls class="w-100 mt-2">
             <source src="${audioObject.contentUrl}" type="${audioObject.encodingFormat}">
             Tu navegador no soporta el elemento de audio.
@@ -762,7 +763,7 @@ document.getElementById('load-more').addEventListener('click', function () {
     // Generar información adicional
     const otherBirds = data.filter(bird => bird.identifier !== item.identifier);
     modalAdditionalInfo.innerHTML = `
-      <h5>Otras aves</h5>
+      <p class="fw-bold fs-4">Otras aves</p>
       <div class="row gy-4">
         ${otherBirds.slice(0, 3).map(bird => `
           <div class="col-lg-4 col-md-6 portfolio-item">
@@ -771,14 +772,15 @@ document.getElementById('load-more').addEventListener('click', function () {
                 <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
               </a>
               <div class="card-body">
-                <h5 class="card-title">${bird.name}</h5>
-                <p class="card-text">${bird.alternateName}</p>
+                <p class="card-title fw-bold">${bird.name}</p>
+                <p class="card-text"><em>${bird.alternateName}</em></p>
               </div>
             </div>
           </div>
         `).join('')}
       </div>
     `;
+
   }
 });
 
@@ -878,11 +880,12 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="card h-100">
           <img src="${zona.image?.[0]}" class="card-img-top" alt="${zona.name}" loading="lazy">
           <div class="card-body">
-            <h5 class="card-title">${zona.name}</h5>
+            <p class="card-title fw-bold">${zona.name}</p>
             <p class="card-text"><em>${zona.alternateName || ''}</em></p>
           </div>
         </div>
       `;
+
       zonaContainer.appendChild(zonaElement);
     });
   }
@@ -1073,7 +1076,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Generar tarjetas de otras zonas
     const otherZonas = data.filter(z => z.identifier !== zona.identifier); // Excluir la zona actual
     modalAdditionalInfo.innerHTML = `
-      <h5>Otras zonas</h5>
+      <p class="h5 mt-3">Otras zonas</p>
       <div class="row gy-4">
         ${otherZonas.map(z => `
           <div class="col-lg-4 col-md-6">
@@ -1082,7 +1085,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <img src="${z.image[0]}" class="card-img-top" alt="${z.name}">
               </a>
               <div class="card-body">
-                <h5 class="card-title"><a title="More Details">${z.name}</a></h5>
+                <p class="card-title fw-bold"><a title="Más detalles">${z.name}</a></p>
                 <p class="card-text">${z.alternateName}</p>
               </div>
             </div>
@@ -1090,6 +1093,7 @@ document.addEventListener('DOMContentLoaded', function () {
         `).join('')}
       </div>
     `;
+
 
     // Configurar eventos para las tarjetas de otras zonas
     const otherZonaLinks = modalAdditionalInfo.querySelectorAll('.zona-link');
@@ -1110,16 +1114,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Generar excursiones
       modalExcursions.innerHTML = `
-        <h5>Excursiones en la zona</h5>
+        <p class="h5 mt-3">Excursiones en la zona</p>
         ${
           zona.excursions && zona.excursions.length > 0
             ? `
               <ul class="list-group">
                 ${zona.excursions.map(excursion => `
                   <li class="list-group-item">
-                    <h6>${excursion.title}</h6>
-                    <p>${excursion.description}</p>
-                    <a href="${excursion.link}" target="_blank" class="btn btn-primary btn-sm">Más información</a>
+                    <p class="fw-bold mb-1">${excursion.title}</p>
+                    <p class="mb-2">${excursion.description}</p>
+                    <a href="${excursion.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                      Más información
+                    </a>
                   </li>
                 `).join('')}
               </ul>
@@ -1149,11 +1155,15 @@ document.addEventListener('DOMContentLoaded', function () {
               <img src="${zona.image[0]}" class="card-img-top" alt="${zona.name}">
             </a>
             <div class="card-body">
-              <h5 class="card-title"><a title="More Details">${zona.name}</a></h5>
-              <p class="card-text">${zona.alternateName}</p>
+              <p class="card-title h5 mb-1">
+                <a href="#" class="text-dark text-decoration-none" title="Más detalles sobre ${zona.name}">${zona.name}</a>
+              </p>
+              <p class="card-text"><em>${zona.alternateName}</em></p>
             </div>
           </div>
         `;
+
+
 
         zonaContainer.appendChild(card);
       });
@@ -1734,3 +1744,85 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     this.submit();
   }
 });
+
+
+/*--------------------------------------------------------------
+#   Integración Firebase
+--------------------------------------------------------------*/
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+// Configuración de Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyDN0EnaNhwR8k48Mn4m86D6oqp6it6FzOQ",
+  authDomain: "avesmallorquinas-2aad1.firebaseapp.com",
+  projectId: "avesmallorquinas-2aad1",
+  storageBucket: "avesmallorquinas-2aad1.firebasestorage.app",
+  messagingSenderId: "440219672006",
+  appId: "1:440219672006:web:d05264186284dc8ceba6c7",
+  measurementId: "G-DPB488RC3E"
+};
+
+// Inicializar Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtnDesktop = document.getElementById("login-btn-desktop");
+  const logoutBtnDesktop = document.getElementById("logout-btn-desktop");
+
+  const loginBtnMobile = document.getElementById("login-btn-mobile");
+  const logoutBtnMobile = document.getElementById("logout-btn-mobile");
+
+  const userName = sessionStorage.getItem("userName");
+
+  if (userName) {
+    loginBtnDesktop.innerHTML = `<i class="bi bi-person"></i> ${userName}`;
+    loginBtnDesktop.disabled = true;
+    logoutBtnDesktop.style.display = "inline-block";
+
+    loginBtnMobile.innerHTML = `<i class="bi bi-person"></i> ${userName}`;
+    loginBtnMobile.disabled = true;
+    logoutBtnMobile.style.display = "block";
+  }
+
+  function login() {
+    signInWithPopup(auth, provider)
+      .then(result => {
+        const user = result.user;
+        alert(`Hola, ${user.displayName} 👋`);
+
+        loginBtnDesktop.innerHTML = `<i class="bi bi-person"></i> ${user.displayName}`;
+        loginBtnDesktop.disabled = true;
+        logoutBtnDesktop.style.display = "inline-block";
+
+        loginBtnMobile.innerHTML = `<i class="bi bi-person"></i> ${user.displayName}`;
+        loginBtnMobile.disabled = true;
+        logoutBtnMobile.style.display = "block";
+
+        sessionStorage.setItem("userId", user.uid);
+        sessionStorage.setItem("userName", user.displayName);
+        sessionStorage.setItem("userEmail", user.email);
+      })
+      .catch(error => {
+        console.error("Error al iniciar sesión:", error);
+      });
+  }
+
+  function logout() {
+    signOut(auth).then(() => {
+      sessionStorage.clear();
+      alert("Sesión cerrada");
+      location.reload();
+    });
+  }
+
+  loginBtnDesktop.addEventListener("click", login);
+  loginBtnMobile.addEventListener("click", login);
+  logoutBtnDesktop.addEventListener("click", logout);
+  logoutBtnMobile.addEventListener("click", logout);
+});
+
