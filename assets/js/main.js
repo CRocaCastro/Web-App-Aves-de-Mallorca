@@ -49,8 +49,6 @@
       });
     });
   });
-  
-  
 
   /**
    * Preloader
@@ -207,6 +205,8 @@ let youtubePlayers = {};
 function onYouTubeIframeAPIReady() {
   console.log("YouTube API cargada");
 }
+
+
 /*--------------------------------------------------------------
 # Aves
 --------------------------------------------------------------*/
@@ -426,7 +426,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalDescription = portfolioModal.querySelector('#modalDescription');
     const modalCarouselInner = portfolioModal.querySelector('#modalCarouselInner');
     const modalAdditionalInfo = portfolioModal.querySelector('#modalAdditionalInfo');
-    const modalAudioContainer = portfolioModal.querySelector('#modalAudioContainer'); // Contenedor para el audio
+    const modalAudioContainer = portfolioModal.querySelector('#modalAudioContainer');
+    const modalVideoContainer = portfolioModal.querySelector('#modalVideoContainer');
   
     // Buscar el archivo de audio en los datos del ave
     const audioObject = item.subjectOf?.find(media => media.encodingFormat === "audio/wav");
@@ -514,7 +515,7 @@ document.addEventListener('DOMContentLoaded', function () {
             commentsContainer.insertAdjacentHTML('afterbegin', nuevoComentarioHTML);
             commentFormContainer.querySelector('#newCommentText').value = '';
 
-            // 🛑 Aquí guardarías en Firestore o backend
+            // Aquí guardarías en Firestore o backend
             console.log("Comentario añadido:", {
               text,
               author: userName,
@@ -539,8 +540,8 @@ document.addEventListener('DOMContentLoaded', function () {
         <img src="${img}" class="d-block w-100" alt="${item.name}">
       </div>
     `).join('');
-    // Buscar si hay video de YouTube para añadirlo al carrusel de las aves
 
+    // Buscar si hay video de YouTube 
     const videoObject = item.subjectOf?.find(obj => obj.contentUrl.includes('youtube.com') || obj.contentUrl.includes('youtu.be'));
     console.log('Video encontrado:', videoObject); // Verifica si el video se encuentra
 
@@ -552,48 +553,53 @@ document.addEventListener('DOMContentLoaded', function () {
         ? videoUrl.pathname.slice(1)
         : new URLSearchParams(videoUrl.search).get('v');
 
-      if (videoId) {
-        modalCarouselInner.innerHTML += `
-          <div class="carousel-item">
-            <div class="ratio ratio-16x9">
-              <iframe 
-                src="https://www.youtube.com/embed/${videoId}" 
-                frameborder="0" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen>
-              </iframe>
+        if (videoId) {
+          modalVideoContainer.innerHTML = `
+            <div class="mt-4">
+              <p class="fw-bold fs-5">Video</p>
+              <div class="ratio ratio-16x9">
+                <iframe 
+                  src="https://www.youtube.com/embed/${videoId}" 
+                  frameborder="0" 
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen>
+                </iframe>
+              </div>
             </div>
-          </div>
-        `;
+          `;
+        }
+      } else {
+        modalVideoContainer.innerHTML = `<p class="text-muted mt-3">No hay video disponible para esta ave.</p>`;
       }
-    }
 
     modalCarouselInner.innerHTML = modalCarouselInner.innerHTML;
   
-  // Generar información adicional
-  const otherBirds = data.filter(bird => bird.identifier !== item.identifier);
+  // Generar información adicional (3 aves aleatorias)
+  const otherBirdsAll = data.filter(bird => bird.identifier !== item.identifier);
+  // Barajar aleatoriamente
+  const shuffled = otherBirdsAll.sort(() => Math.random() - 0.5);
+  // Tomar sólo 3
+  const randomThree = shuffled.slice(0, 3);
+
   modalAdditionalInfo.innerHTML = `
-  <p class="fw-bold fs-5">Otras aves</p>
-  <div class="row gy-4" id="otherBirdsContainer">
-    ${otherBirds.map(bird => `
-      <div class="col-lg-4 col-md-6 portfolio-item">
-        <div class="card h-100">
-          <a class="portfolio-link" data-id="${bird.identifier}">
-            <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
-          </a>
-          <div class="card-body">
-            <p class="card-title fw-bold">${bird.name}</p>
-            <p class="card-text">${bird.alternateName}</p>
+    <p class="fw-bold fs-5">Otras aves</p>
+    <div class="row gy-4" id="otherBirdsContainer">
+      ${randomThree.map(bird => `
+        <div class="col-lg-4 col-md-6 portfolio-item">
+          <div class="card h-100">
+            <a class="portfolio-link" data-id="${bird.identifier}">
+              <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
+            </a>
+            <div class="card-body">
+              <p class="card-title fw-bold">${bird.name}</p>
+              <p class="card-text">${bird.alternateName}</p>
+            </div>
           </div>
         </div>
-      </div>
-    `).join('')}
-  </div>
-  <div class="text-center mt-3">
-    <button class="btn btn-primary show-more">Ver más</button>
-    <button class="btn btn-secondary show-less d-none">Ver menos</button>
-  </div>
-`;
+      `).join('')}
+    </div>
+  `;
+
 
 
   // Configurar funcionalidad de los enlaces de "Otras aves"
@@ -613,32 +619,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   
-  // Configurar funcionalidad de los botones "Ver más" y "Ver menos"
-  const showMoreButton = modalAdditionalInfo.querySelector('.show-more');
-  const showLessButton = modalAdditionalInfo.querySelector('.show-less');
-  const otherBirdItems = modalAdditionalInfo.querySelectorAll('#otherBirdsContainer .portfolio-item');
-
-  showMoreButton.addEventListener('click', () => {
-    otherBirdItems.forEach((item, index) => {
-      if (index >= 3) {
-        item.classList.remove('d-none'); // Mostrar las aves ocultas
-      }
-    });
-    showMoreButton.classList.add('d-none'); // Ocultar el botón "Ver más"
-    showLessButton.classList.remove('d-none'); // Mostrar el botón "Ver menos"
-  });
-
-  showLessButton.addEventListener('click', () => {
-    otherBirdItems.forEach((item, index) => {
-      if (index >= 3) {
-        item.classList.add('d-none'); // Ocultar las aves adicionales
-      }
-    });
-    showMoreButton.classList.remove('d-none'); // Mostrar el botón "Ver más"
-    showLessButton.classList.add('d-none'); // Ocultar el botón "Ver menos"
-  });
-  
-    }
+  }
 });
 
 
@@ -661,6 +642,7 @@ document.getElementById('load-more').addEventListener('click', function () {
     const modalCarouselInner = portfolioModal.querySelector('#modalCarouselInner');
     const modalAdditionalInfo = portfolioModal.querySelector('#modalAdditionalInfo');
     const modalAudioContainer = portfolioModal.querySelector('#modalAudioContainer'); 
+    const modalVideoContainer = portfolioModal.querySelector('#modalVideoContainer');
 
     // Buscar el archivo de audio en los datos del ave
     const audioObject = item.subjectOf?.find(media => media.encodingFormat === "audio/wav");
@@ -694,15 +676,14 @@ document.getElementById('load-more').addEventListener('click', function () {
     
   
     // Generar las imágenes del carrusel
-    let carouselHTML = item.image.map((img, index) => `
+    modalCarouselInner.innerHTML = item.image.map((img, index) => `
     <div class="carousel-item ${index === 0 ? 'active' : ''}">
       <img src="${img}" class="d-block w-100" alt="${item.name}">
     </div>
   `).join('');
   
 
-    // Buscar si hay video de YouTube para añadirlo al carrusel de las aves
-
+    // Buscar si hay video de YouTube 
     const videoObject = item.subjectOf?.find(obj => obj.contentUrl.includes('youtube.com') || obj.contentUrl.includes('youtu.be'));
     console.log('Video encontrado:', videoObject); // Verifica si el video se encuentra
 
@@ -714,24 +695,24 @@ document.getElementById('load-more').addEventListener('click', function () {
         ? videoUrl.pathname.slice(1)
         : new URLSearchParams(videoUrl.search).get('v');
 
-      if (videoId) {
-        carouselHTML += `
-          <div class="carousel-item">
-            <div class="ratio ratio-16x9">
-              <iframe 
-                src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" 
-                frameborder="0" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen
-                id="youtube-video-${videoId}">
-              </iframe>
+        if (videoId) {
+          modalVideoContainer.innerHTML = `
+            <div class="mt-4">
+              <p class="fw-bold fs-5">Mira el video:</p>
+              <div class="ratio ratio-16x9">
+                <iframe 
+                  src="https://www.youtube.com/embed/${videoId}" 
+                  frameborder="0" 
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen>
+                </iframe>
+              </div>
             </div>
-          </div>
-        `;
-        // Manejar eventos del video
-        setTimeout(() => handleYouTubeVideoEvents(videoId), 500); // Esperar a que el iframe se cargue
+          `;
+        }
+      } else {
+        modalVideoContainer.innerHTML = `<p class="text-muted mt-3">No hay video disponible para esta ave.</p>`;
       }
-    }
     
     modalCarouselInner.innerHTML = carouselHTML;
     
@@ -833,7 +814,6 @@ document.addEventListener('DOMContentLoaded', function () {
     item.addEventListener('click', function (e) {
       e.preventDefault();
       const selectedText = this.textContent.trim().toLowerCase();
-      console.log('Hábitat seleccionado:', selectedText); // Verificar el hábitat seleccionado
 
       // Alternar selección
       if (selectedTipoHabitat === selectedText) {
@@ -864,7 +844,6 @@ document.addEventListener('DOMContentLoaded', function () {
           return false;
         });
 
-        console.log("Zonas filtradas:", filtradas.map(z => z.name)); // Verificar las zonas filtradas
         renderZonas(filtradas); // Renderizar las zonas filtradas
       }
     });
@@ -925,7 +904,33 @@ document.getElementById('load-less-zonas').addEventListener('click', function ()
 
 
 
+let birdsData = []; // Variable global para almacenar los datos de las aves
 
+// Cargar los datos de las aves al inicio
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('assets/json/Ave.json')
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      birdsData = data.species; // Guardar los datos globalmente
+    })
+    .catch(function (error) {
+      console.error('Error al cargar los datos de las aves:', error);
+    });
+});
+
+let excursionsData = []; // Variable global para almacenar las excursiones
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Cargar los datos de las excursiones
+  fetch('assets/json/Excursiones.json')
+    .then(response => response.json())
+    .then(data => {
+      excursionsData = data.itemListElement; // Guardar las excursiones globalmente
+    })
+    .catch(error => console.error('Error al cargar el JSON de excursiones:', error));
+});
 document.addEventListener('DOMContentLoaded', function () {
   const jsonZonaUrl = 'assets/json/Zona.json'; // Ruta del archivo JSON de zonas
   const zonaContainer = document.querySelector('#zonas .row.gy-4'); // Contenedor de las zonas
@@ -990,9 +995,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalDescription = zonaModal.querySelector('#modalZonaDescription');
     const modalCarouselInner = zonaModal.querySelector('#modalZonaCarouselInner');
     const modalAdditionalInfo = zonaModal.querySelector('#modalZonaAdditionalInfo');
-    const modalMap = zonaModal.querySelector('#modalZonaMap'); // Contenedor del mapa
-    const modalExcursions = zonaModal.querySelector('#modalZonaExcursions'); // Contenedor de excursiones
-  
+    const modalMap = zonaModal.querySelector('#modalZonaMap'); 
+    const modalExcursions = zonaModal.querySelector('#modalZonaExcursions'); 
+    const modalZonaAves = document.querySelector('#modalZonaAves'); 
+    const modalVideoContainer = zonaModal.querySelector('#modalZonaVideo');
+
+
     // Actualizar el contenido dinámico del modal
     modalTitle.innerHTML = `
       <div class="modal-title-container rounded-title">
@@ -1019,17 +1027,55 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     `).join('');
 
+    // Buscar si hay video de YouTube 
+    if (zona.video) {
+      // Extraer ID del video de YouTube
+      const videoUrl = new URL(zona.video);
+      console.log('URL del video:', videoUrl); // Verifica la URL del video
+      const videoId = videoUrl.hostname === 'youtu.be'
+        ? videoUrl.pathname.slice(1)
+        : new URLSearchParams(videoUrl.search).get('v');
+
+        if (videoId) {
+          modalVideoContainer.innerHTML = `
+            <div class="mt-4">
+              <p class="fw-bold fs-5">Video</p>
+              <div class="ratio ratio-16x9">
+                <iframe 
+                  src="https://www.youtube.com/embed/${videoId}" 
+                  frameborder="0" 
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          `;
+        }
+      } else {
+        modalVideoContainer.innerHTML = `<p class="text-muted mt-3">No hay video disponible para esta zona.</p>`;
+      }
+
     // Destruir el mapa existente si ya fue inicializado
     if (currentMap) {
       currentMap.remove();
       currentMap = null;
     }
 
-    // Inicializar el mapa
+    //////////// Inicializar el mapa
+  // Define un icono personalizado para las excursiones
+  const orangeIcon = L.icon({
+    iconUrl: 'assets/img/punteroExcursion.webp', // Ruta de la imagen del marcador naranja
+    iconSize: [25, 41], // Tamaño del icono
+    iconAnchor: [12, 41], // Punto de anclaje del icono
+    popupAnchor: [1, -34], // Punto de anclaje del popup
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png', // Sombra del marcador
+    shadowSize: [41, 41] // Tamaño de la sombra
+  });
+
     if (modalMap) {
       modalMap.innerHTML = ''; // Limpiar el contenedor del mapa
       currentMap = L.map(modalMap, {
-        scrollWheelZoom: false // Deshabilitar el zoom con la rueda del ratón desde el inicio
+        scrollWheelZoom: true // Deshabilitar el zoom con la rueda del ratón desde el inicio
       }).setView([zona.geo.latitude, zona.geo.longitude], 13);
     
       // Añadir capa base de OpenStreetMap
@@ -1042,6 +1088,17 @@ document.addEventListener('DOMContentLoaded', function () {
         .addTo(currentMap)
         .bindPopup(`<b>${zona.name}</b><br>${zona.address.addressLocality}`)
         .openPopup();
+
+      // Filtrar excursiones dentro del radio
+      const excursionesCercanas = filtrarExcursionesPorRadio(zona, excursionsData, 10);
+
+      // Añadir marcadores para las excursiones
+      excursionesCercanas.forEach(excursion => {
+        const { latitude, longitude } = excursion.containedInPlace.geo;
+        L.marker([latitude, longitude], { icon: orangeIcon })
+          .addTo(currentMap)
+          .bindPopup(`<b>${excursion.name}</b><br>${excursion.description}`);
+      });
     
       // Asegurarse de que el mapa se renderice correctamente
       setTimeout(() => {
@@ -1051,34 +1108,119 @@ document.addEventListener('DOMContentLoaded', function () {
       // Habilitar zoom con Ctrl
       let ctrlPressed = false;
     
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Control') {
-          ctrlPressed = true;
-          currentMap.scrollWheelZoom.enable(); // Habilitar zoom con la rueda del ratón
-        }
-      });
+      //document.addEventListener('keydown', (e) => {
+        //if (e.key === 'Control') {
+          //ctrlPressed = true;
+          //currentMap.scrollWheelZoom.enable(); // Habilitar zoom con la rueda del ratón
+        //}
+      //});
     
-      document.addEventListener('keyup', (e) => {
-        if (e.key === 'Control') {
-          ctrlPressed = false;
-          currentMap.scrollWheelZoom.disable(); // Deshabilitar zoom con la rueda del ratón
-        }
-      });
+      //document.addEventListener('keyup', (e) => {
+        //if (e.key === 'Control') {
+          //ctrlPressed = false;
+          //currentMap.scrollWheelZoom.disable(); // Deshabilitar zoom con la rueda del ratón
+        //}
+      //});
     
       // Mostrar un mensaje cuando el usuario intente hacer zoom sin presionar Ctrl
-      currentMap.on('zoomstart', (e) => {
-        if (!ctrlPressed) {
-          alert('Mantén presionada la tecla Ctrl para hacer zoom.');
-        }
-      });
+      //currentMap.on('zoomstart', (e) => {
+        //if (!ctrlPressed) {
+          //alert('Mantén presionada la tecla Ctrl para hacer zoom.');
+        //}
+      //});
+
+      // Evento para mostrar la ruta solo al hacer clic en el botón
+      const btnRuta = document.getElementById('calculate-route-btn');
+      if (btnRuta) {
+        btnRuta.addEventListener('click', () => {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+              const userLat = position.coords.latitude;
+              const userLng = position.coords.longitude;
+
+              // Marcador del usuario
+              const userMarker = L.marker([userLat, userLng], { title: 'Tu ubicación' }).addTo(currentMap);
+              userMarker.bindPopup("Estás aquí");
+
+              // Dibujar la ruta
+              L.Routing.control({
+                waypoints: [
+                  L.latLng(userLat, userLng),
+                  L.latLng(zona.geo.latitude, zona.geo.longitude)
+                ],
+                routeWhileDragging: false,
+                addWaypoints: false,
+                draggableWaypoints: false,
+                createMarker: () => null
+              }).addTo(currentMap);
+
+            }, (error) => {
+              alert("No se pudo obtener tu ubicación.");
+              console.error(error);
+            });
+          } else {
+            alert("Tu navegador no soporta geolocalización.");
+          }
+        });
+      }
+
     }
-  
-    // Generar tarjetas de otras zonas
-    const otherZonas = data.filter(z => z.identifier !== zona.identifier); // Excluir la zona actual
-    modalAdditionalInfo.innerHTML = `
+
+
+    // Generar tarjetas de 3 aves de la zona (aleatorias)
+  const birdsInZonaAll = birdsData.filter(function (bird) {
+    return bird.additionalProperty?.some(function (property) {
+      return property.name === "Zona de distribución" && property.value.includes(zona.identifier);
+    });
+  });
+
+
+  // Seleccionar 3 aves aleatorias
+  const shuffledBirds = birdsInZonaAll.sort(function () {
+    return Math.random() - 0.5;
+  });
+  const randomThreeBirds = shuffledBirds.slice(0, 3);
+
+  // Generar el contenido dinámico
+  if (randomThreeBirds.length > 0) {
+    modalZonaAves.innerHTML = `
+      <p class="h5 mt-3">Aves en la zona</p>
+      <div class="row gy-4">
+        ${randomThreeBirds.map(function (bird) {
+          return `
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <a class="bird-link" data-id="${bird.identifier}">
+                  <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
+                </a>
+                <div class="card-body">
+                  <p class="card-title fw-bold"><a title="Más detalles">${bird.name}</a></p>
+                  <p class="card-text">${bird.alternateName}</p>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+  } else {
+    modalZonaAves.innerHTML = `
+      <p class="h5 mt-3">Aves en la zona</p>
+      <p class="text-muted">No hay aves disponibles en esta zona.</p>
+    `;
+  }
+
+
+
+    // Generar tarjetas de otras zonas (3 aleatorias)
+    const otherZonasAll = data.filter(z => z.identifier !== zona.identifier);
+    const shuffledZonas = otherZonasAll.sort(() => Math.random() - 0.5);
+    const randomThreeZonas = shuffledZonas.slice(0, 3);
+
+    modalZonaAdditionalInfo.innerHTML = `
       <p class="h5 mt-3">Otras zonas</p>
       <div class="row gy-4">
-        ${otherZonas.map(z => `
+        ${randomThreeZonas.map(z => `
           <div class="col-lg-4 col-md-6">
             <div class="card h-100">
               <a class="zona-link" data-id="${z.identifier}">
@@ -1093,6 +1235,7 @@ document.addEventListener('DOMContentLoaded', function () {
         `).join('')}
       </div>
     `;
+
 
 
     // Configurar eventos para las tarjetas de otras zonas
@@ -1112,28 +1255,92 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-      // Generar excursiones
+    // Configurar funciones para las excursiones
+        // filepath: vsls:/assets/js/main.js
+    /**
+     * Calcula la distancia entre dos puntos geográficos usando la fórmula de Haversine.
+     * @param {number} lat1 - Latitud del primer punto.
+     * @param {number} lon1 - Longitud del primer punto.
+     * @param {number} lat2 - Latitud del segundo punto.
+     * @param {number} lon2 - Longitud del segundo punto.
+     * @returns {number} - Distancia en kilómetros.
+     */
+    function calcularDistancia(lat1, lon1, lat2, lon2) {
+      const R = 6371; // Radio de la Tierra en km
+      const dLat = (lat2 - lat1) * (Math.PI / 180);
+      const dLon = (lon2 - lon1) * (Math.PI / 180);
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * (Math.PI / 180)) *
+          Math.cos(lat2 * (Math.PI / 180)) *
+          Math.sin(dLon / 2) *
+          Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+    
+    /**
+     * Filtra las excursiones que están dentro de un radio de 10 km desde una zona.
+     * @param {Object} zona - Objeto de la zona con coordenadas.
+     * @param {Array} excursiones - Lista de excursiones con coordenadas.
+     * @param {number} radio - Radio en kilómetros.
+     * @returns {Array} - Lista de excursiones dentro del radio.
+     */
+    function filtrarExcursionesPorRadio(zona, excursiones, radio = 20) {
+      const { latitude: latZona, longitude: lonZona } = zona.geo;
+      return excursiones.filter(excursion => {
+        const { latitude: latExcursion, longitude: lonExcursion } = excursion.containedInPlace.geo;
+        const distancia = calcularDistancia(latZona, lonZona, latExcursion, lonExcursion);
+        return distancia <= radio;
+      });
+    }
+      // Generar excursiones filtradas por radio
+      const excursionesCercanas = filtrarExcursionesPorRadio(zona, excursionsData, 20);
+      
       modalExcursions.innerHTML = `
         <p class="h5 mt-3">Excursiones en la zona</p>
         ${
-          zona.excursions && zona.excursions.length > 0
+          excursionesCercanas.length > 0
             ? `
-              <ul class="list-group">
-                ${zona.excursions.map(excursion => `
-                  <li class="list-group-item">
-                    <p class="fw-bold mb-1">${excursion.title}</p>
-                    <p class="mb-2">${excursion.description}</p>
-                    <a href="${excursion.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                      Más información
-                    </a>
-                  </li>
+              <div class="row gy-4">
+                ${excursionesCercanas.map(excursion => `
+                  <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                      <a href="https://www.explorarmallorca.com/#portfolioGrid" target="_blank" rel="noopener noreferrer">
+                        <img src="${excursion.image[0]}" class="card-img-top" alt="${excursion.name}">
+                        <div class="card-body text-center">
+                          <p class="card-title fw-bold text-dark">${excursion.name}</p> <!-- Cambiado a <p> con clase text-dark -->
+                        </div>
+                      </a>
+                    </div>
+                  </div>
                 `).join('')}
-              </ul>
+              </div>
             `
-            : `<p class="text-muted">No hay excursiones disponibles para esta zona.</p>`
+            : `<p class="text-muted">No hay excursiones disponibles en un radio de 10 km.</p>`
         }
       `;
 }
+
+    document.querySelectorAll('.portfolio-item a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault(); // Evita la redirección inmediata
+      const targetId = 'portfolioGrid'; // ID de la sección específica
+      const targetElement = document.getElementById(targetId);
+  
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth', // Desplazamiento suave
+          block: 'start'
+        });
+  
+        // Redirigir al enlace externo después de un breve retraso
+        setTimeout(() => {
+          window.location.href = this.href;
+        }, 1000); // Ajusta el tiempo según sea necesario
+      }
+    });
+  });
 
   // Cargar el JSON y generar las tarjetas dinámicamente
   fetch(jsonZonaUrl)
@@ -1569,7 +1776,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Llamar a la función al cargar la página
   document.addEventListener("DOMContentLoaded", mostrarResultadosGuardados);
 
-    // Función para mostrar los resultados guardados
+  // Función para mostrar los resultados guardados
   function mostrarResultadosGuardados() {
     const resultados = JSON.parse(localStorage.getItem("quizResultados")) || [];
     const listaResultados = document.getElementById("resultados-lista");
@@ -1604,9 +1811,9 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Cambiar el texto del botón
     if (quizResults.classList.contains("d-none")) {
-      showResultsBtn.innerText = "Ver resultados guardados";
+      showResultsBtn.innerText = "Historial";
     } else {
-      showResultsBtn.innerText = "Ocultar resultados guardados";
+      showResultsBtn.innerText = "Ocultar Historial";
     }
   
     // Actualizar la lista de resultados
@@ -1744,7 +1951,6 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     this.submit();
   }
 });
-
 
 /*--------------------------------------------------------------
 #   Integración Firebase
