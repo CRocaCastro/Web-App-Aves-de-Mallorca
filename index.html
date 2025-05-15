@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Aves Mallorquinas</title>
 
-  <!-- Favicons -->
+  <!-- Favi  -->
   <link href="assets/img/favicon.png" rel="icon">
+  <a href="https://www.flaticon.es/iconos-gratis/gaviota" title="gaviota iconos">Gaviota iconos creados por Freepik - Flaticon</a>
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -32,7 +35,16 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <script type="module" src="assets/js/main.js"></script>  
   
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Leaflet Routing Machine -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
 
 
   <!-- =======================================================
@@ -53,10 +65,10 @@
   
       <!-- Logo -->
       <a href="#hero" class="logo d-flex align-items-center">
-        <img src="assets/img/Logo AvesMallorquinas.svg" alt="Logo" style="object-fit: cover; width: 130px; height: 100px; overflow: hidden;" />
-      </a>      
+        <img src="assets/img/Logo AvesMallorquinas.svg" alt="Logo" class="logo-img" />
+      </a>
   
-      <!-- Botón SVG personalizado para mobile nav -->
+      <!-- Botón SVG para abrir/cerrar menú móvil -->
       <button id="mobile-nav-toggle" class="d-xl-none" aria-label="Abrir menú">
         <svg id="hamburger-icon" width="30" height="30" viewBox="0 0 100 80" fill="currentColor">
           <rect width="100" height="10"></rect>
@@ -69,36 +81,52 @@
         </svg>
       </button>
   
-      <!-- Menú normal (desktop) -->
-      <nav id="navmenu" class="navmenu d-none d-xl-block w-100">
-        <ul class="d-flex justify-content-center gap-4 list-unstyled mb-0">
+      <!-- Menú de escritorio -->
+      <nav id="navmenu" class="navmenu d-none d-xl-block">
+        <ul class="menu-list d-flex justify-content-center gap-4 list-unstyled mb-0">
           <li><a href="#hero">Home</a></li>
           <li><a href="#aves">Aves</a></li>
           <li><a href="#zonas">Zonas</a></li>
           <li><a href="#quizz">Quizz</a></li>
           <li><a href="#autores">Autores</a></li>
           <li><a href="#contactanos">Contáctanos</a></li>
+          <li>
+            <button id="login-btn-desktop" class="btn-nav">
+              <i class="bi bi-person"></i> Iniciar sesión
+            </button>
+            <button id="logout-btn-desktop" class="btn-nav logout-btn" style="display: none;">
+              <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+            </button>
+          </li>
         </ul>
       </nav>
-
   
-    <!-- Menú móvil (inicialmente oculto) -->
-    <div class="mobile-nav d-xl-none" id="mobileNav">
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#aves">Aves</a></li>
-        <li><a href="#zonas">Zonas</a></li>
-        <li><a href="#quizz">Quizz</a></li>
-        <li><a href="#autores">Autores</a></li>
-        <li><a href="#contactanos">Contáctanos</a></li>
-      </ul>
+      <!-- Menú móvil -->
+      <div class="mobile-nav d-xl-none" id="mobileNav">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#aves">Aves</a></li>
+          <li><a href="#zonas">Zonas</a></li>
+          <li><a href="#quizz">Quizz</a></li>
+          <li><a href="#autores">Autores</a></li>
+          <li><a href="#contactanos">Contáctanos</a></li>
+          <li>
+            <button id="login-btn-mobile" class="btn-nav w-100 mt-3">
+              <i class="bi bi-person"></i> Iniciar sesión
+            </button>
+            <button id="logout-btn-mobile" class="btn-nav logout-btn w-100 mt-2" style="display: none;">
+              <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+            </button>
+          </li>
+        </ul>
+      </div>
+  
     </div>
-  </header>
-  
-  
-  
-  
-
+  </header>  
+<!-------------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------- FIN HEADER ----------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------------->
+   
   <main class="main">
     <!-- Hero Section with Carousel -->
     <section id="hero" class="hero-section position-relative">
@@ -125,10 +153,10 @@
     <!-- /Hero Section -->
 
 
-    <!-- Portfolio Section -->
+    <!-- Sección Aves -->
     <section id="aves" class="portfolio section">
 
-      <!-- Título de la sección -->
+      <!-- Título -->
       <div class="container section-title" data-aos="fade-up">
         <h2 style="text-align: left;">Aves</h2>
       </div>
@@ -136,38 +164,44 @@
       <div class="container">
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
           
-          <!-- Filtros Dropdown: Estación, Hábitat, Nombre + Búsqueda -->
-          <!-- FILTROS -->
+          <!-- FILTROS: Estación, Hábitat, Tipo Nombre y Búsqueda -->
           <div class="container py-4">
-            <div class="d-flex flex-wrap gap-3 justify-content-center">
-              
-              <!-- Estación -->
+            <div class="d-flex flex-wrap gap-3 justify-content-center align-items-center">
+              <!-- Botón para eliminar todos los filtros -->
+              <div class="text-center">
+                <button id="btn-clear-filters" class="btn btn-outline-dark">Eliminar filtros</button>
+              </div>
+              <!-- Dropdpwn Estación presencia de la Ave -->
               <div class="dropdown">
-                <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button id="btn-estacion" class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Estación
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Primavera</a></li>
-                  <li><a class="dropdown-item" href="#">Verano</a></li>
-                  <li><a class="dropdown-item" href="#">Otoño</a></li>
-                  <li><a class="dropdown-item" href="#">Invierno</a></li>
+                  <li><a class="dropdown-item" role="button">Primavera</a></li>
+                  <li><a class="dropdown-item" role="button">Verano</a></li>
+                  <li><a class="dropdown-item" role="button">Otoño</a></li>
+                  <li><a class="dropdown-item" role="button">Invierno</a></li>
                 </ul>
               </div>
           
-              <!-- Hábitat -->
+              <!-- Dropdpwn Hábitat presencia de la Ave -->
               <div class="dropdown">
-                <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button id="btn-habitat" class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Hábitat
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Bosque</a></li>
-                  <li><a class="dropdown-item" href="#">Humedal</a></li>
-                  <li><a class="dropdown-item" href="#">Pradera</a></li>
-                  <li><a class="dropdown-item" href="#">Mar</a></li>
+                  <li><a class="dropdown-item" role="button">Bosque</a></li>
+                  <li><a class="dropdown-item" role="button">Humedal</a></li>
+                  <li><a class="dropdown-item" role="button">Prados</a></li>
+                  <li><a class="dropdown-item" role="button">Mar</a></li>
+                  <li><a class="dropdown-item" role="button">Campos agrícolas</a></li>
+                  <li><a class="dropdown-item" role="button">Carrizales</a></li>
+                  <li><a class="dropdown-item" role="button">Espacios abiertos</a></li>
+                  <li><a class="dropdown-item" role="button">Acantilados</a></li>
                 </ul>
               </div>
           
-              <!-- Nombre -->
+              <!-- Dropdpwn tipo de nombre para la búsqueda -->
               <div class="dropdown">
                 <button id="btn-nombre" class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Nombre
@@ -178,47 +212,28 @@
                 </ul>
               </div>
           
-              <!-- Buscador -->
+              <!-- Buscador de aves por nombre -->
               <div class="input-group" style="max-width: 350px;">
                 <span class="input-group-text bg-gray"><i class="bi bi-search text-muted"></i></span>
                 <input type="text" class="form-control" placeholder="Buscar ave...">
               </div>
-          
+
             </div>
           </div>
 
           <div class="row gy-4">
-            <!-- Los items se generarán dinámicamente desde el archivo main.js -->
+            <!-- Los items se generarán dinámicamente desde el archivo main.js según los filtros seleccionados -->
           </div>
           
-          
-
-          <!-- Botón de cargar más -->
+          <!-- Botón de ver más / ver menos -->
           <div class="text-center mt-4">
             <button id="load-more" class="btn btn-primary">Ver más</button>
             <button id="load-less" class="btn btn-secondary" style="display: none;">Ver menos</button>
           </div>
         </div>
       </div>
-    </section><!-- /Portfolio Section -->
+    </section><!-- /Sección Aves -->
 
-
-    <!-- Habitat Section 
-    <section id="zonas" class="services section">
-
-      
-      <div class="container section-title" data-aos="fade-up">
-        <h2 style="text-align: left;">Zonas</h2>
-      </div>
-      <div class="container">
-
-        <div class="row gy-4">
-
-        </div>
-
-      </div>
-
-    </section> /Habitat Section -->
 
     <!-- Habitat Section -->
     <section id="zonas" class="services section">
@@ -237,14 +252,13 @@
                         
               <!-- Hábitat -->
               <div class="dropdown">
-                <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button id="btn-tipo-habitat" class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Tipo Hábitat
                 </button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Bosque</a></li>
                   <li><a class="dropdown-item" href="#">Humedal</a></li>
-                  <li><a class="dropdown-item" href="#">Pradera</a></li>
-                  <li><a class="dropdown-item" href="#">Mar</a></li>
+                  <li><a class="dropdown-item" href="#">Montaña</a></li>
                 </ul>
               </div>         
             </div>
@@ -277,20 +291,20 @@
             <h3>¡Aprende de aves jugando con nuestros quiz!</h3>
             <p>¡Juega, aprende y pon a prueba tus conocimientos con nuestros Quizzes!</p>
             <p>¡Preguntas y respuestas para aprender divirtiéndote!</p>
-            <div class="cta-btn-container">
-              <a class="cta-btn align-middle" href="#" id="play-quiz-btn">Jugar</a>
-            </div>
-            <!-- Botón para mostrar resultados guardados -->
-            <button class="btn btn-info mt-3" id="show-results-btn">Ver resultados guardados</button>
-          </div>
+            <div class="cta-btn-container d-inline-flex align-items-center">
+              <a class="cta-btn" href="#" id="play-quiz-btn">Jugar</a>
+              <button id="show-results-btn" class="cta-btn">Historial</button>
+            </div>            
+          </div>                  
         </div>
     
         <!-- Contenedor para mostrar los resultados -->
-        <div id="quiz-results" class="mt-4 d-none">
-          <h4>Resultados anteriores</h4>
-          <ul id="resultados-lista" class="list-group"></ul>
+        <div id="quiz-results" class="card mt-4 d-none mx-auto" style="max-width: 600px;">
+          <div class="card-header">
+            Historial de partidas
+          </div>
+          <ul id="resultados-lista" class="list-group list-group-flush"></ul>
         </div>
-      </div>
     </section>
 
     <!-- Autores Section -->
@@ -303,56 +317,55 @@
 
       <div class="container">
         <div class="row gy-4 justify-content-center">
-
-          <!-- Autor 1 -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member text-center d-flex flex-column align-items-center">
-              <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
-                <img src="https://www.playademuro.net/images/playademuro/planes-experiencias/bird/muro_birdwatching_guia_7.webp" class="img-fluid" alt="Luz Salvá">
-              </div>
-              <div class="member-info mt-3">
-                <h4>Luz Salvá</h4>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <!-- Autor 2 -->
+          <!-- Autor Juanfra -->
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member text-center d-flex flex-column align-items-center">
               <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
-                <img src="https://www.playademuro.net/images/playademuro/planes-experiencias/bird/muro_birdwatching_guia_7.webp" class="img-fluid" alt="Juan Francisco Riera">
+                <img src="assets/img/Autores/Autor_Juanfra.webp" class="img-fluid" alt="Juan Francisco Riera">
               </div>
               <div class="member-info mt-3">
-                <h4>Juan Francisco Riera</h4>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                <h3>Juan Francisco Riera</h3>
+                <div class="social d-flex justify-content-center">
+                  <a href="https://www.linkedin.com/in/juan-francisco-riera-fern%C3%A1ndez-466458266/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-linkedin"></i>
+                    <span class="visually-hidden">Perfil de Juan Francisco en LinkedIn</span>
+                  </a>                  
                 </div>
               </div>
             </div>
           </div><!-- End Team Member -->
 
-          <!-- Autor 3 -->
+          <!-- Autor Luz -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member text-center d-flex flex-column align-items-center">
+              <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
+                <img src="assets/img/Autores/Autor_Luz.webp" class="img-fluid" alt="Luz Salvá">
+              </div>
+              <div class="member-info mt-3">
+                <h3>Luz Salvá</h3>
+                <div class="social d-flex justify-content-center">
+                  <a href="https://www.linkedin.com/in/luz-salv%C3%A1-castro-362a43354/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-linkedin"></i>
+                    <span class="visually-hidden">Perfil de Luz Salvá en LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <!-- Autor Claudia -->
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member text-center d-flex flex-column align-items-center">
               <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
-                <img src="https://www.playademuro.net/images/playademuro/planes-experiencias/bird/muro_birdwatching_guia_7.webp" class="img-fluid" alt="Claudia Roca">
+                <img src="assets/img/Autores/Autor_Claudia.webp" class="img-fluid" alt="Claudia Roca">
               </div>
               <div class="member-info mt-3">
-                <h4>Claudia Roca</h4>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                <h3>Claudia Roca</h3>
+                <div class="social d-flex justify-content-center">
+                  <a href="https://www.linkedin.com/in/claudia-roca-castro-48baab234/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-linkedin"></i>
+                    <span class="visually-hidden">Perfil de Claudia Roca en LinkedIn</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -364,65 +377,69 @@
     </section><!-- End Autores Section -->
 
     <!-- Sección Contáctanos -->
-    <section class="site-section" id="contactanos">
-      <div class="container">
-        <!-- Título -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2 style="text-align: left;">Contáctanos</h2>
-        </div><!-- Fin Title -->
-        
-        <div class="row">
-          <!-- Columna para la fotografía -->
-          <div class="col-md-4 d-flex align-items-stretch">
-            <img src="https://www.playademuro.net/images/playademuro/planes-experiencias/bird/muro_birdwatching_guia_7.webp" alt="Imagen de contacto" class="img-fluid" style="max-height: 300px; width: 100%; object-fit: cover;">
-          </div>
+<section class="site-section" id="contactanos">
 
-                  
-          <!-- Columna para el formulario -->
-          <div class="col-md-8 mb-5">
-            <form id="contact-form" class="p-5 bg-white">
-              <div class="row form-group">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">Nombre</label>
-                  <input type="text" id="fname" name="fname" class="form-control" required>
-                </div>
-                <div class="col-md-6">
-                  <label class="text-black" for="lname">Apellidos</label>
-                  <input type="text" id="lname" name="lname" class="form-control" required>
-                </div>
-              </div>
+  <!-- Sub-sección del título -->
+  <div class="section-header bg-light py-4">
+    <div class="container section-title" data-aos="fade-up">
+      <h2 style="text-align: left;">CONTÁCTANOS</h2>
+    </div>
+  </div>
 
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="email">Email</label> 
-                  <input type="email" id="email" name="email" class="form-control" required>
-                </div>
+  <!-- Sub-sección del formulario con fondo -->
+  <div style="background-image: url('assets/img/Zonas/Mondrago/mondrago2.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 0; margin: 0;">
+    <div class="container-fluid py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form id="contact-form" class="p-5 bg-white rounded shadow" novalidate>
+            <!-- Nombre y Apellidos -->
+            <div class="row form-group">
+              <div class="col-md-6 mb-3 mb-md-0">
+                <label class="text-black" for="fname">Nombre</label>
+                <input type="text" id="fname" name="fname" class="form-control" required minlength="3" placeholder="Tu nombre completo">
+                <span class="error-message" id="fname-error"></span>
               </div>
+              <div class="col-md-6">
+                <label class="text-black" for="lname">Apellidos</label>
+                <input type="text" id="lname" name="lname" class="form-control" required minlength="3" placeholder="Tus apellidos">
+                <span class="error-message" id="lname-error"></span>
+              </div>
+            </div>
 
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="subject">Asunto</label> 
-                  <input type="text" id="subject" name="subject" class="form-control" required>
-                </div>
-              </div>
+            <!-- Email -->
+            <div class="form-group">
+              <label class="text-black" for="email">Email</label>
+              <input type="email" id="email" name="email" class="form-control" required placeholder="ejemplo@correo.com">
+              <span class="error-message" id="email-error"></span>
+            </div>
 
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="message">Mensaje</label> 
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" required></textarea>
-                </div>
-              </div>
+            <!-- Asunto -->
+            <div class="form-group">
+              <label class="text-black" for="subject">Asunto</label>
+              <input type="text" id="subject" name="subject" class="form-control" required minlength="5" placeholder="Asunto del mensaje">
+              <span class="error-message" id="subject-error"></span>
+            </div>
 
-              <div class="row form-group mt-3">
-                <div class="col-md-12">
-                  <button type="submit" class="custom-btn w-100">Enviar</button>
-                </div>
-              </div>
-            </form>
-          </div>
+            <!-- Mensaje -->
+            <div class="form-group">
+              <label class="text-black" for="message">Mensaje</label>
+              <textarea name="message" id="message" cols="30" rows="7" class="form-control" required minlength="10" placeholder="Escribe tu mensaje aquí"></textarea>
+              <span class="error-message" id="message-error"></span>
+            </div>
+
+            <!-- Botón -->
+            <div class="form-group mt-3 text-center">
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+          </form>
         </div>
       </div>
-    </section><!-- End New Contact Section -->
+    </div>
+  </div>
+
+</section>
+
+
 
 
 
@@ -432,13 +449,6 @@
     <div class="container">
       <h3 class="sitename">Aves mallorquinas</h3>
       <p>Explora el mundo de las aves y conecta con la biodiversidad de Mallorca.</p>
-      <div class="social-links d-flex justify-content-center">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-skype"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
-      </div>
       <div class="container">
         <div class="copyright">
           <p>&copy; 2025 Aves Mallorquinas. Todos los derechos reservados.</p> <!-- Poner que el año sea acorde a la fecha -->
@@ -446,6 +456,15 @@
       </div>
     </div>
   </footer>
+
+    <script>
+    // Actualizar el año automáticamente en el footer
+    document.addEventListener('DOMContentLoaded', function () {
+      const yearElement = document.querySelector('#footer .copyright p');
+      const currentYear = new Date().getFullYear();
+      yearElement.innerHTML = `&copy; ${currentYear} Aves Mallorquinas. Todos los derechos reservados.`;
+    });
+  </script>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -463,8 +482,12 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+  <!-- Script de la API de YouTube -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
 
 
   <!-- Modal para las aves -->
@@ -478,7 +501,7 @@
           <!-- Carrusel dinámico -->
           <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" id="modalCarouselInner">
-              <!-- Las imágenes se generarán dinámicamente aquí -->
+              <!-- Las imágenes y el vídeo se generarán dinámicamente aquí -->
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -492,18 +515,21 @@
   
           <!-- Título dinámico -->
           <div id="modalTitle"></div>
+
+          <!-- Contenedor para el reproductor de audio -->
+          <div id="modalAudioContainer" class="mt-3"></div>
   
           <!-- Descripción dinámica -->
           <div id="modalDescription"></div>
+
+          <!-- Contenedor para el vídeo -->
+          <div id="modalVideoContainer"></div>
   
           <!-- Reseñas dinámicas -->
           <div id="modalUsersReviews"></div>
   
           <!-- Información adicional dinámica -->
           <div id="modalAdditionalInfo"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
@@ -534,19 +560,80 @@
     
             <!-- Título dinámico -->
             <div id="modalZonaTitle"></div>
-    
+
+            <div id="modalZonaForecast" class="weather-all-days"></div>
+     
+            <!-- Contenedor para el mapa -->
+            <div id="modalZonaMap" style="height: 300px; margin-top: 10px;"></div>
+            <div class="text-center mt-3">
+              <button id="calculate-route-btn" class="btn btn-primary">Calcular Ruta</button>
+            </div>
+
+
             <!-- Descripción dinámica -->
             <div id="modalZonaDescription"></div>
+
+            <!-- Video -->
+            <div id="modalZonaVideo"></div>
     
+            <!--Aves en la zona-->
+            <div id="modalZonaAves"></div>
+
             <!-- Información adicional dinámica -->
             <div id="modalZonaAdditionalInfo"></div>
+
+            <!-- Excursiones por la zona-->
+            <div id="modalZonaExcursions"></div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          </div>
+          
         </div>
       </div>
     </div>
+
+             <!-- Modal para Excursiones -->
+          <div class="modal fade" id="excursionModal" tabindex="-1" aria-labelledby="excursionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Carrusel igual que en zonas -->
+                  <div id="excursionCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="excursionCarouselInner">
+                      <!-- Las imágenes se generarán dinámicamente aquí -->
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#excursionCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#excursionCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Siguiente</span>
+                    </button>
+                  </div>
+          
+                  <!-- Título con mismo estilo que zonas -->
+                  <div id="excursionModalTitle" class="modal-title-container rounded-title"></div>
+          
+                  <!-- Descripción con fondo azul igual que zonas -->
+                  <div id="excursionModalDescription" class="modal-description mb-3"></div>
+          
+                  <!-- Propiedades adicionales (dificultad, duración, etc.) -->
+                  <div id="excursionModalProperties" class="mb-3"></div>
+          
+                  <!-- Enlace al track GPX -->
+                  <div id="excursionModalTrack" class="mt-3"></div>
+          
+                  <!-- Mapa -->
+                  <div id="excursionModalMap" class="mb-4" style="height: 300px; margin-top: 10px;"></div>          
+                  
+                  <!-- Video -->
+                  <div id="excursionModalVideo" class="mb-3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
 
   <!-- Modal del Quiz -->
   <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModalLabel" aria-hidden="true">

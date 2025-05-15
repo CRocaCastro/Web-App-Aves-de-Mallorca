@@ -45,13 +45,13 @@
                 {
                     "@type": "MediaObject",
                     "name": "Canto del Milano Real",
-                    "contentUrl": "https://example.com/audio/milano_real.mp3",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/milanoReal.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
                     "name": "Vuelo del Milano Real",
-                    "contentUrl": "https://example.com/video/milano_real.mp4",
+                    "contentUrl": "https://www.youtube.com/watch?v=sts-PToFGgQ",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -60,9 +60,9 @@
                     "@type": "PropertyValue",
                     "name": "Zona de distribución",
                     "value": [
-                        "zone:la_gola",
-                        "zone:sierra_tramuntana",
-                        "zone:parque_natural_albufera"
+                        "Z0",
+                        "Z3",
+                        "Z5"
                     ],
                     "description": "Identificadores de las zonas en las que se encuentra el Milano Real."
                 }
@@ -112,13 +112,13 @@
                 {
                     "@type": "MediaObject",
                     "name": "Canto del Papamoscas Gris",
-                    "contentUrl": "https://seo.org/ave/papamoscas-gris/",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/papamoscasGris.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
                     "name": "Papamoscas Gris en un árbol",
-                    "contentUrl": "https://seo.org/wp-content/uploads/2013/11/F477_Video.mp4",
+                    "contentUrl": "https://www.youtube.com/watch?v=WdOHEgwZX0M&t=35s",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -169,15 +169,15 @@
                 "name": "Habitat de presencia",
                 "termCode": "habitat",
                 "description": "Frecuenta zonas húmedas de todo tipo, como cursos lentos de agua, marismas, lagunas, embalses e incluso charcas estacionales o estanques en parques y jardines. En todo caso, muestra preferencia por aguas someras o poco profundas.",
-                "alternateName": ["Montaña"]
+                "alternateName": ["Humedal"]
             }
             ],
             "subjectOf": [
                 {
                     "@type": "MediaObject",
                     "name": "Graznido del Ánade azulón",
-                    "contentUrl": "https://seo.org/ave/anade-azulon/",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/añadeAzulon.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
@@ -232,15 +232,15 @@
                 "name": "Habitat de presencia",
                 "termCode": "habitat",
                 "description": "El andarríos chico cría de forma muy dispersa por ríos, arroyos y embalses de la Península, donde ocupa ensenadas, bancos arenosos y acumulaciones de grava. En migración e invernada puede aparecer también en estuarios, marismas, playas y áreas rocosas.",
-                "alternateName": ["Paya","Montaña"]
+                "alternateName": ["Mar","Montaña"]
             }
             ],
             "subjectOf": [
                 {
                     "@type": "MediaObject",
                     "name": "Canto del Andarríos Chico",
-                    "contentUrl": "https://seo.org/ave/andarrios-chico/",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/andarriosChico.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
@@ -278,6 +278,7 @@
             },
             "identifier": "A4",
             "image": [
+                "assets/img/Aves/garza imperial/garzaImperial7.webp",
                 "assets/img/Aves/garza imperial/garzaImperial1.jpg",
                 "assets/img/Aves/garza imperial/garzaImperial2.jpg",
                 "assets/img/Aves/garza imperial/garzaImperial3.jpg",
@@ -298,7 +299,7 @@
                     "name": "Habitat de presencia",
                     "termCode": "habitat",
                     "description": "La Garza Imperial habita principalmente en zonas húmedas como marismas, lagunas, cañaverales y ríos con abundante vegetación palustre. Prefiere áreas con escasa intervención humana.",
-                    "alternateName": ["Humedales", "Marismas"]
+                    "alternateName": ["Humedales", "Mar"]
                 }
             ],
             "subjectOf": [
@@ -311,7 +312,7 @@
                 {
                     "@type": "MediaObject",
                     "name": "Garza Imperial en su hábitat natural",
-                    "contentUrl": "assets/mp4/garzaImperial.mp4",
+                    "contentUrl": "https://www.youtube.com/watch?v=rLeLM4e4B14&t=2s",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -364,7 +365,7 @@
                     "name": "Habitat de presencia",
                     "termCode": "habitat",
                     "description": "Habita en zonas húmedas como marismas, lagunas y embalses, donde hay abundante vegetación acuática. Prefiere aguas poco profundas con vegetación flotante o sumergida.",
-                    "alternateName": ["Marismas", "Lagunas", "Embalses"]
+                    "alternateName": ["Mar", "Humedal"]
                 }
             ],
             "subjectOf": [
@@ -377,7 +378,7 @@
                 {
                     "@type": "MediaObject",
                     "name": "Cerceta común en su hábitat natural",
-                    "contentUrl": "https://example.com/video/cerceta_comun.mp4",
+                    "contentUrl": "https://www.youtube.com/watch?v=m9CUkHidUZ0&t=9s",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -410,12 +411,12 @@
             },
             "identifier": "A6",
             "image": [
-                "assets/img/Aves/ciguena comun/ciguena1.jpg",
+                "assets/img/Aves/ciguena comun/ciguena1.webp",
                 "assets/img/Aves/ciguena comun/ciguena2.jpg",
                 "assets/img/Aves/ciguena comun/ciguena3.webp",
                 "assets/img/Aves/ciguena comun/ciguena4.jpg",
                 "assets/img/Aves/ciguena comun/ciguena5.jpg",
-                "assets/img/Aves/ciguena comun/ciguena6.jpg"
+                "assets/img/Aves/ciguena comun/ciguena6.webp"
             ],
             "hasDefinedTerm": [
                 {
@@ -430,7 +431,7 @@
                     "name": "Habitat de presencia",
                     "termCode": "habitat",
                     "description": "La Cigüeñuela común habita en humedales, marismas, lagunas salinas y estuarios, donde suele encontrar sustrato fangoso o de poca profundidad para alimentarse. Prefiere zonas con vegetación palustre o áreas abiertas donde pueda moverse fácilmente en busca de invertebrados acuáticos.",
-                    "alternateName": ["Humedales", "Marismas", "Estuarios", "Lagunas salinas"]
+                    "alternateName": ["Humedales", "Mar"]
                 }
             ],
             "subjectOf": [
@@ -443,7 +444,7 @@
                 {
                     "@type": "MediaObject",
                     "name": "Cigüeñuela común en su hábitat natural",
-                    "contentUrl": "assets/mp4/cigueñelaComun.mp4",
+                    "contentUrl": "https://www.youtube.com/watch?v=IUiV_oTqrNI&t=25s",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -476,11 +477,12 @@
             },
             "identifier": "A7",
             "image": [
+                "assets/img/Aves/garzilla/garzilla7.webp",
+                "assets/img/Aves/garzilla/garzilla2.webp",
                 "assets/img/Aves/garzilla/garzilla5.jpg",
                 "assets/img/Aves/garzilla/garzilla1.jpg",
                 "assets/img/Aves/garzilla/garzilla3.jpg",
                 "assets/img/Aves/garzilla/garzilla4.jpg",
-                "assets/img/Aves/garzilla/garzilla2.webp",
                 "assets/img/Aves/garzilla/garzilla6.jpg"
             ],
             "hasDefinedTerm": [
@@ -496,7 +498,7 @@
                     "name": "Habitat de presencia",
                     "termCode": "habitat",
                     "description": "Habita en zonas húmedas, marismas, humedales y campos agrícolas. Es común verla en terrenos de pastoreo donde se alimenta de insectos y pequeños vertebrados que siguen a los animales de pastoreo, especialmente ganado.",
-                    "alternateName": ["Humedales", "Marismas", "Campos agrícolas"]
+                    "alternateName": ["Humedal", "Mar", "Campos agrícolas"]
                 }
             ],
             "subjectOf": [
@@ -509,7 +511,7 @@
                 {
                     "@type": "MediaObject",
                     "name": "Garcilla bueyera en su hábitat natural",
-                    "contentUrl": "assets/mp4/garcillaBueyera.mp4",
+                    "contentUrl": "https://www.youtube.com/watch?v=70ZGREKS_Ic&t=10s",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -541,11 +543,11 @@
             },
             "identifier": "A8",
             "image": [
+                "/assets/img/Aves/jilguero/jilguero5.webp",
                 "/assets/img/Aves/jilguero/jilguero2.webp",
                 "/assets/img/Aves/jilguero/jilguero1.webp",
                 "/assets/img/Aves/jilguero/jilguero3.webp",
-                "/assets/img/Aves/jilguero/jilguero4.webp",
-                "/assets/img/Aves/jilguero/jilguero5.webp"
+                "/assets/img/Aves/jilguero/jilguero4.webp"
             ],
             "hasDefinedTerm": [
                 {
@@ -560,15 +562,15 @@
                     "name": "Habitat de presencia",
                     "termCode": "habitat",
                     "description": "Se establece en una gran variedad de hábitats, siempre y cuando haya cierta cobertura arbórea y el clima sea suave. No suele instalarse a más de 1.800 metros de altitud.",
-                    "alternateName": ["Humedales", "Marismas", "Campos agrícolas"]
+                    "alternateName": ["Humedal", "Mar", "Campos agrícolas"]
                 }
             ],
             "subjectOf": [
                 {
                     "@type": "MediaObject",
                     "name": "Canto del Jilguero europeo",
-                    "contentUrl": "https://seo.org/ave/jilguero-europeo/",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/jilgueroEuropeo.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
@@ -624,20 +626,20 @@
                     "name": "Habitat de presencia",
                     "termCode": "habitat",
                     "description": "Prefiere zonas húmedas, incluyendo lagunas, marismas, humedales y ríos de aguas tranquilas. Se alimenta de peces y pequeños invertebrados.",
-                    "alternateName": ["Humedales", "Marismas", "Zonas de agua dulce"]
+                    "alternateName": ["Humedal", "Mar"]
                 }
             ],
             "subjectOf": [
                 {
                     "@type": "MediaObject",
                     "name": "Canto de la Garza Real",
-                    "contentUrl": " ",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/garzaReal.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
                     "name": "Garza real en su hábitat natural",
-                    "contentUrl": " ",
+                    "contentUrl": "https://youtu.be/P8yttfEYVVo?si=TunK2TI2XgKMM8Eo",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -672,7 +674,7 @@
                 "/assets/img/Aves/aguilapescadora/aguilapescadora5.jpg",
                 "/assets/img/Aves/aguilapescadora/aguilapescadora4.jpg",
                 "/assets/img/Aves/aguilapescadora/aguilapescadora6.jpg",
-                "/assets/img/Aves/aguilapescadora/aguilapescadora2.jpg",
+                "/assets/img/Aves/aguilapescadora/aguilapescadora2.webp",
                 "/assets/img/Aves/aguilapescadora/aguilapescadora3.jpg",
                 "/assets/img/Aves/aguilapescadora/aguilapescadora1.jpg"
             ],
@@ -689,20 +691,20 @@
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
                 "description": "Prefiere hábitats cercanos al agua como costas, humedales, marismas y embalses, donde se alimenta principalmente de peces. Se la suele ver sobrevolando aguas tranquilas y lanzándose en picado para cazar.",
-                "alternateName": ["Áreas de agua dulce", "Costas", "Humedales", "Embalses"]
+                "alternateName": ["Mar", "Humedales"]
                 }
             ],
             "subjectOf": [
                 {
                 "@type": "MediaObject",
                 "name": "Canto del Águila Pescadora",
-                "contentUrl": "",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/aguilaPescadora.wav",
+                "encodingFormat": "audio/wav"
                 },
                 {
                 "@type": "MediaObject",
                 "name": "Águila pescadora en su hábitat natural",
-                "contentUrl": "",
+                "contentUrl": "https://youtu.be/_MZzHLMsMlQ?si=OOsl9tQxrfsinFlq",
                 "encodingFormat": "video/mp4"
                 }
             ],
@@ -753,20 +755,20 @@
                     "name": "Hábitat de presencia",
                     "termCode": "habitat",
                     "description": "Prefiere lagunas salinas, humedales y marismas de aguas poco profundas, donde se alimenta filtrando algas, crustáceos y otros pequeños organismos.",
-                    "alternateName": ["Aguas someras", "Lagunas salinas", "Marismas", "Humedales salinos"]
+                    "alternateName": ["Mar", "Humedal"]
                 }
             ],
             "subjectOf": [
                 {
                     "@type": "MediaObject",
                     "name": "Canto del Flamenco",
-                    "contentUrl": "https://macaulaylibrary.org/asset/203905311",
-                    "encodingFormat": "audio/mpeg"
+                    "contentUrl": "assets/wav/flamenco.wav",
+                    "encodingFormat": "audio/wav"
                 },
                 {
                     "@type": "MediaObject",
                     "name": "Flamencos en su entorno natural",
-                    "contentUrl": "",
+                    "contentUrl": "https://youtu.be/XHdAooH3VKQ?si=on0Cuyg1UOb-y-a9",
                     "encodingFormat": "video/mp4"
                 }
             ],
@@ -815,20 +817,20 @@
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
                 "description": "Prefiere humedales, marismas y lagunas con vegetación densa, especialmente carrizales donde puede ocultarse, desplazarse con agilidad y construir sus nidos.",
-                "alternateName": ["Humedales con vegetación densa", "Carrizales", "Marismas", "Zonas inundadas"]
+                "alternateName": ["Humedal", "Carrizales", "Mar"]
               }
             ],
             "subjectOf": [
               {
                 "@type": "MediaObject",
                 "name": "Canto del Calamón Común",
-                "contentUrl": "",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/calamonComun.wav",
+                "encodingFormat": "audio/wav"
               },
               {
                 "@type": "MediaObject",
                 "name": "Calamón Común en su entorno natural",
-                "contentUrl": "",
+                "contentUrl": "https://www.youtube.com/watch?v=_q58iE-zHLA",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -877,20 +879,20 @@
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
                 "description": "Prefiere acantilados costeros e islotes para anidar. Se le puede observar cazando aves migratorias sobre el mar o zonas de litoral, y también sobrevolando espacios abiertos.",
-                "alternateName": ["Acantilados marinos", "Islotes", "Espacios abiertos", "Zonas húmedas"]
+                "alternateName": ["Mar", "Humedal", "Espacios abiertos", "Acantilados"]
               }
             ],
             "subjectOf": [
               {
                 "@type": "MediaObject",
                 "name": "Canto del Halcón de Eleonora",
-                "contentUrl": "https://macaulaylibrary.org/asset/203979891",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/halconDeEleonora.wav",
+                "encodingFormat": "audio/wav"
               },
               {
                 "@type": "MediaObject",
                 "name": "Halcón de Eleonora en su entorno natural",
-                "contentUrl": "",
+                "contentUrl": "https://www.youtube.com/watch?v=AtfHD7xge74",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -945,7 +947,7 @@
                 "termCode": "habitat",
                 "description": "Habita acantilados costeros, zonas rocosas e islotes, donde anida en grietas y cuevas protegidas. Caza en aguas marinas cercanas a la costa, donde se zambulle en busca de peces pequeños.",
                 "alternateName": [
-                  "Acantilados", "Zonas costeras rocosas", "Islotes", "Bahías protegidas"
+                  "Acantilados", "Mar"
                 ]
               }
             ],
@@ -953,13 +955,13 @@
               {
                 "@type": "MediaObject",
                 "name": "Canto del Cormorán moñudo",
-                "contentUrl": "https://macaulaylibrary.org/asset/215805911",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/cormoranMoñudo.wav",
+                "encodingFormat": "audio/wav"
               },
               {
                 "@type": "MediaObject",
                 "name": "Cormorán moñudo en su entorno natural",
-                "contentUrl": "",
+                "contentUrl": "https://www.youtube.com/watch?v=ck_oCMr1UcY",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -1008,20 +1010,20 @@
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
                 "description": "Prefiere zonas abiertas con vegetación baja como prados, cultivos, olivares y pinares claros. También frecuenta áreas rurales, bordes de caminos y campos agrícolas donde busca alimento en el suelo.",
-                "alternateName": ["Campos abiertos", "Zonas agrícolas", "Olivar", "Pinar claro", "Prados"]
+                "alternateName": ["Espacios abiertos", "Campos agrícolas", "Olivar", "Prados"]
               }
             ],
             "subjectOf": [
               {
                 "@type": "MediaObject",
                 "name": "Canto del Abubilla",
-                "contentUrl": "https://macaulaylibrary.org/asset/463326631",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/abubillaComun.wav",
+                "encodingFormat": "audio/wav"
               },
               {
                 "@type": "MediaObject",
                 "name": "Abubilla en su entorno natural",
-                "contentUrl": "",
+                "contentUrl": "https://www.youtube.com/watch?v=_-_cBADYJ-U",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -1073,20 +1075,20 @@
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
                 "description": "Prefiere matorrales mediterráneos, pinares abiertos, zonas de monte bajo y áreas agrícolas con arbustos y setos densos donde se refugia y se alimenta.",
-                "alternateName": ["Matorrales", "Pinares", "Monte bajo", "Setos agrícolas", "Vegetación densa"]
+                "alternateName": ["Montaña", "Bosque", "Campos agrícolas"]
               }
             ],
             "subjectOf": [
               {
                 "@type": "MediaObject",
                 "name": "Canto de la Curruca balear",
-                "contentUrl": "https://macaulaylibrary.org/asset/203977491",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/currucaBalear.wav",
+                "encodingFormat": "audio/wav"
               },
               {
                 "@type": "MediaObject",
                 "name": "Curruca balear en su entorno natural",
-                "contentUrl": "",
+                "contentUrl": "https://www.youtube.com/watch?v=DFqe74eY6mg",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -1116,6 +1118,7 @@
             },
             "identifier": "A17",
             "image": [
+              "/assets/img/Aves/buitrenegro/buitrenegro6.webp",
               "/assets/img/Aves/buitrenegro/buitrenegro1.jpg",
               "/assets/img/Aves/buitrenegro/buitrenegro2.jpg",
               "/assets/img/Aves/buitrenegro/buitrenegro3.jpeg",
@@ -1138,20 +1141,20 @@
                 "name": "Hábitat de presencia",
                 "termCode": "habitat",
                 "description": "Prefiere zonas montañosas con bosques de encinas y pinares. Nidifica en grandes árboles o acantilados, en áreas tranquilas y alejadas de la actividad humana, donde encuentra carroña con facilidad.",
-                "alternateName": ["Bosques montañosos", "Acantilados", "Pinares", "Encinares"]
+                "alternateName": ["Bosque", "Acantilados"]
               }
             ],
             "subjectOf": [
               {
                 "@type": "MediaObject",
                 "name": "Canto del Buitre negro",
-                "contentUrl": "",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/buitreNegro.wav",
+                "encodingFormat": "audio/wav"
               },
               {
                 "@type": "MediaObject",
                 "name": "Buitre negro en su entorno natural",
-                "contentUrl": "",
+                "contentUrl": "https://www.youtube.com/watch?v=HsPt7j2frPc&t=3s",
                 "encodingFormat": "video/mp4"
               }
             ],
@@ -1181,6 +1184,7 @@
             },
             "identifier": "A18",
             "image": [
+                "/assets/img/Aves/martinPescador/martinPescador6.webp",
                 "/assets/img/Aves/martinPescador/martinPescador1.webp",
                 "/assets/img/Aves/martinPescador/martinPescador2.webp",
                 "/assets/img/Aves/martinPescador/martinPescador3.webp",
@@ -1204,7 +1208,7 @@
                 "termCode": "habitat",
                 "description": "Precisa de una cierta calidad de las aguas, vegetación palustre más o menos densa, posaderos apropiados, pesca abundante y taludes arenosos en los que instalar el nido.",
                 "alternateName": [
-                    "Lagunas", "marismas", "albuferas", "ríos", "embalses", "torrentes", "canales", "charcas"
+                    "Humedal", "Mar"
                 ]
                 }
             ],
@@ -1212,13 +1216,13 @@
                 {
                 "@type": "MediaObject",
                 "name": "Canto del Martín Pescador",
-                "contentUrl": "https://seo.org/ave/martin-pescador-comun/",
-                "encodingFormat": "audio/mpeg"
+                "contentUrl": "assets/wav/martinPescador.wav",
+                "encodingFormat": "audio/wav"
                 },
                 {
                 "@type": "MediaObject",
                 "name": "Martín pescador en su entorno natural",
-                "contentUrl": "https://youtu.be/uS7EaqxMBBg?si=-T7rYJdWJ8XdnlPi",
+                "contentUrl": "https://www.youtube.com/watch?v=PdsQtXKMXdE",
                 "encodingFormat": "video/mp4"
                 }
             ],

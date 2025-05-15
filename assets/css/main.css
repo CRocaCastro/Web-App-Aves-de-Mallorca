@@ -21,7 +21,7 @@
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #666666; /* Default color used for the majority of the text content across the entire website */
+  --default-color: #333333; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #333333; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #2dc997; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
@@ -89,164 +89,180 @@ h6 {
 }
 
 
-/* === HEADER === */
+/*--------------------------------------------------------------
+#   Estilos del Header
+--------------------------------------------------------------*/
+
+/* Fondo del header */
 .header {
-  background-color: #2f3942;
-  padding: 20px 40px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  z-index: 1000;
-  transition: all 0.3s ease;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-/* === NAVMENU === */
-.navmenu ul {
-  list-style: none;
-  display: flex;
-  gap: 36px;
-  margin: 0;
-  padding: 0;
-  align-items: center;
+/* Logo */
+.logo-img {
+  width: 130px;
+  height: 100px;
+  object-fit: cover;
+  transition: transform 0.3s;
 }
 
-.navmenu li {
-  position: relative;
+.logo-img:hover {
+  transform: scale(1.05);
 }
 
-.navmenu a {
-  font-family: var(--nav-font);
+/* Botones de navegación */
+.btn-nav {
+  background-color: #6ccf93;
+  color: #ffffff;
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-size: 0.9rem;
   font-weight: 600;
-  font-size: 16px;
-  color: var(--contrast-color);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px;
 }
 
-
-
-/* Cambiar color al pasar */
-.navmenu a:hover,
-.navmenu a.active {
-  color: var(--accent-color);
+.btn-nav:hover {
+  background-color: #57b57b;
 }
 
-
-
-/* === RESPONSIVE === */
-@media (max-width: 1199px) {
-  .navmenu {
-    display: none;
-  }
+.logout-btn {
+  background-color: #f86969;
 }
 
-/* Modo escritorio: ocultar toggle, mostrar menú normal */
-@media (min-width: 1200px) {
-  .mobile-nav-toggle {
-    display: none;
-  }
-
-  .navmenu {
-    display: block !important;
-  }
+.logout-btn:hover {
+  background-color: #e44a4a;
 }
 
-/* Modo móvil: ocultar navmenu por defecto */
-@media (max-width: 1199px) {
-  .navmenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--background-color);
-    padding: 20px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    z-index: 999;
-  }
-
-  .mobile-nav-active .navmenu {
-    display: block;
-  }
-
-  .navmenu ul {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .navmenu li {
-    text-align: center;
-  }
-
-  .mobile-nav-toggle {
-    font-size: 28px;
-    cursor: pointer;
-    z-index: 1001;
-  }
-}
-
-/* NAV MÓVIL BONITO */
+/* Mobile nav */
 .mobile-nav {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 40%;
+  width: 280px;
   height: 100vh;
-  background: rgba(33, 33, 33, 0.95);
-  color: #fff;
+  background-color: #a7f5d8;
+  color: #003b30;
   z-index: 999;
   padding: 60px 20px;
-  transition: right 0.3s ease-in-out;
+  transition: right 0.4s ease-in-out;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
+  overflow-y: auto;
 }
 
+/* Mostrar menú al estar activo */
+body.mobile-nav-active .mobile-nav {
+  right: 0;
+}
+
+/* Lista del menú móvil */
 .mobile-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* Enlaces del menú */
 .mobile-nav ul li {
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 .mobile-nav ul li a {
-  color: #ffffff;
-  font-size: 22px;
+  color: #003b30 !important;
+  font-size: 18px;
   font-weight: 600;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s, background-color 0.3s;
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: block;
 }
 
+/* Hover en enlaces */
 .mobile-nav ul li a:hover {
-  color: var(--accent-color, #2dc997);
+  background-color: #d1fae5;
+  color: #064e3b;
 }
 
-/* Estado activo */
-body.mobile-nav-active .mobile-nav {
-  right: 0;
-}
-
-/* Botón SVG */
+/* Botón de cerrar */
 #mobile-nav-toggle {
   background: none;
   border: none;
-  color: #fff;
+  color: #ffffff;
   z-index: 1000;
-  position: relative;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
-/* Icono oscuro si el fondo es blanco */
-body:not(.mobile-nav-active) #mobile-nav-toggle svg {
-  color: var(--heading-color, #333);
+/* Forzar color blanco para los iconos */
+#mobile-nav-toggle svg {
+  fill: #ffffff !important;
+  transition: fill 0.3s ease;
 }
 
+/* Color al pasar el ratón */
+#mobile-nav-toggle:hover svg {
+  fill: #d1f7d2 !important;
+}
 
+/* Mostrar y ocultar los íconos */
+body.mobile-nav-active #hamburger-icon {
+  display: none;
+}
+
+body.mobile-nav-active #close-icon {
+  display: block;
+  fill: #ffffff !important;
+}
+
+/* Transición de los elementos del menú */
+.mobile-nav ul li {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.3s ease-in-out;
+}
+
+body.mobile-nav-active .mobile-nav ul li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Botones de login/logout */
+.mobile-nav button {
+  background-color: #003b30;
+  color: #a7f5d8;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 20px 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+}
+
+.mobile-nav button:hover {
+  background-color: #a7f5d8;
+  color: #003b30;
+}
+
+/* Sombra suave para el menú */
+body.mobile-nav-active .mobile-nav {
+  box-shadow: -6px 0 20px rgba(0, 0, 0, 0.6);
+}
 
 
 
@@ -986,6 +1002,25 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
   }
 }
 
+.btn-transparent {
+  background: transparent;
+  border: none;
+  color: #ffffff !important;
+  font-family: var(--nav-font);
+  font-weight: 400;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-transparent:hover {
+  color: #00ccff; /* o el color de acento que prefieras */
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
 /*--------------------------------------------------------------
 # Esto de aqui lo he añadido para en el header poner el logo a la 
 # izquierda y el menu a la derecha
@@ -1015,6 +1050,23 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
   font-family: var(--nav-font);
 }
 
+/* Cambiar el color de la banda superior del modal */
+.modal-header {
+  background-color: var(--accent-color); /* Cambia este color al que desees */
+  color: white; /* Cambia el color del texto si es necesario */
+  border-bottom: none; /* Opcional: elimina el borde inferior */
+}
+
+/* Opcional: Cambiar el color del botón de cierre */
+.modal-header .btn-close {
+  background-color: white; /* Fondo blanco para el botón */
+  border-radius: 50%; /* Botón redondeado */
+  opacity: 1; /* Asegura que sea completamente visible */
+}
+
+.modal-header .btn-close:hover {
+  background-color: #ff6666; /* Cambia el color al pasar el mouse */
+}
 
 /* Contenedor de la imagen en el modal */
 .modal-image-container {
@@ -1076,6 +1128,29 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
   margin-bottom: 10px;
 }
 
+/* Estilo para el contenedor del título en los modales */
+.rounded-title {
+  background-color: #f8f9fa; /* Fondo gris claro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 15px; /* Espaciado interno */
+  text-align: center; /* Centrar el texto */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  margin-bottom: 20px; /* Espacio inferior */
+}
+
+.rounded-title h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333; /* Color del texto principal */
+}
+
+.rounded-title p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  color: #555; /* Color del texto secundario */
+  font-style: italic;
+}
 
 /* Estilo para las imágenes de las tarjetas */
 .card-img-top {
@@ -1099,6 +1174,9 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
   height: 400px; /* Altura fija para las imágenes del carrusel */
   object-fit: cover; /* Recorta la imagen para que encaje en el contenedor */
   object-position: center; /* Centra la imagen dentro del recorte */
+  border-top-left-radius: 15px; /* Redondea la esquina superior izquierda */
+  border-top-right-radius: 15px; /* Redondea la esquina superior derecha */
+  overflow: hidden; /* Asegura que las imágenes no sobresalgan */
 }
 
 /* Estilo para las imágenes del carrusel dentro del modal de zonas */
@@ -1107,6 +1185,9 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
   height: 400px; /* Altura fija para las imágenes del carrusel */
   object-fit: cover; /* Recorta la imagen para que encaje en el contenedor */
   object-position: center; /* Centra la imagen dentro del recorte */
+  border-top-left-radius: 15px; /* Redondea la esquina superior izquierda */
+  border-top-right-radius: 15px; /* Redondea la esquina superior derecha */
+  overflow: hidden; /* Asegura que las imágenes no sobresalgan */
 }
 
 
@@ -1126,6 +1207,28 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
   background-color: var(--accent-color); /* Color de fondo al pasar el mouse */
 }
 
+#modalAudioContainer {
+  display: block !important;
+}
+
+#modalZonaMap {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Estilo para las imágenes del carrusel dentro del modal de excursiones */
+#excursionModal .carousel-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  overflow: hidden;
+}
+
+
 /*--------------------------------------------------------------
 # Aqui acaba lo que he añadido
 --------------------------------------------------------------*/
@@ -1133,6 +1236,9 @@ body:not(.mobile-nav-active) #mobile-nav-toggle svg {
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
+footer.footer {
+  margin-top: 0;
+}
 .footer {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -1435,6 +1541,13 @@ section,
 /*--------------------------------------------------------------
 # Contáctanos Section
 --------------------------------------------------------------*/
+#contactanos {
+  margin-top: 0 !important; 
+  margin-bottom: 0 !important; 
+  padding-top: 0 !important; 
+  padding-bottom: 0 !important; 
+}
+
 /* Modificaciones */
 
 .team-member {
@@ -1494,7 +1607,7 @@ section,
 
 .team-member .social i {
   font-size: 1.5rem; /* Tamaño de los íconos */
-  color: #333;       /* Color predeterminado */
+  color: #111;       /* Color predeterminado */
 }
 
 .team-member .social a:hover i {
@@ -1826,7 +1939,7 @@ section,
 }
 
 .portfolio .portfolio-content .portfolio-info p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: #444;
   font-size: 14px;
   margin-bottom: 0;
   padding-right: 50px;
@@ -1937,7 +2050,7 @@ section,
 }
 
 .pricing ul .na span {
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .pricing .featured {
@@ -1987,6 +2100,10 @@ section,
 /*--------------------------------------------------------------
 # Team Section
 --------------------------------------------------------------*/
+#autores {
+  margin-bottom: 0;
+}
+
 .team .team-member {
   background-color: var(--surface-color);
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
@@ -2093,7 +2210,8 @@ section,
 }
 
 .team .team-member .social a i {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: #333;
+
   font-size: 16px;
   margin: 0 2px;
 }
@@ -2114,30 +2232,25 @@ section,
 # Contact Section
 --------------------------------------------------------------*/
 /* Modificación */
-/* Asegura que la imagen tenga la misma altura que el formulario */
-#contact-section .col-md-4 {
-  display: flex;
-  align-items: stretch; /* Alinea la imagen verticalmente */
+
+/* Botón Enviar */
+#contactanos button[type="submit"] {
+  padding: 10px 60px; /* Aumenta el relleno horizontal */
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #D1FAE5; /* Azul claro */
+  color: #064E3B; /* Verde oscuro */
+  border: 2px solid currentColor;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-#contact-section .col-md-4 img {
-  object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
-  width: 100%; /* La imagen ocupa todo el ancho de la columna */
-  height: 100%; /* La imagen toma el 100% de la altura de la columna */
+#contactanos button[type="submit"]:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
-
-.custom-btn {
-  background-color: #2dc997; /* Color de fondo */
-  color: white;              /* Color del texto */
-  border: none;              /* Elimina el borde predeterminado */
-}
-
-.custom-btn:hover {
-  background-color:color-mix(in srgb, var(--accent-color), transparent 20%); /* Color de fondo cuando se pasa el mouse */
-}
-
 
 /* Fin Modificación */
+
 .contact .info-item+.info-item {
   margin-top: 40px;
 }
@@ -2224,7 +2337,7 @@ section,
   background-color: color-mix(in srgb, var(--background-color), transparent 50%);
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
-/* Falta arreglar que el focus salga en verde y no en negro*/
+
 .aves .search-bar:focus {
   border-color: 1px solid var(--accent-color);
 }
@@ -2233,14 +2346,36 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
+/* Botón eliminar filtros */
+
+/* Estilo para el botón de eliminar filtros */
+#btn-clear-filters {
+  font-size: 1rem; /* Ajusta el tamaño de la fuente al de los dropdowns */
+  padding: 7px 20px;
+  border-radius: 5px;
+  border: 1px solid #000; /* Borde oscuro como los dropdowns */
+  background-color: #ffffff; /* Fondo blanco */
+  color: #000; /* Texto oscuro */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#btn-clear-filters:hover {
+  background-color: #c82333; /* Un rojo más oscuro */
+  transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+#btn-clear-filters:active {
+  transform: scale(0.95); /* Efecto de clic */
+}
+
 /* Botón Ver más*/
 #load-more {
   padding: 10px 60px; /* Aumenta el relleno horizontal */
   font-size: 16px;
   border-radius: 5px;
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  border: none;
+  background-color: #D1FAE5; /* azul oscuro (ratio ≈ 8.6:1 vs. blanco) */
+  color: #064E3B;            /* texto blanco */
+  border: 2px solid currentColor;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -2254,16 +2389,75 @@ section,
   padding: 10px 60px; /* Aumenta el relleno horizontal */
   font-size: 16px;
   border-radius: 5px;
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  border: none;
+  background-color: #D1FAE5; /* azul oscuro (ratio ≈ 8.6:1 vs. blanco) */
+  color: #064E3B;            /* texto blanco */
+  border: 2px solid currentColor;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+/* Botón Calcular ruta */
+#calculate-route-btn {
+  padding: 10px 60px; /* Aumenta el relleno horizontal */
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #D1FAE5; /* Azul claro */
+  color: #064E3B; /* Verde oscuro */
+  border: 2px solid currentColor;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+#calculate-route-btn:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
 #load-more-zonas:hover {
   background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
+
+/* Estilo para el botón “Ver menos” */
+#load-less {
+  background-color: #f0f0f0;        /* fondo gris claro */
+  color:            #333333;        /* texto gris oscuro */
+  border:           2px solid currentColor; /* borde del mismo color que el texto */
+  padding:          10px 60px;      /* espacio interno */
+  font-size:        16px;
+  border-radius:    5px;
+  cursor:           pointer;
+  transition:       background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover: un gris un poco más oscuro y ligero “pop” */
+#load-less:hover {
+  background-color: #e0e0e0;
+  transform:        scale(1.02);
+}
+
+/* Activo/click: efecto pulsación */
+#load-less:active {
+  transform: scale(0.98);
+}
+
+#load-less-zonas {
+  background-color: #f0f0f0;
+  color:            #333333;
+  border:           2px solid currentColor;
+  padding:          10px 60px;
+  font-size:        16px;
+  border-radius:    5px;
+  cursor:           pointer;
+  transition:       background-color 0.3s ease, transform 0.2s ease;
+}
+#load-less-zonas:hover {
+  background-color: #e0e0e0;
+  transform:        scale(1.02);
+}
+#load-less-zonas:active {
+  transform: scale(0.98);
+}
+
 
 /* Oculta todas las imágenes excepto las primeras tres al cargar la página.*/
 .row.gy-4 .portfolio-item:nth-child(n+4) {
@@ -2377,7 +2571,7 @@ section,
   padding: 8px 0 8px 15px;
   border-left: 3px solid color-mix(in srgb, var(--default-color), transparent 70%);
   margin: 20px 0;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: var(--heading-color);
   transition: 0.3s;
 }
 
@@ -2442,6 +2636,28 @@ section,
   background-color: #bbd9e4; /* Cambia este color por el que prefieras */
 }       
 
+/* Botón de Historial con estilo "Ver más" */
+#show-results-btn {
+  background-color: #bbf7d0;  /* Fondo verde claro */
+  color: #006d5b;             /* Texto verde oscuro */
+  border: 2px solid #006d5b;  /* Borde verde oscuro */
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: inline-block;
+}
+
+/* Efecto hover */
+#show-results-btn:hover,
+#show-results-btn:focus {
+  background-color: #a0f0c2;
+  color: #004d40;
+  border-color: #004d40;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 109, 91, 0.4);
+}
 
 /* Estilo del título de la pregunta */
 #quizModal .modal-title {
@@ -2599,6 +2815,7 @@ section,
   height: 30px;
   overflow: hidden;
   position: relative;
+  margin-top: 20px;
 }
 
 #quiz-progress-bar {
@@ -2646,9 +2863,143 @@ canvas.confetti-canvas {
   }
 }
 
+/* Encabezado del historial de partidas */
+#quiz-results .card-header {
+  background-color: #f8fcf9;
+  color: #134416;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+}
 
+/* Contenedor del historial */
+#quiz-results {
+  background-color: #f8fcf9;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
 
+/* Ítems del historial */
+#resultados-lista .list-group-item {
+  background-color: #e8f5ec;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #cfe8d5;
+}
 
+/* Hover en historial */
+#resultados-lista .list-group-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: #d4ebdc;
+}
 
+/* Encabezado del intento */
+#resultados-lista .list-group-item strong:first-child {
+  color: #134416;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: block;
+  font-size: 1.1rem;
+}
+
+/* Detalles del intento */
+#resultados-lista .list-group-item strong {
+  color: #1b5e20;
+}
+
+/* Estilo para el mensaje vacío */
+#resultados-lista .list-group-item.empty {
+  text-align: center;
+  color: #777;
+  background-color: #f1f8f5;
+  border: 1px dashed #cfe8d5;
+  border-radius: 10px;
+}
+
+/* Efecto de sombra suave */
+#resultados-lista .list-group-item {
+  background: linear-gradient(145deg, #e9f6ec, #d9ecdb);
+  box-shadow: 8px 8px 20px #c2d7c6, -8px -8px 20px #ffffff;
+}
+
+/* Espaciado interno */
+#resultados-lista {
+  padding: 0 15px;
+}
+
+/* Último ítem sin borde inferior */
+#resultados-lista .list-group-item:last-child {
+  margin-bottom: 0;
+}
+
+.card-body .card-title a {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Usa el color del texto del contenedor */
+  border-bottom: none; /* Asegúrate de que no haya bordes */
+}
+
+.card-body .card-title a:hover {
+  text-decoration: none; /* Mantén el texto sin subrayado al pasar el ratón */
+  color: inherit; /* Mantén el color original */
+}
+
+.card-body .card-title a:focus {
+  outline: none; /* Elimina el contorno azul al enfocar */
+}
+
+/*--------------------------------------------------------------
+# Weather
+--------------------------------------------------------------*/
+
+.weather-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.weather-card {
+  width: 100px;
+  min-height: 130px;
+  border-radius: 16px;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.weather-card .icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.weather-card .temp {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.weather-card .range,
+.weather-card .wind,
+.weather-card .day {
+  font-size: 12px;
+  opacity: 0.85;
+  margin: 2px 0;
+}
+
+/* Estilo especial para el de hoy */
+.weather-card.today {
+  color: white;
+}
 
 

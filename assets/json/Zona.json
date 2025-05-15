@@ -23,9 +23,16 @@
                 "assets/img/Zonas/Gola/gola1.jpg",
                 "assets/img/Zonas/Gola/gola2.jpg",
                 "assets/img/Zonas/Gola/gola3.webp",
-                "assets/img/Zonas/Gola/gola4.jpeg",
-                "assets/img/Zonas/Gola/gola5.jpg"
-                ]
+                "assets/img/Zonas/Gola/gola4.jpg"
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Humedal"]
+                }
+            ],
+            "video": "https://youtu.be/CqYcVCoGaOM?si=wBU5FVVS64_Cew-j"
         },
 
         {
@@ -55,7 +62,15 @@
                 "assets/img/Zonas/Albufera/albufera6.jpg",
                 "assets/img/Zonas/Albufera/albufera7.jpg",
                 "assets/img/Zonas/Albufera/albufera8.jpg"    
-            ]
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Humedal"]
+                }
+            ],
+            "video": "https://youtu.be/YUo-GGXZbmU?si=7Ohnxg1HB6ruTS4M"
         },
 
         {
@@ -77,14 +92,22 @@
                 "addressCountry": "España"
             },
             "image": [
-                "assets/img/Zonas/Mondrago/mondrago1.jpg",
                 "assets/img/Zonas/Mondrago/mondrago2.webp",
+                "assets/img/Zonas/Mondrago/mondrago1.jpg",
                 "assets/img/Zonas/Mondrago/mondrago3.webp",
                 "assets/img/Zonas/Mondrago/mondrago4.webp",
                 "assets/img/Zonas/Mondrago/mondrago5.jpg",
                 "assets/img/Zonas/Mondrago/mondrago6.jpg",
                 "assets/img/Zonas/Mondrago/mondrago7.jpg" 
-            ]
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Bosque"]
+                }
+            ],
+            "video": "https://youtu.be/eZRrLANLp9I?si=pygX8-gZBT16p515"
         },
 
         {
@@ -113,7 +136,15 @@
                 "assets/img/Zonas/Tramuntana/tramuntana5.webp",
                 "assets/img/Zonas/Tramuntana/tramuntana6.webp",
                 "assets/img/Zonas/Tramuntana/tramuntana7.webp"    
-            ]
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Montaña", "Bosque"]
+                }
+            ],
+            "video": "https://youtu.be/q-G0181G9v8?si=s6rYF-w8eXbu27eW"
         },
 
         {
@@ -142,6 +173,13 @@
                 "assets/img/Zonas/Albufereta/albufereta5.webp",
                 "assets/img/Zonas/Albufereta/albufereta6.webp"
 
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Humedal"]
+                }
             ],
             "video": "https://www.youtube.com/watch?v=8QP1GpoN-DU&ab_channel=IB3Not%C3%ADcies"
         }
