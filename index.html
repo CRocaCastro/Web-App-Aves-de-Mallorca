@@ -8,6 +8,7 @@
 
   <!-- Favi  -->
   <link href="assets/img/favicon.png" rel="icon">
+  <a href="https://www.flaticon.es/iconos-gratis/gaviota" title="gaviota iconos">Gaviota iconos creados por Freepik - Flaticon</a>
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -122,7 +123,9 @@
   
     </div>
   </header>  
-
+<!-------------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------- FIN HEADER ----------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------------->
    
   <main class="main">
     <!-- Hero Section with Carousel -->
@@ -150,10 +153,10 @@
     <!-- /Hero Section -->
 
 
-    <!-- Portfolio Section -->
+    <!-- Sección Aves -->
     <section id="aves" class="portfolio section">
 
-      <!-- Título de la sección -->
+      <!-- Título -->
       <div class="container section-title" data-aos="fade-up">
         <h2 style="text-align: left;">Aves</h2>
       </div>
@@ -161,17 +164,14 @@
       <div class="container">
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
           
-          <!-- Filtros Dropdown: Estación, Hábitat, Nombre + Búsqueda -->
-          <!-- FILTROS -->
+          <!-- FILTROS: Estación, Hábitat, Tipo Nombre y Búsqueda -->
           <div class="container py-4">
             <div class="d-flex flex-wrap gap-3 justify-content-center align-items-center">
-
               <!-- Botón para eliminar todos los filtros -->
               <div class="text-center">
                 <button id="btn-clear-filters" class="btn btn-outline-dark">Eliminar filtros</button>
               </div>
-              
-              <!-- Estación -->
+              <!-- Dropdpwn Estación presencia de la Ave -->
               <div class="dropdown">
                 <button id="btn-estacion" class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Estación
@@ -184,7 +184,7 @@
                 </ul>
               </div>
           
-              <!-- Hábitat -->
+              <!-- Dropdpwn Hábitat presencia de la Ave -->
               <div class="dropdown">
                 <button id="btn-habitat" class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Hábitat
@@ -201,7 +201,7 @@
                 </ul>
               </div>
           
-              <!-- Nombre -->
+              <!-- Dropdpwn tipo de nombre para la búsqueda -->
               <div class="dropdown">
                 <button id="btn-nombre" class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Nombre
@@ -212,7 +212,7 @@
                 </ul>
               </div>
           
-              <!-- Buscador -->
+              <!-- Buscador de aves por nombre -->
               <div class="input-group" style="max-width: 350px;">
                 <span class="input-group-text bg-gray"><i class="bi bi-search text-muted"></i></span>
                 <input type="text" class="form-control" placeholder="Buscar ave...">
@@ -222,17 +222,17 @@
           </div>
 
           <div class="row gy-4">
-            <!-- Los items se generarán dinámicamente desde el archivo main.js -->
+            <!-- Los items se generarán dinámicamente desde el archivo main.js según los filtros seleccionados -->
           </div>
           
-          <!-- Botón de cargar más -->
+          <!-- Botón de ver más / ver menos -->
           <div class="text-center mt-4">
             <button id="load-more" class="btn btn-primary">Ver más</button>
             <button id="load-less" class="btn btn-secondary" style="display: none;">Ver menos</button>
           </div>
         </div>
       </div>
-    </section><!-- /Portfolio Section -->
+    </section><!-- /Sección Aves -->
 
 
     <!-- Habitat Section -->
@@ -589,6 +589,51 @@
         </div>
       </div>
     </div>
+
+             <!-- Modal para Excursiones -->
+          <div class="modal fade" id="excursionModal" tabindex="-1" aria-labelledby="excursionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Carrusel igual que en zonas -->
+                  <div id="excursionCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="excursionCarouselInner">
+                      <!-- Las imágenes se generarán dinámicamente aquí -->
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#excursionCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#excursionCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Siguiente</span>
+                    </button>
+                  </div>
+          
+                  <!-- Título con mismo estilo que zonas -->
+                  <div id="excursionModalTitle" class="modal-title-container rounded-title"></div>
+          
+                  <!-- Descripción con fondo azul igual que zonas -->
+                  <div id="excursionModalDescription" class="modal-description mb-3"></div>
+          
+                  <!-- Propiedades adicionales (dificultad, duración, etc.) -->
+                  <div id="excursionModalProperties" class="mb-3"></div>
+          
+                  <!-- Enlace al track GPX -->
+                  <div id="excursionModalTrack" class="mt-3"></div>
+          
+                  <!-- Mapa -->
+                  <div id="excursionModalMap" class="mb-4" style="height: 300px; margin-top: 10px;"></div>          
+                  
+                  <!-- Video -->
+                  <div id="excursionModalVideo" class="mb-3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
 
   <!-- Modal del Quiz -->
   <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModalLabel" aria-hidden="true">

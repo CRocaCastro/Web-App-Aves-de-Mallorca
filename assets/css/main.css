@@ -1217,6 +1217,18 @@ body.mobile-nav-active .mobile-nav {
     margin-bottom: 30px;
 }
 
+/* Estilo para las imágenes del carrusel dentro del modal de excursiones */
+#excursionModal .carousel-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  overflow: hidden;
+}
+
+
 /*--------------------------------------------------------------
 # Aqui acaba lo que he añadido
 --------------------------------------------------------------*/

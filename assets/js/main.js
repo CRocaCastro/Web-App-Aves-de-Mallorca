@@ -461,78 +461,6 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     `;
 
-    // Contenedor para reseñas
-    const modalUsersReviews = portfolioModal.querySelector('#modalUsersReviews');
-
-    // Limpiar contenido anterior
-    modalUsersReviews.innerHTML = `
-      <p class="fw-bold fs-5 mt-4 mb-2" id="commentsHeading">Comentarios de usuarios</p>
-      <div id="commentsContainer" class="mb-3"></div>
-      <div id="commentFormContainer"></div>
-    `;
-
-    // Obtener contenedores
-    const commentsContainer = modalUsersReviews.querySelector('#commentsContainer');
-    const commentFormContainer = modalUsersReviews.querySelector('#commentFormContainer');
-
-    // Cargar comentarios desde el JSON
-    fetch('assets/json/ComentariosAves.json')
-      .then(response => response.json())
-      .then(data => {
-        const comentarios = data.comment;
-        const comentariosAve = comentarios.filter(c => c.about?.identifier === item.identifier);
-
-        if (comentariosAve.length > 0) {
-          commentsContainer.innerHTML = comentariosAve.map(comment => `
-            <div class="comment border rounded p-2 mb-2">
-              <p class="mb-1">${comment.text}</p>
-              <small class="text-muted">${new Date(comment.datePublished).toLocaleString()} - ${comment.author.name}</small>
-            </div>
-          `).join('');
-        } else {
-          commentsContainer.innerHTML = `<p class="text-muted">No hay comentarios para esta ave todavía.</p>`;
-        }
-
-        // Verificar sesión del usuario
-        const userName = sessionStorage.getItem('userName');
-        if (userName) {
-          commentFormContainer.innerHTML = `
-            <textarea id="newCommentText" class="form-control mb-2" rows="2" placeholder="Escribe tu comentario..."></textarea>
-            <button id="submitCommentBtn" class="btn btn-primary btn-sm mb-4">Publicar</button>
-          `;
-
-          const submitBtn = commentFormContainer.querySelector('#submitCommentBtn');
-          submitBtn.addEventListener('click', () => {
-            const text = commentFormContainer.querySelector('#newCommentText').value.trim();
-            if (!text) return;
-
-            const nuevoComentarioHTML = `
-              <div class="comment border rounded p-2 mb-2">
-                <p class="mb-1">${text}</p>
-                <small class="text-muted">Ahora mismo - ${userName}</small>
-              </div>
-            `;
-            commentsContainer.insertAdjacentHTML('afterbegin', nuevoComentarioHTML);
-            commentFormContainer.querySelector('#newCommentText').value = '';
-
-            // Aquí guardarías en Firestore o backend
-            console.log("Comentario añadido:", {
-              text,
-              author: userName,
-              birdId: item.identifier,
-              date: new Date().toISOString()
-            });
-          });
-        } else {
-          commentFormContainer.innerHTML = `<p class="text-muted">Inicia sesión con Google para comentar.</p>`;
-        }
-      })
-      .catch(err => {
-        commentsContainer.innerHTML = `<p class="text-danger">Error al cargar los comentarios.</p>`;
-        console.error('Error al cargar comentarios:', err);
-      });
-
-
   
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = item.image.map((img, index) => `
@@ -924,7 +852,7 @@ let excursionsData = []; // Variable global para almacenar las excursiones
 
 document.addEventListener('DOMContentLoaded', function () {
   // Cargar los datos de las excursiones
-  fetch('assets/json/Excursiones.json')
+  fetch('https://www.explorarmallorca.com/json/excursiones.json')  
     .then(response => response.json())
     .then(data => {
       excursionsData = data.itemListElement; // Guardar las excursiones globalmente
@@ -1090,7 +1018,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .openPopup();
 
       // Filtrar excursiones dentro del radio
-      const excursionesCercanas = filtrarExcursionesPorRadio(zona, excursionsData, 10);
+      const excursionesCercanas = filtrarExcursionesPorRadio(zona, excursionsData, 20);
 
       // Añadir marcadores para las excursiones
       excursionesCercanas.forEach(excursion => {
@@ -1107,27 +1035,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
       // Habilitar zoom con Ctrl
       let ctrlPressed = false;
-    
-      //document.addEventListener('keydown', (e) => {
-        //if (e.key === 'Control') {
-          //ctrlPressed = true;
-          //currentMap.scrollWheelZoom.enable(); // Habilitar zoom con la rueda del ratón
-        //}
-      //});
-    
-      //document.addEventListener('keyup', (e) => {
-        //if (e.key === 'Control') {
-          //ctrlPressed = false;
-          //currentMap.scrollWheelZoom.disable(); // Deshabilitar zoom con la rueda del ratón
-        //}
-      //});
-    
-      // Mostrar un mensaje cuando el usuario intente hacer zoom sin presionar Ctrl
-      //currentMap.on('zoomstart', (e) => {
-        //if (!ctrlPressed) {
-          //alert('Mantén presionada la tecla Ctrl para hacer zoom.');
-        //}
-      //});
 
       // Evento para mostrar la ruta solo al hacer clic en el botón
       const btnRuta = document.getElementById('calculate-route-btn');
@@ -1306,8 +1213,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 ${excursionesCercanas.map(excursion => `
                   <div class="col-lg-4 col-md-6">
                     <div class="card h-100">
-                      <a href="https://www.explorarmallorca.com/#portfolioGrid" target="_blank" rel="noopener noreferrer">
-                        <img src="${excursion.image[0]}" class="card-img-top" alt="${excursion.name}">
+                      <a href="#" class="excursion-link" data-bs-toggle="modal" data-bs-target="#excursionModal" data-id="${excursion['@identifier']}">                        <img src="${excursion.image[0]}" class="card-img-top" alt="${excursion.name}">
                         <div class="card-body text-center">
                           <p class="card-title fw-bold text-dark">${excursion.name}</p> <!-- Cambiado a <p> con clase text-dark -->
                         </div>
@@ -1434,6 +1340,91 @@ document.addEventListener('DOMContentLoaded', function () {
 
     })
     .catch(error => console.error('Error al cargar el JSON de zonas:', error));
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const excursionModal = document.getElementById('excursionModal');
+
+  // Cuando se muestra el modal, cargar los datos
+  excursionModal.addEventListener('show.bs.modal', function (event) {
+    // Obtener el botón/enlace que abrió el modal
+    const button = event.relatedTarget;
+    if (!button) return;
+    const id = button.getAttribute('data-id');
+    const excursion = excursionsData.find(e => String(e['@identifier']) === String(id));
+    if (!excursion) return;
+
+    // Carrusel de imágenes
+    const carouselInner = excursionModal.querySelector('#excursionCarouselInner');
+    carouselInner.innerHTML = (excursion.image || []).map((img, i) => `
+      <div class="carousel-item${i === 0 ? ' active' : ''}">
+        <img src="${img}" class="d-block w-100" alt="${excursion.name}">
+      </div>
+    `).join('');
+
+    // Título
+    excursionModal.querySelector('#excursionModalTitle').innerHTML = `
+      <h4>${excursion.name || ''}</h4>
+    `;
+
+    // Descripción
+    excursionModal.querySelector('#excursionModalDescription').innerHTML = `
+      <p>${excursion.description || ''}</p>
+    `;
+
+    // Propiedades adicionales
+    const props = excursion.additionalProperty || [];
+    excursionModal.querySelector('#excursionModalProperties').innerHTML = props.map(p => {
+      const nombreProp = p.name === "duration" ? "Duración" : p.name;
+      return `<span class="badge bg-info me-2">${nombreProp}: ${p.value ? p.value.replace('PT', '').replace('H', 'h') : ''}</span>`;
+    }).join('');
+
+    // Mapa (Leaflet)
+    const mapDiv = excursionModal.querySelector('#excursionModalMap');
+    mapDiv.innerHTML = `
+      <div id="excursionMapInner" style="height: 300px;"></div>
+    `;
+
+    // Inicializa el mapa en el nuevo div
+    if (window.excursionMap) {
+      window.excursionMap.remove();
+    }
+    setTimeout(() => {
+      const lat = parseFloat(excursion.containedInPlace?.geo?.latitude);
+      const lng = parseFloat(excursion.containedInPlace?.geo?.longitude);
+      if (!isNaN(lat) && !isNaN(lng)) {
+        window.excursionMap = L.map('excursionMapInner').setView([lat, lng], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(window.excursionMap);
+        L.marker([lat, lng]).addTo(window.excursionMap).bindPopup(excursion.name).openPopup();
+        setTimeout(() => window.excursionMap.invalidateSize(), 200);
+      }
+    }, 200);
+
+    // Video
+    const video = excursion.subjectOf?.video?.embedUrl;
+    if (video) {
+      excursionModal.querySelector('#excursionModalVideo').innerHTML = `
+        <p class="fw-bold fs-5">Video</p>
+        <div class="ratio ratio-16x9">
+          <iframe src="${video}" frameborder="0" allowfullscreen></iframe>
+        </div>
+      `;
+    } else {
+      excursionModal.querySelector('#excursionModalVideo').innerHTML = `<p class="text-muted">No hay vídeo disponible.</p>`;
+    }
+
+    // Enlace GPX
+    if (excursion.hasMap) {
+      excursionModal.querySelector('#excursionModalTrack').innerHTML = `
+        <a href="${excursion.hasMap}" target="_blank" class="btn btn-outline-primary">
+          Descargar track GPX
+        </a>
+      `;
+    } else {
+      excursionModal.querySelector('#excursionModalTrack').innerHTML = '';
+    }
+  });
 });
 
 /*--------------------------------------------------------------
