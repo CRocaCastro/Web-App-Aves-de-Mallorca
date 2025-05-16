@@ -6,11 +6,19 @@
 * License: https://bootstrapmade.com/license/
 */
 
+/*--------------------------------------------------------------
+# Funciones y Lógica Principal de la WebApp: 
+# * Navegación móvil.
+# * Animaciones al hacer scroll.
+# * Carruseles y filtros dinámicos.
+# * Scroll suave y scrollspy.
+# * Integración con librerías externas: AOS, GLightbox, Isotope, y Swiper.
+--------------------------------------------------------------*/
 (function() {
   "use strict";
 
   /**
-   * Apply .scrolled class to the body as the page is scrolled down
+   * Aplicar la clase .scrolled al cuerpo al hacer scroll
    */
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
@@ -23,7 +31,7 @@
   window.addEventListener('load', toggleScrolled);
 
   /**
-   * Mobile nav toggle
+   * Apertura y cierre del menú de navegación móvil
    */
   document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
@@ -51,7 +59,7 @@
   });
 
   /**
-   * Preloader
+   * Preloader: Elimina el preloader al cargar la página
    */
   const preloader = document.querySelector('#preloader');
   if (preloader) {
@@ -61,7 +69,7 @@
   }
   
   /**
-   * Scroll top button
+   * Muestra u oculta el botón de desplazamiento hacia arriba
    */
   let scrollTop = document.querySelector('.scroll-top');
 
@@ -82,7 +90,7 @@
   document.addEventListener('scroll', toggleScrollTop);
 
   /**
-   * Animation on scroll function and init
+   * Inicializar animaciones de scroll 
    */
   function aosInit() {
     AOS.init({
@@ -95,19 +103,19 @@
   window.addEventListener('load', aosInit);
 
   /**
-   * Initiate glightbox
+   * Inicializar glightbox para mostrar imágenes y videos en un lightbox.
    */
   const glightbox = GLightbox({
     selector: '.glightbox'
   });
 
   /**
-   * Initiate Pure Counter
+   * Inicializar Pure Counter: mostrar contadores animados en la página.
    */
   new PureCounter();
 
   /**
-   * Init isotope layout and filters
+   * Inicializar Isotope para filtros y diseño
    */
   document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
@@ -140,7 +148,7 @@
   });
 
   /**
-   * Init swiper sliders
+   * Inicializar Swiper para carruseles
    */
   function initSwiper() {
     document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
@@ -159,7 +167,7 @@
   window.addEventListener("load", initSwiper);
 
   /**
-   * Correct scrolling position upon page load for URLs containing hash links.
+   * Corregir posición de scroll al cargar con enlaces hash
    */
   window.addEventListener('load', function(e) {
     if (window.location.hash) {
@@ -177,7 +185,8 @@
   });
 
   /**
-   * Navmenu Scrollspy
+   * Scrollspy para el menú de navegación: Resalta automáticamente el enlace del menú correspondiente 
+   * a la sección visible en la pantalla.
    */
   let navmenulinks = document.querySelectorAll('.navmenu a');
 
@@ -199,6 +208,11 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+/**
+ * Scrollspy para el menú de navegación: Resalta automáticamente el enlace del menú correspondiente 
+ * a la sección visible en la pantalla.
+ */
 
 let youtubePlayers = {};
 
@@ -392,7 +406,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-  // 7. Función para renderizar las aves
+  // Función para renderizar las aves
   function renderBirds(birds) {
     portfolioContainer.innerHTML = '';
     birds.forEach(bird => {
@@ -461,7 +475,6 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     `;
 
-  
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = item.image.map((img, index) => `
       <div class="carousel-item ${index === 0 ? 'active' : ''}">
@@ -528,8 +541,6 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   `;
 
-
-
   // Configurar funcionalidad de los enlaces de "Otras aves"
   const otherBirdLinks = modalAdditionalInfo.querySelectorAll('.portfolio-link');
   otherBirdLinks.forEach(link => {
@@ -549,8 +560,6 @@ document.addEventListener('DOMContentLoaded', function () {
   
   }
 });
-
-
 
 // Función para el botón Ver más
 document.getElementById('load-more').addEventListener('click', function () {
@@ -600,9 +609,7 @@ document.getElementById('load-more').addEventListener('click', function () {
         <p><strong>Familia:</strong> ${item.parentTaxon.name}</p>
       </div>
 
-    `;
-    
-  
+    `; 
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = item.image.map((img, index) => `
     <div class="carousel-item ${index === 0 ? 'active' : ''}">
