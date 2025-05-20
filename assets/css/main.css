@@ -3003,3 +3003,12 @@ canvas.confetti-canvas {
 }
 
 
+#modalZonaExcursions a {
+  color: inherit;          /* Hereda el color del texto del padre */
+  text-decoration: none;   /* Elimina el subrayado */
+}
+
+#modalZonaExcursions a:hover {
+  text-decoration: none;   /* Asegura que no se subraye al pasar el cursor */
+  color: inherit;          /* Evita que cambie de color al hacer hover */
+}
