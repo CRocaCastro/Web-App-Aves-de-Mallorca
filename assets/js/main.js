@@ -1,19 +1,26 @@
 /**
-* Template Name: Regna
-* Template URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+ * =======================================================
+ * Proyecto: Aves Mallorquinas
+ * Descripción: Funcionalidad interactiva para la web sobre aves y hábitats de Mallorca.
+ *
+ * Asignatura: Tecnología Multimedia
+ * Curso: 2024-2025 UIB
+ *
+ * Autores:
+ *   - Juan Francisco Riera Fernández
+ *   - Luz Salvá Castro
+ *   - Claudia Roca Castro
+ *
+ * URL de la web: https://avesmallorquinas.com
+ * Plantilla base: Regna Bootstrap OnePage Template
+ *   https://bootstrapmade.com/regna-bootstrap-onepage-template/
+ *
+ * Fecha de última actualización: 22/05/2024
+ * Bootstrap v5.3.3
+ * Licencia plantilla: https://bootstrapmade.com/license/
+ * =======================================================
+ */
 
-/*--------------------------------------------------------------
-# Funciones y Lógica Principal de la WebApp: 
-# * Navegación móvil.
-# * Animaciones al hacer scroll.
-# * Carruseles y filtros dinámicos.
-# * Scroll suave y scrollspy.
-# * Integración con librerías externas: AOS, GLightbox, Isotope, y Swiper.
---------------------------------------------------------------*/
 (function() {
   "use strict";
 
@@ -103,19 +110,7 @@
   window.addEventListener('load', aosInit);
 
   /**
-   * Inicializar glightbox para mostrar imágenes y videos en un lightbox.
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-
-  /**
-   * Inicializar Pure Counter: mostrar contadores animados en la página.
-   */
-  new PureCounter();
-
-  /**
-   * Inicializar Isotope para filtros y diseño
+   * Inicializar Isotope para filtros de búsqueda
    */
   document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
@@ -147,24 +142,7 @@
 
   });
 
-  /**
-   * Inicializar Swiper para carruseles
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
 
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
-      }
-    });
-  }
-
-  window.addEventListener("load", initSwiper);
 
   /**
    * Corregir posición de scroll al cargar con enlaces hash
@@ -208,18 +186,6 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
-
-/**
- * Scrollspy para el menú de navegación: Resalta automáticamente el enlace del menú correspondiente 
- * a la sección visible en la pantalla.
- */
-
-let youtubePlayers = {};
-
-function onYouTubeIframeAPIReady() {
-  console.log("YouTube API cargada");
-}
-
 
 /*--------------------------------------------------------------
 # Aves
@@ -1104,7 +1070,10 @@ document.addEventListener('DOMContentLoaded', function () {
           return `
             <div class="col-lg-4 col-md-6">
               <div class="card h-100">
-                <a class="bird-link" data-id="${bird.identifier}">
+                <a class="bird-link" 
+                  data-id="${bird.identifier}" 
+                  data-bs-toggle="modal" 
+                  data-bs-target="#portfolioModal">
                   <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
                 </a>
                 <div class="card-body">
@@ -1160,11 +1129,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const newId = this.getAttribute('data-id'); // Obtener el ID de la nueva zona
             const newZona = data.find(z => z.identifier === newId); // Buscar la nueva zona
             if (newZona) {
-              updateZonaModalContent(newZona, data); // Actualizar el contenido del modal con la nueva zona
-              portfolioModal.scrollTo({
-                top: 0,
-                behavior: 'smooth' // Desplazamiento suave
-              });
+              updateZonaModalContent(newZona, data);
+              // Scroll arriba del modal de zona
+              const zonaModal = document.getElementById('zonaModal');
+              if (zonaModal) {
+                zonaModal.scrollTo({ top: 0, behavior: 'smooth' });
+              }
             }
         });
     });
@@ -1348,6 +1318,10 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .catch(error => console.error('Error al cargar el JSON de zonas:', error));
 });
+
+/*--------------------------------------------------------------
+# JSON DE EXCURSIONES (https://www.explorarmallorca.com/)
+--------------------------------------------------------------*/
 document.addEventListener('DOMContentLoaded', function () {
   const excursionModal = document.getElementById('excursionModal');
 
@@ -1424,7 +1398,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Enlace GPX
     if (excursion.hasMap) {
       excursionModal.querySelector('#excursionModalTrack').innerHTML = `
-        <a href="${excursion.hasMap}" target="_blank" class="btn btn-outline-primary">
+        <a href="${excursion.hasMap}" download class="btn btn-outline-primary">
           Descargar track GPX
         </a>
       `;
@@ -1474,44 +1448,100 @@ document.addEventListener('click', function (e) {
 
 
 /*--------------------------------------------------------------
-# Contact Section
+# API CONTÁCTANOS
 --------------------------------------------------------------*/
-// API CONTÁCTANOS
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+  event.preventDefault(); // Evita el envío tradicional
 
-  // Obtiene los datos del formulario
-  const formData = new FormData(this);
-  const data = {
-    fname: formData.get('fname'),
-    lname: formData.get('lname'),
-    email: formData.get('email'),
-    subject: formData.get('subject'),
-    message: formData.get('message')
-  };
+  // Validar cada campo
+  const fname = document.getElementById('fname');
+  const lname = document.getElementById('lname');
+  const email = document.getElementById('email');
+  const subject = document.getElementById('subject');
+  const message = document.getElementById('message');
 
-  // URL de la API a la que se enviarán los datos 
-  const apiUrl = 'https://getform.io/f/apjnvqya'; 
+  let isValid = true;
 
-  // Solicitud POST a la API
-  fetch(apiUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data), // Enviar los datos en formato JSON
-  })
-  .then(response => response.json()) // Procesar la respuesta de la API
-  .then(responseData => {
-    console.log('Respuesta de la API:', responseData);
-    alert('¡Gracias por tu mensaje!');
-    // Aquí se puede hacer algo más como limpiar el formulario, redirigir, etc.
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    alert('Hubo un error al enviar el mensaje. Inténtalo de nuevo.');
-  });
+  // Validar Nombre
+  if (!fname.checkValidity()) {
+    document.getElementById('fname-error').textContent = fname.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('fname-error').textContent = '';
+  }
+
+  // Validar Apellidos
+  if (!lname.checkValidity()) {
+    document.getElementById('lname-error').textContent = lname.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('lname-error').textContent = '';
+  }
+
+  // Validar Email
+  if (!email.checkValidity()) {
+    document.getElementById('email-error').textContent = email.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('email-error').textContent = '';
+  }
+
+  // Validar Asunto
+  if (!subject.checkValidity()) {
+    document.getElementById('subject-error').textContent = subject.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('subject-error').textContent = '';
+  }
+
+  // Validar Mensaje
+  if (!message.checkValidity()) {
+    document.getElementById('message-error').textContent = message.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('message-error').textContent = '';
+  }
+
+  // Si todo es válido, enviar a la API
+  if (isValid) {
+    const formData = new FormData(this);
+    const data = {
+      fname: formData.get('fname'),
+      lname: formData.get('lname'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message')
+    };
+
+    const apiUrl = 'https://getform.io/f/apjnvqya';
+
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => {
+      if (response.ok) {
+        alert('¡Gracias por tu mensaje!');
+        this.reset();
+        // Limpia los mensajes de error
+        document.getElementById('fname-error').textContent = '';
+        document.getElementById('lname-error').textContent = '';
+        document.getElementById('email-error').textContent = '';
+        document.getElementById('subject-error').textContent = '';
+        document.getElementById('message-error').textContent = '';
+      } else {
+        throw new Error('Error en el envío');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Hubo un error al enviar el mensaje. Inténtalo de nuevo.');
+    });
+  }
 });
 
 /*--------------------------------------------------------------
@@ -1750,26 +1780,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-
-  // Guardar resultados en localStorage
-    function mostrarResultadosGuardados() {
-    const resultados = JSON.parse(localStorage.getItem("quizResultados")) || [];
-    const listaResultados = document.getElementById("resultados-lista");
-  
-    listaResultados.innerHTML = ""; // Limpiar la lista
-  
-    resultados.forEach((resultado, index) => {
-      const li = document.createElement("li");
-      li.className = "list-group-item";
-      li.innerHTML = `
-        <strong>Intento ${index + 1}:</strong> 
-        Aciertos: ${resultado.aciertos}/${resultado.totalPreguntas}, 
-        Tiempo: ${resultado.tiempo} segundos, 
-        Fecha: ${resultado.fecha}
-      `;
-      listaResultados.appendChild(li);
-    });
-  }
   
   // Llamar a la función al cargar la página
   document.addEventListener("DOMContentLoaded", mostrarResultadosGuardados);
@@ -1890,66 +1900,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Validar el formulario de contacto
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Evita el envío del formulario si hay errores
-
-  // Validar cada campo
-  const fname = document.getElementById('fname');
-  const lname = document.getElementById('lname');
-  const email = document.getElementById('email');
-  const subject = document.getElementById('subject');
-  const message = document.getElementById('message');
-
-  let isValid = true;
-
-  // Validar Nombre
-  if (!fname.checkValidity()) {
-    document.getElementById('fname-error').textContent = fname.validationMessage;
-    isValid = false;
-  } else {
-    document.getElementById('fname-error').textContent = '';
-  }
-
-  // Validar Apellidos
-  if (!lname.checkValidity()) {
-    document.getElementById('lname-error').textContent = lname.validationMessage;
-    isValid = false;
-  } else {
-    document.getElementById('lname-error').textContent = '';
-  }
-
-  // Validar Email
-  if (!email.checkValidity()) {
-    document.getElementById('email-error').textContent = email.validationMessage;
-    isValid = false;
-  } else {
-    document.getElementById('email-error').textContent = '';
-  }
-
-  // Validar Asunto
-  if (!subject.checkValidity()) {
-    document.getElementById('subject-error').textContent = subject.validationMessage;
-    isValid = false;
-  } else {
-    document.getElementById('subject-error').textContent = '';
-  }
-
-  // Validar Mensaje
-  if (!message.checkValidity()) {
-    document.getElementById('message-error').textContent = message.validationMessage;
-    isValid = false;
-  } else {
-    document.getElementById('message-error').textContent = '';
-  }
-
-  // Si todo es válido, enviar el formulario
-  if (isValid) {
-    alert('Formulario enviado correctamente.');
-    this.submit();
-  }
-});
-
 /*--------------------------------------------------------------
 #   Integración Firebase
 --------------------------------------------------------------*/
@@ -2028,5 +1978,24 @@ document.addEventListener("DOMContentLoaded", () => {
   loginBtnMobile.addEventListener("click", login);
   logoutBtnDesktop.addEventListener("click", logout);
   logoutBtnMobile.addEventListener("click", logout);
+});
+
+/*--------------------------------------------------------------
+#   Vídeo Autores
+--------------------------------------------------------------*/
+
+// Seleccionar el modal y el video
+const videoAutoresModal = document.getElementById('videoAutoresModal');
+const videoAutores = document.getElementById('videoAutores');
+
+// Detener el video cuando se cierra el modal
+videoAutoresModal.addEventListener('hidden.bs.modal', () => {
+  videoAutores.pause(); // Pausa el video
+  videoAutores.currentTime = 0; // Reinicia el video al inicio
+});
+
+// Opcional: Agregar un evento para iniciar el video automáticamente al abrir el modal
+videoAutoresModal.addEventListener('shown.bs.modal', () => {
+  videoAutores.play(); // Inicia el video automáticamente
 });
 

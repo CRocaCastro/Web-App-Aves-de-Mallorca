@@ -115,8 +115,9 @@ h6 {
 
 /* Botones de navegación */
 .btn-nav {
-  background-color: #6ccf93;
-  color: #ffffff;
+  background-color: #D1FAE5; /* azul oscuro (ratio ≈ 8.6:1 vs. blanco) */
+  color: #064E3B;            /* texto blanco */
+  border: 2px solid currentColor;
   border-radius: 30px;
   padding: 8px 20px;
   font-size: 0.9rem;
@@ -1343,7 +1344,9 @@ footer.footer {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background-color: var(--accent-color);
+  background-color: #D1FAE5;
+  color: #1a1a1a;
+  border: 2px solid currentColor;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -1352,7 +1355,7 @@ footer.footer {
 
 .scroll-top i {
   font-size: 24px;
-  color: var(--contrast-color);
+  color: #1a1a1a;  
   line-height: 0;
 }
 
@@ -1746,6 +1749,12 @@ section,
   color: var(--accent-color);
 }
 
+.bg-light-blue-accessible {
+  background-color: #e0f0ff; /* Azul claro accesible */
+  color: #1a1a1a; /* Texto oscuro para buen contraste */
+}
+
+
 /*--------------------------------------------------------------
 # Call To Action Section
 --------------------------------------------------------------*/
@@ -2100,6 +2109,36 @@ section,
 /*--------------------------------------------------------------
 # Team Section
 --------------------------------------------------------------*/
+
+.video-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  background-color: #6CCF93 !important; 
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid #006d5b !important; 
+  transition: all 0.3s ease; /* Transición  */
+}
+
+.video-btn:hover {
+  background-color: #57b57b; 
+  transform: scale(1.1); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+.video-btn:active {
+  transform: scale(0.95); /* Efecto de clic */
+}
+
+.video-btn i {
+  font-size: 1.5rem;
+}
 #autores {
   margin-bottom: 0;
 }
