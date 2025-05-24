@@ -1967,6 +1967,10 @@ section,
   color: var(--accent-color); /* Opcional: cambia el color al pasar el mouse */
 }
 
+#aves .row.gy-4 {
+  min-height: 200px; /* ajusta según la cantidad de tarjetas */
+}
+
 /*--------------------------------------------------------------
 # Pricing Section
 --------------------------------------------------------------*/

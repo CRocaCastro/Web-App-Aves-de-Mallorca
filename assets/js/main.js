@@ -1930,7 +1930,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const slide = document.createElement("div");
       slide.className = `carousel-item ${activo}`;
       slide.innerHTML = `
-        <img src="${imagen}" class="d-block w-100 hero-img" alt="${ave.name}" loading="lazy">
+        <img src="${imagen}" class="d-block w-100 hero-img" alt="${ave.name}"${i === 0 ? "" : " loading=\"lazy\""}>
         <div class="carousel-caption d-none d-md-block">
           <p style="font-size: 1.5rem;">${ave.name}</p>
         </div>
