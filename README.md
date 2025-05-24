@@ -82,7 +82,6 @@ Web-App-Aves-de-Mallorca/
 ## Testing y rendimiento
 - Optimización con Lighthouse (puntuaciones de 90+).
 - Carga diferida de scripts y uso de imágenes optimizadas.
-- Sistema de control de versiones en GitHub.
 
 ## Fuentes y plantillas
 
