@@ -422,7 +422,7 @@ document.addEventListener('DOMContentLoaded', function () {
       birdElement.classList.add('col-lg-4', 'col-md-6', 'portfolio-item');
       birdElement.innerHTML = `
         <div class="card h-100" style="min-height: 350px;">
-          <a class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${bird.identifier}">
+          <a href="#portfolioModal" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${bird.identifier}">
             <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
           </a>
           <div class="card-body">
@@ -1915,28 +1915,28 @@ document.addEventListener("DOMContentLoaded", async () => {
       const imagen = ave.image?.[0] || "assets/img/default.jpg";
 
       // Indicador
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.setAttribute("data-bs-target", "#heroCarousel");
-      btn.setAttribute("data-bs-slide-to", i);
-      btn.setAttribute("aria-label", `Slide ${i + 1}`);
-      if (activo) {
-        btn.classList.add("active");
-        btn.setAttribute("aria-current", "true");
-      }
-      indicators.appendChild(btn);
-
-      // Slide
-      const slide = document.createElement("div");
-      slide.className = `carousel-item ${activo}`;
-      slide.innerHTML = `
-        <img src="${imagen}" class="d-block w-100 hero-img" alt="${ave.name}"${i === 0 ? "" : " loading=\"lazy\""}>
-        <div class="carousel-caption d-none d-md-block">
-          <p style="font-size: 1.5rem;">${ave.name}</p>
-        </div>
-      `;
-      carouselInner.appendChild(slide);
-    });
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.setAttribute("data-bs-target", "#heroCarousel");
+            btn.setAttribute("data-bs-slide-to", i);
+            btn.setAttribute("aria-label", `Slide ${i + 1}`);
+            if (activo) {
+              btn.classList.add("active");
+              btn.setAttribute("aria-current", "true");
+            }
+            indicators.appendChild(btn);
+      
+            // Slide
+            const slide = document.createElement("div");
+            slide.className = `carousel-item ${activo}`;
+            slide.innerHTML = `
+              <img src="${imagen}" class="d-block w-100 hero-img" alt="${ave.name}" loading="lazy">
+              <div class="carousel-caption d-none d-md-block">
+                <p style="font-size: 1.5rem;">${ave.name}</p>
+              </div>
+            `;
+            carouselInner.appendChild(slide);
+          });
 
   } catch (error) {
     console.error("Error cargando aves del mes:", error);
