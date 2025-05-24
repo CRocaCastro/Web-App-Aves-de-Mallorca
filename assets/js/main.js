@@ -1,19 +1,68 @@
 /**
-* Template Name: Regna
-* Template URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+ * =======================================================
+ * Proyecto: Aves Mallorquinas
+ * Descripción: Funcionalidad interactiva para la web sobre aves y hábitats de Mallorca.
+ *
+ * Asignatura: Tecnología Multimedia
+ * Curso: 2024-2025 UIB
+ *
+ * Autores:
+ *   - Juan Francisco Riera Fernández
+ *   - Luz Salvá Castro
+ *   - Claudia Roca Castro
+ *
+ * URL de la web: https://avesmallorquinas.com
+ * Plantilla base: Regna Bootstrap OnePage Template
+ *   https://bootstrapmade.com/regna-bootstrap-onepage-template/
+ *
+ * Fecha de última actualización: 24/05/2024
+ * Bootstrap v5.3.3
+ * Licencia plantilla: https://bootstrapmade.com/license/
+ *
+ * =======================================================
+ * ÍNDICE DE FUNCIONALIDADES JS:
+ *
+ * - FUNCIONALIDADES GENERALES
+ *   - Clase Scroll
+ *   - Menú navegación móvil
+ *   - Eliminación preloader  
+ *   - Botón desplazamiento arriba
+ *   - Animaciones de scroll con AOS
+ *   - Isotope 
+ *   - Corrección posición scroll 
+ *   - Función para resaltar el enlace del menú correspondiente
+ *
+ * - AVES 
+ *   - Cargar datos JSON
+ *   - Filtros de búsqueda
+ *   - Audio aves
+ *   - Vídeo YouTube
+ *   - Otras aves 
+ *   - Botón Ver más
+ *
+ * - ZONAS
+ *   - Cargar datos JSON
+ *   - Filtro búsqueda
+ *   - Botón "Ver más"
+ *   - Clima de la zona
+ *   - Mapa ubicación zona y excursiones
+ *   - Botón calcular ruta
+ *   - Vídeo YouTube
+ *   - Aves de la zona
+ *   - Otras zonas 
+ *   - Excursiones cercanas
+ *
+ * - JSON de excursiones
+ * - API de texto a voz
+ * - API contáctanos
+ * - Quiz
+ * - Carrusel cambio por estación
+ * - Integración Firebase
+ * - Vídeo autores
+ * =======================================================
+ */
 
-/*--------------------------------------------------------------
-# Funciones y Lógica Principal de la WebApp: 
-# * Navegación móvil.
-# * Animaciones al hacer scroll.
-# * Carruseles y filtros dinámicos.
-# * Scroll suave y scrollspy.
-# * Integración con librerías externas: AOS, GLightbox, Isotope, y Swiper.
---------------------------------------------------------------*/
+
 (function() {
   "use strict";
 
@@ -103,19 +152,7 @@
   window.addEventListener('load', aosInit);
 
   /**
-   * Inicializar glightbox para mostrar imágenes y videos en un lightbox.
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-
-  /**
-   * Inicializar Pure Counter: mostrar contadores animados en la página.
-   */
-  new PureCounter();
-
-  /**
-   * Inicializar Isotope para filtros y diseño
+   * Inicializar Isotope para filtros de búsqueda
    */
   document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
@@ -147,24 +184,7 @@
 
   });
 
-  /**
-   * Inicializar Swiper para carruseles
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
 
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
-      }
-    });
-  }
-
-  window.addEventListener("load", initSwiper);
 
   /**
    * Corregir posición de scroll al cargar con enlaces hash
@@ -209,20 +229,8 @@
 
 })();
 
-/**
- * Scrollspy para el menú de navegación: Resalta automáticamente el enlace del menú correspondiente 
- * a la sección visible en la pantalla.
- */
-
-let youtubePlayers = {};
-
-function onYouTubeIframeAPIReady() {
-  console.log("YouTube API cargada");
-}
-
-
 /*--------------------------------------------------------------
-# Aves
+# AVES
 --------------------------------------------------------------*/
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -413,8 +421,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const birdElement = document.createElement('div');
       birdElement.classList.add('col-lg-4', 'col-md-6', 'portfolio-item');
       birdElement.innerHTML = `
-        <div class="card h-100">
-          <a class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${bird.identifier}">
+        <div class="card h-100" style="min-height: 350px;">
+          <a href="#portfolioModal" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${bird.identifier}">
             <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
           </a>
           <div class="card-body">
@@ -478,7 +486,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = item.image.map((img, index) => `
       <div class="carousel-item ${index === 0 ? 'active' : ''}">
-        <img src="${img}" class="d-block w-100" alt="${item.name}">
+        <img src="${img}" class="d-block w-100" alt="${item.name}" loading="lazy">
       </div>
     `).join('');
 
@@ -527,9 +535,9 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="row gy-4" id="otherBirdsContainer">
       ${randomThree.map(bird => `
         <div class="col-lg-4 col-md-6 portfolio-item">
-          <div class="card h-100">
+          <div class="card h-100" style="min-height: 350px;">
             <a class="portfolio-link" data-id="${bird.identifier}">
-              <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
+              <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
             </a>
             <div class="card-body">
               <p class="card-title fw-bold">${bird.name}</p>
@@ -613,7 +621,7 @@ document.getElementById('load-more').addEventListener('click', function () {
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = item.image.map((img, index) => `
     <div class="carousel-item ${index === 0 ? 'active' : ''}">
-      <img src="${img}" class="d-block w-100" alt="${item.name}">
+      <img src="${img}" class="d-block w-100" alt="${item.name}" loading="lazy">
     </div>
   `).join('');
   
@@ -683,9 +691,9 @@ document.getElementById('load-more').addEventListener('click', function () {
       <div class="row gy-4">
         ${otherBirds.slice(0, 3).map(bird => `
           <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card h-100">
+            <div class="card h-100" style="min-height: 350px;">
               <a class="portfolio-link" data-id="${bird.identifier}">
-                <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
+                <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
               </a>
               <div class="card-body">
                 <p class="card-title fw-bold">${bird.name}</p>
@@ -719,7 +727,7 @@ document.getElementById('load-less').addEventListener('click', function () {
 });
 
 /*--------------------------------------------------------------
-# Zonas
+# ZONAS
 --------------------------------------------------------------*/
 // Función para filtrar las zonas por hábitat
 
@@ -791,8 +799,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const zonaElement = document.createElement('div');
       zonaElement.classList.add('col-lg-4', 'col-md-6', 'portfolio-item');
       zonaElement.innerHTML = `
-        <div class="card h-100">
-          <img src="${zona.image?.[0]}" class="card-img-top" alt="${zona.name}" loading="lazy">
+        <div class="card h-100" style="min-height: 350px;">
+          <img src="${zona.image?.[0]}" class="card-img-top" alt="${zona.name}" loading="lazy style="aspect-ratio: 16/9; width: 100%; object-fit: cover;"">
           <div class="card-body">
             <p class="card-title fw-bold">${zona.name}</p>
             <p class="card-text"><em>${zona.alternateName || ''}</em></p>
@@ -958,7 +966,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = zona.image.map((img, index) => `
       <div class="carousel-item ${index === 0 ? 'active' : ''}">
-        <img src="${img}" class="d-block w-100" alt="${zona.name}">
+        <img src="${img}" class="d-block w-100" alt="${zona.name}" loading="lazy">
       </div>
     `).join('');
 
@@ -1103,9 +1111,12 @@ document.addEventListener('DOMContentLoaded', function () {
         ${randomThreeBirds.map(function (bird) {
           return `
             <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
-                <a class="bird-link" data-id="${bird.identifier}">
-                  <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
+              <div class="card h-100" style="min-height: 350px;">
+                <a class="bird-link" 
+                  data-id="${bird.identifier}" 
+                  data-bs-toggle="modal" 
+                  data-bs-target="#portfolioModal">
+                  <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
                 </a>
                 <div class="card-body">
                   <p class="card-title fw-bold"><a title="Más detalles">${bird.name}</a></p>
@@ -1136,9 +1147,9 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="row gy-4">
         ${randomThreeZonas.map(z => `
           <div class="col-lg-4 col-md-6">
-            <div class="card h-100">
+            <div class="card h-100" style="min-height: 350px;">
               <a class="zona-link" data-id="${z.identifier}">
-                <img src="${z.image[0]}" class="card-img-top" alt="${z.name}">
+                <img src="${z.image[0]}" class="card-img-top" alt="${z.name}" loading="lazy">
               </a>
               <div class="card-body">
                 <p class="card-title fw-bold"><a title="Más detalles">${z.name}</a></p>
@@ -1160,11 +1171,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const newId = this.getAttribute('data-id'); // Obtener el ID de la nueva zona
             const newZona = data.find(z => z.identifier === newId); // Buscar la nueva zona
             if (newZona) {
-              updateZonaModalContent(newZona, data); // Actualizar el contenido del modal con la nueva zona
-              portfolioModal.scrollTo({
-                top: 0,
-                behavior: 'smooth' // Desplazamiento suave
-              });
+              updateZonaModalContent(newZona, data);
+              // Scroll arriba del modal de zona
+              const zonaModal = document.getElementById('zonaModal');
+              if (zonaModal) {
+                zonaModal.scrollTo({ top: 0, behavior: 'smooth' });
+              }
             }
         });
     });
@@ -1219,8 +1231,8 @@ document.addEventListener('DOMContentLoaded', function () {
               <div class="row gy-4">
                 ${excursionesCercanas.map(excursion => `
                   <div class="col-lg-4 col-md-6">
-                    <div class="card h-100">
-                      <a href="#" class="excursion-link" data-bs-toggle="modal" data-bs-target="#excursionModal" data-id="${excursion['@identifier']}">                        <img src="${excursion.image[0]}" class="card-img-top" alt="${excursion.name}">
+                    <div class="card h-100" style="min-height: 350px;">
+                      <a href="#" class="excursion-link" data-bs-toggle="modal" data-bs-target="#excursionModal" data-id="${excursion['@identifier']}">                        <img src="${excursion.image[0]}" class="card-img-top" alt="${excursion.name}" loading="lazy">
                         <div class="card-body text-center">
                           <p class="card-title fw-bold text-dark">${excursion.name}</p> <!-- Cambiado a <p> con clase text-dark -->
                         </div>
@@ -1270,9 +1282,9 @@ document.addEventListener('DOMContentLoaded', function () {
         card.className = 'col-lg-4 col-md-6 portfolio-item';
         
         card.innerHTML = `
-          <div class="card h-100">
+          <div class="card h-100" style="min-height: 350px;">
             <a class="zona-link" data-bs-toggle="modal" data-bs-target="#zonaModal" data-id="${zona.identifier}">
-              <img src="${zona.image[0]}" class="card-img-top" alt="${zona.name}">
+              <img src="${zona.image[0]}" class="card-img-top" alt="${zona.name}" loading="lazy">
             </a>
             <div class="card-body">
               <p class="card-title h5 mb-1">
@@ -1348,6 +1360,10 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .catch(error => console.error('Error al cargar el JSON de zonas:', error));
 });
+
+/*--------------------------------------------------------------
+# JSON DE EXCURSIONES (https://www.explorarmallorca.com/)
+--------------------------------------------------------------*/
 document.addEventListener('DOMContentLoaded', function () {
   const excursionModal = document.getElementById('excursionModal');
 
@@ -1364,7 +1380,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const carouselInner = excursionModal.querySelector('#excursionCarouselInner');
     carouselInner.innerHTML = (excursion.image || []).map((img, i) => `
       <div class="carousel-item${i === 0 ? ' active' : ''}">
-        <img src="${img}" class="d-block w-100" alt="${excursion.name}">
+        <img src="${img}" class="d-block w-100" alt="${excursion.name}" loading="lazy">
       </div>
     `).join('');
 
@@ -1385,28 +1401,40 @@ document.addEventListener('DOMContentLoaded', function () {
       return `<span class="badge bg-info me-2">${nombreProp}: ${p.value ? p.value.replace('PT', '').replace('H', 'h') : ''}</span>`;
     }).join('');
 
-    // Mapa (Leaflet)
-    const mapDiv = excursionModal.querySelector('#excursionModalMap');
-    mapDiv.innerHTML = `
-      <div id="excursionMapInner" style="height: 300px;"></div>
-    `;
+// Mapa (Leaflet)
+const mapDiv = excursionModal.querySelector('#excursionModalMap');
+mapDiv.innerHTML = `
+  <div id="excursionMapInner" style="height: 300px;"></div>
+`;
 
-    // Inicializa el mapa en el nuevo div
-    if (window.excursionMap) {
-      window.excursionMap.remove();
+// Inicializa el mapa en el nuevo div
+if (window.excursionMap) {
+  window.excursionMap.remove();
+}
+setTimeout(() => {
+  const lat = parseFloat(excursion.containedInPlace?.geo?.latitude);
+  const lng = parseFloat(excursion.containedInPlace?.geo?.longitude);
+  if (!isNaN(lat) && !isNaN(lng)) {
+    window.excursionMap = L.map('excursionMapInner').setView([lat, lng], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(window.excursionMap);
+    L.marker([lat, lng]).addTo(window.excursionMap).bindPopup(excursion.name).openPopup();
+    setTimeout(() => window.excursionMap.invalidateSize(), 200);
+    if (excursion.hasMap) {
+      new L.GPX(excursion.hasMap, {
+        async: true,
+        marker_options: {
+          startIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-start.png",
+          endIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-end.png",
+          shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-shadow.png"
+        }
+      }).on('loaded', function(e) {
+        window.excursionMap.fitBounds(e.target.getBounds());
+      }).addTo(window.excursionMap);
     }
-    setTimeout(() => {
-      const lat = parseFloat(excursion.containedInPlace?.geo?.latitude);
-      const lng = parseFloat(excursion.containedInPlace?.geo?.longitude);
-      if (!isNaN(lat) && !isNaN(lng)) {
-        window.excursionMap = L.map('excursionMapInner').setView([lat, lng], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(window.excursionMap);
-        L.marker([lat, lng]).addTo(window.excursionMap).bindPopup(excursion.name).openPopup();
-        setTimeout(() => window.excursionMap.invalidateSize(), 200);
-      }
-    }, 200);
+  }
+}, 200);
 
     // Video
     const video = excursion.subjectOf?.video?.embedUrl;
@@ -1419,17 +1447,6 @@ document.addEventListener('DOMContentLoaded', function () {
       `;
     } else {
       excursionModal.querySelector('#excursionModalVideo').innerHTML = `<p class="text-muted">No hay vídeo disponible.</p>`;
-    }
-
-    // Enlace GPX
-    if (excursion.hasMap) {
-      excursionModal.querySelector('#excursionModalTrack').innerHTML = `
-        <a href="${excursion.hasMap}" target="_blank" class="btn btn-outline-primary">
-          Descargar track GPX
-        </a>
-      `;
-    } else {
-      excursionModal.querySelector('#excursionModalTrack').innerHTML = '';
     }
   });
 });
@@ -1474,44 +1491,100 @@ document.addEventListener('click', function (e) {
 
 
 /*--------------------------------------------------------------
-# Contact Section
+# API CONTÁCTANOS
 --------------------------------------------------------------*/
-// API CONTÁCTANOS
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+  event.preventDefault(); // Evita el envío tradicional
 
-  // Obtiene los datos del formulario
-  const formData = new FormData(this);
-  const data = {
-    fname: formData.get('fname'),
-    lname: formData.get('lname'),
-    email: formData.get('email'),
-    subject: formData.get('subject'),
-    message: formData.get('message')
-  };
+  // Validar cada campo
+  const fname = document.getElementById('fname');
+  const lname = document.getElementById('lname');
+  const email = document.getElementById('email');
+  const subject = document.getElementById('subject');
+  const message = document.getElementById('message');
 
-  // URL de la API a la que se enviarán los datos 
-  const apiUrl = 'https://getform.io/f/apjnvqya'; 
+  let isValid = true;
 
-  // Solicitud POST a la API
-  fetch(apiUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data), // Enviar los datos en formato JSON
-  })
-  .then(response => response.json()) // Procesar la respuesta de la API
-  .then(responseData => {
-    console.log('Respuesta de la API:', responseData);
-    alert('¡Gracias por tu mensaje!');
-    // Aquí se puede hacer algo más como limpiar el formulario, redirigir, etc.
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    alert('Hubo un error al enviar el mensaje. Inténtalo de nuevo.');
-  });
+  // Validar Nombre
+  if (!fname.checkValidity()) {
+    document.getElementById('fname-error').textContent = fname.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('fname-error').textContent = '';
+  }
+
+  // Validar Apellidos
+  if (!lname.checkValidity()) {
+    document.getElementById('lname-error').textContent = lname.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('lname-error').textContent = '';
+  }
+
+  // Validar Email
+  if (!email.checkValidity()) {
+    document.getElementById('email-error').textContent = email.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('email-error').textContent = '';
+  }
+
+  // Validar Asunto
+  if (!subject.checkValidity()) {
+    document.getElementById('subject-error').textContent = subject.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('subject-error').textContent = '';
+  }
+
+  // Validar Mensaje
+  if (!message.checkValidity()) {
+    document.getElementById('message-error').textContent = message.validationMessage;
+    isValid = false;
+  } else {
+    document.getElementById('message-error').textContent = '';
+  }
+
+  // Si todo es válido, enviar a la API
+  if (isValid) {
+    const formData = new FormData(this);
+    const data = {
+      fname: formData.get('fname'),
+      lname: formData.get('lname'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message')
+    };
+
+    const apiUrl = 'https://getform.io/f/apjnvqya';
+
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => {
+      if (response.ok) {
+        alert('¡Gracias por tu mensaje!');
+        this.reset();
+        // Limpia los mensajes de error
+        document.getElementById('fname-error').textContent = '';
+        document.getElementById('lname-error').textContent = '';
+        document.getElementById('email-error').textContent = '';
+        document.getElementById('subject-error').textContent = '';
+        document.getElementById('message-error').textContent = '';
+      } else {
+        throw new Error('Error en el envío');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Hubo un error al enviar el mensaje. Inténtalo de nuevo.');
+    });
+  }
 });
 
 /*--------------------------------------------------------------
@@ -1750,26 +1823,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-
-  // Guardar resultados en localStorage
-    function mostrarResultadosGuardados() {
-    const resultados = JSON.parse(localStorage.getItem("quizResultados")) || [];
-    const listaResultados = document.getElementById("resultados-lista");
-  
-    listaResultados.innerHTML = ""; // Limpiar la lista
-  
-    resultados.forEach((resultado, index) => {
-      const li = document.createElement("li");
-      li.className = "list-group-item";
-      li.innerHTML = `
-        <strong>Intento ${index + 1}:</strong> 
-        Aciertos: ${resultado.aciertos}/${resultado.totalPreguntas}, 
-        Tiempo: ${resultado.tiempo} segundos, 
-        Fecha: ${resultado.fecha}
-      `;
-      listaResultados.appendChild(li);
-    });
-  }
   
   // Llamar a la función al cargar la página
   document.addEventListener("DOMContentLoaded", mostrarResultadosGuardados);
@@ -1821,7 +1874,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /*--------------------------------------------------------------
-#   Carrusel hero cambio por estación
+#   Carrusel cambio por estación
 --------------------------------------------------------------*/
 document.addEventListener("DOMContentLoaded", async () => {
   const carouselInner = document.querySelector("#heroCarousel .carousel-inner");
@@ -1862,91 +1915,31 @@ document.addEventListener("DOMContentLoaded", async () => {
       const imagen = ave.image?.[0] || "assets/img/default.jpg";
 
       // Indicador
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.setAttribute("data-bs-target", "#heroCarousel");
-      btn.setAttribute("data-bs-slide-to", i);
-      btn.setAttribute("aria-label", `Slide ${i + 1}`);
-      if (activo) {
-        btn.classList.add("active");
-        btn.setAttribute("aria-current", "true");
-      }
-      indicators.appendChild(btn);
-
-      // Slide
-      const slide = document.createElement("div");
-      slide.className = `carousel-item ${activo}`;
-      slide.innerHTML = `
-        <img src="${imagen}" class="d-block w-100 hero-img" alt="${ave.name}">
-        <div class="carousel-caption d-none d-md-block">
-          <p style="font-size: 1.5rem;">${ave.name}</p>
-        </div>
-      `;
-      carouselInner.appendChild(slide);
-    });
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.setAttribute("data-bs-target", "#heroCarousel");
+            btn.setAttribute("data-bs-slide-to", i);
+            btn.setAttribute("aria-label", `Slide ${i + 1}`);
+            if (activo) {
+              btn.classList.add("active");
+              btn.setAttribute("aria-current", "true");
+            }
+            indicators.appendChild(btn);
+      
+            // Slide
+            const slide = document.createElement("div");
+            slide.className = `carousel-item ${activo}`;
+            slide.innerHTML = `
+              <img src="${imagen}" class="d-block w-100 hero-img" alt="${ave.name}" loading="lazy">
+              <div class="carousel-caption d-none d-md-block">
+                <p style="font-size: 1.5rem;">${ave.name}</p>
+              </div>
+            `;
+            carouselInner.appendChild(slide);
+          });
 
   } catch (error) {
     console.error("Error cargando aves del mes:", error);
-  }
-});
-
-// Validar el formulario de contacto
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Evita el envío del formulario si hay errores
-
-  // Validar cada campo
-  const fname = document.getElementById('fname');
-  const lname = document.getElementById('lname');
-  const email = document.getElementById('email');
-  const subject = document.getElementById('subject');
-  const message = document.getElementById('message');
-
-  let isValid = true;
-
-  // Validar Nombre
-  if (!fname.checkValidity()) {
-    document.getElementById('fname-error').textContent = fname.validationMessage;
-    isValid = false;
-  } else {
-    document.getElementById('fname-error').textContent = '';
-  }
-
-  // Validar Apellidos
-  if (!lname.checkValidity()) {
-    document.getElementById('lname-error').textContent = lname.validationMessage;
-    isValid = false;
-  } else {
-    document.getElementById('lname-error').textContent = '';
-  }
-
-  // Validar Email
-  if (!email.checkValidity()) {
-    document.getElementById('email-error').textContent = email.validationMessage;
-    isValid = false;
-  } else {
-    document.getElementById('email-error').textContent = '';
-  }
-
-  // Validar Asunto
-  if (!subject.checkValidity()) {
-    document.getElementById('subject-error').textContent = subject.validationMessage;
-    isValid = false;
-  } else {
-    document.getElementById('subject-error').textContent = '';
-  }
-
-  // Validar Mensaje
-  if (!message.checkValidity()) {
-    document.getElementById('message-error').textContent = message.validationMessage;
-    isValid = false;
-  } else {
-    document.getElementById('message-error').textContent = '';
-  }
-
-  // Si todo es válido, enviar el formulario
-  if (isValid) {
-    alert('Formulario enviado correctamente.');
-    this.submit();
   }
 });
 
@@ -2030,3 +2023,29 @@ document.addEventListener("DOMContentLoaded", () => {
   logoutBtnMobile.addEventListener("click", logout);
 });
 
+/*--------------------------------------------------------------
+#   Vídeo Autores
+--------------------------------------------------------------*/
+const videoAutoresModal = document.getElementById('videoAutoresModal');
+const videoAutores = document.getElementById('videoAutores');
+
+videoAutoresModal.addEventListener('shown.bs.modal', () => {
+  // Limpia cualquier source anterior
+  while (videoAutores.firstChild) {
+    videoAutores.removeChild(videoAutores.firstChild);
+  }
+  // Añade el source solo al abrir el modal
+  const source = document.createElement('source');
+  source.src = 'assets/multimedia.webm';
+  source.type = 'video/webm';
+  videoAutores.appendChild(source);
+  videoAutores.load();
+});
+
+videoAutoresModal.addEventListener('hidden.bs.modal', () => {
+  videoAutores.pause();
+  videoAutores.currentTime = 0;
+  while (videoAutores.firstChild) {
+    videoAutores.removeChild(videoAutores.firstChild);
+  }
+});
