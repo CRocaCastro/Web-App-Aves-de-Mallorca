@@ -39,7 +39,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -123,7 +123,7 @@
 <!-------------------------------------------------------------------------------------------------------------------------------------->
 <!--------------------------------------------------------------- FIN HEADER ----------------------------------------------------------->
 <!-------------------------------------------------------------------------------------------------------------------------------------->
-   
+
   <main class="main">
     <!-- Hero Section with Carousel -->
     <section id="hero" class="hero-section position-relative">
@@ -331,7 +331,7 @@
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member text-center d-flex flex-column align-items-center">
               <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
-                <img src="assets/img/Autores/Autor_Juanfra.webp" class="img-fluid" alt="Juan Francisco Riera">
+                <img src="assets/img/Autores/Autor_Juanfra.webp" class="img-fluid" alt="Juan Francisco Riera" loading="lazy">
               </div>
               <div class="member-info mt-3">
                 <h3>Juan Francisco Riera</h3>
@@ -349,7 +349,7 @@
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member text-center d-flex flex-column align-items-center">
               <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
-                <img src="assets/img/Autores/Autor_Luz.webp" class="img-fluid" alt="Luz Salvá">
+                <img src="assets/img/Autores/Autor_Luz.webp" class="img-fluid" alt="Luz Salvá" loading="lazy">
               </div>
               <div class="member-info mt-3">
                 <h3>Luz Salvá</h3>
@@ -367,7 +367,7 @@
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member text-center d-flex flex-column align-items-center">
               <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
-                <img src="assets/img/Autores/Autor_Claudia.webp" class="img-fluid" alt="Claudia Roca">
+                <img src="assets/img/Autores/Autor_Claudia.webp" class="img-fluid" alt="Claudia Roca" loading="lazy">
               </div>
               <div class="member-info mt-3">
                 <h3>Claudia Roca</h3>
@@ -391,8 +391,6 @@
                 <div class="modal-body">
                   <div class="ratio ratio-16x9">
                     <video id="videoAutores" controls>
-                      <source src="assets/videos/video-autores.mp4" type="video/mp4">
-                      Tu navegador no soporta la reproducción de videos.
                     </video>
                   </div>
                 </div>
@@ -416,7 +414,7 @@
   </div>
 
   <!-- Sub-sección del formulario con fondo -->
-  <div style="background-image: url('assets/img/Zonas/Mondrago/mondrago2.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 0; margin: 0;">
+  <div style="background-image: url('assets/img/Zonas/Mondrago/mondrago2.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 0; margin: 0;" loading="lazy">
     <div class="container-fluid py-5">
       <div class="row justify-content-center">
         <div class="col-md-8">
@@ -499,17 +497,21 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>  
+  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>  
   <!-- Script de la API de YouTube -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-whatever-integrity-hash" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script type="module" src="assets/js/main.js"></script>  
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
 
   <!-- Modal para las aves -->
@@ -675,7 +677,7 @@
 
         <div class="modal-body">
           <h5 id="quiz-question-text"></h5>
-          <img id="quiz-question-image" src="" alt="" class="img-fluid my-3 d-none">
+          <img id="quiz-question-image" src="" alt="" class="img-fluid my-3 d-none" loading="lazy">
           <form id="quiz-options" class="mb-3"></form>
           <div id="quiz-feedback" class="mb-3 fw-bold"></div>
           <div class="d-flex justify-content-between">

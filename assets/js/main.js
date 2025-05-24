@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const birdElement = document.createElement('div');
       birdElement.classList.add('col-lg-4', 'col-md-6', 'portfolio-item');
       birdElement.innerHTML = `
-        <div class="card h-100">
+        <div class="card h-100" style="min-height: 350px;">
           <a class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-id="${bird.identifier}">
             <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
           </a>
@@ -486,7 +486,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = item.image.map((img, index) => `
       <div class="carousel-item ${index === 0 ? 'active' : ''}">
-        <img src="${img}" class="d-block w-100" alt="${item.name}">
+        <img src="${img}" class="d-block w-100" alt="${item.name}" loading="lazy">
       </div>
     `).join('');
 
@@ -535,9 +535,9 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="row gy-4" id="otherBirdsContainer">
       ${randomThree.map(bird => `
         <div class="col-lg-4 col-md-6 portfolio-item">
-          <div class="card h-100">
+          <div class="card h-100" style="min-height: 350px;">
             <a class="portfolio-link" data-id="${bird.identifier}">
-              <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
+              <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
             </a>
             <div class="card-body">
               <p class="card-title fw-bold">${bird.name}</p>
@@ -621,7 +621,7 @@ document.getElementById('load-more').addEventListener('click', function () {
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = item.image.map((img, index) => `
     <div class="carousel-item ${index === 0 ? 'active' : ''}">
-      <img src="${img}" class="d-block w-100" alt="${item.name}">
+      <img src="${img}" class="d-block w-100" alt="${item.name}" loading="lazy">
     </div>
   `).join('');
   
@@ -691,9 +691,9 @@ document.getElementById('load-more').addEventListener('click', function () {
       <div class="row gy-4">
         ${otherBirds.slice(0, 3).map(bird => `
           <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card h-100">
+            <div class="card h-100" style="min-height: 350px;">
               <a class="portfolio-link" data-id="${bird.identifier}">
-                <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
+                <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
               </a>
               <div class="card-body">
                 <p class="card-title fw-bold">${bird.name}</p>
@@ -799,8 +799,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const zonaElement = document.createElement('div');
       zonaElement.classList.add('col-lg-4', 'col-md-6', 'portfolio-item');
       zonaElement.innerHTML = `
-        <div class="card h-100">
-          <img src="${zona.image?.[0]}" class="card-img-top" alt="${zona.name}" loading="lazy">
+        <div class="card h-100" style="min-height: 350px;">
+          <img src="${zona.image?.[0]}" class="card-img-top" alt="${zona.name}" loading="lazy style="aspect-ratio: 16/9; width: 100%; object-fit: cover;"">
           <div class="card-body">
             <p class="card-title fw-bold">${zona.name}</p>
             <p class="card-text"><em>${zona.alternateName || ''}</em></p>
@@ -966,7 +966,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Generar las imágenes del carrusel
     modalCarouselInner.innerHTML = zona.image.map((img, index) => `
       <div class="carousel-item ${index === 0 ? 'active' : ''}">
-        <img src="${img}" class="d-block w-100" alt="${zona.name}">
+        <img src="${img}" class="d-block w-100" alt="${zona.name}" loading="lazy">
       </div>
     `).join('');
 
@@ -1111,12 +1111,12 @@ document.addEventListener('DOMContentLoaded', function () {
         ${randomThreeBirds.map(function (bird) {
           return `
             <div class="col-lg-4 col-md-6">
-              <div class="card h-100">
+              <div class="card h-100" style="min-height: 350px;">
                 <a class="bird-link" 
                   data-id="${bird.identifier}" 
                   data-bs-toggle="modal" 
                   data-bs-target="#portfolioModal">
-                  <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}">
+                  <img src="${bird.image[0]}" class="card-img-top" alt="${bird.name}" loading="lazy">
                 </a>
                 <div class="card-body">
                   <p class="card-title fw-bold"><a title="Más detalles">${bird.name}</a></p>
@@ -1147,9 +1147,9 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="row gy-4">
         ${randomThreeZonas.map(z => `
           <div class="col-lg-4 col-md-6">
-            <div class="card h-100">
+            <div class="card h-100" style="min-height: 350px;">
               <a class="zona-link" data-id="${z.identifier}">
-                <img src="${z.image[0]}" class="card-img-top" alt="${z.name}">
+                <img src="${z.image[0]}" class="card-img-top" alt="${z.name}" loading="lazy">
               </a>
               <div class="card-body">
                 <p class="card-title fw-bold"><a title="Más detalles">${z.name}</a></p>
@@ -1231,8 +1231,8 @@ document.addEventListener('DOMContentLoaded', function () {
               <div class="row gy-4">
                 ${excursionesCercanas.map(excursion => `
                   <div class="col-lg-4 col-md-6">
-                    <div class="card h-100">
-                      <a href="#" class="excursion-link" data-bs-toggle="modal" data-bs-target="#excursionModal" data-id="${excursion['@identifier']}">                        <img src="${excursion.image[0]}" class="card-img-top" alt="${excursion.name}">
+                    <div class="card h-100" style="min-height: 350px;">
+                      <a href="#" class="excursion-link" data-bs-toggle="modal" data-bs-target="#excursionModal" data-id="${excursion['@identifier']}">                        <img src="${excursion.image[0]}" class="card-img-top" alt="${excursion.name}" loading="lazy">
                         <div class="card-body text-center">
                           <p class="card-title fw-bold text-dark">${excursion.name}</p> <!-- Cambiado a <p> con clase text-dark -->
                         </div>
@@ -1282,9 +1282,9 @@ document.addEventListener('DOMContentLoaded', function () {
         card.className = 'col-lg-4 col-md-6 portfolio-item';
         
         card.innerHTML = `
-          <div class="card h-100">
+          <div class="card h-100" style="min-height: 350px;">
             <a class="zona-link" data-bs-toggle="modal" data-bs-target="#zonaModal" data-id="${zona.identifier}">
-              <img src="${zona.image[0]}" class="card-img-top" alt="${zona.name}">
+              <img src="${zona.image[0]}" class="card-img-top" alt="${zona.name}" loading="lazy">
             </a>
             <div class="card-body">
               <p class="card-title h5 mb-1">
@@ -1380,7 +1380,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const carouselInner = excursionModal.querySelector('#excursionCarouselInner');
     carouselInner.innerHTML = (excursion.image || []).map((img, i) => `
       <div class="carousel-item${i === 0 ? ' active' : ''}">
-        <img src="${img}" class="d-block w-100" alt="${excursion.name}">
+        <img src="${img}" class="d-block w-100" alt="${excursion.name}" loading="lazy">
       </div>
     `).join('');
 
@@ -1401,28 +1401,40 @@ document.addEventListener('DOMContentLoaded', function () {
       return `<span class="badge bg-info me-2">${nombreProp}: ${p.value ? p.value.replace('PT', '').replace('H', 'h') : ''}</span>`;
     }).join('');
 
-    // Mapa (Leaflet)
-    const mapDiv = excursionModal.querySelector('#excursionModalMap');
-    mapDiv.innerHTML = `
-      <div id="excursionMapInner" style="height: 300px;"></div>
-    `;
+// Mapa (Leaflet)
+const mapDiv = excursionModal.querySelector('#excursionModalMap');
+mapDiv.innerHTML = `
+  <div id="excursionMapInner" style="height: 300px;"></div>
+`;
 
-    // Inicializa el mapa en el nuevo div
-    if (window.excursionMap) {
-      window.excursionMap.remove();
+// Inicializa el mapa en el nuevo div
+if (window.excursionMap) {
+  window.excursionMap.remove();
+}
+setTimeout(() => {
+  const lat = parseFloat(excursion.containedInPlace?.geo?.latitude);
+  const lng = parseFloat(excursion.containedInPlace?.geo?.longitude);
+  if (!isNaN(lat) && !isNaN(lng)) {
+    window.excursionMap = L.map('excursionMapInner').setView([lat, lng], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(window.excursionMap);
+    L.marker([lat, lng]).addTo(window.excursionMap).bindPopup(excursion.name).openPopup();
+    setTimeout(() => window.excursionMap.invalidateSize(), 200);
+    if (excursion.hasMap) {
+      new L.GPX(excursion.hasMap, {
+        async: true,
+        marker_options: {
+          startIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-start.png",
+          endIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-end.png",
+          shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-shadow.png"
+        }
+      }).on('loaded', function(e) {
+        window.excursionMap.fitBounds(e.target.getBounds());
+      }).addTo(window.excursionMap);
     }
-    setTimeout(() => {
-      const lat = parseFloat(excursion.containedInPlace?.geo?.latitude);
-      const lng = parseFloat(excursion.containedInPlace?.geo?.longitude);
-      if (!isNaN(lat) && !isNaN(lng)) {
-        window.excursionMap = L.map('excursionMapInner').setView([lat, lng], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(window.excursionMap);
-        L.marker([lat, lng]).addTo(window.excursionMap).bindPopup(excursion.name).openPopup();
-        setTimeout(() => window.excursionMap.invalidateSize(), 200);
-      }
-    }, 200);
+  }
+}, 200);
 
     // Video
     const video = excursion.subjectOf?.video?.embedUrl;
@@ -1435,17 +1447,6 @@ document.addEventListener('DOMContentLoaded', function () {
       `;
     } else {
       excursionModal.querySelector('#excursionModalVideo').innerHTML = `<p class="text-muted">No hay vídeo disponible.</p>`;
-    }
-
-    // Enlace GPX
-    if (excursion.hasMap) {
-      excursionModal.querySelector('#excursionModalTrack').innerHTML = `
-        <a href="${excursion.hasMap}" download class="btn btn-outline-primary">
-          Descargar track GPX
-        </a>
-      `;
-    } else {
-      excursionModal.querySelector('#excursionModalTrack').innerHTML = '';
     }
   });
 });
@@ -1929,7 +1930,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const slide = document.createElement("div");
       slide.className = `carousel-item ${activo}`;
       slide.innerHTML = `
-        <img src="${imagen}" class="d-block w-100 hero-img" alt="${ave.name}">
+        <img src="${imagen}" class="d-block w-100 hero-img" alt="${ave.name}" loading="lazy">
         <div class="carousel-caption d-none d-md-block">
           <p style="font-size: 1.5rem;">${ave.name}</p>
         </div>
@@ -2025,18 +2026,26 @@ document.addEventListener("DOMContentLoaded", () => {
 /*--------------------------------------------------------------
 #   Vídeo Autores
 --------------------------------------------------------------*/
-
-// Seleccionar el modal y el video
 const videoAutoresModal = document.getElementById('videoAutoresModal');
 const videoAutores = document.getElementById('videoAutores');
 
-// Detener el video cuando se cierra el modal
-videoAutoresModal.addEventListener('hidden.bs.modal', () => {
-  videoAutores.pause(); // Pausa el video
-  videoAutores.currentTime = 0; // Reinicia el video al inicio
-});
-
 videoAutoresModal.addEventListener('shown.bs.modal', () => {
-  videoAutores.play(); // Inicia el video automáticamente
+  // Limpia cualquier source anterior
+  while (videoAutores.firstChild) {
+    videoAutores.removeChild(videoAutores.firstChild);
+  }
+  // Añade el source solo al abrir el modal
+  const source = document.createElement('source');
+  source.src = 'assets/multimedia.webm';
+  source.type = 'video/webm';
+  videoAutores.appendChild(source);
+  videoAutores.load();
 });
 
+videoAutoresModal.addEventListener('hidden.bs.modal', () => {
+  videoAutores.pause();
+  videoAutores.currentTime = 0;
+  while (videoAutores.firstChild) {
+    videoAutores.removeChild(videoAutores.firstChild);
+  }
+});

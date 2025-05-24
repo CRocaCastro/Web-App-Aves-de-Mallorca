@@ -88,8 +88,8 @@ Web-App-Aves-de-Mallorca/
 
 - **Plantilla principal:** [Regna Bootstrap OnePage Template](https://bootstrapmade.com/regna-bootstrap-onepage-template/)
 - **Otras:**
-  - Sailor
-  - Cozastore
-  - Strategy
+  - [Sailor](https://bootstrapmade.com/sailor-free-bootstrap-theme/)
+  - [Cozastore](https://themewagon.com/themes/free-html5-ecommerce-website-template/)
+  - [Strategy](https://themewagon.com/themes/strategy/)
 - **Logos generados con:** [LogoMaster](https://logomaster.ai/)
 

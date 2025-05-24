@@ -25,7 +25,7 @@
             "name": "¿Cuál es una característica distintiva del Papamoscas gris?",
             "identifier": 0,
             "text": "plumaje  monótono de color marrón grisáceo por encima, blanquecino apagado por debajo y con vetas oscuras en la coronilla y el pecho.",
-            "image": "assets/img/Aves/papamoscas/papamoscas1.webp",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/papamoscas/papamoscas1.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -55,7 +55,7 @@
             "name": "¿Qué pájaro es el de la imagen? ",
             "identifier": 1,
             "text": "¡Adivina el ave!",
-            "image": "assets/img/Aves/papamoscas/papamoscas2.webp",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/papamoscas/papamoscas2.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -85,7 +85,7 @@
             "name": "¿En qué estaciones podemos encontrar el Papamoscas gris en España?",
             "identifier": 2,
             "text": "El papamoscas gris ocupa gran diversidad de hábitats, aunque prefiere áreas arboladas, si bien no muy densas, con sotos, matorrales y zonas húmedas cercanas. Frecuentemente, ocupa cultivos de frutales, así como jardines y parques.",
-            "image": "assets/img/Aves/papamoscas/papamoscas2.webp",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/papamoscas/papamoscas2.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -115,7 +115,7 @@
             "name": "¿Qué ave corresponde a la de la imagen?",
             "identifier": 3,
             "text": "Ave muy críptica, con un plumaje parduzco moteado en el que tan solo resalta el espejuelo azul.",
-            "image": "assets/img/Aves/anadeazulon/anadeazulon2.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/anadeazulon/anadeazulon2.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -145,7 +145,7 @@
             "name": "¿En qué tipo de hábitat es más común encontrar al Ánade azulón?",
             "identifier": 4,
             "text": "El Ánade azulón macho destaca por su cabeza verde brillante con irisaciones, un collar blanco que separa el cuello del pecho castaño, un pico amarillo con uña negra y patas anaranjadas. Además, presenta dos plumas negras rizadas sobre la cola y un espejuelo azul violáceo. La hembra, de menor tamaño, tiene un plumaje parduzco moteado con el mismo espejuelo que el macho.",
-            "image": "assets/img/Aves/anadeazulon/anadeazulon1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/anadeazulon/anadeazulon1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -175,7 +175,7 @@
             "name": "¿Qué tipo de alimentación es consumida por el Ánade azulón?",
             "identifier": 5,
             "text": "El Ánade azulón frecuenta zonas húmedas como marismas, lagunas y estanques.",
-            "image": "assets/img/Aves/anadeazulon/anadeazulon1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/anadeazulon/anadeazulon1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -205,7 +205,7 @@
             "name": "¿Dónde suele construir su nido el Andarríos chico?",
             "identifier": 6,
             "text": "El Andarríos chico es una limícola de pequeño tamaño con patas cortas, conocido por balancear la cola y la cabeza de manera característica cuando está posada. En su plumaje nupcial, presenta un color pardo grisáceo con barrados y punteaduras. Su nido es construido principalmente por la hembra.",
-            "image": "/assets/img/Aves/andarrios/andarrios1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/andarrios/andarrios1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -235,7 +235,7 @@
             "name": "¿Cuál es una de las características más notables del comportamiento del Andarríos chico cuando está posado?",
             "identifier": 7,
             "text": "El Andarríos chico es conocido por su pequeño tamaño, patas cortas y su comportamiento característico al estar posado. Sus partes superiores son de color pardo y las inferiores blancas con un entrante pálido que sube desde el pecho hasta el cuello.",
-            "image": "/assets/img/Aves/andarrios/andarrios3.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/andarrios/andarrios3.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -265,7 +265,7 @@
             "name": "¿En qué tipo de hábitat se encuentra comúnmente el Andarríos chico durante la migración e invernada?",
             "identifier": 8,
             "text": "Es una especie residente en la Península, aunque también resulta común en los pasos migratorios.",
-            "image": "/assets/img/Aves/andarrios/andarrios2.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/andarrios/andarrios2.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -296,7 +296,7 @@
             "name": "¿Qué ave corresponde a la de la imagen?",
             "identifier": 9,
             "text": "Su canto es alegre y melodioso, lo que lo hace muy apreciado entre los aficionados a las aves.",
-            "image": "/assets/img/Aves/jilguero/jilguero3.webp",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/jilguero/jilguero3.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -327,7 +327,7 @@
             "name": "¿Dónde se establece el jilguero europeo?",
             "identifier": 10,
             "text": "Su canto es alegre y melodioso, lo que lo hace muy apreciado entre los aficionados a las aves.",
-            "image": "/assets/img/Aves/jilguero/jilguero3.webp",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/jilguero/jilguero3.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -358,7 +358,7 @@
             "name": "¿En cuál de los siguientes hábitats es más probable observar al martín pescador en Mallorca?",
             "identifier": 11,
             "text": "Cuando vuela resulta inconfundible, pues se desplaza a gran velocidad y poca altura mediante un frenético batir de alas.",
-            "image": "/assets/img/Aves/martinPescador/martinPescador2.webp",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/martinPescador/martinPescador2.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -389,7 +389,7 @@
             "name": "¿Qué comportamiento es característico del martín pescador cuando está en vuelo?",
             "identifier": 12,
             "text": "El martín pescador es un ave de pequeño tamaño que se caracteriza por poseer uno de los más vistosos plumajes de nuestra fauna.",
-            "image": "/assets/img/Aves/martinPescador/martinPescador1.webp",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/martinPescador/martinPescador1.webp",
             "answerCount": 4,
             "suggestedAnswer": [
                 {
@@ -419,7 +419,7 @@
             "name": "¿Qué especie se caracteriza por su vuelo en forma de 'M' y garras especializadas para pescar?",
             "identifier": 13,
             "text": "Este ave rapaz tiene un plumaje blanco con alas largas y dobladas hacia arriba. Puede invertir sus dedos para atrapar peces.",
-            "image": "/assets/img/Aves/aguilapescadora/aguilapescadora1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/aguilapescadora/aguilapescadora1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               { "@type": "Answer", "text": "Halcón peregrino" },
@@ -434,7 +434,7 @@
             "name": "¿Qué coloración corporal es típica del flamenco común?",
             "identifier": 14,
             "text": "Aves de patas largas que filtran el alimento del agua gracias a su pico curvo. Viven en colonias grandes.",
-            "image": "/assets/img/Aves/flamenco/flamenco1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/flamenco/flamenco1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               { "@type": "Answer", "text": "Blanco y negro" },
@@ -449,7 +449,7 @@
             "name": "¿Qué ave es endémica del archipiélago balear y habita en matorrales bajos?",
             "identifier": 15,
             "text": "Tiene un plumaje pardo-grisáceo, anillo ocular rojizo y es difícil de ver entre arbustos densos.",
-            "image": "/assets/img/Aves/curruca/curruca1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/curruca/curruca1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               { "@type": "Answer", "text": "Zorzal común" },
@@ -464,7 +464,7 @@
             "name": "¿Qué función ecológica cumple el buitre negro en la Serra de Tramuntana?",
             "identifier": 16,
             "text": "Este ave carroñera de gran tamaño ayuda a limpiar el ecosistema de restos animales.",
-            "image": "/assets/img/Aves/buitrenegro/buitrenegro1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/buitrenegro/buitrenegro1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               { "@type": "Answer", "text": "Poliniza flores silvestres" },
@@ -479,7 +479,7 @@
             "name": "¿Cuál es el hábitat preferido del cormorán moñudo en Mallorca?",
             "identifier": 17,
             "text": "Es un ave marina que se zambulle para pescar, y suele verse en acantilados o islotes.",
-            "image": "/assets/img/Aves/cormoran/cormoran1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/cormoran/cormoran1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               { "@type": "Answer", "text": "Bosques densos del interior" },
@@ -494,7 +494,7 @@
             "name": "¿Qué comportamiento reproductivo tiene el halcón de Eleonora?",
             "identifier": 18,
             "text": "Esta ave atrasa su reproducción para coincidir con la migración otoñal de otras aves.",
-            "image": "/assets/img/Aves/halconeleonora/halcon1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/halconeleonora/halcon1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               { "@type": "Answer", "text": "Cría en invierno como la mayoría de rapaces" },
@@ -509,7 +509,7 @@
             "name": "¿Cuál es una de las funciones de la cresta de la abubilla?",
             "identifier": 19,
             "text": "Ave de aspecto exótico, con alas rayadas y un vuelo ondulante, muy común en campos abiertos.",
-            "image": "/assets/img/Aves/abubilla/abubilla1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/abubilla/abubilla1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               { "@type": "Answer", "text": "Para planear mejor durante el vuelo" },
@@ -524,7 +524,7 @@
             "name": "¿Qué característica permite identificar fácilmente a la Garza Real en vuelo?",
             "identifier": 20,
             "text": "La Garza Real es un ave zancuda de gran tamaño, que puede observarse frecuentemente en Mallorca durante los meses más fríos. En vuelo, presenta una silueta muy característica.",
-            "image": "/assets/img/Aves/garza/garza1.webp",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/garza/garza1.webp",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -554,7 +554,7 @@
             "name": "¿En qué época del año es más habitual ver la Garza Real en Mallorca?",
             "identifier": 21,
             "text": "La Garza Real es un ave que frecuenta zonas húmedas como lagunas, marismas y ríos tranquilos. Aunque puede verse todo el año, hay una estación donde su presencia aumenta.",
-            "image": "/assets/img/Aves/garza/garza2.webp",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/garza/garza2.webp",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -584,7 +584,7 @@
             "name": "¿Cuál de estas características distingue a la Garza Imperial?",
             "identifier": 22,
             "text": "Elige la respuesta correcta:",
-            "image": "assets/img/Aves/garza imperial/garzaImperial1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/garza imperial/garzaImperial1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -614,7 +614,7 @@
             "name": "¿Cuál es el hábitat típico de la Garza Imperial?",
             "identifier": 23,
             "text": "Selecciona dónde vive habitualmente:",
-            "image": "assets/img/Aves/garza imperial/garzaImperial2.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/garza imperial/garzaImperial2.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -644,7 +644,7 @@
             "name": "¿Cuál es el comportamiento migratorio de la Garza Imperial en Mallorca?",
             "identifier": 24,
             "text": "Escoge la respuesta correcta:",
-            "image": "assets/img/Aves/garza imperial/garzaImperial3.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/garza imperial/garzaImperial3.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -674,7 +674,7 @@
             "name": "¿Cuál es aproximadamente la envergadura de la Garza Imperial?",
             "identifier": 25,
             "text": "Indica la envergadura aproximada:",
-            "image": "assets/img/Aves/garza imperial/garzaImperial4.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/garza imperial/garzaImperial4.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -704,7 +704,7 @@
             "name": "¿Cuál es la característica más destacada de la cerceta común?",
             "identifier": 26,
             "text": "Selecciona la respuesta correcta:",
-            "image": "assets/img/Aves/cerceta común/cerceta1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/cerceta común/cerceta1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -734,7 +734,7 @@
             "name": "¿Cuál es el rasgo más llamativo del macho en plumaje nupcial?",
             "identifier": 27,
             "text": "Elige la opción correcta:",
-            "image": "assets/img/Aves/cerceta común/cerceta2.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/cerceta común/cerceta2.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -764,7 +764,7 @@
             "name": "¿Cuál es el comportamiento migratorio de la cerceta común en Mallorca?",
             "identifier": 28,
             "text": "Selecciona la respuesta adecuada:",
-            "image": "assets/img/Aves/cerceta común/cerceta3.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/cerceta común/cerceta3.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -794,7 +794,7 @@
             "name": "¿Qué tipo de hábitat prefiere la cerceta común?",
             "identifier": 29,
             "text": "Elige la opción correcta:",
-            "image": "assets/img/Aves/cerceta común/cerceta4.webp",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/cerceta común/cerceta4.webp",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -824,7 +824,7 @@
             "name": "¿Cuál es la longitud aproximada de la Cigüeñuela común?",
             "identifier": 30,
             "text": "Elige la respuesta correcta:",
-            "image": "assets/img/Aves/ciguena comun/ciguena1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/ciguena comun/ciguena1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -854,7 +854,7 @@
             "name": "¿Qué rasgo distingue especialmente a la Cigüeñuela común?",
             "identifier": 31,
             "text": "Selecciona la respuesta adecuada:",
-            "image": "assets/img/Aves/ciguena comun/ciguena2.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/ciguena comun/ciguena2.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -884,7 +884,7 @@
             "name": "¿Cuál es el comportamiento migratorio de la Cigüeñuela común en Mallorca?",
             "identifier": 32,
             "text": "Elige la opción correcta:",
-            "image": "assets/img/Aves/ciguena comun/ciguena3.webp",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/ciguena comun/ciguena3.webp",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -914,7 +914,7 @@
             "name": "¿En qué tipo de hábitat se encuentra normalmente la Cigüeñuela común?",
             "identifier": 33,
             "text": "Selecciona la respuesta más adecuada:",
-            "image": "assets/img/Aves/ciguena comun/ciguena4.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/ciguena comun/ciguena4.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -944,7 +944,7 @@
             "name": "¿Cuál es la longitud aproximada de la Garcilla bueyera?",
             "identifier": 34,
             "text": "Selecciona la respuesta adecuada:",
-            "image": "assets/img/Aves/garzilla/garzilla1.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/garzilla/garzilla1.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -974,7 +974,7 @@
             "name": "¿Qué rasgo destaca en la Garcilla bueyera durante la época de cría?",
             "identifier": 35,
             "text": "Elige la respuesta correcta:",
-            "image": "assets/img/Aves/garzilla/garzilla2.webp",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/garzilla/garzilla2.webp",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -1004,7 +1004,7 @@
             "name": "¿Cuál es el comportamiento migratorio de la Garcilla bueyera en Mallorca?",
             "identifier": 36,
             "text": "Selecciona la opción correcta:",
-            "image": "assets/img/Aves/garzilla/garzilla3.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/garzilla/garzilla3.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
@@ -1034,7 +1034,7 @@
             "name": "¿En qué tipo de hábitat se observa habitualmente a la Garcilla bueyera?",
             "identifier": 37,
             "text": "Elige la respuesta adecuada:",
-            "image": "assets/img/Aves/garzilla/garzilla4.jpg",
+            "image": "https://avesmallorquinas.com/assets/img/Aves/garzilla/garzilla4.jpg",
             "answerCount": 4,
             "suggestedAnswer": [
               {
