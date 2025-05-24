@@ -28,8 +28,8 @@ Este proyecto es una WebApp interactiva desarrollada como práctica para la asig
 ```bash
 
 Web-App-Aves-de-Mallorca/
-├── [index.html](http://_vscodecontentref_/0)
-├── [README.md](http://_vscodecontentref_/1)
+├── index.html
+├── README.md
 └── assets/
     ├── css/            # Estilos personalizados
     ├── js/             # Lógica y funcionalidades
