@@ -15,11 +15,53 @@
  * Plantilla base: Regna Bootstrap OnePage Template
  *   https://bootstrapmade.com/regna-bootstrap-onepage-template/
  *
- * Fecha de última actualización: 22/05/2024
+ * Fecha de última actualización: 24/05/2024
  * Bootstrap v5.3.3
  * Licencia plantilla: https://bootstrapmade.com/license/
+ *
+ * =======================================================
+ * ÍNDICE DE FUNCIONALIDADES JS:
+ *
+ * - FUNCIONALIDADES GENERALES
+ *   - Clase Scroll
+ *   - Menú navegación móvil
+ *   - Eliminación preloader  
+ *   - Botón desplazamiento arriba
+ *   - Animaciones de scroll con AOS
+ *   - Isotope 
+ *   - Corrección posición scroll 
+ *   - Función para resaltar el enlace del menú correspondiente
+ *
+ * - AVES 
+ *   - Cargar datos JSON
+ *   - Filtros de búsqueda
+ *   - Audio aves
+ *   - Vídeo YouTube
+ *   - Otras aves 
+ *   - Botón Ver más
+ *
+ * - ZONAS
+ *   - Cargar datos JSON
+ *   - Filtro búsqueda
+ *   - Botón "Ver más"
+ *   - Clima de la zona
+ *   - Mapa ubicación zona y excursiones
+ *   - Botón calcular ruta
+ *   - Vídeo YouTube
+ *   - Aves de la zona
+ *   - Otras zonas 
+ *   - Excursiones cercanas
+ *
+ * - JSON de excursiones
+ * - API de texto a voz
+ * - API contáctanos
+ * - Quiz
+ * - Carrusel cambio por estación
+ * - Integración Firebase
+ * - Vídeo autores
  * =======================================================
  */
+
 
 (function() {
   "use strict";
@@ -188,7 +230,7 @@
 })();
 
 /*--------------------------------------------------------------
-# Aves
+# AVES
 --------------------------------------------------------------*/
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -685,7 +727,7 @@ document.getElementById('load-less').addEventListener('click', function () {
 });
 
 /*--------------------------------------------------------------
-# Zonas
+# ZONAS
 --------------------------------------------------------------*/
 // Función para filtrar las zonas por hábitat
 
@@ -1831,7 +1873,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /*--------------------------------------------------------------
-#   Carrusel hero cambio por estación
+#   Carrusel cambio por estación
 --------------------------------------------------------------*/
 document.addEventListener("DOMContentLoaded", async () => {
   const carouselInner = document.querySelector("#heroCarousel .carousel-inner");
@@ -1994,7 +2036,6 @@ videoAutoresModal.addEventListener('hidden.bs.modal', () => {
   videoAutores.currentTime = 0; // Reinicia el video al inicio
 });
 
-// Opcional: Agregar un evento para iniciar el video automáticamente al abrir el modal
 videoAutoresModal.addEventListener('shown.bs.modal', () => {
   videoAutores.play(); // Inicia el video automáticamente
 });
