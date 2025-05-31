@@ -48,6 +48,22 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" media="print" onload="this.media='all'">
 
+  <!-- Web semántica -->
+   <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Aves Mallorquinas",
+    "url": "https://avesmallorquinas.com",
+    "description": "Web educativa sobre aves y hábitats de Mallorca. Aprende con quizzes interactivos y explora zonas naturales.",
+    "inLanguage": "es",
+    "publisher": {
+      "@type": "Organization",
+      "name": "UIB",
+      "url": "https://www.uib.cat"
+    }
+  }
+  </script>
 
 </head>
 
@@ -325,59 +341,57 @@
       <div class="container">
         <div class="row gy-4 justify-content-center">
 
-          <!-- Autor Juanfra -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member text-center d-flex flex-column align-items-center">
-              <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
-                <img src="assets/img/Autores/Autor_Juanfra.webp" class="img-fluid" alt="Juan Francisco Riera" loading="lazy">
-              </div>
-              <div class="member-info mt-3">
-                <h3>Juan Francisco Riera</h3>
-                <div class="social d-flex justify-content-center">
-                  <a href="https://www.linkedin.com/in/juan-francisco-riera-fern%C3%A1ndez-466458266/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-linkedin"></i>
-                    <span class="visually-hidden">Perfil de Juan Francisco en LinkedIn</span>
-                  </a>                  
-                </div>
-              </div>
-            </div>
-          </div><!-- Fin Autor Juanfra -->
-
-          <!-- Autor Luz -->
+          <!-- Autor: Juan Francisco Riera -->
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member text-center d-flex flex-column align-items-center">
-              <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
-                <img src="assets/img/Autores/Autor_Luz.webp" class="img-fluid" alt="Luz Salvá" loading="lazy">
-              </div>
-              <div class="member-info mt-3">
-                <h3>Luz Salvá</h3>
-                <div class="social d-flex justify-content-center">
-                  <a href="https://www.linkedin.com/in/luz-salv%C3%A1-castro-362a43354/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-linkedin"></i>
-                    <span class="visually-hidden">Perfil de Luz Salvá en LinkedIn</span>
+            <div class="team-member" itemscope itemtype="https://schema.org/Person">
+              <div class="d-flex flex-column align-items-center text-center">
+                <div class="pic mb-3" style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden;">
+                  <img src="assets/img/Autores/Autor_Juanfra.webp" alt="Juan Francisco Riera" class="img-fluid" loading="lazy" itemprop="image">
+                </div>
+                <h3 itemprop="name">Juan Francisco Riera</h3>
+                <div class="social justify-content-center mt-2">
+                  <a href="https://www.linkedin.com/in/juan-francisco-riera-fern%C3%A1ndez-466458266/" target="_blank" rel="noopener noreferrer" itemprop="sameAs">
+                    <i class="bi bi-linkedin" style="font-size: 1rem;"></i>
                   </a>
                 </div>
               </div>
             </div>
-          </div><!-- Fin Autor Luz -->
+          </div>
 
-          <!-- Autor Claudia -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member text-center d-flex flex-column align-items-center">
-              <div class="pic" style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px;">
-                <img src="assets/img/Autores/Autor_Claudia.webp" class="img-fluid" alt="Claudia Roca" loading="lazy">
-              </div>
-              <div class="member-info mt-3">
-                <h3>Claudia Roca</h3>
-                <div class="social d-flex justify-content-center">
-                  <a href="https://www.linkedin.com/in/claudia-roca-castro-48baab234/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-linkedin"></i>
-                    <span class="visually-hidden">Perfil de Claudia Roca en LinkedIn</span>
+          <!-- Autor: Luz Salvá -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member" itemscope itemtype="https://schema.org/Person">
+              <div class="d-flex flex-column align-items-center text-center">
+                <div class="pic mb-3" style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden;">
+                  <img src="assets/img/Autores/Autor_Luz.webp" alt="Luz Salvá" class="img-fluid" loading="lazy" itemprop="image">
+                </div>
+                <h3 itemprop="name">Luz Salvá</h3>
+                <div class="social justify-content-center mt-2">
+                  <a href="https://www.linkedin.com/in/luz-salv%C3%A1-castro-362a43354/" target="_blank" rel="noopener noreferrer" itemprop="sameAs">
+                    <i class="bi bi-linkedin" style="font-size: 1rem;"></i>
                   </a>
                 </div>
               </div>
             </div>
-          </div><!-- Fin Autor Claudia -->
+          </div>
+
+          <!-- Autor: Claudia Roca -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-member" itemscope itemtype="https://schema.org/Person">
+              <div class="d-flex flex-column align-items-center text-center">
+                <div class="pic mb-3" style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden;">
+                  <img src="assets/img/Autores/Autor_Claudia.webp" alt="Claudia Roca" class="img-fluid" loading="lazy" itemprop="image">
+                </div>
+                <h3 itemprop="name">Claudia Roca</h3>
+                <div class="social justify-content-center mt-2">
+                  <a href="https://www.linkedin.com/in/claudia-roca-castro-48baab234/" target="_blank" rel="noopener noreferrer" itemprop="sameAs">
+                    <i class="bi bi-linkedin" style="font-size: 1rem; "></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
           <!-- Modal para el video -->
           <div class="modal fade" id="videoAutoresModal" tabindex="-1" aria-hidden="true">
@@ -402,81 +416,97 @@
     </section><!-- Fin sección autores -->
 
     <!-- Sección Contáctanos -->
-<section class="site-section" id="contactanos">
+    <section class="site-section" id="contactanos">
 
-  <!-- Sub-sección del título -->
-  <div class="section-header bg-light py-4">
-    <div class="container section-title" data-aos="fade-up">
-      <h2 style="text-align: left;">CONTÁCTANOS</h2>
-    </div>
-  </div>
-
-  <!-- Sub-sección del formulario con fondo -->
-  <div style="background-image: url('assets/img/Zonas/Mondrago/mondrago2.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 0; margin: 0;" loading="lazy">
-    <div class="container-fluid py-5">
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <form id="contact-form" class="p-5 bg-white rounded shadow" novalidate>
-            <!-- Nombre y Apellidos -->
-            <div class="row form-group">
-              <div class="col-md-6 mb-3 mb-md-0">
-                <label class="text-black" for="fname">Nombre</label>
-                <input type="text" id="fname" name="fname" class="form-control" required minlength="3" placeholder="Tu nombre completo">
-                <span class="error-message" id="fname-error"></span>
-              </div>
-              <div class="col-md-6">
-                <label class="text-black" for="lname">Apellidos</label>
-                <input type="text" id="lname" name="lname" class="form-control" required minlength="3" placeholder="Tus apellidos">
-                <span class="error-message" id="lname-error"></span>
-              </div>
-            </div>
-
-            <!-- Email -->
-            <div class="form-group">
-              <label class="text-black" for="email">Email</label>
-              <input type="email" id="email" name="email" class="form-control" required placeholder="ejemplo@correo.com">
-              <span class="error-message" id="email-error"></span>
-            </div>
-
-            <!-- Asunto -->
-            <div class="form-group">
-              <label class="text-black" for="subject">Asunto</label>
-              <input type="text" id="subject" name="subject" class="form-control" required minlength="5" placeholder="Asunto del mensaje">
-              <span class="error-message" id="subject-error"></span>
-            </div>
-
-            <!-- Mensaje -->
-            <div class="form-group">
-              <label class="text-black" for="message">Mensaje</label>
-              <textarea name="message" id="message" cols="30" rows="7" class="form-control" required minlength="10" placeholder="Escribe tu mensaje aquí"></textarea>
-              <span class="error-message" id="message-error"></span>
-            </div>
-
-            <!-- Botón -->
-            <div class="form-group mt-3 text-center">
-              <button type="submit" class="btn btn-primary">Enviar</button>
-            </div>
-          </form>
+      <!-- Sub-sección del título -->
+      <div class="section-header bg-light py-4">
+        <div class="container section-title" data-aos="fade-up">
+          <h2 style="text-align: left;">CONTÁCTANOS</h2>
         </div>
       </div>
-    </div>
-  </div>
 
-</section>
+      <!-- Sub-sección del formulario con fondo -->
+      <div style="background-image: url('assets/img/Zonas/Mondrago/mondrago2.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 0; margin: 0;" loading="lazy">
+        <div class="container-fluid py-5">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+
+              <!-- Web semántica -->
+              <div itemscope itemtype="https://schema.org/ContactPoint">
+                <meta itemprop="contactType" content="educational support">
+                <meta itemprop="areaServed" content="ES">
+                <meta itemprop="availableLanguage" content="es">
+
+                <form id="contact-form" class="p-5 bg-white rounded shadow" novalidate>
+
+                  <!-- Nombre y Apellidos -->
+                  <div class="row form-group">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label class="text-black" for="fname">Nombre</label>
+                      <input type="text" id="fname" name="fname" class="form-control" required minlength="3" placeholder="Tu nombre completo" itemprop="name">
+                      <span class="error-message" id="fname-error"></span>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="text-black" for="lname">Apellidos</label>
+                      <input type="text" id="lname" name="lname" class="form-control" required minlength="3" placeholder="Tus apellidos">
+                      <span class="error-message" id="lname-error"></span>
+                    </div>
+                  </div>
+
+                  <!-- Email -->
+                  <div class="form-group">
+                    <label class="text-black" for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required placeholder="ejemplo@correo.com" itemprop="email">
+                    <span class="error-message" id="email-error"></span>
+                  </div>
+
+                  <!-- Asunto -->
+                  <div class="form-group">
+                    <label class="text-black" for="subject">Asunto</label>
+                    <input type="text" id="subject" name="subject" class="form-control" required minlength="5" placeholder="Asunto del mensaje">
+                    <span class="error-message" id="subject-error"></span>
+                  </div>
+
+                  <!-- Mensaje -->
+                  <div class="form-group">
+                    <label class="text-black" for="message">Mensaje</label>
+                    <textarea name="message" id="message" cols="30" rows="7" class="form-control" required minlength="10" placeholder="Escribe tu mensaje aquí" itemprop="description"></textarea>
+                    <span class="error-message" id="message-error"></span>
+                  </div>
+
+                  <!-- Botón -->
+                  <div class="form-group mt-3 text-center">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                  </div>
+
+                </form>
+              </div> <!-- /ContactPoint -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- /Sección Contáctanos -->
+
   </main>
 
 
-  <footer id="footer" class="footer dark-background">
+  <footer id="footer" class="footer dark-background" itemscope itemtype="https://schema.org/Organization">
+    <meta itemprop="name" content="Aves Mallorquinas">
+    <meta itemprop="url" content="https://avesmallorquinas.com">
     <div class="container">
-      <h3 class="sitename">Aves mallorquinas</h3>
-      <p>Explora el mundo de las aves y conecta con la biodiversidad de Mallorca.</p>
+      <h3 class="sitename" itemprop="name">Aves Mallorquinas</h3>
+      <p itemprop="description">Explora el mundo de las aves y conecta con la biodiversidad de Mallorca.</p>
       <div class="container">
         <div class="copyright">
-          <p>&copy; 2025 Aves Mallorquinas. Todos los derechos reservados.</p>
+          <p>&copy; <span itemprop="name">Aves Mallorquinas</span>. Todos los derechos reservados.</p>
         </div>
       </div>
     </div>
   </footer>
+
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
